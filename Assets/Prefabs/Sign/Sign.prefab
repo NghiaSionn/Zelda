@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1151163947720215478}
   - component: {fileID: 3070661604606197677}
   - component: {fileID: 1607645436445846597}
+  - component: {fileID: 4070721431260371406}
   m_Layer: 0
   m_Name: Sign
   m_TagString: Untagged
@@ -73,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 872479985
-  m_SortingLayer: 19
+  m_SortingLayer: 22
   m_SortingOrder: 0
   m_Sprite: {fileID: -1833822799, guid: 99694c8344964244aa791dadbbe6b275, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -118,7 +119,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.004755974}
+  m_Offset: {x: 0, y: 0.05420351}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -129,7 +130,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.99048805}
+  m_Size: {x: 1, y: 0.891593}
   m_EdgeRadius: 0
 --- !u!61 &1607645436445846597
 BoxCollider2D:
@@ -163,7 +164,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.5279012}
+  m_Offset: {x: 0, y: -0.28066206}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -174,5 +175,24 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 2.0558023}
+  m_Size: {x: 1, y: 1.5613241}
   m_EdgeRadius: 0
+--- !u!114 &4070721431260371406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2425552379049482777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23e45bcb88999724b9456f66abdfda91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  context: {fileID: 11400000, guid: 4c31505004ede174cb55ce91ae39de09, type: 2}
+  dialogBox: {fileID: 0}
+  diablogText: {fileID: 0}
+  dialog: "\u1EDE tr\xEAn r\u1EA5t nguy hi\u1EC3m, kh\xF4ng d\xE0nh cho m\u1EA5y
+    th\u1EB1ng g\xE0"
+  dialogActive: 0
+  playerInRange: 0

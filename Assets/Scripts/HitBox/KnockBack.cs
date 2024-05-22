@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,7 +17,11 @@ public class KnockBack : MonoBehaviour
             other.GetComponent<Pot>().Smash();
         }
         if (other.gameObject.CompareTag("enemy") || other.gameObject.CompareTag("Player"))
-        {           
+        {
+            // ngăn kẻ địch giết nhau
+            if (other.gameObject.CompareTag("Enemy") && gameObject.CompareTag("Enemy")) return;
+
+
             Rigidbody2D hit = other.GetComponent<Rigidbody2D>();
             if(hit != null)
             {

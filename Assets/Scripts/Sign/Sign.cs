@@ -7,6 +7,7 @@ using TMPro;
 public class Sign : MonoBehaviour
 {
     [Header("Sign")]
+    public SignalSender context;
     public GameObject dialogBox;
     public TextMeshProUGUI diablogText;
     public string dialog;
@@ -27,10 +28,12 @@ public class Sign : MonoBehaviour
         {
             if(dialogBox.activeInHierarchy)
             {
+                           
                 dialogBox.SetActive(false);
             }
             else
             {
+                
                 dialogBox.SetActive(true);
                 diablogText.text = dialog;
             }
@@ -40,8 +43,9 @@ public class Sign : MonoBehaviour
 
     private void OnTriggerEnter2D (Collider2D other)
     {
-        if(other.CompareTag("Player"))
+        if(other.CompareTag("Player") && !other.isTrigger)
         {
+            context.Raise();
             playerInRange = true;
         }
     }
@@ -49,8 +53,9 @@ public class Sign : MonoBehaviour
 
     private void OnTriggerExit2D (Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !other.isTrigger)
         {
+            context.Raise();
             playerInRange = false;
             dialogBox.SetActive(false);
         }

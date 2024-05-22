@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -20,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
     public PlayerState currentState;
     public FloatValue currentHealth;
     public SignalSender playerHealthSignal;
+    public VectorValue startingPosition;
+
 
     private Animator animator;
     private bool isWalkingSoundPlaying = false;
@@ -33,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
         currentState = PlayerState.walk;
         animator.SetFloat("moveX", 0);
         animator.SetFloat("moveY", -1);
+        transform.position = startingPosition.initialValue;
     }
 
     // Update is called once per frame
@@ -58,7 +61,6 @@ public class PlayerMovement : MonoBehaviour
     {
         animator.SetBool("attacking", true);
         currentState = PlayerState.attack;
-
 
         
         SoundManager.Instance.PlaySound3D("sword", transform.position); 

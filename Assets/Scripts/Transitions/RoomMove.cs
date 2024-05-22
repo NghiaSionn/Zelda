@@ -9,6 +9,8 @@ public class RoomMove : MonoBehaviour
 {
     [Header("RoomMove")]
     public Vector2 cameraChange;
+    //public Vector2 cameraMinChange;
+    //public Vector2 cameraMaxChange;
     public Vector3 playerChange;
     private CameraMovement cam;
 
@@ -39,6 +41,11 @@ public class RoomMove : MonoBehaviour
         {
             cam.minPosition += cameraChange;
             cam.maxPosition += cameraChange;
+
+            //cam.minPosition += cameraMinChange;
+            //cam.maxPosition += cameraMaxChange;
+
+
             other.transform.position += playerChange;
             if (needText)
             {

@@ -1,83 +1,83 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using TMPro;
 
 public class MainMenu : MonoBehaviour
 {
     public AudioMixer audioMixer;
+
     public Slider masterSlider;
     public Slider musicSlider;
     public Slider sfxSlider;
 
+    public TMP_Text masterLabel;
+    public TMP_Text musicLabel;
+    public TMP_Text sfxLabel;
 
     // Start is called before the first frame update
     void Start()
     {
         LoadVolume();
         MusicManager.Instance.PlayMusic("MainMenu");
-    }
 
+        // Thêm các listener để lưu giá trị khi slider thay đổi
+        masterSlider.onValueChanged.AddListener(delegate { UpdateMasterVolume(masterSlider.value); });
+        musicSlider.onValueChanged.AddListener(delegate { UpdateMusicVolume(musicSlider.value); });
+        sfxSlider.onValueChanged.AddListener(delegate { UpdateSFXVolume(sfxSlider.value); });
+    }
 
     public void Play()
     {
-       LevelManager.Instance.LoadScene("Map1", "CrossFade");
-       //SceneManager.LoadScene(1);
-       MusicManager.Instance.PlayMusic("Game");
+        LevelManager.Instance.LoadScene("House 1", "CrossFade");
+        //SceneManager.LoadScene(1);
+        MusicManager.Instance.PlayMusic("Game");
     }
-
 
     public void Options()
     {
 
     }
 
-
     public void Quit()
     {
         Application.Quit();
     }
 
-
     public void UpdateMasterVolume(float volume)
     {
-        audioMixer.SetFloat("master", Mathf.Log10(volume) * 20);
+        masterLabel.text = Mathf.RoundToInt(volume + 80).ToString(); 
+        audioMixer.SetFloat("master", volume);
+        PlayerPrefs.SetFloat("master", volume);
     }
-
 
     public void UpdateMusicVolume(float volume)
     {
-        audioMixer.SetFloat("music", Mathf.Log10(volume) * 20);
+        musicLabel.text = Mathf.RoundToInt(volume + 80).ToString(); 
+        audioMixer.SetFloat("music", volume);
+        PlayerPrefs.SetFloat("music", volume);
     }
-
 
     public void UpdateSFXVolume(float volume)
     {
-        audioMixer.SetFloat("sfx", Mathf.Log10(volume) * 20);
+        sfxLabel.text = Mathf.RoundToInt(volume + 80).ToString(); 
+        audioMixer.SetFloat("sfx", volume);
+        PlayerPrefs.SetFloat("sfx", volume);
     }
-
-
-    public void SaveVolume()
-    {
-        audioMixer.GetFloat("master", out float master);
-        PlayerPrefs.SetFloat("master", master);
-
-
-        audioMixer.GetFloat("music", out float music);
-        PlayerPrefs.SetFloat("music", music);
-
-
-        audioMixer.GetFloat("sfx", out float sfx);
-        PlayerPrefs.SetFloat("sfx", sfx);
-    }
-
 
     public void LoadVolume()
     {
-        masterSlider.value = PlayerPrefs.GetFloat("master");
-        musicSlider.value = PlayerPrefs.GetFloat("music");
-        sfxSlider.value = PlayerPrefs.GetFloat("sfx");
+        // Lấy giá trị từ PlayerPrefs và kiểm tra giá trị hợp lệ trước khi gán
+        masterSlider.value = PlayerPrefs.HasKey("master") ? PlayerPrefs.GetFloat("master") : 1f;
+        musicSlider.value = PlayerPrefs.HasKey("music") ? PlayerPrefs.GetFloat("music") : 1f;
+        sfxSlider.value = PlayerPrefs.HasKey("sfx") ? PlayerPrefs.GetFloat("sfx") : 1f;
+
+        // Cập nhật trực tiếp giá trị trên AudioMixer để khớp với giá trị slider
+        UpdateMasterVolume(masterSlider.value);
+        UpdateMusicVolume(musicSlider.value);
+        UpdateSFXVolume(sfxSlider.value);
     }
 }

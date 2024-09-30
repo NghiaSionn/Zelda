@@ -19,7 +19,7 @@ public class KnockBack : MonoBehaviour
         if (other.gameObject.CompareTag("enemy") || other.gameObject.CompareTag("Player"))
         {
             // ngăn kẻ địch giết nhau
-            if (other.gameObject.CompareTag("Enemy") && gameObject.CompareTag("Enemy")) return;
+            //if (other.gameObject.CompareTag("Enemy") && gameObject.CompareTag("Enemy")) return;
 
 
             Rigidbody2D hit = other.GetComponent<Rigidbody2D>();

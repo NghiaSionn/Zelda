@@ -14,8 +14,8 @@ TagManager:
   - Water
   - UI
   - Enemy
-  - 
-  - 
+  - BackGorund 1
+  - Stair
   - 
   - 
   - 
@@ -52,9 +52,6 @@ TagManager:
   - name: Wall
     uniqueID: 688285723
     locked: 0
-  - name: Stair
-    uniqueID: 3311460969
-    locked: 0
   - name: Carpet
     uniqueID: 2987071943
     locked: 0
@@ -78,6 +75,9 @@ TagManager:
     locked: 0
   - name: DecoBG1
     uniqueID: 3704486467
+    locked: 0
+  - name: Stair
+    uniqueID: 873006147
     locked: 0
   - name: DoorDG
     uniqueID: 2285079699
@@ -120,6 +120,9 @@ TagManager:
     locked: 0
   - name: BigDeco
     uniqueID: 1197099343
+    locked: 0
+  - name: Stair
+    uniqueID: 3311460969
     locked: 0
   - name: Player
     uniqueID: 1667486233

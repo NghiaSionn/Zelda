@@ -8,6 +8,8 @@ public class ResourceManager : MonoBehaviour
 {
     [Header("Resource settings")]
     [SerializeField] private List<ResourceData> resourcesData;
+    [SerializeField] private int minDistanceBetweenResources;
+    private Dictionary<Vector2, ResourceData> resourceDicts = new();
 
     [SerializeField] private CaveManager caveManager;
 
@@ -29,23 +31,39 @@ public class ResourceManager : MonoBehaviour
                 if (caveMap[x, y] == 0)
                 {
                     Vector3 newPos = new Vector3(x + 0.5f, y + 0.5f, 0);
+                    Vector3 center = new Vector3(-caveMap.GetLength(0) / 2, -caveMap.GetLength(1) / 2, 0);
 
-                    int chance = Random.Range(0, 100);
-                    int cumulativeChance = 0;
-
-                    for (int i = 0; i < resourcesData.Count; i++)
+                    if (!IsResourcesTooClose(newPos))
                     {
-                        cumulativeChance += resourcesData[i].chance;
+                        int chance = Random.Range(0, 100);
+                        int cumulativeChance = 0;
 
-                        if (chance < cumulativeChance)
+                        for (int i = 0; i < resourcesData.Count; i++)
                         {
-                            Instantiate(resourcesData[i].prefab, newPos, Quaternion.identity, this.transform);
-                            break;
+                            cumulativeChance += resourcesData[i].chance;
+
+                            if (chance < cumulativeChance)
+                            {
+                                Instantiate(resourcesData[i].prefab, newPos + center, Quaternion.identity, this.transform);
+                                break;
+                            }
                         }
                     }
                 }
             }
         }
+    }
+
+    private bool IsResourcesTooClose(Vector3 newPos)
+    {
+        foreach (var oldPos in resourceDicts.Keys)
+        {
+            if (Vector2.Distance(oldPos, newPos) < minDistanceBetweenResources)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     private void ClearResources()

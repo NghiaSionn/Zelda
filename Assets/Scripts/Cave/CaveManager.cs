@@ -83,6 +83,7 @@ public class CaveManager : MonoBehaviour
     {
         floorsTilemap.ClearAllTiles();
         wallsTileMap.ClearAllTiles();
+        Vector3Int center = new Vector3Int(-width / 2, -height / 2, 0);
 
         for (int x = 0; x < width; x++)
         {
@@ -90,11 +91,11 @@ public class CaveManager : MonoBehaviour
             {
                 if (caveMap[x, y] == 0)
                 {
-                    floorsTilemap.SetTile(new Vector3Int(x, y, 0), floorTile);
+                    floorsTilemap.SetTile(new Vector3Int(x, y, 0) + center, floorTile);
                 }
                 else if (caveMap[x, y] == 1)
                 {
-                    wallsTileMap.SetTile(new Vector3Int(x, y, 0), wallTile);
+                    wallsTileMap.SetTile(new Vector3Int(x, y, 0) + center, wallTile);
                 }
             }
         }

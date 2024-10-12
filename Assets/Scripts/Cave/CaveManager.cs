@@ -9,9 +9,11 @@ using Random = UnityEngine.Random;
 public class CaveManager : MonoBehaviour
 {
     [Header("Cave settings")]
-    [SerializeField] private int width;
-    [SerializeField] private int height;
-    [SerializeField] private int fillWallsPercent;
+    [SerializeField][Range(1, 100)] private int width;
+    [SerializeField][Range(1, 100)] private int height;
+    [SerializeField][Range(0, 100)] private int fillWallsPercent;
+    [SerializeField] private int smoothIterations = 3;
+    [SerializeField] private int maxAroundWall = 4;
 
     [Header("Tile settings")]
     [SerializeField] private Tilemap floorsTilemap; //0
@@ -19,7 +21,15 @@ public class CaveManager : MonoBehaviour
     [SerializeField] private TileBase floorTile;
     [SerializeField] private TileBase wallTile;
 
-    private int[,] map;
+    private int[,] caveMap;
+
+    // private void OnValidate()
+    // {
+    //     if (Application.isPlaying)
+    //     {
+    //         GenerateMap();
+    //     }
+    // }
 
     private void Start()
     {
@@ -28,11 +38,53 @@ public class CaveManager : MonoBehaviour
 
     private void GenerateMap()
     {
-        map = new int[width, height];
+        caveMap = new int[width, height];
 
         FillMap();
 
+        for (int i = 0; i < smoothIterations; i++)
+        {
+            SmoothMap();
+        }
+
         DrawMap();
+    }
+
+    private void SmoothMap()
+    {
+        for (int x = 0; x < width; x++)
+        {
+            for (int y = 0; y < height; y++)
+            {
+                int neighbourWallTiles = GetSurroundWallCount(x, y);
+                caveMap[x, y] = (neighbourWallTiles <= maxAroundWall) ? 0 : 1;
+            }
+        }
+    }
+
+    private int GetSurroundWallCount(int x, int y)
+    {
+        int wallCount = 0;
+
+        for (int neighbourX = x - 1; neighbourX <= x + 1; neighbourX++)
+        {
+            for (int neighbourY = y - 1; neighbourY <= y + 1; neighbourY++)
+            {
+                if (IsInMapRange(neighbourX, neighbourY))
+                {
+                    if (neighbourX != x || neighbourY != y)
+                    {
+                        wallCount += caveMap[neighbourX, neighbourY];
+                    }
+                }
+                else
+                {
+                    wallCount++;
+                }
+            }
+        }
+
+        return wallCount;
     }
 
     private void DrawMap()
@@ -44,11 +96,11 @@ public class CaveManager : MonoBehaviour
         {
             for (int y = 0; y < height; y++)
             {
-                if(map[x,y] == 0)
+                if (caveMap[x, y] == 0)
                 {
                     floorsTilemap.SetTile(new Vector3Int(x, y, 0), floorTile);
                 }
-                else
+                else if (caveMap[x, y] == 1)
                 {
                     wallsTileMap.SetTile(new Vector3Int(x, y, 0), wallTile);
                 }
@@ -62,17 +114,20 @@ public class CaveManager : MonoBehaviour
         {
             for (int y = 0; y < height; y++)
             {
-                if(IsMapBorder(x, y))
+                if (IsMapBorder(x, y))
                 {
-                    map[x,y] = 1;
+                    caveMap[x, y] = 1;
                 }
                 else
                 {
-                    map[x,y] = Random.Range(0, 100) < fillWallsPercent ? 1 : 0;
+                    caveMap[x, y] = Random.Range(0, 100) < fillWallsPercent ? 1 : 0;
                 }
             }
         }
     }
+
+    private bool IsInMapRange(int x, int y)
+    => x >= 0 && x < width && y >= 0 && y < height;
 
     private bool IsMapBorder(int x, int y)
     => x == 0 || x == width - 1 || y == 0 || y == height - 1;

@@ -6,5 +6,5 @@ using UnityEngine;
 public class ResourceData : ScriptableObject
 {
     public GameObject prefab;
-    public float chance;
+    public int chance;
 }

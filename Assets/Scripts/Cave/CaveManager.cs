@@ -9,8 +9,8 @@ using Random = UnityEngine.Random;
 public class CaveManager : MonoBehaviour
 {
     [Header("Cave settings")]
-    [SerializeField][Range(1, 100)] private int width;
-    [SerializeField][Range(1, 100)] private int height;
+    [SerializeField][Range(1, 100)] internal int width;
+    [SerializeField][Range(1, 100)] internal int height;
     [SerializeField][Range(0, 100)] private int fillWallsPercent;
     [SerializeField] private int smoothIterations = 3;
     [SerializeField] private int maxAroundWall = 4;
@@ -22,14 +22,6 @@ public class CaveManager : MonoBehaviour
     [SerializeField] private TileBase wallTile;
 
     private int[,] caveMap;
-
-    // private void OnValidate()
-    // {
-    //     if (Application.isPlaying)
-    //     {
-    //         GenerateMap();
-    //     }
-    // }
 
     private void Start()
     {
@@ -131,4 +123,6 @@ public class CaveManager : MonoBehaviour
 
     private bool IsMapBorder(int x, int y)
     => x == 0 || x == width - 1 || y == 0 || y == height - 1;
+
+    internal int[,] GetMap() => caveMap;
 }

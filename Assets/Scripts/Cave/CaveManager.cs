@@ -23,12 +23,7 @@ public class CaveManager : MonoBehaviour
 
     private int[,] caveMap;
 
-    private void Start()
-    {
-        GenerateMap();
-    }
-
-    private void GenerateMap()
+    internal void GenerateMap()
     {
         caveMap = new int[width, height];
 
@@ -126,4 +121,10 @@ public class CaveManager : MonoBehaviour
     => x == 0 || x == width - 1 || y == 0 || y == height - 1;
 
     internal int[,] GetMap() => caveMap;
+
+    internal void LoadMap(int[,] savedMap)
+    {
+        caveMap = savedMap;
+        DrawMap();
+    }
 }

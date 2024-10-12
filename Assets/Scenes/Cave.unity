@@ -158,6 +158,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 083a41ee54aa95742aef00975f33f9c7, type: 2}
   - {fileID: 11400000, guid: 3a667bed496080c4e87b083ad1af9c1e, type: 2}
   - {fileID: 11400000, guid: 46b712160ec216240ba104ca3c1915d4, type: 2}
+  minDistanceBetweenResources: 0
   caveManager: {fileID: 1691837705}
 --- !u!4 &510545219
 Transform:
@@ -169,6 +170,37 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &667719259
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 667719260}
+  m_Layer: 0
+  m_Name: LevelCaveManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &667719260
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 667719259}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 14.5912285, y: 22.078672, z: 0.30334285}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10869,3 +10901,4 @@ SceneRoots:
   - {fileID: 1176871932}
   - {fileID: 1691837707}
   - {fileID: 510545219}
+  - {fileID: 667719260}

@@ -9,6 +9,7 @@ public class ResourceManager : MonoBehaviour
     [Header("Resource settings")]
     [SerializeField] private List<ResourceData> resourcesData;
     [SerializeField] private int minDistanceBetweenResources;
+    [SerializeField] private int maxResourcesCount;
     private Dictionary<Vector2, ResourceData> resourceDicts = new();
 
     [SerializeField] private CaveManager caveManager;
@@ -41,7 +42,7 @@ public class ResourceManager : MonoBehaviour
                             {
                                 cumulativeChance += resourcesData[i].chance;
 
-                                if (chance < cumulativeChance)
+                                if (chance < cumulativeChance && resourceDicts.Count < maxResourcesCount)
                                 {
                                     var resource = Instantiate(resourcesData[i].prefab, newPos + center, Quaternion.identity, this.transform);
                                     resourceDicts[resource.transform.position] = resourcesData[i];

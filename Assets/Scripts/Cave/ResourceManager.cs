@@ -14,32 +14,34 @@ public class ResourceManager : MonoBehaviour
 
     [SerializeField] private CaveManager caveManager;
 
-    internal void GenerateResources(bool isExistLevel)
+    internal void GenerateResources(int currentLevel, bool isGenerateResources)
     {
         ClearResources();
 
         int[,] caveMap = caveManager.GetMap();
 
-        if (!isExistLevel)
+        if (!isGenerateResources)
         {
             resourceDicts.Clear();
 
-            while(resourceDicts.Count < maxResourcesCount)
+            while (resourceDicts.Count < maxResourcesCount)
             {
                 int x = Random.Range(1, caveMap.GetLength(0));
                 int y = Random.Range(1, caveMap.GetLength(1));
 
                 if (caveMap[x, y] == 0)
+                {
+                    Vector3 newPos = new Vector3(x + 0.5f, y + 0.5f, 0);
+                    Vector3 center = new Vector3(-caveMap.GetLength(0) / 2, -caveMap.GetLength(1) / 2, 0);
+
+                    if (!IsResourcesTooClose(newPos))
                     {
-                        Vector3 newPos = new Vector3(x + 0.5f, y + 0.5f, 0);
-                        Vector3 center = new Vector3(-caveMap.GetLength(0) / 2, -caveMap.GetLength(1) / 2, 0);
+                        int chance = Random.Range(0, 100);
+                        int cumulativeChance = 0;
 
-                        if (!IsResourcesTooClose(newPos))
+                        for (int i = 0; i < resourcesData.Count; i++)
                         {
-                            int chance = Random.Range(0, 100);
-                            int cumulativeChance = 0;
-
-                            for (int i = 0; i < resourcesData.Count; i++)
+                            if (resourcesData[i].IsLevelAllow(currentLevel))
                             {
                                 cumulativeChance += resourcesData[i].chance;
 
@@ -52,6 +54,7 @@ public class ResourceManager : MonoBehaviour
                             }
                         }
                     }
+                }
             }
         }
         else
@@ -90,6 +93,6 @@ public class ResourceManager : MonoBehaviour
     internal void LoadResources(Dictionary<Vector2, ResourceData> savedResources)
     {
         resourceDicts = new(savedResources);
-        GenerateResources(true);
+        GenerateResources(0, true); //any level
     }
 }

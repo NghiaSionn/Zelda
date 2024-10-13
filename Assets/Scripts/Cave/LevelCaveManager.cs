@@ -12,7 +12,7 @@ public class LevelCaveManager : MonoBehaviour
 
     private Dictionary<int, int[,]> caveMapDicts = new();
     private Dictionary<int, Dictionary<Vector2, ResourceData>> resourceDataDicts = new();
-    private int currentLevel = 0;
+    private int currentLevel = 1;
 
     private void Start()
     {
@@ -21,13 +21,13 @@ public class LevelCaveManager : MonoBehaviour
 
     private void GenerateLevel(int level)
     {
-        // Debug.Log("Current: " + currentLevel);
+        Debug.Log("Current: " + currentLevel);
         if (!caveMapDicts.ContainsKey(level) || !resourceDataDicts.ContainsKey(level))
         {
             caveManager.GenerateMap();
             caveMapDicts[level] = caveManager.GetMap();
 
-            resourceManager.GenerateResources(false);
+            resourceManager.GenerateResources(level, false);
             resourceDataDicts[level] = resourceManager.GetResources();
         }
         else

@@ -24,11 +24,12 @@ public class ResourceManager : MonoBehaviour
         {
             resourceDicts.Clear();
 
-            for (int x = 0; x < caveMap.GetLength(0); x++)
+            while(resourceDicts.Count < maxResourcesCount)
             {
-                for (int y = 0; y < caveMap.GetLength(1); y++)
-                {
-                    if (caveMap[x, y] == 0)
+                int x = Random.Range(1, caveMap.GetLength(0));
+                int y = Random.Range(1, caveMap.GetLength(1));
+
+                if (caveMap[x, y] == 0)
                     {
                         Vector3 newPos = new Vector3(x + 0.5f, y + 0.5f, 0);
                         Vector3 center = new Vector3(-caveMap.GetLength(0) / 2, -caveMap.GetLength(1) / 2, 0);
@@ -42,7 +43,7 @@ public class ResourceManager : MonoBehaviour
                             {
                                 cumulativeChance += resourcesData[i].chance;
 
-                                if (chance < cumulativeChance && resourceDicts.Count < maxResourcesCount)
+                                if (chance < cumulativeChance)
                                 {
                                     var resource = Instantiate(resourcesData[i].prefab, newPos + center, Quaternion.identity, this.transform);
                                     resourceDicts[resource.transform.position] = resourcesData[i];
@@ -51,7 +52,6 @@ public class ResourceManager : MonoBehaviour
                             }
                         }
                     }
-                }
             }
         }
         else

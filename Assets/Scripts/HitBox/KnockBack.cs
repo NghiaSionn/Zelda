@@ -9,7 +9,7 @@ public class KnockBack : MonoBehaviour
     public float knockTime;
     public float damage;
 
-    
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("breakable") && this.gameObject.CompareTag("Player"))
@@ -23,7 +23,7 @@ public class KnockBack : MonoBehaviour
 
 
             Rigidbody2D hit = other.GetComponent<Rigidbody2D>();
-            if(hit != null)
+            if (hit != null)
             {
                 Vector2 difference = hit.transform.position - transform.position;
                 difference = difference.normalized * thrust;
@@ -40,8 +40,14 @@ public class KnockBack : MonoBehaviour
                         hit.GetComponent<PlayerMovement>().currentState = PlayerState.stagger;
                         other.GetComponent<PlayerMovement>().Knock(knockTime, damage);
                     }
-                }                                
+                }
             }
         }
-    }  
+
+        if (other.gameObject.CompareTag("Resources"))
+        {
+            other.GetComponent<Resource>().MineResource(1);
+            Debug.Log("Hit resource");
+        }
+    }
 }

@@ -6,8 +6,10 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ResourceData_")]
 public class ResourceData : ScriptableObject
 {
-    public GameObject prefab;
-    [Range(1, 11)] public int chance;
+    public string resourceName;
+    public int resourceHealth;
+    public GameObject resourcePrefab;
+    [Range(1, 11)] public int resoureChance;
     public int allowLevel = 1;
 
     public bool IsLevelAllow(int currentLevel) => currentLevel >= allowLevel;

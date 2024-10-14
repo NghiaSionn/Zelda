@@ -42,11 +42,11 @@ public class ResourceManager : MonoBehaviour
                         {
                             if (resourcesData[i].IsLevelAllow(currentLevel))
                             {
-                                cumulativeChance += resourcesData[i].chance;
+                                cumulativeChance += resourcesData[i].resoureChance;
 
                                 if (chance < cumulativeChance)
                                 {
-                                    var resource = Instantiate(resourcesData[i].prefab, newPos, Quaternion.identity, this.transform);
+                                    var resource = Instantiate(resourcesData[i].resourcePrefab, newPos, Quaternion.identity, this.transform);
                                     resourceDicts[resource.transform.position] = resourcesData[i];
                                     break;
                                 }
@@ -60,7 +60,7 @@ public class ResourceManager : MonoBehaviour
         {
             foreach (var positionResource in resourceDicts.Keys)
             {
-                Instantiate(resourceDicts[positionResource].prefab, positionResource, Quaternion.identity, this.transform);
+                Instantiate(resourceDicts[positionResource].resourcePrefab, positionResource, Quaternion.identity, this.transform);
             }
 
             resourceDicts.Clear();

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -21,7 +22,14 @@ public class CaveManager : MonoBehaviour
     [SerializeField] private TileBase floorTile;
     [SerializeField] private TileBase wallTile;
 
+    [Header("Base settings")]
+    [SerializeField] private GameObject basePrefab;
+    [SerializeField] private GameObject player;
+    public VectorValue startingPosition;
+
     private int[,] caveMap;
+    private GameObject currentBase;
+    private GameObject currentPlayer;
 
     internal void GenerateMap()
     {
@@ -78,7 +86,6 @@ public class CaveManager : MonoBehaviour
     {
         floorsTilemap.ClearAllTiles();
         wallsTileMap.ClearAllTiles();
-        Vector3Int center = new Vector3Int(-width / 2, -height / 2, 0);
 
         for (int x = 0; x < width; x++)
         {
@@ -86,14 +93,31 @@ public class CaveManager : MonoBehaviour
             {
                 if (caveMap[x, y] == 0)
                 {
-                    floorsTilemap.SetTile(new Vector3Int(x, y, 0) + center, floorTile);
+                    floorsTilemap.SetTile(new Vector3Int(x, y, 0), floorTile);
                 }
                 else if (caveMap[x, y] == 1)
                 {
-                    wallsTileMap.SetTile(new Vector3Int(x, y, 0) + center, wallTile);
+                    wallsTileMap.SetTile(new Vector3Int(x, y, 0), wallTile);
                 }
             }
         }
+
+        DrawBase();
+    }
+
+    private void DrawBase()
+    {
+        if (currentBase != null)
+        {
+            Destroy(currentBase);
+            Destroy(currentPlayer);
+        }
+
+        Vector3Int center = new Vector3Int(width / 2, height / 2, 0);
+        startingPosition.initialValue = new Vector2(17.5f, 15.5f);
+
+        currentPlayer = Instantiate(player);
+        currentBase = Instantiate(basePrefab, center, Quaternion.identity);
     }
 
     private void FillMap()

@@ -29,10 +29,9 @@ public class ResourceManager : MonoBehaviour
                 int x = Random.Range(1, caveMap.GetLength(0));
                 int y = Random.Range(1, caveMap.GetLength(1));
 
-                if (caveMap[x, y] == 0)
+                if (caveMap[x, y] == 0 && caveMap[x, y] != 3)
                 {
                     Vector3 newPos = new Vector3(x + 0.5f, y + 0.5f, 0);
-                    Vector3 center = new Vector3(-caveMap.GetLength(0) / 2, -caveMap.GetLength(1) / 2, 0);
 
                     if (!IsResourcesTooClose(newPos))
                     {
@@ -47,7 +46,7 @@ public class ResourceManager : MonoBehaviour
 
                                 if (chance < cumulativeChance)
                                 {
-                                    var resource = Instantiate(resourcesData[i].prefab, newPos + center, Quaternion.identity, this.transform);
+                                    var resource = Instantiate(resourcesData[i].prefab, newPos, Quaternion.identity, this.transform);
                                     resourceDicts[resource.transform.position] = resourcesData[i];
                                     break;
                                 }

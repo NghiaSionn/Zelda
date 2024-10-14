@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e7a871937847c94586053f977df8ec9, type: 3}
   m_Name: ResourceData_Amethyst
   m_EditorClassIdentifier: 
-  prefab: {fileID: 938184503495910795, guid: a13a59976ea53144aa1ac8f9b7ab6b97, type: 3}
-  chance: 1
+  resourceName: Amethyst
+  resourceHealth: 1
+  resourcePrefab: {fileID: 938184503495910795, guid: a13a59976ea53144aa1ac8f9b7ab6b97, type: 3}
+  resoureChance: 2
   allowLevel: 5

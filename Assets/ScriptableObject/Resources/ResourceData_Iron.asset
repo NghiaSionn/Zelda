@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e7a871937847c94586053f977df8ec9, type: 3}
   m_Name: ResourceData_Iron
   m_EditorClassIdentifier: 
-  prefab: {fileID: 8590117834995140188, guid: 532b260adb42d3146adaa5bf1e681a4b, type: 3}
-  chance: 5
+  resourceName: Iron
+  resourceHealth: -2
+  resourcePrefab: {fileID: 8590117834995140188, guid: 532b260adb42d3146adaa5bf1e681a4b, type: 3}
+  resoureChance: 5
   allowLevel: 2

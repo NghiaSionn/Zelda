@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e7a871937847c94586053f977df8ec9, type: 3}
   m_Name: ResourceData_Diamond
   m_EditorClassIdentifier: 
-  prefab: {fileID: 1636589934712874372, guid: 40203b29156ad9d409cdd784697390f5, type: 3}
-  chance: 1
+  resourceName: Diamond
+  resourceHealth: 2
+  resourcePrefab: {fileID: 1636589934712874372, guid: 40203b29156ad9d409cdd784697390f5, type: 3}
+  resoureChance: 1
   allowLevel: 10

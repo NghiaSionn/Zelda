@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e7a871937847c94586053f977df8ec9, type: 3}
   m_Name: ResourceData_Coal
   m_EditorClassIdentifier: 
-  prefab: {fileID: 7403894182309363775, guid: bdd5f45d2179b0244abac9599ce8ad02, type: 3}
-  chance: 8
+  resourceName: Coal
+  resourceHealth: -3
+  resourcePrefab: {fileID: 7403894182309363775, guid: bdd5f45d2179b0244abac9599ce8ad02, type: 3}
+  resoureChance: 8
   allowLevel: 1

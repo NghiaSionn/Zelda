@@ -10,9 +10,40 @@ public class LevelCaveManager : MonoBehaviour
     [SerializeField] private CaveManager caveManager;
     [SerializeField] private ResourceManager resourceManager;
 
+    private static LevelCaveManager instance;
+
     private Dictionary<int, int[,]> caveMapDicts = new();
-    private Dictionary<int, Dictionary<Vector2, ResourceData>> resourceDataDicts = new();
-    private int currentLevel = 1;
+    internal Dictionary<int, Dictionary<Vector2, ResourceData>> resourceDataDicts = new();
+    internal int currentLevel = 1;
+
+    public static LevelCaveManager Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindObjectOfType<LevelCaveManager>();
+                if (instance == null)
+                {
+                    GameObject singletonObject = new GameObject();
+                    instance = singletonObject.AddComponent<LevelCaveManager>();
+                    singletonObject.name = typeof(LevelCaveManager).Name + " (Singleton)";
+                }
+            }
+            return instance;
+        }
+    }
+
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
 
     private void Start()
     {

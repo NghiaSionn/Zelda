@@ -23,6 +23,7 @@ public class Resource : MonoBehaviour
             Debug.Log("StartCoroutine");
             StartCoroutine(DropResource());
 
+            LevelCaveManager.Instance.resourceDataDicts[LevelCaveManager.Instance.currentLevel].Remove(this.transform.position);
             Destroy(this.gameObject);
         }
     }
@@ -39,6 +40,7 @@ public class Resource : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         Debug.Log("Here");
+
         rb.isKinematic = true;
         rb.velocity = Vector2.zero;
     }

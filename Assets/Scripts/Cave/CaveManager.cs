@@ -114,7 +114,7 @@ public class CaveManager : MonoBehaviour
         }
 
         Vector3Int center = new Vector3Int(width / 2, height / 2, 0);
-        startingPosition.initialValue = new Vector2(17.5f, 15.5f);
+        startingPosition.initialValue = new Vector2(17.5f, 14.5f);
 
         currentPlayer = Instantiate(player);
         currentBase = Instantiate(basePrefab, center, Quaternion.identity);

@@ -546,52 +546,40 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &667719259
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 667719260}
-  - component: {fileID: 667719261}
-  m_Layer: 0
-  m_Name: LevelCaveManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &667719260
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 667719259}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &667719261
+--- !u!114 &667719261 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 5558107443833301514, guid: bdf97d6acdc113b4684dabe0a6af82e9, type: 3}
+  m_PrefabInstance: {fileID: 5696736874497891921}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 667719259}
+  m_GameObject: {fileID: 903550375}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 402c922510f96fa4e84444cec25745fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  caveManager: {fileID: 1691837705}
-  resourceManager: {fileID: 510545218}
+--- !u!1 &903550375 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4085513656980223804, guid: bdf97d6acdc113b4684dabe0a6af82e9, type: 3}
+  m_PrefabInstance: {fileID: 5696736874497891921}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &903550376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 903550375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 608a1f5548c417a40a5a7ce14fc31bdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneToLoad: 
+  playerPosition: {x: 0, y: 0}
+  playerStorage: {fileID: 0}
+  fadeInPanel: {fileID: 0}
+  fadeOutPanel: {fileID: 0}
+  fadeWait: 0
 --- !u!1001 &918665571
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6202,8 +6190,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc3d73d170e0ff84aa75af825ae813e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 32
-  height: 32
+  width: 20
+  height: 20
   fillWallsPercent: 50
   smoothIterations: 2
   maxAroundWall: 4
@@ -12080,6 +12068,74 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1001 &5696736874497891921
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4085513656980223804, guid: bdf97d6acdc113b4684dabe0a6af82e9, type: 3}
+      propertyPath: m_Name
+      value: LevelCaveManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 5558107443833301514, guid: bdf97d6acdc113b4684dabe0a6af82e9, type: 3}
+      propertyPath: caveManager
+      value: 
+      objectReference: {fileID: 1691837705}
+    - target: {fileID: 5558107443833301514, guid: bdf97d6acdc113b4684dabe0a6af82e9, type: 3}
+      propertyPath: resourceManager
+      value: 
+      objectReference: {fileID: 510545218}
+    - target: {fileID: 5865618556237193940, guid: bdf97d6acdc113b4684dabe0a6af82e9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5865618556237193940, guid: bdf97d6acdc113b4684dabe0a6af82e9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5865618556237193940, guid: bdf97d6acdc113b4684dabe0a6af82e9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5865618556237193940, guid: bdf97d6acdc113b4684dabe0a6af82e9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5865618556237193940, guid: bdf97d6acdc113b4684dabe0a6af82e9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5865618556237193940, guid: bdf97d6acdc113b4684dabe0a6af82e9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5865618556237193940, guid: bdf97d6acdc113b4684dabe0a6af82e9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5865618556237193940, guid: bdf97d6acdc113b4684dabe0a6af82e9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5865618556237193940, guid: bdf97d6acdc113b4684dabe0a6af82e9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5865618556237193940, guid: bdf97d6acdc113b4684dabe0a6af82e9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4085513656980223804, guid: bdf97d6acdc113b4684dabe0a6af82e9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 903550376}
+  m_SourcePrefab: {fileID: 100100000, guid: bdf97d6acdc113b4684dabe0a6af82e9, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -12087,7 +12143,7 @@ SceneRoots:
   - {fileID: 1176871932}
   - {fileID: 1691837707}
   - {fileID: 510545219}
-  - {fileID: 667719260}
+  - {fileID: 5696736874497891921}
   - {fileID: 1068466954}
   - {fileID: 306583932}
   - {fileID: 918665571}

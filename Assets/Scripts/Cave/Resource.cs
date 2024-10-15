@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Resource : MonoBehaviour
 {
@@ -16,12 +17,34 @@ public class Resource : MonoBehaviour
     internal void MineResource(int damage)
     {
         health -= damage;
-        Debug.Log($"{resourceData.resourceName} - {health}");
 
         if (health <= 0)
         {
-            Debug.Log($"{resourceData.resourceName} đã hủy.");
+            Debug.Log("StartCoroutine");
+            StartCoroutine(DropResource());
+
             Destroy(this.gameObject);
         }
+    }
+
+    private IEnumerator DropResource()
+    {
+        GameObject resource = Instantiate(resourceData.droppedResource, this.transform.position, Quaternion.identity);
+
+        Rigidbody2D rb = resource.GetComponent<Rigidbody2D>();
+
+        Vector2 randomUpDirection = new Vector2(Random.Range(-0.5f, 0.5f), 1).normalized;
+        rb.AddForce(randomUpDirection * 5f, ForceMode2D.Impulse);
+
+        yield return new WaitForSeconds(1f);
+
+        Debug.Log("Here");
+        rb.isKinematic = true;
+        rb.velocity = Vector2.zero;
+    }
+
+    private void OnMouseDown()
+    {
+        MineResource(10);
     }
 }

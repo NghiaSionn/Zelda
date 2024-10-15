@@ -9,6 +9,7 @@ public class ResourceData : ScriptableObject
     public string resourceName = "";
     public int resourceHealth = 1;
     public GameObject resourcePrefab;
+    public GameObject droppedResource;
     [Range(1, 10)] public int resoureChance;
     public int allowLevel = 1;
 

@@ -59,7 +59,6 @@ public class LevelCaveManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.X))
         {
-
             GenerateLevel(--currentLevel);
         }
     }
@@ -94,7 +93,7 @@ public class LevelCaveManager : MonoBehaviour
             else
             {
                 Debug.Log("GOOOOOOOOOO");
-                SceneManager.LoadSceneAsync("Map1");
+                SceneManager.LoadScene("Map1");
             }
         }
     }

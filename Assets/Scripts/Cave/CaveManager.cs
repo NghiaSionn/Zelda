@@ -146,8 +146,8 @@ public class CaveManager : MonoBehaviour
             }
         }
 
-        var playerPosition = Vector3Int.RoundToInt(bounds.center);
-        startingPosition.initialValue = new Vector2(playerPosition.x + width / 2 + 0.5f, playerPosition.y + height /2 - 0.5f);
+        var currentPosition = Vector3Int.RoundToInt(bounds.center);
+        startingPosition.initialValue = new Vector2(currentPosition.x + width / 2 + 0.5f, currentPosition.y + height /2 - 0.5f);
         currentPlayer = Instantiate(player);
     }
     private void FillMap()

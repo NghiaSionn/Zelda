@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelCaveManager : MonoBehaviour
 {
@@ -50,6 +51,19 @@ public class LevelCaveManager : MonoBehaviour
         GenerateLevel(currentLevel);
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            GenerateLevel(++currentLevel);
+        }
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+
+            GenerateLevel(--currentLevel);
+        }
+    }
+
     private void GenerateLevel(int level)
     {
         Debug.Log("Current: " + currentLevel);
@@ -72,12 +86,16 @@ public class LevelCaveManager : MonoBehaviour
     {
         if (newLevel != currentLevel)
         {
-            currentLevel = newLevel;
-            GenerateLevel(currentLevel);
+            if (currentLevel != 0)
+            {
+                currentLevel = newLevel;
+                GenerateLevel(currentLevel);
+            }
+            else
+            {
+                Debug.Log("GOOOOOOOOOO");
+                SceneManager.LoadSceneAsync("Map1");
+            }
         }
     }
-
-    public void PlusLevel() => GenerateLevel(++currentLevel);
-
-    public void MinusLevel() => GenerateLevel(--currentLevel);
 }

@@ -114,9 +114,6 @@ public class CaveManager : MonoBehaviour
         }
 
         Vector3Int center = new Vector3Int(width / 2, height / 2, 0);
-        startingPosition.initialValue = new Vector2(17.5f, 14.5f);
-
-        currentPlayer = Instantiate(player);
         currentBase = Instantiate(basePrefab, center, Quaternion.identity);
 
         UpdateMapFromBase();
@@ -148,8 +145,11 @@ public class CaveManager : MonoBehaviour
                 }
             }
         }
-    }
 
+        var playerPosition = Vector3Int.RoundToInt(bounds.center);
+        startingPosition.initialValue = new Vector2(playerPosition.x + width / 2 + 0.5f, playerPosition.y + height /2 - 0.5f);
+        currentPlayer = Instantiate(player);
+    }
     private void FillMap()
     {
         for (int x = 0; x < width; x++)

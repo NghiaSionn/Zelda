@@ -20,6 +20,10 @@ public class Ore : MonoBehaviour
 
         if (health <= 0)
         {
+            Instantiate(oreData.droppedResource, this.transform.position, Quaternion.identity);
+
+            CaveLevelManager.Instance.oreDataDicts[CaveLevelManager.Instance.currentLevel]
+                                     .Remove(this.transform.position);
             Destroy(this.gameObject);
         }
     }

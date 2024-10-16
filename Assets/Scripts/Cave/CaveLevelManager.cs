@@ -3,6 +3,7 @@ using System.CodeDom.Compiler;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.PlasticSCM.Editor.WebApi;
+using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -12,10 +13,10 @@ public class CaveLevelManager : MonoBehaviour
     [SerializeField] private OreManager oreManager;
 
     private static CaveLevelManager instance;
-
     private Dictionary<int, int[,]> caveMapDicts = new();
     internal Dictionary<int, Dictionary<Vector2, OreData>> oreDataDicts = new();
     internal int currentLevel = 1;
+    internal static event Action OnLevelChanged;
 
     public static CaveLevelManager Instance
     {
@@ -55,11 +56,11 @@ public class CaveLevelManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            ChangeLevel(currentLevel++);
+            ChangeLevel(currentLevel + 1);
         }
-        if (Input.GetKeyDown(KeyCode.X))
+        if (Input.GetKeyDown(KeyCode.X) && currentLevel > 1)
         {
-            ChangeLevel(currentLevel--);
+            ChangeLevel(currentLevel - 1);
         }
     }
 
@@ -79,22 +80,23 @@ public class CaveLevelManager : MonoBehaviour
             caveManager.LoadMap(caveMapDicts[level]);
             oreManager.LoadOres(oreDataDicts[level]);
         }
+
+        OnLevelChanged?.Invoke();
     }
 
     public void ChangeLevel(int newLevel)
     {
+        if (newLevel <= 0)
+        {
+            Debug.Log("Invalid level number. Must be greater than 0.");
+            SceneManager.LoadScene("Map1");
+            return;
+        }
+
         if (newLevel != currentLevel)
         {
-            if (currentLevel > 0)
-            {
-                currentLevel = newLevel;
-                GenerateLevel(currentLevel);
-            }
-            else
-            {
-                Debug.Log("GOOOOOOOOOO");
-                // SceneManager.LoadScene("Map1");
-            }
+            currentLevel = newLevel;
+            GenerateLevel(newLevel);
         }
     }
 }

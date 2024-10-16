@@ -8,17 +8,33 @@ public class Resource : MonoBehaviour
     [SerializeField] private float attractSpeed = 5f;
     private Transform player;
     private bool hasBeenCollected = false;
+    private bool canAttract = false;
 
     private void Start()
     {
         player = GameObject.FindWithTag("Player").transform;
 
         StartCoroutine(DropResource());
+
+        CaveLevelManager.OnLevelChanged += OnLevelChanged;
     }
 
     private void Update()
     {
-        AttractToPlayer();
+        if (canAttract)
+        {
+            AttractToPlayer();
+        }
+    }
+
+    private void OnDestroy()
+    {
+        CaveLevelManager.OnLevelChanged -= OnLevelChanged;
+    }
+
+    private void OnLevelChanged()
+    {
+        Destroy(this.gameObject);
     }
 
     private void AttractToPlayer()
@@ -43,11 +59,13 @@ public class Resource : MonoBehaviour
 
         rb.isKinematic = true;
         rb.velocity = Vector2.zero;
+
+        canAttract = true;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player") && !hasBeenCollected)
+        if (other.gameObject.CompareTag("Player") && !hasBeenCollected && canAttract)
         {
             hasBeenCollected = true;
             Debug.Log($"Add {this.name}");

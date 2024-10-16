@@ -3,14 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "ResourceData_")]
-public class ResourceData : ScriptableObject
+[CreateAssetMenu(fileName = "OreData_")]
+public class OreData : ScriptableObject
 {
-    public string resourceName = "";
-    public int resourceHealth = 1;
-    public GameObject resourcePrefab;
+    public string oreName = "";
+    public int oreHealth = 1;
+    public GameObject orePrefab;
     public GameObject droppedResource;
-    [Range(1, 10)] public int resoureChance;
+    [Range(1, 10)] public int oreChance;
     public int allowLevel = 1;
 
     public bool IsLevelAllow(int currentLevel) => currentLevel >= allowLevel;

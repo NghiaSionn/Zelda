@@ -14,7 +14,7 @@ public class CaveManager : MonoBehaviour
     [SerializeField][Range(1, 100)] internal int height;
     [SerializeField][Range(0, 100)] private int fillWallsPercent;
     [SerializeField] private int smoothIterations = 3;
-    [SerializeField] private int maxAroundWall = 4;
+    [SerializeField] private int maxWallsAround = 4;
 
     [Header("Tile settings")]
     [SerializeField] private Tilemap floorsTilemap; //0
@@ -52,7 +52,7 @@ public class CaveManager : MonoBehaviour
             for (int y = 0; y < height; y++)
             {
                 int neighbourWallTiles = GetSurroundWallCount(x, y);
-                caveMap[x, y] = (neighbourWallTiles <= maxAroundWall) ? 0 : 1;
+                caveMap[x, y] = (neighbourWallTiles <= maxWallsAround) ? 0 : 1;
             }
         }
     }

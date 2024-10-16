@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 510545219}
   - component: {fileID: 510545218}
   m_Layer: 0
-  m_Name: ResourceManager
+  m_Name: OreManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -152,14 +152,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88cd90b549c15ea489443cce63a1801f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resourcesData:
-  - {fileID: 11400000, guid: 46b712160ec216240ba104ca3c1915d4, type: 2}
+  oreData:
   - {fileID: 11400000, guid: 3a667bed496080c4e87b083ad1af9c1e, type: 2}
+  - {fileID: 11400000, guid: df93544676de5a648bb12ca25263e268, type: 2}
+  - {fileID: 11400000, guid: 46b712160ec216240ba104ca3c1915d4, type: 2}
   - {fileID: 11400000, guid: 083a41ee54aa95742aef00975f33f9c7, type: 2}
   - {fileID: 11400000, guid: f76cbed298ba6694db67a3bd85a7b7e6, type: 2}
-  - {fileID: 11400000, guid: df93544676de5a648bb12ca25263e268, type: 2}
-  minDistanceBetweenResources: 1
-  maxResourcesCount: 50
+  minDistanceBetweenOres: 2
+  maxOresCount: 50
   caveManager: {fileID: 1691837705}
 --- !u!4 &510545219
 Transform:
@@ -187,7 +187,7 @@ GameObject:
   - component: {fileID: 673922194}
   - component: {fileID: 673922193}
   m_Layer: 0
-  m_Name: LevelCaveManager
+  m_Name: CaveLevelManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -206,7 +206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   caveManager: {fileID: 1691837705}
-  resourceManager: {fileID: 510545218}
+  oreManager: {fileID: 510545218}
 --- !u!4 &673922194
 Transform:
   m_ObjectHideFlags: 0
@@ -5698,11 +5698,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc3d73d170e0ff84aa75af825ae813e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 20
-  height: 20
+  width: 32
+  height: 32
   fillWallsPercent: 50
   smoothIterations: 2
-  maxAroundWall: 4
+  maxWallsAround: 4
   floorsTilemap: {fileID: 2066494844}
   wallsTileMap: {fileID: 1677162756}
   floorTile: {fileID: 11400000, guid: d323960184668804491e9a743818e3fc, type: 2}

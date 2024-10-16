@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7e7a871937847c94586053f977df8ec9, type: 3}
-  m_Name: ResourceData_Diamond
+  m_Name: OreData_Diamond
   m_EditorClassIdentifier: 
-  resourceName: Diamond
-  resourceHealth: 1
-  resourcePrefab: {fileID: 1636589934712874372, guid: 40203b29156ad9d409cdd784697390f5, type: 3}
+  oreName: Diamond
+  oreHealth: 1
+  orePrefab: {fileID: 1636589934712874372, guid: 40203b29156ad9d409cdd784697390f5, type: 3}
   droppedResource: {fileID: 6634770973176460073, guid: eab85704ca4bda945969cd809395bc7e, type: 3}
-  resoureChance: 1
+  oreChance: 0
   allowLevel: 10

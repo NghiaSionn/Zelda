@@ -18,7 +18,7 @@ private enum StairDirection
         if (playerInRange && Input.GetKeyDown(KeyCode.E))
         {
             int direction = (stairDirection == StairDirection.Up) ? 1 : -1;
-            LevelCaveManager.Instance.ChangeLevel(LevelCaveManager.Instance.currentLevel + direction);
+            CaveLevelManager.Instance.ChangeLevel(CaveLevelManager.Instance.currentLevel + direction);
         }
     }
 

@@ -46,7 +46,7 @@ public class KnockBack : MonoBehaviour
 
         if (other.gameObject.CompareTag("Ores"))
         {
-            other.GetComponent<Resource>().MineResource(1);
+            other.GetComponent<Ore>().MineOre(1);
             Debug.Log("Hit resource");
         }
     }

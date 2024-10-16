@@ -6,29 +6,29 @@ using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LevelCaveManager : MonoBehaviour
+public class CaveLevelManager : MonoBehaviour
 {
     [SerializeField] private CaveManager caveManager;
-    [SerializeField] private ResourceManager resourceManager;
+    [SerializeField] private OreManager oreManager;
 
-    private static LevelCaveManager instance;
+    private static CaveLevelManager instance;
 
     private Dictionary<int, int[,]> caveMapDicts = new();
-    internal Dictionary<int, Dictionary<Vector2, ResourceData>> resourceDataDicts = new();
+    internal Dictionary<int, Dictionary<Vector2, OreData>> oreDataDicts = new();
     internal int currentLevel = 1;
 
-    public static LevelCaveManager Instance
+    public static CaveLevelManager Instance
     {
         get
         {
             if (instance == null)
             {
-                instance = FindObjectOfType<LevelCaveManager>();
+                instance = FindObjectOfType<CaveLevelManager>();
                 if (instance == null)
                 {
                     GameObject singletonObject = new GameObject();
-                    instance = singletonObject.AddComponent<LevelCaveManager>();
-                    singletonObject.name = typeof(LevelCaveManager).Name + " (Singleton)";
+                    instance = singletonObject.AddComponent<CaveLevelManager>();
+                    singletonObject.name = typeof(CaveLevelManager).Name + " (Singleton)";
                 }
             }
             return instance;
@@ -55,29 +55,29 @@ public class LevelCaveManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            GenerateLevel(++currentLevel);
+            ChangeLevel(currentLevel++);
         }
         if (Input.GetKeyDown(KeyCode.X))
         {
-            GenerateLevel(--currentLevel);
+            ChangeLevel(currentLevel--);
         }
     }
 
     private void GenerateLevel(int level)
     {
         Debug.Log("Current: " + currentLevel);
-        if (!caveMapDicts.ContainsKey(level) || !resourceDataDicts.ContainsKey(level))
+        if (!caveMapDicts.ContainsKey(level) || !oreDataDicts.ContainsKey(level))
         {
             caveManager.GenerateMap();
             caveMapDicts[level] = caveManager.GetMap();
 
-            resourceManager.GenerateResources(level, false);
-            resourceDataDicts[level] = resourceManager.GetResources();
+            oreManager.GenerateOre(level, false);
+            oreDataDicts[level] = oreManager.GetOres();
         }
         else
         {
             caveManager.LoadMap(caveMapDicts[level]);
-            resourceManager.LoadResources(resourceDataDicts[level]);
+            oreManager.LoadOres(oreDataDicts[level]);
         }
     }
 
@@ -85,7 +85,7 @@ public class LevelCaveManager : MonoBehaviour
     {
         if (newLevel != currentLevel)
         {
-            if (currentLevel != 0)
+            if (currentLevel > 0)
             {
                 currentLevel = newLevel;
                 GenerateLevel(currentLevel);
@@ -93,7 +93,7 @@ public class LevelCaveManager : MonoBehaviour
             else
             {
                 Debug.Log("GOOOOOOOOOO");
-                SceneManager.LoadScene("Map1");
+                // SceneManager.LoadScene("Map1");
             }
         }
     }

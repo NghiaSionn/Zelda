@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7e7a871937847c94586053f977df8ec9, type: 3}
-  m_Name: ResourceData_Coal
+  m_Name: OreData_Amethyst
   m_EditorClassIdentifier: 
-  resourceName: Coal
-  resourceHealth: 3
-  resourcePrefab: {fileID: 7403894182309363775, guid: bdd5f45d2179b0244abac9599ce8ad02, type: 3}
-  droppedResource: {fileID: 7144487554148131413, guid: 7391849772fcf774bb58840ce3bd6e5a, type: 3}
-  resoureChance: 8
-  allowLevel: 1
+  oreName: Amethyst
+  oreHealth: 1
+  orePrefab: {fileID: 938184503495910795, guid: a13a59976ea53144aa1ac8f9b7ab6b97, type: 3}
+  droppedResource: {fileID: 8948135985136087116, guid: 9b0bcb47d8dd1f24bbc4a9c2fbc8fbab, type: 3}
+  oreChance: 2
+  allowLevel: 5

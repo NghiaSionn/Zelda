@@ -6,18 +6,20 @@ using Unity.PlasticSCM.Editor.WebApi;
 using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Scene = UnityEngine.SceneManagement.Scene;
 
 public class CaveLevelManager : MonoBehaviour
 {
     [SerializeField] private CaveManager caveManager;
     [SerializeField] private OreManager oreManager;
+    [SerializeField] private SceneTransitions sceneTransitions;
 
-    private static CaveLevelManager instance;
     private Dictionary<int, int[,]> caveMapDicts = new();
     internal Dictionary<int, Dictionary<Vector2, OreData>> oreDataDicts = new();
     internal int currentLevel = 1;
     internal static event Action OnLevelChanged;
 
+    private static CaveLevelManager instance;
     public static CaveLevelManager Instance
     {
         get
@@ -25,12 +27,6 @@ public class CaveLevelManager : MonoBehaviour
             if (instance == null)
             {
                 instance = FindObjectOfType<CaveLevelManager>();
-                if (instance == null)
-                {
-                    GameObject singletonObject = new GameObject();
-                    instance = singletonObject.AddComponent<CaveLevelManager>();
-                    singletonObject.name = typeof(CaveLevelManager).Name + " (Singleton)";
-                }
             }
             return instance;
         }
@@ -47,20 +43,25 @@ public class CaveLevelManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    private void Start()
+    private void OnEnable()
     {
-        GenerateLevel(currentLevel);
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    private void Update()
+    private void OnDisable()
     {
-        if (Input.GetKeyDown(KeyCode.Z))
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == "Cave")
         {
-            ChangeLevel(currentLevel + 1);
-        }
-        if (Input.GetKeyDown(KeyCode.X) && currentLevel > 1)
-        {
-            ChangeLevel(currentLevel - 1);
+            caveManager = FindObjectOfType<CaveManager>();
+            oreManager = FindObjectOfType<OreManager>();
+            sceneTransitions = FindObjectOfType<SceneTransitions>();
+
+            GenerateLevel(currentLevel);
         }
     }
 
@@ -88,8 +89,8 @@ public class CaveLevelManager : MonoBehaviour
     {
         if (newLevel <= 0)
         {
-            Debug.Log("Invalid level number. Must be greater than 0.");
-            SceneManager.LoadScene("Map1");
+            sceneTransitions.playerStorage.initialValue = sceneTransitions.playerPosition;
+            sceneTransitions.StartCoroutine(sceneTransitions.FadeCo());
             return;
         }
 

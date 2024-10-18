@@ -12,9 +12,10 @@ public class CaveManager : MonoBehaviour
     [Header("Cave settings")]
     [SerializeField][Range(1, 100)] internal int width;
     [SerializeField][Range(1, 100)] internal int height;
-    [SerializeField][Range(0, 100)] private int fillWallsPercent;
+    [SerializeField][Range(0, 100)] private int fillWallsPercent = 45;
     [SerializeField] private int smoothIterations = 3;
-    [SerializeField] private int maxWallsAround = 4;
+    [SerializeField] private int minWallsToStayWall = 4; //2-3
+    [SerializeField] private int minWallsToBecomeWall = 4; //4-5
 
     [Header("Tile settings")]
     [SerializeField] private Tilemap floorsTilemap; //0
@@ -37,49 +38,7 @@ public class CaveManager : MonoBehaviour
 
         FillMap();
 
-        for (int i = 0; i < smoothIterations; i++)
-        {
-            SmoothMap();
-        }
-
         DrawMap();
-    }
-
-    private void SmoothMap()
-    {
-        for (int x = 0; x < width; x++)
-        {
-            for (int y = 0; y < height; y++)
-            {
-                int neighbourWallTiles = GetSurroundWallCount(x, y);
-                caveMap[x, y] = (neighbourWallTiles <= maxWallsAround) ? 0 : 1;
-            }
-        }
-    }
-
-    private int GetSurroundWallCount(int x, int y)
-    {
-        int wallCount = 0;
-
-        for (int neighbourX = x - 1; neighbourX <= x + 1; neighbourX++)
-        {
-            for (int neighbourY = y - 1; neighbourY <= y + 1; neighbourY++)
-            {
-                if (IsInMapRange(neighbourX, neighbourY))
-                {
-                    if (neighbourX != x || neighbourY != y)
-                    {
-                        wallCount += caveMap[neighbourX, neighbourY];
-                    }
-                }
-                else
-                {
-                    wallCount++;
-                }
-            }
-        }
-
-        return wallCount;
     }
 
     private void DrawMap()
@@ -166,10 +125,67 @@ public class CaveManager : MonoBehaviour
                 else
                 {
                     float perlinValue = Mathf.PerlinNoise((x + noiseOffset.x) * 0.1f, (y + noiseOffset.y) * 0.1f);
-                    caveMap[x, y] = perlinValue < fillWallsPercent ? 1 : 0;
+                    caveMap[x, y] = perlinValue < fillWallsPercent / 100f ? 1 : 0;
                 }
             }
         }
+
+        SmoothMap();
+    }
+
+    private void SmoothMap() //Cellular Automata
+    {
+        for (int i = 0; i < smoothIterations; i++)
+        {
+            for (int x = 0; x < width; x++)
+            {
+                for (int y = 0; y < height; y++)
+                {
+                    if (IsMapBorder(x, y))
+                    {
+                        caveMap[x, y] = 1;
+                    }
+                    else
+                    {
+                        int neighborWalls = GetSurroundWallCount(x, y);
+
+                        if (caveMap[x, y] == 1)
+                        {
+                            caveMap[x, y] = (neighborWalls >= minWallsToStayWall) ? 1 : 0;
+                        }
+                        else
+                        {
+                            caveMap[x, y] = (neighborWalls > minWallsToBecomeWall) ? 1 : 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    private int GetSurroundWallCount(int x, int y)
+    {
+        int wallCount = 0;
+
+        for (int neighbourX = x - 1; neighbourX <= x + 1; neighbourX++)
+        {
+            for (int neighbourY = y - 1; neighbourY <= y + 1; neighbourY++)
+            {
+                if (IsInMapRange(neighbourX, neighbourY))
+                {
+                    if (neighbourX != x || neighbourY != y)
+                    {
+                        wallCount += caveMap[neighbourX, neighbourY];
+                    }
+                }
+                else
+                {
+                    wallCount++;
+                }
+            }
+        }
+
+        return wallCount;
     }
 
     private bool IsInMapRange(int x, int y)

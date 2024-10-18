@@ -147,11 +147,14 @@ public class CaveManager : MonoBehaviour
         }
 
         var currentPosition = Vector3Int.RoundToInt(bounds.center);
-        startingPosition.initialValue = new Vector2(currentPosition.x + width / 2 + 0.5f, currentPosition.y + height /2 - 0.5f);
+        startingPosition.initialValue = new Vector2(currentPosition.x + width / 2 + 0.5f, currentPosition.y + height / 2 - 0.5f);
         currentPlayer = Instantiate(player);
     }
-    private void FillMap()
+
+    private void FillMap() //Perlin Noise
     {
+        Vector2 noiseOffset = new Vector2(Random.Range(0, 1000f), Random.Range(0, 1000f));
+
         for (int x = 0; x < width; x++)
         {
             for (int y = 0; y < height; y++)
@@ -162,7 +165,8 @@ public class CaveManager : MonoBehaviour
                 }
                 else
                 {
-                    caveMap[x, y] = Random.Range(0, 100) < fillWallsPercent ? 1 : 0;
+                    float perlinValue = Mathf.PerlinNoise((x + noiseOffset.x) * 0.1f, (y + noiseOffset.y) * 0.1f);
+                    caveMap[x, y] = perlinValue < fillWallsPercent ? 1 : 0;
                 }
             }
         }

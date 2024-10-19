@@ -65,6 +65,17 @@ public class CaveLevelManager : MonoBehaviour
         }
     }
 
+    private void Update(){
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            ChangeLevel(currentLevel + 1);
+        }
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            ChangeLevel(currentLevel - 1);
+        }
+    }
+
     private void GenerateLevel(int level)
     {
         Debug.Log("Current: " + currentLevel);

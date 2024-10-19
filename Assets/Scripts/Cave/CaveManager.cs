@@ -24,15 +24,12 @@ public class CaveManager : MonoBehaviour
     [SerializeField] private TileBase floorTile;
     [SerializeField] private TileBase wallTile;
 
-    [Header("Base settings")]
-    [SerializeField] private GameObject basePrefab;
+    [Header("Start settings")]
     [SerializeField] private GameObject player;
     public VectorValue startingPosition;
 
     private int[,] caveMap;
     private AreaManager areaManager;
-    private GameObject currentBase;
-    private GameObject currentPlayer;
 
     internal void GenerateMap()
     {
@@ -107,6 +104,7 @@ public class CaveManager : MonoBehaviour
             }
         }
     }
+
     private void DrawMap()
     {
         floorsTilemap.ClearAllTiles();
@@ -126,54 +124,6 @@ public class CaveManager : MonoBehaviour
                 }
             }
         }
-
-        DrawBase();
-    }
-
-    private void DrawBase()
-    {
-        if (currentBase != null)
-        {
-            Destroy(currentBase);
-            Destroy(currentPlayer);
-        }
-
-        Vector3Int center = new Vector3Int(width / 2, height / 2, 0);
-        currentBase = Instantiate(basePrefab, center, Quaternion.identity);
-
-        UpdateMapFromBase();
-    }
-
-    private void UpdateMapFromBase()
-    {
-        Tilemap baseTilemap = basePrefab.transform.Find("FloorBase").GetComponent<Tilemap>();
-        BoundsInt bounds = baseTilemap.cellBounds;
-
-        for (int x = bounds.xMin; x < bounds.xMax; x++)
-        {
-            for (int y = bounds.yMin; y < bounds.yMax; y++)
-            {
-                Vector3Int center = new Vector3Int(width / 2, height / 2, 0);
-                Vector3Int tilePosition = new Vector3Int(x, y, 0);
-
-                if (baseTilemap.HasTile(tilePosition))
-                {
-                    Vector2Int cavePosition = new Vector2Int(x + center.x, y + center.y);
-
-                    if (IsInMapRange(cavePosition.x, cavePosition.y))
-                    {
-                        caveMap[cavePosition.x, cavePosition.y] = 3; //base
-
-                        floorsTilemap.SetTile(new Vector3Int(cavePosition.x, cavePosition.y, 0), null);
-                        wallsTileMap.SetTile(new Vector3Int(cavePosition.x, cavePosition.y, 0), null);
-                    }
-                }
-            }
-        }
-
-        var currentPosition = Vector3Int.RoundToInt(bounds.center);
-        startingPosition.initialValue = new Vector2(currentPosition.x + width / 2 + 0.5f, currentPosition.y + height / 2 - 0.5f);
-        currentPlayer = Instantiate(player);
     }
 
     private void FillMap() //Perlin Noise

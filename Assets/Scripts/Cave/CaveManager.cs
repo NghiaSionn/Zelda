@@ -25,24 +25,30 @@ public class CaveManager : MonoBehaviour
     [SerializeField] private TileBase wallTile;
 
     [Header("Start settings")]
-    [SerializeField] private GameObject player;
+    [SerializeField] private Transform player;
     public VectorValue startingPosition;
 
     private int[,] caveMap;
     private AreaManager areaManager;
+    private List<List<Vector2Int>> areas;
 
     internal void GenerateMap()
     {
         caveMap = new int[width, height];
-        areaManager = GetComponent<AreaManager>();
 
         FillMap();
 
-        areaManager.Initialize(caveMap, width, height);
-        var areas = areaManager.GetAreas();
-        ConnectAreasWithPaths(areas);
+        FillPaths();
 
         DrawMap();
+    }
+
+    private void FillPaths()
+    {
+        areaManager = GetComponent<AreaManager>();
+        areaManager.Initialize(caveMap, width, height);
+        areas = areaManager.GetAreas();
+        ConnectAreasWithPaths(areas);
     }
 
     private void ConnectAreasWithPaths(List<List<Vector2Int>> areas)
@@ -123,6 +129,29 @@ public class CaveManager : MonoBehaviour
                     wallsTileMap.SetTile(new Vector3Int(x, y, 0), wallTile);
                 }
             }
+        }
+
+        PlacePlayer();
+    }
+
+    private void PlacePlayer()
+    {
+        List<Vector2Int> validPositions = new();
+
+        foreach (var area in areas)
+        {
+            if (area.Count > 5)
+            {
+                validPositions.AddRange(area);
+            }
+        }
+
+        if (validPositions.Count > 0)
+        {
+            var randomPosition = validPositions[Random.Range(0, validPositions.Count)];
+            startingPosition.initialValue = new Vector2(randomPosition.x + 0.5f, randomPosition.y + 0.5f);
+
+            player.position = startingPosition.initialValue;
         }
     }
 

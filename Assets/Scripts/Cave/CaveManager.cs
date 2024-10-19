@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -39,6 +38,8 @@ public class CaveManager : MonoBehaviour
         FillMap();
 
         FillPaths();
+
+        PlacePlayer();
 
         DrawMap();
     }
@@ -120,18 +121,14 @@ public class CaveManager : MonoBehaviour
         {
             for (int y = 0; y < height; y++)
             {
-                if (caveMap[x, y] == 0)
-                {
-                    floorsTilemap.SetTile(new Vector3Int(x, y, 0), floorTile);
-                }
-                else if (caveMap[x, y] == 1)
+                floorsTilemap.SetTile(new Vector3Int(x, y, 0), floorTile);
+                
+                if (caveMap[x, y] == 1)
                 {
                     wallsTileMap.SetTile(new Vector3Int(x, y, 0), wallTile);
                 }
             }
         }
-
-        PlacePlayer();
     }
 
     private void PlacePlayer()
@@ -155,6 +152,25 @@ public class CaveManager : MonoBehaviour
             startingPosition.initialValue = new Vector2(randomPosition.x + 0.5f, randomPosition.y + 0.5f);
 
             player.position = startingPosition.initialValue;
+        }
+
+        UpdateMapFromPlayerPosition(player.position);
+    }
+
+    private void UpdateMapFromPlayerPosition(Vector3 position)
+    {
+        var playerPosition = new Vector3Int((int)position.x, (int)position.y, 0);
+        int radius = 2;
+
+        for (int x = playerPosition.x - radius; x <= playerPosition.x + radius; x++)
+        {
+            for(int y = playerPosition.y - radius; y <= playerPosition.y + radius;y++)
+            {
+                if (IsInMapRange(x, y) && !IsMapBorder(x, y))
+                {
+                    caveMap[x, y] = 3;
+                }
+            }
         }
     }
 

@@ -140,9 +140,12 @@ public class CaveManager : MonoBehaviour
 
         foreach (var area in areas)
         {
-            if (area.Count > 5)
+            foreach (var pos in area)
             {
-                validPositions.AddRange(area);
+                if (caveMap[pos.x, pos.y] == 0)
+                {
+                    validPositions.Add(pos);
+                }
             }
         }
 

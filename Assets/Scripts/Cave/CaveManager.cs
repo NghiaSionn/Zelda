@@ -122,7 +122,7 @@ public class CaveManager : MonoBehaviour
             for (int y = 0; y < height; y++)
             {
                 floorsTilemap.SetTile(new Vector3Int(x, y, 0), floorTile);
-                
+
                 if (caveMap[x, y] == 1)
                 {
                     wallsTileMap.SetTile(new Vector3Int(x, y, 0), wallTile);
@@ -265,4 +265,8 @@ public class CaveManager : MonoBehaviour
         caveMap = savedMap;
         DrawMap();
     }
+
+    internal Vector3 GetPlayerPosition() => player.position;
+
+    internal void SetPlayerPosition(Vector3 savedPlayer) => player.position = savedPlayer;
 }

@@ -43,7 +43,7 @@ public class CaveManager : MonoBehaviour
 
         FillPaths();
 
-        PlacePlayer();
+        SetPlayer();
 
         DrawMap();
     }
@@ -141,7 +141,7 @@ public class CaveManager : MonoBehaviour
         }
     }
 
-    private void PlacePlayer()
+    private void SetPlayer()
     {
         List<Vector2Int> validPositions = new();
 
@@ -165,7 +165,7 @@ public class CaveManager : MonoBehaviour
         }
 
         UpdateMapFromPlayerPosition(player.position);
-        PlaceStairUp(player.position);
+        SetStairUp(player.position);
     }
 
     private void UpdateMapFromPlayerPosition(Vector3 position)
@@ -185,7 +185,7 @@ public class CaveManager : MonoBehaviour
         }
     }
 
-    private void PlaceStairUp(Vector3 playerPosition)
+    private void SetStairUp(Vector3 playerPosition)
     {
         if (currentStairUp != null) Destroy(currentStairUp.gameObject);
 
@@ -209,7 +209,7 @@ public class CaveManager : MonoBehaviour
         }
     }
 
-    internal void PlaceStairDown(Vector2 orePosition)
+    internal void SetStairDown(Vector2 orePosition)
     {
         if (currentStairDown != null) Destroy(currentStairDown.gameObject);
 
@@ -314,6 +314,6 @@ public class CaveManager : MonoBehaviour
     internal void SetPlayerPosition(Vector3 savedPlayer)
     {
         player.position = savedPlayer;
-        PlaceStairUp(player.position);
+        SetStairUp(player.position);
     }
 }

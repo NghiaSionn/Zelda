@@ -60,7 +60,7 @@ public class OreManager : MonoBehaviour
             if (oreDicts.Count > 0)
             {
                 var randomOrePosition = oreDicts.Keys.ElementAt(Random.Range(0, oreDicts.Count));
-                caveManager.PlaceStairDown(randomOrePosition);
+                caveManager.SetStairDown(randomOrePosition);
             }
         }
         else

@@ -16,6 +16,7 @@ public class CaveLevelManager : MonoBehaviour
     private Dictionary<int, int[,]> caveMapDicts = new();
     internal Dictionary<int, Dictionary<Vector2, OreData>> oreDataDicts = new();
     private Dictionary<int, Vector3> playerPositionDicts = new();
+    private Dictionary<int, (Vector3 stairUp, Vector3 stairDown)> stairPositionDicts = new();
 
     internal int currentLevel = 1;
     internal static event Action OnLevelChanged;
@@ -83,16 +84,18 @@ public class CaveLevelManager : MonoBehaviour
         if (!caveMapDicts.ContainsKey(level) && !oreDataDicts.ContainsKey(level) && !playerPositionDicts.ContainsKey(level))
         {
             caveManager.GenerateMap();
+            oreManager.GenerateOre(level, false);
+
             caveMapDicts[level] = caveManager.GetMap();
             playerPositionDicts[level] = caveManager.GetPlayerPosition();
-
-            oreManager.GenerateOre(level, false);
+            stairPositionDicts[level] = caveManager.GetStairsPosition();
             oreDataDicts[level] = oreManager.GetOres();
         }
         else
         {
             caveManager.LoadMap(caveMapDicts[level]);
             caveManager.SetPlayerPosition(playerPositionDicts[level]);
+            caveManager.SetStairsPosition(stairPositionDicts[level]);
             oreManager.LoadOres(oreDataDicts[level]);
         }
 

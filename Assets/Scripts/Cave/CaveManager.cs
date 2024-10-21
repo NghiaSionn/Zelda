@@ -316,4 +316,15 @@ public class CaveManager : MonoBehaviour
         player.position = savedPlayer;
         SetStairUp(player.position);
     }
+
+    internal (Vector3 stairUp, Vector3 stairDown) GetStairsPosition() => (currentStairUp.position, currentStairDown.position);
+
+    internal void SetStairsPosition((Vector3 stairUp, Vector3 stairDown) stairPosition)
+    {
+        if(currentStairUp != null) Destroy(currentStairUp.gameObject);
+        if(currentStairDown != null) Destroy(currentStairDown.gameObject);
+
+        currentStairUp = Instantiate(stairToUp, stairPosition.stairUp, Quaternion.identity, this.transform);
+        currentStairDown = Instantiate(stairToDown, stairPosition.stairDown, Quaternion.identity, this.transform);
+    }
 }

@@ -79,7 +79,7 @@ public class CaveLevelManager : MonoBehaviour
 
     private void GenerateLevel(int level)
     {
-        Debug.Log("Current: " + currentLevel);
+        Debug.Log("Current: " + level);
         if (!caveMapDicts.ContainsKey(level) && !oreDataDicts.ContainsKey(level) && !stairPositionDicts.ContainsKey(level))
         {
             caveManager.GenerateMap();
@@ -114,6 +114,8 @@ public class CaveLevelManager : MonoBehaviour
 
             if(newLevel < currentLevel)
                 caveManager.SetPlayerPosition(stairPositionDicts[newLevel].stairDown + Vector3.left);
+            else
+                caveManager.SetPlayerPosition(stairPositionDicts[newLevel].stairUp + Vector3.left);
 
             currentLevel = newLevel;
         }

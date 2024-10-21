@@ -34,6 +34,7 @@ public class CaveManager : MonoBehaviour
     private List<List<Vector2Int>> areas;
     private Transform currentStairUp;
     private Transform currentStairDown;
+    private bool isActiveStairDown = false;
 
     internal void GenerateMap()
     {
@@ -214,7 +215,19 @@ public class CaveManager : MonoBehaviour
         if (currentStairDown != null) Destroy(currentStairDown.gameObject);
 
         currentStairDown = Instantiate(stairToDown, orePosition, Quaternion.identity, this.transform);
+        isActiveStairDown = false;
         currentStairDown.gameObject.SetActive(false);
+        Ore.OnActiveStairDown += ChangeStairDownActive;
+    }
+
+    private void ChangeStairDownActive(Vector3 minedOrePosition)
+    {
+        if(minedOrePosition == currentStairDown.position && !isActiveStairDown)
+        {
+            Ore.OnActiveStairDown -= ChangeStairDownActive;
+            isActiveStairDown = true;
+            currentStairDown.gameObject.SetActive(true);
+        }
     }
 
     private void FillMap() //Perlin Noise

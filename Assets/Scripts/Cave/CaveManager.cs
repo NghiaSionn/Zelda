@@ -190,24 +190,7 @@ public class CaveManager : MonoBehaviour
     {
         if (currentStairUp != null) Destroy(currentStairUp.gameObject);
 
-        Vector3[] directions =
-        {
-            Vector3.right,
-            Vector3.left,
-            Vector3.up,
-            Vector3.down
-        };
-
-        foreach (var direction in directions)
-        {
-            Vector3 stairPosition = new Vector3(playerPosition.x, playerPosition.y, 0) + direction;
-
-            if (IsInMapRange((int)stairPosition.x, (int)stairPosition.y) && caveMap[(int)stairPosition.x, (int)stairPosition.y] == 3)
-            {
-                currentStairUp = Instantiate(stairToUp, stairPosition, Quaternion.identity, this.transform);
-                break;
-            }
-        }
+        currentStairUp = Instantiate(stairToUp, playerPosition + new Vector3(0, 0.5f, 0), Quaternion.identity, this.transform);
     }
 
     internal void SetStairDown(Vector2 orePosition)
@@ -215,6 +198,7 @@ public class CaveManager : MonoBehaviour
         if (currentStairDown != null) Destroy(currentStairDown.gameObject);
 
         currentStairDown = Instantiate(stairToDown, orePosition, Quaternion.identity, this.transform);
+
         isActiveStairDown = false;
         currentStairDown.gameObject.SetActive(false);
         Ore.OnActiveStairDown += ChangeStairDownActive;
@@ -225,8 +209,8 @@ public class CaveManager : MonoBehaviour
         if(minedOrePosition == currentStairDown.position && !isActiveStairDown)
         {
             Ore.OnActiveStairDown -= ChangeStairDownActive;
-            isActiveStairDown = true;
             currentStairDown.gameObject.SetActive(true);
+            isActiveStairDown = true;
         }
     }
 

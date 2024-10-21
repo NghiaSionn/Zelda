@@ -113,9 +113,9 @@ public class CaveLevelManager : MonoBehaviour
             GenerateLevel(newLevel);
 
             if(newLevel < currentLevel)
-                caveManager.SetPlayerPosition(stairPositionDicts[newLevel].stairDown + Vector3.left);
+                caveManager.SetPlayerPosition(stairPositionDicts[newLevel].stairDown - new Vector3(0, 0.5f, 0));
             else
-                caveManager.SetPlayerPosition(stairPositionDicts[newLevel].stairUp + Vector3.left);
+                caveManager.SetPlayerPosition(stairPositionDicts[newLevel].stairUp - new Vector3(0, 0.5f, 0));
 
             currentLevel = newLevel;
         }

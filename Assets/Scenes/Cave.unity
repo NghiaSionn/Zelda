@@ -282,6 +282,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2764907488499626429, guid: 79314c6023447654eb107718f15c8a92, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7789778229856038973, guid: 79314c6023447654eb107718f15c8a92, type: 3}
+      propertyPath: soundEffects.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7789778229856038973, guid: 79314c6023447654eb107718f15c8a92, type: 3}
+      propertyPath: soundEffects.Array.data[5].groupID
+      value: mining
+      objectReference: {fileID: 0}
+    - target: {fileID: 7789778229856038973, guid: 79314c6023447654eb107718f15c8a92, type: 3}
+      propertyPath: soundEffects.Array.data[5].clips.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7789778229856038973, guid: 79314c6023447654eb107718f15c8a92, type: 3}
+      propertyPath: soundEffects.Array.data[5].clips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 0669629ead8d4c646807bbecb8022d8b, type: 3}
     - target: {fileID: 8545223402603413494, guid: 79314c6023447654eb107718f15c8a92, type: 3}
       propertyPath: m_Name
       value: AudioManager 1
@@ -8291,7 +8311,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 0
-      m_TileSpriteIndex: 5
+      m_TileSpriteIndex: 6
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -18542,10 +18562,10 @@ Tilemap:
     m_Data: {fileID: 1886059869, guid: bfbbf937bd7fd5b4893837e92fe84d8d, type: 3}
   - m_RefCount: 900
     m_Data: {fileID: -1857902512, guid: bfbbf937bd7fd5b4893837e92fe84d8d, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: -184946206, guid: bfbbf937bd7fd5b4893837e92fe84d8d, type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: -184946206, guid: bfbbf937bd7fd5b4893837e92fe84d8d, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: -330271602, guid: bfbbf937bd7fd5b4893837e92fe84d8d, type: 3}
   - m_RefCount: 1

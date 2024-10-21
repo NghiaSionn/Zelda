@@ -67,6 +67,7 @@ public class Resource : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player") && !hasBeenCollected && canAttract)
         {
+            SoundManager.Instance.PlaySound3D("pickitem", transform.position);
             hasBeenCollected = true;
             Debug.Log($"Add {this.name}");
             Destroy(this.gameObject);

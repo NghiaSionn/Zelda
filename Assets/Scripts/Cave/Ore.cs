@@ -18,7 +18,8 @@ public class Ore : MonoBehaviour
     internal void MineOre(int damage)
     {
         health -= damage;
-
+        SoundManager.Instance.PlaySound3D("mining", transform.position);
+        
         if (health <= 0)
         {
             Instantiate(oreData.droppedResource, this.transform.position, Quaternion.identity);

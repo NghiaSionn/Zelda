@@ -15,7 +15,6 @@ public class CaveLevelManager : MonoBehaviour
 
     private Dictionary<int, int[,]> caveMapDicts = new();
     internal Dictionary<int, Dictionary<Vector2, OreData>> oreDataDicts = new();
-    private Dictionary<int, Vector3> playerPositionDicts = new();
     private Dictionary<int, (Vector3 stairUp, Vector3 stairDown)> stairPositionDicts = new();
 
     internal int currentLevel = 1;
@@ -81,20 +80,18 @@ public class CaveLevelManager : MonoBehaviour
     private void GenerateLevel(int level)
     {
         Debug.Log("Current: " + currentLevel);
-        if (!caveMapDicts.ContainsKey(level) && !oreDataDicts.ContainsKey(level) && !playerPositionDicts.ContainsKey(level))
+        if (!caveMapDicts.ContainsKey(level) && !oreDataDicts.ContainsKey(level) && !stairPositionDicts.ContainsKey(level))
         {
             caveManager.GenerateMap();
             oreManager.GenerateOre(level, false);
 
             caveMapDicts[level] = caveManager.GetMap();
-            playerPositionDicts[level] = caveManager.GetPlayerPosition();
             stairPositionDicts[level] = caveManager.GetStairsPosition();
             oreDataDicts[level] = oreManager.GetOres();
         }
         else
         {
             caveManager.LoadMap(caveMapDicts[level]);
-            caveManager.SetPlayerPosition(playerPositionDicts[level]);
             caveManager.SetStairsPosition(stairPositionDicts[level]);
             oreManager.LoadOres(oreDataDicts[level]);
         }
@@ -113,8 +110,12 @@ public class CaveLevelManager : MonoBehaviour
 
         if (newLevel != currentLevel)
         {
-            currentLevel = newLevel;
             GenerateLevel(newLevel);
+
+            if(newLevel < currentLevel)
+                caveManager.SetPlayerPosition(stairPositionDicts[newLevel].stairDown + Vector3.left);
+
+            currentLevel = newLevel;
         }
     }
 }

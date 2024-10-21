@@ -311,13 +311,10 @@ public class CaveManager : MonoBehaviour
 
     internal Vector3 GetPlayerPosition() => player.position;
 
-    internal void SetPlayerPosition(Vector3 savedPlayer)
-    {
-        player.position = savedPlayer;
-        SetStairUp(player.position);
-    }
+    internal void SetPlayerPosition(Vector3 savedPlayer) => player.position = savedPlayer;
 
-    internal (Vector3 stairUp, Vector3 stairDown) GetStairsPosition() => (currentStairUp.position, currentStairDown.position);
+    internal (Vector3 stairUp, Vector3 stairDown) GetStairsPosition()
+    => (currentStairUp.position, currentStairDown.position);
 
     internal void SetStairsPosition((Vector3 stairUp, Vector3 stairDown) stairPosition)
     {

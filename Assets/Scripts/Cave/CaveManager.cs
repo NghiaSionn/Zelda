@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using Random = UnityEngine.Random;
@@ -23,13 +23,15 @@ public class CaveManager : MonoBehaviour
     [SerializeField] private TileBase floorTile;
     [SerializeField] private TileBase wallTile;
 
-    [Header("Start settings")]
+    [Header("Other settings")]
     [SerializeField] private Transform player;
     public VectorValue startingPosition;
+    [SerializeField] private Transform stairToUp;
 
     private int[,] caveMap;
     private AreaManager areaManager;
     private List<List<Vector2Int>> areas;
+    private Transform currentStair;
 
     internal void GenerateMap()
     {
@@ -155,6 +157,31 @@ public class CaveManager : MonoBehaviour
         }
 
         UpdateMapFromPlayerPosition(player.position);
+        PlaceStair(player.position);
+    }
+
+    private void PlaceStair(Vector3 position)
+    {
+        if (currentStair != null) Destroy(currentStair.gameObject);
+
+        Vector3[] directions =
+        {
+            Vector3.right,
+            Vector3.left,
+            Vector3.up,
+            Vector3.down
+        };
+
+        foreach (var direction in directions)
+        {
+            Vector3 stairPosition = new Vector3(position.x,position.y, 0) + direction;
+
+            if (IsInMapRange((int)stairPosition.x, (int)stairPosition.y) && caveMap[(int)stairPosition.x, (int)stairPosition.y] == 3)
+            {
+                currentStair = Instantiate(stairToUp, stairPosition, Quaternion.identity, this.transform);
+                break;
+            }
+        }
     }
 
     private void UpdateMapFromPlayerPosition(Vector3 position)
@@ -268,5 +295,9 @@ public class CaveManager : MonoBehaviour
 
     internal Vector3 GetPlayerPosition() => player.position;
 
-    internal void SetPlayerPosition(Vector3 savedPlayer) => player.position = savedPlayer;
+internal void SetPlayerPosition(Vector3 savedPlayer)
+{
+    player.position = savedPlayer;
+    PlaceStair(player.position);
+}
 }

@@ -27,11 +27,13 @@ public class CaveManager : MonoBehaviour
     [SerializeField] private Transform player;
     public VectorValue startingPosition;
     [SerializeField] private Transform stairToUp;
+    [SerializeField] private Transform stairToDown;
 
     private int[,] caveMap;
     private AreaManager areaManager;
     private List<List<Vector2Int>> areas;
-    private Transform currentStair;
+    private Transform currentStairUp;
+    private Transform currentStairDown;
 
     internal void GenerateMap()
     {
@@ -58,10 +60,16 @@ public class CaveManager : MonoBehaviour
     {
         for (int i = 0; i < areas.Count - 1; i++)
         {
+            if (areas[i].Count == 0 || areas[i + 1].Count == 0)
+                continue;
+
             Vector2Int pointA = areas[i][Random.Range(0, areas[i].Count)];
             Vector2Int pointB = areas[i + 1][Random.Range(0, areas[i + 1].Count)];
 
-            FillPath(pointA, pointB);
+            if (IsInMapRange(pointA.x, pointA.y) && IsInMapRange(pointB.x, pointB.y))
+            {
+                FillPath(pointA, pointB);
+            }
         }
     }
 
@@ -157,12 +165,29 @@ public class CaveManager : MonoBehaviour
         }
 
         UpdateMapFromPlayerPosition(player.position);
-        PlaceStair(player.position);
+        PlaceStairUp(player.position);
     }
 
-    private void PlaceStair(Vector3 position)
+    private void UpdateMapFromPlayerPosition(Vector3 position)
     {
-        if (currentStair != null) Destroy(currentStair.gameObject);
+        var playerPosition = new Vector3Int((int)position.x, (int)position.y, 0);
+        int radius = 2;
+
+        for (int x = playerPosition.x - radius; x <= playerPosition.x + radius; x++)
+        {
+            for (int y = playerPosition.y - radius; y <= playerPosition.y + radius; y++)
+            {
+                if (IsInMapRange(x, y) && !IsMapBorder(x, y))
+                {
+                    caveMap[x, y] = 3;
+                }
+            }
+        }
+    }
+
+    private void PlaceStairUp(Vector3 playerPosition)
+    {
+        if (currentStairUp != null) Destroy(currentStairUp.gameObject);
 
         Vector3[] directions =
         {
@@ -174,31 +199,22 @@ public class CaveManager : MonoBehaviour
 
         foreach (var direction in directions)
         {
-            Vector3 stairPosition = new Vector3(position.x,position.y, 0) + direction;
+            Vector3 stairPosition = new Vector3(playerPosition.x, playerPosition.y, 0) + direction;
 
             if (IsInMapRange((int)stairPosition.x, (int)stairPosition.y) && caveMap[(int)stairPosition.x, (int)stairPosition.y] == 3)
             {
-                currentStair = Instantiate(stairToUp, stairPosition, Quaternion.identity, this.transform);
+                currentStairUp = Instantiate(stairToUp, stairPosition, Quaternion.identity, this.transform);
                 break;
             }
         }
     }
 
-    private void UpdateMapFromPlayerPosition(Vector3 position)
+    internal void PlaceStairDown(Vector2 orePosition)
     {
-        var playerPosition = new Vector3Int((int)position.x, (int)position.y, 0);
-        int radius = 2;
+        if (currentStairDown != null) Destroy(currentStairDown.gameObject);
 
-        for (int x = playerPosition.x - radius; x <= playerPosition.x + radius; x++)
-        {
-            for(int y = playerPosition.y - radius; y <= playerPosition.y + radius;y++)
-            {
-                if (IsInMapRange(x, y) && !IsMapBorder(x, y))
-                {
-                    caveMap[x, y] = 3;
-                }
-            }
-        }
+        currentStairDown = Instantiate(stairToDown, orePosition, Quaternion.identity, this.transform);
+        currentStairDown.gameObject.SetActive(false);
     }
 
     private void FillMap() //Perlin Noise
@@ -295,9 +311,9 @@ public class CaveManager : MonoBehaviour
 
     internal Vector3 GetPlayerPosition() => player.position;
 
-internal void SetPlayerPosition(Vector3 savedPlayer)
-{
-    player.position = savedPlayer;
-    PlaceStair(player.position);
-}
+    internal void SetPlayerPosition(Vector3 savedPlayer)
+    {
+        player.position = savedPlayer;
+        PlaceStairUp(player.position);
+    }
 }

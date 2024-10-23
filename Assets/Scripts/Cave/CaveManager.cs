@@ -80,7 +80,7 @@ public class CaveManager : MonoBehaviour
 
         while (currentPos != end)
         {
-            if (Random.value < 0.2f) // zigzag
+            if (Random.value < 0.3f) // zigzag
             {
                 if (Random.value < 0.5f)
                     currentPos.x += (Random.value < 0.5f) ? 1 : -1;
@@ -90,19 +90,9 @@ public class CaveManager : MonoBehaviour
             else
             {
                 if (Random.value < 0.5f)
-                {
-                    if (currentPos.x < end.x)
-                        currentPos.x++;
-                    else if (currentPos.x > end.x)
-                        currentPos.x--;
-                }
+                    currentPos.x += (currentPos.x < end.x) ? 1 : (currentPos.x > end.x) ? -1 : 0;
                 else
-                {
-                    if (currentPos.y < end.y)
-                        currentPos.y++;
-                    else if (currentPos.y > end.y)
-                        currentPos.y--;
-                }
+                    currentPos.y += (currentPos.y < end.y) ? 1 : (currentPos.y > end.y) ? -1 : 0;
             }
 
             caveMap[currentPos.x, currentPos.y] = 0;

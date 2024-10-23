@@ -20,7 +20,7 @@ public class AreaManager : MonoBehaviour
     {
         bool[,] visited = new bool[width, height];
 
-        List<List<Vector2Int>> areas = new List<List<Vector2Int>>();
+        List<List<Vector2Int>> areas = new();
 
         for (int x = 0; x < width; x++)
         {
@@ -28,7 +28,7 @@ public class AreaManager : MonoBehaviour
             {
                 if (map[x, y] == 0 && !visited[x, y])
                 {
-                    List<Vector2Int> area = new List<Vector2Int>();
+                    List<Vector2Int> area = new();
                     DFSArea(x, y, visited, area);
                     areas.Add(area);
                 }

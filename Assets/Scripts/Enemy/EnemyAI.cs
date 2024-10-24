@@ -12,7 +12,7 @@ public class EnemyAI : Enemy
     private float moveX, moveY;
     private bool isMoving;
     private Vector3 startPosition;
-
+    private bool hasLineOfSight = false;
     public float followRange = 5f;
 
     void Start()
@@ -37,11 +37,12 @@ public class EnemyAI : Enemy
 
     private void CheckDistance()
     {
+        CheckRaycast();
         var distanceToPlayer = Vector2.Distance(transform.position, target.position);
         var distanceToStart = Vector2.Distance(transform.position, startPosition);
         Vector2 direction;
 
-        if (distanceToPlayer <= followRange)
+        if (distanceToPlayer <= followRange && hasLineOfSight)
         {
             direction = (target.position - transform.position).normalized;
             isMoving = true;
@@ -56,6 +57,19 @@ public class EnemyAI : Enemy
         moveY = direction.y;
     }
 
+    private void CheckRaycast()
+    {
+        int layerMask = ~(1 << LayerMask.NameToLayer("Enemy"));
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, target.position - transform.position, Mathf.Infinity, layerMask);
+
+        if (hit.collider != null)
+        {
+            hasLineOfSight = hit.collider.CompareTag("Player");
+            Debug.DrawRay(transform.position, target.position - transform.position.normalized,
+                          hasLineOfSight ? Color.green : Color.red);
+        }
+    }
+
     void FixedUpdate()
     {
         if (isMoving)
@@ -67,7 +81,7 @@ public class EnemyAI : Enemy
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;
+        Gizmos.color = Color.white;
         Gizmos.DrawWireSphere(transform.position, followRange);
     }
 }

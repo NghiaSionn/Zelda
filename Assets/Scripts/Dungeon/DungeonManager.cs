@@ -31,7 +31,14 @@ public class DungeonManager : MonoBehaviour
 
     public void GenerateDungeon()
     {
+        ClearDungeon();
         CreateRooms();
+    }
+
+    public void ClearDungeon()
+    {
+        floorTilemap.ClearAllTiles();
+        wallTilemap.ClearAllTiles();
     }
 
     private void CreateRooms()

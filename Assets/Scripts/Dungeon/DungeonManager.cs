@@ -17,6 +17,11 @@ public class DungeonManager : MonoBehaviour
     public int spacingRoom = 2;
     public int corridorWidth = 2;
 
+    [Header("Random Room Settings")]
+    public bool isRandomWalk = false;
+    public int walkLength = 100;
+    public int walkIterations = 10;
+
     private Vector2Int[] directions = {
         Vector2Int.right,
         Vector2Int.left,
@@ -39,6 +44,7 @@ public class DungeonManager : MonoBehaviour
 
     public void ClearDungeon()
     {
+        roomPositionsList.Clear();
         floorTilemap.ClearAllTiles();
         wallTilemap.ClearAllTiles();
     }
@@ -72,12 +78,41 @@ public class DungeonManager : MonoBehaviour
 
     private void CreateRoom(Vector2Int roomPosition)
     {
+        if (isRandomWalk)
+        {
+            CreateRandomWalkRoom(roomPosition);
+        }
+        else
+        {
+            CreateRectangularRoom(roomPosition);
+        }
+    }
+
+    private void CreateRectangularRoom(Vector2Int roomPosition)
+    {
         for (int x = 0; x < roomWidth; x++)
         {
             for (int y = 0; y < roomHeight; y++)
             {
                 Vector2Int tilePos = new Vector2Int(x + roomPosition.x, y + roomPosition.y);
                 floorTilemap.SetTile(new Vector3Int(tilePos.x, tilePos.y, 0), floorTile);
+            }
+        }
+    }
+
+    private void CreateRandomWalkRoom(Vector2Int startPosition)
+    {
+        floorTilemap.SetTile(new Vector3Int(startPosition.x, startPosition.y, 0), floorTile);
+
+        Vector2Int currentPosition = startPosition;
+
+        for (int i = 0; i < walkIterations; i++)
+        {
+            HashSet<Vector2Int> path = RandomWalk(currentPosition);
+
+            foreach (var position in path)
+            {
+                floorTilemap.SetTile(new Vector3Int(position.x, position.y, 0), floorTile);
             }
         }
     }
@@ -148,5 +183,23 @@ public class DungeonManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    private HashSet<Vector2Int> RandomWalk(Vector2Int startPosition)
+    {
+        HashSet<Vector2Int> path = new();
+        path.Add(startPosition);
+
+        Vector2Int currentPosition = startPosition;
+
+        for (int i = 0; i < walkLength; i++)
+        {
+            Vector2Int direction = directions[Random.Range(0, directions.Length)];
+            currentPosition += direction;
+
+            path.Add(currentPosition);
+        }
+
+        return path;
     }
 }

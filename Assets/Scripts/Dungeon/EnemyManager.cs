@@ -9,19 +9,16 @@ public class EnemyManager : MonoBehaviour
     [Header("Boss settings")]
     public GameObject bossPrefab;
 
-    public void GenerateEnemy()
+    public void GenerateEnemies()
     {
         CreateBoss();
     }
 
     private void CreateBoss()
     {
-        var roomPositionsList = roomManager.roomPositionsList;
-        var roomWidth  = roomManager.roomWidth;
-        var roomHeight = roomManager.roomHeight;
-        var bossRoom = roomPositionsList[roomPositionsList.Count - 1];
-
-        Instantiate(bossPrefab, new Vector3(bossRoom.x + roomWidth / 2 + 0.5f, bossRoom.y + roomHeight / 2 + 0.5f, 0),
-                                  Quaternion.identity, this.transform);
+        var bossRoom = roomManager.rooms[roomManager.rooms.Count - 1];
+        Vector3 bossSpawnPosition = new Vector3(bossRoom.position.x + roomManager.roomWidth / 2 + 0.5f,
+                                                 bossRoom.position.y + roomManager.roomHeight / 2 + 0.5f, 0);
+        Instantiate(bossPrefab, bossSpawnPosition, Quaternion.identity, this.transform);
     }
 }

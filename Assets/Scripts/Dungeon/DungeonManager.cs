@@ -16,6 +16,6 @@ public class DungeonManager : MonoBehaviour
     void Start()
     {
         dungeonManager.GenerateDungeon();
-        enemyManager.GenerateEnemy();
+        enemyManager.GenerateEnemies();
     }
 }

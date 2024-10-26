@@ -33,7 +33,7 @@ public class RoomManager : MonoBehaviour
         Vector2Int.down
     };
 
-    internal List<Vector2Int> roomPositionsList = new();
+    internal List<Room> rooms = new();
     internal Vector2Int startRoom = new();
 
     public void GenerateDungeon()
@@ -46,7 +46,7 @@ public class RoomManager : MonoBehaviour
 
     public void ClearDungeon()
     {
-        roomPositionsList.Clear();
+        rooms.Clear();
         floorTilemap.ClearAllTiles();
         wallTilemap.ClearAllTiles();
     }
@@ -55,18 +55,18 @@ public class RoomManager : MonoBehaviour
     {
         Vector2Int currentRoomPosition = startRoom;
         CreateRoom(currentRoomPosition);
-        roomPositionsList.Add(currentRoomPosition);
+        rooms.Add(new Room(currentRoomPosition, roomWidth, roomHeight));
 
         for (int i = 1; i < numberOfRooms; i++)
         {
             Vector2Int direction = directions[Random.Range(0, directions.Length)];
             Vector2Int newRoomPosition = currentRoomPosition + direction * new Vector2Int(roomWidth + spacingRoom, roomHeight + spacingRoom);
 
-            if (!roomPositionsList.Contains(newRoomPosition))
+            if (!IsRoomOverlap(newRoomPosition))
             {
                 CreateRoom(newRoomPosition);
                 CreateCorridor(currentRoomPosition, newRoomPosition);
-                roomPositionsList.Add(newRoomPosition);
+                rooms.Add(new Room(newRoomPosition, roomWidth, roomHeight));
                 currentRoomPosition = newRoomPosition;
             }
             else
@@ -223,5 +223,17 @@ public class RoomManager : MonoBehaviour
         }
 
         return path;
+    }
+
+    private bool IsRoomOverlap(Vector2Int newRoomPosition)
+    {
+        foreach (var room in rooms)
+        {
+            if (room.position == newRoomPosition)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }

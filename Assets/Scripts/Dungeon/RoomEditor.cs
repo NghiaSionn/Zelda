@@ -1,14 +1,14 @@
 using UnityEditor;
 using UnityEngine;
 
-[CustomEditor(typeof(DungeonManager), true)]
-public class DungeonEditor : Editor
+[CustomEditor(typeof(RoomManager), true)]
+public class RoomEditor : Editor
 {
-    private DungeonManager dungeonManager;
+    private RoomManager dungeonManager;
 
     void OnEnable()
     {
-        dungeonManager = (DungeonManager)target;
+        dungeonManager = (RoomManager)target;
     }
 
     public override void OnInspectorGUI()

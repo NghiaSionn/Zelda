@@ -22,6 +22,10 @@ public class DungeonManager : MonoBehaviour
     public int walkLength = 100;
     public int walkIterations = 10;
 
+    [Header("Other settings")]
+    public Transform player;
+    public VectorValue startingPosition;
+
     private Vector2Int[] directions = {
         Vector2Int.right,
         Vector2Int.left,
@@ -30,6 +34,7 @@ public class DungeonManager : MonoBehaviour
     };
 
     private HashSet<Vector2Int> roomPositionsList = new();
+    private Vector2Int startRoom;
 
     void Start()
     {
@@ -39,6 +44,7 @@ public class DungeonManager : MonoBehaviour
     public void GenerateDungeon()
     {
         ClearDungeon();
+        SetPlayer();
         CreateRooms();
     }
 
@@ -54,6 +60,7 @@ public class DungeonManager : MonoBehaviour
         Vector2Int currentRoomPosition = new();
         CreateRoom(currentRoomPosition);
         roomPositionsList.Add(currentRoomPosition);
+        startRoom = currentRoomPosition;
 
         for (int i = 1; i < numberOfRooms; i++)
         {
@@ -185,6 +192,22 @@ public class DungeonManager : MonoBehaviour
         }
     }
 
+    private void SetPlayer()
+    {
+        startingPosition.initialValue = new Vector2(startRoom.x + roomWidth / 2 + 0.5f, startRoom.y + roomHeight / 2 + 0.5f);
+        player.position = startingPosition.initialValue;
+
+        int radius = 2;
+        Vector2Int playerPosition = new Vector2Int((int)player.position.x, (int)player.position.y);
+
+        for (int x = playerPosition.x - radius; x <= playerPosition.x + radius; x++)
+        {
+            for (int y = playerPosition.y - radius; y <= playerPosition.y + radius; y++)
+            {
+                floorTilemap.SetTile(new Vector3Int(x, y, 0), floorTile);
+            }
+        }
+    }
     private HashSet<Vector2Int> RandomWalk(Vector2Int startPosition)
     {
         HashSet<Vector2Int> path = new();

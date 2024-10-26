@@ -34,7 +34,7 @@ public class RoomManager : MonoBehaviour
     };
 
     internal List<Room> rooms = new();
-    internal Vector2Int startRoom = new();
+    internal Vector2Int startRoomPosition = new();
 
     public void GenerateDungeon()
     {
@@ -53,7 +53,7 @@ public class RoomManager : MonoBehaviour
 
     private void CreateRooms()
     {
-        Vector2Int currentRoomPosition = startRoom;
+        Vector2Int currentRoomPosition = startRoomPosition;
         CreateRoom(currentRoomPosition);
         rooms.Add(new Room(currentRoomPosition, roomWidth, roomHeight));
 
@@ -187,7 +187,7 @@ public class RoomManager : MonoBehaviour
 
     private void SetPlayer()
     {
-        startingPosition.initialValue = new Vector2(startRoom.x + roomWidth / 2 + 0.5f, startRoom.y + roomHeight / 2 + 0.5f);
+        startingPosition.initialValue = new Vector2(startRoomPosition.x + roomWidth / 2 + 0.5f, startRoomPosition.y + roomHeight / 2 + 0.5f);
         player.position = startingPosition.initialValue;
 
         int radius = 2;

@@ -4,6 +4,10 @@ using UnityEngine.Tilemaps;
 
 public class DungeonManager : MonoBehaviour
 {
+    public static DungeonManager instance;
+    void Awake() => instance = this;
+
+
     [Header("Tilemap settings")]
     public Tilemap wallTilemap;
     public Tilemap floorTilemap;
@@ -33,19 +37,15 @@ public class DungeonManager : MonoBehaviour
         Vector2Int.down
     };
 
-    private HashSet<Vector2Int> roomPositionsList = new();
-    private Vector2Int startRoom;
-
-    void Start()
-    {
-        GenerateDungeon();
-    }
+    protected List<Vector2Int> roomPositionsList = new();
+    protected Vector2Int startRoom = new();
 
     public void GenerateDungeon()
     {
         ClearDungeon();
-        SetPlayer();
         CreateRooms();
+        CreatePlayerRoom();
+        AddWallsAroundFloors();
     }
 
     public void ClearDungeon()
@@ -57,10 +57,9 @@ public class DungeonManager : MonoBehaviour
 
     private void CreateRooms()
     {
-        Vector2Int currentRoomPosition = new();
+        Vector2Int currentRoomPosition = startRoom;
         CreateRoom(currentRoomPosition);
         roomPositionsList.Add(currentRoomPosition);
-        startRoom = currentRoomPosition;
 
         for (int i = 1; i < numberOfRooms; i++)
         {
@@ -79,8 +78,6 @@ public class DungeonManager : MonoBehaviour
                 i--;
             }
         }
-
-        AddWallsAroundFloors();
     }
 
     private void CreateRoom(Vector2Int roomPosition)
@@ -192,7 +189,7 @@ public class DungeonManager : MonoBehaviour
         }
     }
 
-    private void SetPlayer()
+    private void CreatePlayerRoom()
     {
         startingPosition.initialValue = new Vector2(startRoom.x + roomWidth / 2 + 0.5f, startRoom.y + roomHeight / 2 + 0.5f);
         player.position = startingPosition.initialValue;
@@ -200,14 +197,20 @@ public class DungeonManager : MonoBehaviour
         int radius = 2;
         Vector2Int playerPosition = new Vector2Int((int)player.position.x, (int)player.position.y);
 
-        for (int x = playerPosition.x - radius; x <= playerPosition.x + radius; x++)
+        DrawFloorTilesInRadius(playerPosition, radius);
+    }
+
+    protected void DrawFloorTilesInRadius(Vector2Int position, int radius)
+    {
+        for (int x = position.x - radius; x <= position.x + radius; x++)
         {
-            for (int y = playerPosition.y - radius; y <= playerPosition.y + radius; y++)
+            for (int y = position.y - radius; y <= position.y + radius; y++)
             {
                 floorTilemap.SetTile(new Vector3Int(x, y, 0), floorTile);
             }
         }
     }
+
     private HashSet<Vector2Int> RandomWalk(Vector2Int startPosition)
     {
         HashSet<Vector2Int> path = new();

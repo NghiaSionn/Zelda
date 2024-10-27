@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class DungeonManager : MonoBehaviour
 {
-    public RoomManager dungeonManager;
+    public RoomManager roomManager;
     public EnemyManager enemyManager;
 
     void Awake()
     {
-        dungeonManager = FindFirstObjectByType<RoomManager>();
+        roomManager = FindFirstObjectByType<RoomManager>();
         enemyManager = FindFirstObjectByType<EnemyManager>();
     }
 
     void Start()
     {
-        dungeonManager.GenerateDungeon();
+        roomManager.GenerateDungeon();
         enemyManager.GenerateEnemies();
     }
 }

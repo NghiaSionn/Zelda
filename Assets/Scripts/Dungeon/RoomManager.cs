@@ -4,12 +4,6 @@ using UnityEngine.Tilemaps;
 
 public class RoomManager : MonoBehaviour
 {
-    [Header("Tilemap settings")]
-    public Tilemap wallTilemap;
-    public Tilemap floorTilemap;
-    public TileBase wallTile;
-    public TileBase floorTile;
-
     [Header("Room settings")]
     public int roomWidth = 10;
     public int roomHeight = 10;
@@ -17,14 +11,17 @@ public class RoomManager : MonoBehaviour
     public int spacingRoom = 2;
     public int corridorWidth = 2;
 
+
     [Header("Random Room Settings")]
     public bool isRandomWalk = false;
     public int walkLength = 100;
     public int walkIterations = 10;
 
+
     [Header("Other settings")]
     public Transform player;
     public VectorValue startingPosition;
+    public TilemapVisualizer tilemapVisualizer;
 
     private Vector2Int[] directions = {
         Vector2Int.right,
@@ -35,20 +32,20 @@ public class RoomManager : MonoBehaviour
 
     internal List<Room> rooms = new();
     internal Vector2Int startRoomPosition = new();
+    private HashSet<Vector2Int> floorPositions = new();
 
     public void GenerateDungeon()
     {
         ClearDungeon();
         CreateRooms();
         SetPlayer();
-        AddWallsAroundFloors();
     }
 
     public void ClearDungeon()
     {
         rooms.Clear();
-        floorTilemap.ClearAllTiles();
-        wallTilemap.ClearAllTiles();
+        floorPositions.Clear();
+        tilemapVisualizer.Clear();
     }
 
     private void CreateRooms()
@@ -74,6 +71,9 @@ public class RoomManager : MonoBehaviour
                 i--;
             }
         }
+
+        tilemapVisualizer.PaintFloorTiles(floorPositions);
+        WallGenerator.CreateWalls(floorPositions, tilemapVisualizer);
     }
 
     private void CreateRoom(Vector2Int roomPosition)
@@ -95,24 +95,22 @@ public class RoomManager : MonoBehaviour
             for (int y = 0; y < roomHeight; y++)
             {
                 Vector2Int tilePos = new Vector2Int(x + roomPosition.x, y + roomPosition.y);
-                floorTilemap.SetTile(new Vector3Int(tilePos.x, tilePos.y, 0), floorTile);
+                floorPositions.Add(tilePos);
             }
         }
     }
 
     private void CreateRandomWalkRoom(Vector2Int startPosition)
     {
-        floorTilemap.SetTile(new Vector3Int(startPosition.x, startPosition.y, 0), floorTile);
-
+        floorPositions.Add(startPosition);
         Vector2Int currentPosition = startPosition;
 
         for (int i = 0; i < walkIterations; i++)
         {
             HashSet<Vector2Int> path = RandomWalk(currentPosition);
-
             foreach (var position in path)
             {
-                floorTilemap.SetTile(new Vector3Int(position.x, position.y, 0), floorTile);
+                floorPositions.Add(position);
             }
         }
     }
@@ -130,7 +128,7 @@ public class RoomManager : MonoBehaviour
             for (int w = 0; w < corridorWidth; w++)
             {
                 Vector2Int tilePos = new Vector2Int(x, start.y - corridorWidth / 2 + w);
-                floorTilemap.SetTile(new Vector3Int(tilePos.x, tilePos.y, 0), floorTile);
+                floorPositions.Add(tilePos);
             }
         }
 
@@ -142,45 +140,7 @@ public class RoomManager : MonoBehaviour
             for (int w = 0; w < corridorWidth; w++)
             {
                 Vector2Int tilePos = new Vector2Int(end.x - corridorWidth / 2 + w, y);
-                floorTilemap.SetTile(new Vector3Int(tilePos.x, tilePos.y, 0), floorTile);
-            }
-        }
-    }
-
-    private void AddWallsAroundFloors()
-    {
-        BoundsInt bounds = floorTilemap.cellBounds;
-
-        for (int x = bounds.xMin - 1; x <= bounds.xMax + 1; x++)
-        {
-            for (int y = bounds.yMin - 1; y <= bounds.yMax + 1; y++)
-            {
-                Vector3Int currentPos = new(x, y, 0);
-
-                if (floorTilemap.GetTile(currentPos) == null)
-                {
-                    bool hasAdjacentFloor = false;
-                    for (int dx = -1; dx <= 1; dx++)
-                    {
-                        for (int dy = -1; dy <= 1; dy++)
-                        {
-                            if (dx == 0 && dy == 0) continue;
-
-                            Vector3Int checkPos = currentPos + new Vector3Int(dx, dy, 0);
-                            if (floorTilemap.GetTile(checkPos) != null)
-                            {
-                                hasAdjacentFloor = true;
-                                break;
-                            }
-                        }
-                        if (hasAdjacentFloor) break;
-                    }
-
-                    if (hasAdjacentFloor)
-                    {
-                        wallTilemap.SetTile(currentPos, wallTile);
-                    }
-                }
+                floorPositions.Add(tilePos);
             }
         }
     }
@@ -193,16 +153,12 @@ public class RoomManager : MonoBehaviour
         int radius = 2;
         Vector2Int playerPosition = new Vector2Int((int)player.position.x, (int)player.position.y);
 
-        DrawFloorTilesInRadius(playerPosition, radius);
-    }
-
-    public void DrawFloorTilesInRadius(Vector2Int position, int radius)
-    {
-        for (int x = position.x - radius; x <= position.x + radius; x++)
+        for (int x = playerPosition.x - radius; x <= playerPosition.x + radius; x++)
         {
-            for (int y = position.y - radius; y <= position.y + radius; y++)
+            for (int y = playerPosition.y - radius; y <= playerPosition.y + radius; y++)
             {
-                floorTilemap.SetTile(new Vector3Int(x, y, 0), floorTile);
+                Vector2Int tilePos = new Vector2Int(x, y);
+                floorPositions.Add(tilePos);
             }
         }
     }

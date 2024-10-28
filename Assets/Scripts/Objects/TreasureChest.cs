@@ -35,25 +35,30 @@ public class TreasureChest : Interactable
 
     public void OpenChest()
     {
+        isOpen = true;
+        Debug.Log("Opening Chest"); 
         dialogBox.SetActive(true);
         diablogText.text = contents.itemDescription;
+
         playerInventory.AddItem(contents);
         playerInventory.currentItem = contents;
+
         raiseItem.Raise();               
-        isOpen = true;
+        
         context.Raise();
         anim.SetBool("opened", true);
-        isOpen = true;
+        
     }
 
     public void ChestIsOpen()
     {
-        if (!isOpen)
-        { 
+       
+            
+            Debug.Log("Chest is already open");
             dialogBox.SetActive(false);
             raiseItem.Raise();
-            playerInRange = false;
-        }
+            playerInRange = false;                 
+        
     }
 
     private void OnTriggerEnter2D(Collider2D other)

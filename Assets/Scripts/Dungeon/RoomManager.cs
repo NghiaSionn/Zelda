@@ -32,9 +32,9 @@ public class RoomManager : MonoBehaviour
 
     internal List<Room> rooms = new();
     internal Vector2Int startRoomPosition = new();
-    private HashSet<Vector2Int> floorPositions = new();
+    internal HashSet<Vector2Int> floorPositions = new();
 
-    public void GenerateDungeon()
+    public void GenerateRooms()
     {
         ClearDungeon();
         CreateRooms();

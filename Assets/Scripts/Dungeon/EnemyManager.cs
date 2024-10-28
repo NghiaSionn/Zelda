@@ -16,7 +16,7 @@ public class EnemyManager : MonoBehaviour
     public int minEnemyCountInRoom = 1;
     public int maxEnemyCountInRoom = 5;
     public int maxEnemyCountInDungeon = 5;
-    [Range(0, 100)]public int chanceCreateEnemies = 20;
+    [Range(0, 100)] public int chanceCreateEnemies = 20;
     private int totalEnemyCount = 0;
 
     public void GenerateEnemies()
@@ -34,35 +34,30 @@ public class EnemyManager : MonoBehaviour
     }
 
     private void CreateEnemies()
-{
-    var rooms = roomManager.rooms;
-    var startRoomPosition = roomManager.startRoomPosition;
-    int bossRoomIndex = rooms.Count - 1;
-
-    for (int roomIndex = bossRoomIndex; roomIndex >= 0; roomIndex--)
     {
-        var room = rooms[roomIndex];
-        int enemyCount = Mathf.Clamp(Random.Range(minEnemyCountInRoom, maxEnemyCountInRoom + roomIndex), minEnemyCountInRoom, maxEnemyCountInRoom + roomIndex);
+        var rooms = roomManager.rooms;
+        var startRoomPosition = roomManager.startRoomPosition;
+        int bossRoomIndex = rooms.Count - 1;
 
-        if (Random.Range(0, 100) > chanceCreateEnemies) continue;
-        if (room.position == startRoomPosition || room.position == bossRoom.position) continue;
-
-        for (int i = 0; i < enemyCount; i++)
+        for (int roomIndex = bossRoomIndex; roomIndex >= 0; roomIndex--)
         {
-            if (totalEnemyCount < maxEnemyCountInDungeon)
+            var room = rooms[roomIndex];
+            int enemyCount = Mathf.Clamp(Random.Range(minEnemyCountInRoom, maxEnemyCountInRoom + roomIndex), minEnemyCountInRoom, maxEnemyCountInRoom + roomIndex);
+
+            if (Random.Range(0, 100) > chanceCreateEnemies) continue;
+            if (room.position == startRoomPosition || room.position == bossRoom.position) continue;
+
+            for (int i = 0; i < enemyCount; i++)
             {
-                Vector3 spawnPosition = new Vector3(room.position.x + Random.Range(0.5f, room.width - 0.5f),
-                                                    room.position.y + Random.Range(0.5f, room.height - 0.5f), 0);
-                GameObject enemyPrefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Count)];
-                Instantiate(enemyPrefab, spawnPosition, Quaternion.identity, this.transform);
-                totalEnemyCount++;
+                if (totalEnemyCount < maxEnemyCountInDungeon)
+                {
+                    Vector3 spawnPosition = new Vector3(room.position.x + Random.Range(0.5f, room.width - 0.5f),
+                                                        room.position.y + Random.Range(0.5f, room.height - 0.5f), 0);
+                    GameObject enemyPrefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Count)];
+                    Instantiate(enemyPrefab, spawnPosition, Quaternion.identity, this.transform);
+                    totalEnemyCount++;
+                }
             }
         }
-    }
-}
-
-    private int CalculateDistance(Vector2Int start, Vector2Int roomPosition)
-    {
-        return Mathf.Abs(start.x - roomPosition.x) + Mathf.Abs(start.y - roomPosition.y);
     }
 }

@@ -1,18 +1,19 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Audio;
 
 public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance;
-
 
     [SerializeField]
     private SoundLibrary sfxLibrary;
     [SerializeField]
     private AudioSource sfx2DSource;
 
+    [SerializeField]
+    private AudioMixerGroup sfxMixerGroup; // Nhóm Audio Mixer cho SFX
 
     private void Awake()
     {
@@ -25,14 +26,27 @@ public class SoundManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
-    }
 
+        // Gán nhóm Audio Mixer vào sfx2DSource
+        sfx2DSource.outputAudioMixerGroup = sfxMixerGroup;
+    }
 
     public void PlaySound3D(AudioClip clip, Vector3 pos)
     {
         if (clip != null)
         {
-            AudioSource.PlayClipAtPoint(clip, pos);
+            // Tạo một đối tượng tạm thời để phát âm thanh
+            GameObject tempAudioSourceObject = new GameObject("TempAudioSource");
+            tempAudioSourceObject.transform.position = pos;
+
+            // Thêm AudioSource vào đối tượng tạm thời
+            AudioSource tempAudioSource = tempAudioSourceObject.AddComponent<AudioSource>();
+            tempAudioSource.clip = clip;
+            tempAudioSource.outputAudioMixerGroup = sfxMixerGroup; // Gán Audio Mixer Group cho SFX
+            tempAudioSource.Play();
+
+            // Hủy đối tượng khi âm thanh phát xong
+            Destroy(tempAudioSourceObject, clip.length);
         }
     }
 
@@ -41,7 +55,6 @@ public class SoundManager : MonoBehaviour
     {
         PlaySound3D(sfxLibrary.GetClipFromName(soundName), pos);
     }
-
 
     public void PlaySound2D(string soundName)
     {
@@ -53,7 +66,6 @@ public class SoundManager : MonoBehaviour
             sfx2DSource.Play();
         }
     }
-
 
     public void StopSound2D(string soundName)
     {

@@ -83,10 +83,11 @@ public class CaveLevelManager : MonoBehaviour
     private void GenerateLevel(int level)
     {
         Debug.Log("Current: " + level);
-        if (!caveMapDicts.ContainsKey(level) && !oreDataDicts.ContainsKey(level) && !stairPositionDicts.ContainsKey(level))
+        if (!caveMapDicts.ContainsKey(level) && !oreDataDicts.ContainsKey(level)
+            && !stairPositionDicts.ContainsKey(level) && !enemyDicts.ContainsKey(level))
         {
             caveManager.GenerateMap();
-            oreManager.GenerateOres(level, false);
+            oreManager.GenerateOres(level);
             caveEnemyManager.GenerateEnemies(level);
 
             caveMapDicts[level] = caveManager.GetMap();

@@ -122,7 +122,7 @@ public class CaveManager : MonoBehaviour
         {
             for (int y = 0; y < height; y++)
             {
-                floorsTilemap.SetTile(new Vector3Int(x, y, 0), floorTile);
+                if(!(x == 0 || x == width - 1 || y == 0 || y == height - 1)) floorsTilemap.SetTile(new Vector3Int(x, y, 0), floorTile);
 
                 if (caveMap[x, y] == 1)
                 {
@@ -286,7 +286,7 @@ public class CaveManager : MonoBehaviour
     => x >= 0 && x < width && y >= 0 && y < height;
 
     private bool IsMapBorder(int x, int y)
-    => x == 0 || x == width - 1 || y == 0 || y == height - 1 
+    => x == 0 || x == width - 1 || y == 0 || y == height - 1
     || x == 1 || x == width - 2 || y == 1 || y == height - 2;
 
     internal int[,] GetMap() => caveMap;

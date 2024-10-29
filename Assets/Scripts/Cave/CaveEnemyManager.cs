@@ -77,12 +77,11 @@ public class CaveEnemyManager : MonoBehaviour
     internal void LoadEnemies(Dictionary<Vector2, GameObject> savedEnemies)
     {
         ClearEnemies();
+        enemyDicts = new(savedEnemies);
+
         foreach (var enemy in savedEnemies)
         {
-            Vector2 position = enemy.Key;
-            // GameObject prefab = enemy.Value;
-            GameObject newEnemy = Instantiate(enemyPrefab, position, Quaternion.identity, transform);
-            enemyDicts[position] = newEnemy;
+            Instantiate(enemyPrefab, enemy.Key, Quaternion.identity, transform);
         }
     }
 }

@@ -15,62 +15,50 @@ public class OreManager : MonoBehaviour
 
     [SerializeField] private CaveManager caveManager;
 
-    internal void GenerateOre(int currentLevel, bool isGenerateResources)
+    internal void GenerateOres(int currentLevel)
     {
         ClearOre();
 
         int[,] caveMap = caveManager.GetMap();
 
-        if (!isGenerateResources)
+        oreDicts.Clear();
+
+        while (oreDicts.Count < maxOresCount)
         {
-            oreDicts.Clear();
+            int x = Random.Range(1, caveMap.GetLength(0));
+            int y = Random.Range(1, caveMap.GetLength(1));
 
-            while (oreDicts.Count < maxOresCount)
+            if (caveMap[x, y] == 0 && caveMap[x, y] != 3)
             {
-                int x = Random.Range(1, caveMap.GetLength(0));
-                int y = Random.Range(1, caveMap.GetLength(1));
+                Vector3 newPos = new Vector3(x + 0.5f, y + 0.5f, 0);
 
-                if (caveMap[x, y] == 0 && caveMap[x, y] != 3)
+                if (!IsOreTooClose(newPos))
                 {
-                    Vector3 newPos = new Vector3(x + 0.5f, y + 0.5f, 0);
+                    int chance = Random.Range(0, 100);
+                    int cumulativeChance = 0;
 
-                    if (!IsOreTooClose(newPos))
+                    for (int i = 0; i < oreData.Count; i++)
                     {
-                        int chance = Random.Range(0, 100);
-                        int cumulativeChance = 0;
-
-                        for (int i = 0; i < oreData.Count; i++)
+                        if (oreData[i].IsLevelAllow(currentLevel))
                         {
-                            if (oreData[i].IsLevelAllow(currentLevel))
-                            {
-                                cumulativeChance += oreData[i].oreChance;
+                            cumulativeChance += oreData[i].oreChance;
 
-                                if (chance < cumulativeChance)
-                                {
-                                    var resource = Instantiate(oreData[i].orePrefab, newPos, Quaternion.identity, this.transform);
-                                    oreDicts[resource.transform.position] = oreData[i];
-                                    break;
-                                }
+                            if (chance < cumulativeChance)
+                            {
+                                var resource = Instantiate(oreData[i].orePrefab, newPos, Quaternion.identity, this.transform);
+                                oreDicts[resource.transform.position] = oreData[i];
+                                break;
                             }
                         }
                     }
                 }
             }
-
-            if (oreDicts.Count > 0)
-            {
-                var randomOrePosition = oreDicts.Keys.ElementAt(Random.Range(0, oreDicts.Count));
-                caveManager.SetStairDown(randomOrePosition);
-            }
         }
-        else
-        {
-            foreach (var positionResource in oreDicts.Keys)
-            {
-                Instantiate(oreDicts[positionResource].orePrefab, positionResource, Quaternion.identity, this.transform);
-            }
 
-            oreDicts.Clear();
+        if (oreDicts.Count > 0)
+        {
+            var randomOrePosition = oreDicts.Keys.ElementAt(Random.Range(0, oreDicts.Count));
+            caveManager.SetStairDown(randomOrePosition);
         }
     }
 
@@ -98,7 +86,14 @@ public class OreManager : MonoBehaviour
 
     internal void LoadOres(Dictionary<Vector2, OreData> savedOres)
     {
+        ClearOre();
         oreDicts = new(savedOres);
-        GenerateOre(0, true); //any level
+
+        foreach (var positionResource in oreDicts.Keys)
+        {
+            Instantiate(oreDicts[positionResource].orePrefab, positionResource, Quaternion.identity, this.transform);
+        }
+
+        oreDicts.Clear();
     }
 }

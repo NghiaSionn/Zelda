@@ -1,18 +1,26 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class WorldTime : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public event EventHandler<TimeSpan> WorldTimeChange;
+
+    [SerializeField] 
+    private float _dayLength;
+    private TimeSpan _currentTime;
+    private float _minuteLenght => _dayLength / WorldTimeConstants.minuteInDays;
+
     void Start()
     {
-        
+        StartCoroutine(AddMinute());
     }
-
-    // Update is called once per frame
-    void Update()
+    private IEnumerator AddMinute()
     {
-        
+        _currentTime += TimeSpan.FromMinutes(1);
+        WorldTimeChange?.Invoke(this, _currentTime);
+        yield return new WaitForSeconds(_minuteLenght);
+        StartCoroutine(AddMinute());
     }
 }

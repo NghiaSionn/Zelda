@@ -47,6 +47,8 @@ public class TreasureChest : Interactable
         
         context.Raise();
         anim.SetBool("opened", true);
+
+        SoundManager.Instance.PlaySound3D("openchest", transform.position);
         
     }
 

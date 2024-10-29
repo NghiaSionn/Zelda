@@ -93,6 +93,7 @@ public class PlayerMovement : MonoBehaviour
             if (currentState != PlayerState.interact)
             {
                 animator.SetBool("receiveitem", true);
+                SoundManager.Instance.PlaySound2D("pickitem");
                 currentState = PlayerState.interact;
                 receivedItemSprite.sprite = playerInventory.currentItem.itemSprite;
             }

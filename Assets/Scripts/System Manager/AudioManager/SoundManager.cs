@@ -13,7 +13,7 @@ public class SoundManager : MonoBehaviour
     private AudioSource sfx2DSource;
 
     [SerializeField]
-    private AudioMixerGroup sfxMixerGroup; // Nhóm Audio Mixer cho SFX
+    private AudioMixerGroup sfxMixerGroup; 
 
     private void Awake()
     {
@@ -27,7 +27,7 @@ public class SoundManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
 
-        // Gán nhóm Audio Mixer vào sfx2DSource
+        
         sfx2DSource.outputAudioMixerGroup = sfxMixerGroup;
     }
 

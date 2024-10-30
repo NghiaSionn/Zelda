@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
@@ -36,16 +38,19 @@ public class EnemyManager : MonoBehaviour
     private void CreateEnemies()
     {
         var rooms = roomManager.rooms;
-        var startRoomPosition = roomManager.startRoomPosition;
         int bossRoomIndex = rooms.Count - 1;
 
         for (int roomIndex = bossRoomIndex; roomIndex >= 0; roomIndex--)
         {
+            int enemyCount = Random.Range(minEnemyCountInRoom, maxEnemyCountInRoom);
             var room = rooms[roomIndex];
-            int enemyCount = Mathf.Clamp(Random.Range(minEnemyCountInRoom, maxEnemyCountInRoom + roomIndex), minEnemyCountInRoom, maxEnemyCountInRoom + roomIndex);
+            var roomFloorPositions = roomManager.floorPositions
+                                     .Where(pos => pos.x >= room.position.x && pos.x < room.position.x + room.width
+                                            && pos.y >= room.position.y && pos.y < room.position.y + room.height)
+                                     .ToList();
 
             if (Random.Range(0, 100) > chanceCreateEnemies) continue;
-            if (room.position == startRoomPosition || room.position == bossRoom.position) continue;
+            if (room.position == roomManager.startRoomPosition || room.position == bossRoom.position) continue;
 
             for (int i = 0; i < enemyCount; i++)
             {
@@ -54,7 +59,9 @@ public class EnemyManager : MonoBehaviour
                     Vector3 spawnPosition = new Vector3(room.position.x + Random.Range(0.5f, room.width - 0.5f),
                                                         room.position.y + Random.Range(0.5f, room.height - 0.5f), 0);
                     GameObject enemyPrefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Count)];
-                    Instantiate(enemyPrefab, spawnPosition, Quaternion.identity, this.transform);
+                    GameObject enemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity, this.transform);
+                    
+                    enemy.GetComponent<EnemyAI>().InitializeWanderSpots(roomFloorPositions);
                     totalEnemyCount++;
                 }
             }

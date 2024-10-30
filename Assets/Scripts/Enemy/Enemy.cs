@@ -8,14 +8,15 @@ public enum EnemyState
     idle,
     walk,
     attack,
-    stagger
+    stagger,
+    wander
 }
 
 
 public class Enemy : MonoBehaviour
 {
     [Header("Enemy")]
-    public EnemyState currentState;
+    public EnemyState currentState = EnemyState.idle;
     public FloatValue maxHealth;
     public float health;
     public string enemyName;

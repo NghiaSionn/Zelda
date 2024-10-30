@@ -11,7 +11,7 @@ public class DoorManager : MonoBehaviour
     public GameObject bossDoorHorizontalPrefab;
     public GameObject bossDoorVerticalPrefab;
 
-    private Dictionary<Vector2Int, List<GameObject>> roomDoors = new Dictionary<Vector2Int, List<GameObject>>();
+    private Dictionary<Vector2Int, List<GameObject>> roomDoors = new();
 
     public void GenerateDoors()
     {
@@ -34,7 +34,7 @@ public class DoorManager : MonoBehaviour
 
     private void CreateDoorsForAllRooms()
     {
-        for (int i = 0; i < roomManager.rooms.Count; i++)
+        for (int i = 1; i < roomManager.rooms.Count; i++)
         {
             Room currentRoom = roomManager.rooms[i];
             bool isBossRoom = i == roomManager.rooms.Count - 1;

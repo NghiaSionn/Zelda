@@ -2,81 +2,127 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class EnemyAI : Enemy
 {
     private Rigidbody2D rb;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
-    private Transform target;
+    private Transform player;
+    private Vector2 movespotPosition;
+    private List<Vector2Int> wanderspotPositions;
+    private Vector2 direction;
     private float moveX, moveY;
-    private bool isMoving;
-    private Vector3 startPosition;
-    private bool hasLineOfSight = false;
+    private float waitTime;
+
+
+    [Header("AI settings")]
     public float followRange = 5f;
+    public float shootRange = 3f;
+    public float attackRange = 3f;
+    public bool canWander = true;
+    public int wanderRange = 2;
+    public float startWaitTime = 5f;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        startPosition = transform.position;
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        waitTime = startWaitTime;
     }
 
     void Update()
     {
-        CheckDistance();
+        CheckState();
 
+        switch (currentState)
+        {
+            case EnemyState.walk:
+                Walk();
+                break;
+            case EnemyState.wander:
+                if (canWander) Wander();
+                break;
+        }
+
+        UpdateAnimation();
+    }
+
+    private bool CheckRaycast()
+    {
+        int layerMask = ~(1 << LayerMask.NameToLayer("Enemy"));
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, player.position - transform.position, Mathf.Infinity, layerMask);
+        var hasLineOfSight = hit.collider != null && hit.collider.CompareTag("Player");
+
+        Debug.DrawRay(transform.position, player.position - transform.position.normalized,
+                      hasLineOfSight ? Color.green : Color.red);
+
+        return hasLineOfSight;
+    }
+
+    private void CheckState()
+    {
+        var distanceToPlayer = Vector2.Distance(transform.position, player.position);
+
+        if (distanceToPlayer <= followRange && CheckRaycast())
+        {
+            direction = (player.position - transform.position).normalized;
+            currentState = EnemyState.walk;
+        }
+        else if (currentState != EnemyState.wander)
+        {
+            direction = (movespotPosition - (Vector2)transform.position).normalized;
+            currentState = EnemyState.wander;
+        }
+    }
+
+    public void InitializeWanderSpots(List<Vector2Int> floorPositions)
+    {
+        wanderspotPositions = floorPositions;
+        movespotPosition = wanderspotPositions[Random.Range(0, wanderspotPositions.Count)];
+    }
+
+    private void Walk()
+    {
+        moveX = direction.x;
+        moveY = direction.y;
+
+        rb.MovePosition(rb.position + direction * moveSpeed * Time.fixedDeltaTime);
+    }
+
+    private void Wander()
+    {
+        moveX = direction.x;
+        moveY = direction.y;
+
+        rb.MovePosition(rb.position + direction * moveSpeed * Time.fixedDeltaTime);
+
+        if (Vector2.Distance(transform.position, movespotPosition) < 0.2f)
+        {
+            if (waitTime <= 0)
+            {
+                movespotPosition = wanderspotPositions[Random.Range(0, wanderspotPositions.Count)];
+                direction = (movespotPosition - (Vector2)transform.position).normalized;
+                waitTime = startWaitTime;
+            }
+            else
+            {
+                direction = Vector2.zero;
+                waitTime -= Time.fixedDeltaTime;
+            }
+        }
+    }
+
+    private void UpdateAnimation()
+    {
         spriteRenderer.flipX = moveX < 0;
 
         animator.SetFloat("posX", Mathf.Abs(moveX));
         animator.SetFloat("posY", moveY);
-        animator.SetBool("isMoving", isMoving);
-    }
-
-    private void CheckDistance()
-    {
-        CheckRaycast();
-        var distanceToPlayer = Vector2.Distance(transform.position, target.position);
-        var distanceToStart = Vector2.Distance(transform.position, startPosition);
-        Vector2 direction;
-
-        if (distanceToPlayer <= followRange && hasLineOfSight)
-        {
-            direction = (target.position - transform.position).normalized;
-            isMoving = true;
-        }
-        else
-        {
-            direction = (startPosition - transform.position).normalized;
-            isMoving = distanceToStart > 0.1f;
-        }
-
-        moveX = direction.x;
-        moveY = direction.y;
-    }
-
-    private void CheckRaycast()
-    {
-        int layerMask = ~(1 << LayerMask.NameToLayer("Enemy"));
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, target.position - transform.position, Mathf.Infinity, layerMask);
-
-        if (hit.collider != null)
-        {
-            hasLineOfSight = hit.collider.CompareTag("Player");
-            Debug.DrawRay(transform.position, target.position - transform.position.normalized,
-                          hasLineOfSight ? Color.green : Color.red);
-        }
-    }
-
-    void FixedUpdate()
-    {
-        if (isMoving)
-        {
-            Vector2 direction = new Vector2(moveX, moveY).normalized;
-            rb.MovePosition(rb.position + direction * moveSpeed * Time.fixedDeltaTime);
-        }
+        animator.SetBool("isWalking", currentState == EnemyState.walk);
     }
 
     private void OnDrawGizmos()

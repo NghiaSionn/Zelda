@@ -13,8 +13,8 @@ public class EnemyAI : Enemy
     private Vector2 movespotPosition;
     private List<Vector2Int> wanderspotPositions;
     private Vector2 direction;
-    private float moveX, moveY;
-    private float waitTime;
+    private Vector2 startingPosition;
+    private float waitTimer;
 
 
     [Header("AI settings")]
@@ -23,15 +23,16 @@ public class EnemyAI : Enemy
     public float attackRange = 3f;
     public bool canWander = true;
     public int wanderRange = 2;
-    public float startWaitTime = 5f;
+    public float waitTime = 5f;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        waitTime = startWaitTime;
+        player = GameObject.FindGameObjectWithTag("Player")?.GetComponent<Transform>();
+        startingPosition = transform.position;
+        waitTimer = waitTime;
     }
 
     void Update()
@@ -40,6 +41,9 @@ public class EnemyAI : Enemy
 
         switch (currentState)
         {
+            case EnemyState.idle:
+                direction = Vector2.zero;
+                break;
             case EnemyState.walk:
                 Walk();
                 break;
@@ -57,7 +61,7 @@ public class EnemyAI : Enemy
         RaycastHit2D hit = Physics2D.Raycast(transform.position, player.position - transform.position, Mathf.Infinity, layerMask);
         var hasLineOfSight = hit.collider != null && hit.collider.CompareTag("Player");
 
-        Debug.DrawRay(transform.position, player.position - transform.position.normalized,
+        Debug.DrawRay(transform.position, (player.position - transform.position).normalized * followRange,
                       hasLineOfSight ? Color.green : Color.red);
 
         return hasLineOfSight;
@@ -66,16 +70,43 @@ public class EnemyAI : Enemy
     private void CheckState()
     {
         var distanceToPlayer = Vector2.Distance(transform.position, player.position);
+        var distanceToStart = Vector2.Distance(transform.position, startingPosition);
 
         if (distanceToPlayer <= followRange && CheckRaycast())
         {
             direction = (player.position - transform.position).normalized;
             currentState = EnemyState.walk;
+            waitTimer = waitTime;
         }
-        else if (currentState != EnemyState.wander)
+        else if (canWander)
         {
-            direction = (movespotPosition - (Vector2)transform.position).normalized;
-            currentState = EnemyState.wander;
+            if (currentState != EnemyState.wander)
+            {
+                movespotPosition = wanderspotPositions[Random.Range(0, wanderspotPositions.Count)];
+                direction = (movespotPosition - (Vector2)transform.position).normalized;
+                currentState = EnemyState.wander;
+                waitTimer = waitTime;
+            }
+        }
+        else
+        {
+            if (waitTimer <= 0)
+            {
+                if (distanceToStart < 0.2f)
+                {
+                    currentState = EnemyState.idle;
+                }
+                else
+                {
+                    direction = (startingPosition - (Vector2)transform.position).normalized;
+                    currentState = EnemyState.walk;
+                }
+            }
+            else
+            {
+                direction = Vector2.zero;
+                waitTimer -= Time.fixedDeltaTime;
+            }
         }
     }
 
@@ -87,42 +118,36 @@ public class EnemyAI : Enemy
 
     private void Walk()
     {
-        moveX = direction.x;
-        moveY = direction.y;
-
         rb.MovePosition(rb.position + direction * moveSpeed * Time.fixedDeltaTime);
     }
 
     private void Wander()
     {
-        moveX = direction.x;
-        moveY = direction.y;
-
         rb.MovePosition(rb.position + direction * moveSpeed * Time.fixedDeltaTime);
 
         if (Vector2.Distance(transform.position, movespotPosition) < 0.2f)
         {
-            if (waitTime <= 0)
+            if (waitTimer <= 0)
             {
                 movespotPosition = wanderspotPositions[Random.Range(0, wanderspotPositions.Count)];
                 direction = (movespotPosition - (Vector2)transform.position).normalized;
-                waitTime = startWaitTime;
+                waitTimer = waitTime;
             }
             else
             {
                 direction = Vector2.zero;
-                waitTime -= Time.fixedDeltaTime;
+                waitTimer -= Time.fixedDeltaTime;
             }
         }
     }
 
     private void UpdateAnimation()
     {
-        spriteRenderer.flipX = moveX < 0;
+        spriteRenderer.flipX = direction.x < 0;
 
-        animator.SetFloat("posX", Mathf.Abs(moveX));
-        animator.SetFloat("posY", moveY);
-        animator.SetBool("isWalking", currentState == EnemyState.walk);
+        animator.SetFloat("posX", Mathf.Abs(direction.x));
+        animator.SetFloat("posY", direction.y);
+        animator.SetBool("isWalking", currentState != EnemyState.idle);
     }
 
     private void OnDrawGizmos()

@@ -60,7 +60,7 @@ public class EnemyManager : MonoBehaviour
                                                         room.position.y + Random.Range(0.5f, room.height - 0.5f), 0);
                     GameObject enemyPrefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Count)];
                     GameObject enemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity, this.transform);
-                    
+
                     enemy.GetComponent<EnemyAI>().InitializeWanderSpots(roomFloorPositions);
                     totalEnemyCount++;
                 }

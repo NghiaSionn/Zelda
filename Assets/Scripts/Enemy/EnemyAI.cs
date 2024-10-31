@@ -1,8 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using Random = UnityEngine.Random;
+using System.Collections.Generic;
 
 public class EnemyAI : Enemy
 {
@@ -10,20 +7,19 @@ public class EnemyAI : Enemy
     private Animator animator;
     private SpriteRenderer spriteRenderer;
     private Transform player;
+
     private Vector2 movespotPosition;
     private List<Vector2Int> wanderspotPositions;
     private Vector2 direction;
     private Vector2 startingPosition;
     private float waitTimer;
 
-
-    [Header("AI settings")]
-    public float followRange = 5f;
-    public float shootRange = 3f;
-    public float attackRange = 3f;
-    public bool canWander = true;
-    public int wanderRange = 2;
-    public float waitTime = 5f;
+    [Header("AI Settings")]
+    [SerializeField] private float followRange = 5f;
+    [SerializeField] private float shootRange = 3f;
+    [SerializeField] private float attackRange = 3f;
+    [SerializeField] private bool canWander = true;
+    [SerializeField] private float waitTime = 5f;
 
     void Start()
     {
@@ -35,113 +31,117 @@ public class EnemyAI : Enemy
         waitTimer = waitTime;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         CheckState();
-
-        switch (currentState)
-        {
-            case EnemyState.idle:
-                direction = Vector2.zero;
-                break;
-            case EnemyState.walk:
-                Walk();
-                break;
-            case EnemyState.wander:
-                if (canWander) Wander();
-                break;
-        }
-
-        UpdateAnimation();
+        FixedUpdateMovement();
+        FixedUpdateAnimation();
     }
 
-    private bool CheckRaycast()
+    private void CheckState()
+    {
+        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+        float distanceToStart = Vector2.Distance(transform.position, startingPosition);
+
+        if (distanceToPlayer <= followRange && CheckLineOfSight())
+        {
+            SetFollowState();
+        }
+        else if (canWander)
+        {
+            SetWanderState();
+        }
+        else
+        {
+            SetReturnState(distanceToStart);
+        }
+    }
+
+    private bool CheckLineOfSight()
     {
         int layerMask = ~(1 << LayerMask.NameToLayer("Enemy"));
         RaycastHit2D hit = Physics2D.Raycast(transform.position, player.position - transform.position, Mathf.Infinity, layerMask);
-        var hasLineOfSight = hit.collider != null && hit.collider.CompareTag("Player");
+        bool hasLineOfSight = hit.collider != null && hit.collider.CompareTag("Player");
 
-        Debug.DrawRay(transform.position, (player.position - transform.position).normalized * followRange,
+        Debug.DrawRay(transform.position, (player.position - transform.position).normalized * followRange * followRange,
                       hasLineOfSight ? Color.green : Color.red);
 
         return hasLineOfSight;
     }
 
-    private void CheckState()
+    private void SetFollowState()
     {
-        var distanceToPlayer = Vector2.Distance(transform.position, player.position);
-        var distanceToStart = Vector2.Distance(transform.position, startingPosition);
+        direction = (player.position - transform.position).normalized;
+        currentState = EnemyState.walk;
+        waitTimer = waitTime;
+    }
 
-        if (distanceToPlayer <= followRange && CheckRaycast())
+    private void SetWanderState()
+    {
+        if (currentState == EnemyState.idle)
         {
-            direction = (player.position - transform.position).normalized;
-            currentState = EnemyState.walk;
+            if (waitTimer <= 0)
+            {
+                SelectNewWanderSpot();
+            }
+            else
+            {
+                direction = Vector2.zero;
+                waitTimer -= Time.fixedDeltaTime;
+            }
+            return;
+        }
+
+        if (Vector2.Distance(transform.position, movespotPosition) < 0.2f)
+        {
+            direction = Vector2.zero;
+            currentState = EnemyState.idle;
             waitTimer = waitTime;
         }
-        else if (canWander)
+        else if (currentState != EnemyState.wander)
         {
-            if (currentState != EnemyState.wander)
+            SelectNewWanderSpot();
+        }
+    }
+
+    private void SelectNewWanderSpot()
+    {
+        movespotPosition = wanderspotPositions[Random.Range(0, wanderspotPositions.Count)];
+        direction = (movespotPosition - (Vector2)transform.position).normalized;
+        currentState = EnemyState.wander;
+        waitTimer = waitTime;
+    }
+
+    private void SetReturnState(float distanceToStart)
+    {
+        if (waitTimer <= 0)
+        {
+            if (distanceToStart < 0.2f)
             {
-                movespotPosition = wanderspotPositions[Random.Range(0, wanderspotPositions.Count)];
-                direction = (movespotPosition - (Vector2)transform.position).normalized;
-                currentState = EnemyState.wander;
-                waitTimer = waitTime;
+                direction = Vector2.zero;
+                currentState = EnemyState.idle;
+            }
+            else
+            {
+                direction = (startingPosition - (Vector2)transform.position).normalized;
+                currentState = EnemyState.walk;
             }
         }
         else
         {
-            if (waitTimer <= 0)
-            {
-                if (distanceToStart < 0.2f)
-                {
-                    currentState = EnemyState.idle;
-                }
-                else
-                {
-                    direction = (startingPosition - (Vector2)transform.position).normalized;
-                    currentState = EnemyState.walk;
-                }
-            }
-            else
-            {
-                direction = Vector2.zero;
-                waitTimer -= Time.fixedDeltaTime;
-            }
+            direction = Vector2.zero;
+            waitTimer -= Time.fixedDeltaTime;
         }
     }
 
-    public void InitializeWanderSpots(List<Vector2Int> floorPositions)
+    private void FixedUpdateMovement()
     {
-        wanderspotPositions = floorPositions;
-        movespotPosition = wanderspotPositions[Random.Range(0, wanderspotPositions.Count)];
-    }
+        if (currentState == EnemyState.idle) return;
 
-    private void Walk()
-    {
         rb.MovePosition(rb.position + direction * moveSpeed * Time.fixedDeltaTime);
     }
 
-    private void Wander()
-    {
-        rb.MovePosition(rb.position + direction * moveSpeed * Time.fixedDeltaTime);
-
-        if (Vector2.Distance(transform.position, movespotPosition) < 0.2f)
-        {
-            if (waitTimer <= 0)
-            {
-                movespotPosition = wanderspotPositions[Random.Range(0, wanderspotPositions.Count)];
-                direction = (movespotPosition - (Vector2)transform.position).normalized;
-                waitTimer = waitTime;
-            }
-            else
-            {
-                direction = Vector2.zero;
-                waitTimer -= Time.fixedDeltaTime;
-            }
-        }
-    }
-
-    private void UpdateAnimation()
+    private void FixedUpdateAnimation()
     {
         spriteRenderer.flipX = direction.x < 0;
 
@@ -150,9 +150,28 @@ public class EnemyAI : Enemy
         animator.SetBool("isWalking", currentState != EnemyState.idle);
     }
 
+    public void InitializeWanderSpots(List<Vector2Int> positions)
+    {
+        wanderspotPositions = positions;
+    }
+
+    private void OnCollisionStay2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Wall"))
+        {
+            movespotPosition = transform.position;
+        }
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.white;
         Gizmos.DrawWireSphere(transform.position, followRange);
+
+        if (currentState == EnemyState.wander)
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireSphere(movespotPosition, 0.2f);
+        }
     }
 }

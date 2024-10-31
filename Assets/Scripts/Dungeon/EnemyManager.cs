@@ -56,8 +56,8 @@ public class EnemyManager : MonoBehaviour
             {
                 if (totalEnemyCount < maxEnemyCountInDungeon)
                 {
-                    Vector3 spawnPosition = new Vector3(room.position.x + Random.Range(0.5f, room.width - 0.5f),
-                                                        room.position.y + Random.Range(0.5f, room.height - 0.5f), 0);
+                    Vector2 randomFloorPosition = roomFloorPositions[Random.Range(0, roomFloorPositions.Count)];
+                    Vector3 spawnPosition = new Vector3(randomFloorPosition.x + 0.5f, randomFloorPosition.y + 0.5f, 0);
                     GameObject enemyPrefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Count)];
                     GameObject enemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity, this.transform);
 

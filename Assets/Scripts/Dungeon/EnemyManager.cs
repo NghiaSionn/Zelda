@@ -10,7 +10,6 @@ public class EnemyManager : MonoBehaviour
 
     [Header("Boss settings")]
     public GameObject bossPrefab;
-    private Room bossRoom;
 
 
     [Header("Enemy Spawning")]
@@ -23,48 +22,63 @@ public class EnemyManager : MonoBehaviour
 
     public void GenerateEnemies()
     {
-        CreateBoss();
-        CreateEnemies();
+        foreach (Room room in roomManager.rooms)
+        {
+            DetermineRoomEnemies(room);
+        }
+    }
+
+    private void DetermineRoomEnemies(Room room)
+    {
+        switch (room.type)
+        {
+            case RoomType.Treasure:
+                room.SetEnemyCount(0);
+                break;
+
+            case RoomType.Boss:
+                CreateBoss();
+                room.SetEnemyCount(1);
+                break;
+
+            case RoomType.Normal:
+                if (Random.Range(0, 100) < chanceCreateEnemies)
+                {
+                    int enemyCount = Random.Range(minEnemyCountInRoom, maxEnemyCountInRoom + 1);
+                    CreateEnemies(enemyCount, room);
+                    room.SetEnemyCount(enemyCount);
+                }
+                else
+                {
+                    room.SetEnemyCount(0);
+                }
+                break;
+        }
     }
 
     private void CreateBoss()
     {
-        bossRoom = roomManager.rooms[roomManager.rooms.Count - 1];
-        Vector3 bossSpawnPosition = new Vector3(bossRoom.position.x + roomManager.roomWidth / 2 + 0.5f,
-                                                 bossRoom.position.y + roomManager.roomHeight / 2 + 0.5f, 0);
-        Instantiate(bossPrefab, bossSpawnPosition, Quaternion.identity, this.transform);
+        var bossRoom = roomManager.rooms.Last();
+        Instantiate(bossPrefab, bossRoom.GetCenter(), Quaternion.identity, this.transform);
     }
 
-    private void CreateEnemies()
+    private void CreateEnemies(int enemyCount, Room room)
     {
-        var rooms = roomManager.rooms;
-        int bossRoomIndex = rooms.Count - 1;
+        var roomFloorPositions = room.GetFloor();
 
-        for (int roomIndex = bossRoomIndex; roomIndex >= 0; roomIndex--)
+        for (int i = 0; i < enemyCount; i++)
         {
-            int enemyCount = Random.Range(minEnemyCountInRoom, maxEnemyCountInRoom);
-            var room = rooms[roomIndex];
-            var roomFloorPositions = roomManager.floorPositions
-                                     .Where(pos => pos.x >= room.position.x && pos.x < room.position.x + room.width
-                                            && pos.y >= room.position.y && pos.y < room.position.y + room.height)
-                                     .ToList();
-
-            if (Random.Range(0, 100) > chanceCreateEnemies) continue;
-            if (room.position == roomManager.startRoomPosition || room.position == bossRoom.position) continue;
-
-            for (int i = 0; i < enemyCount; i++)
+            if (totalEnemyCount < maxEnemyCountInDungeon)
             {
-                if (totalEnemyCount < maxEnemyCountInDungeon)
-                {
-                    Vector2 randomFloorPosition = roomFloorPositions[Random.Range(0, roomFloorPositions.Count)];
-                    Vector3 spawnPosition = new Vector3(randomFloorPosition.x + 0.5f, randomFloorPosition.y + 0.5f, 0);
-                    GameObject enemyPrefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Count)];
-                    GameObject enemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity, this.transform);
+                Vector2 randomFloorPosition = roomFloorPositions[Random.Range(0, roomFloorPositions.Count)];
+                Vector3 spawnPosition = new Vector3(randomFloorPosition.x + 0.5f, randomFloorPosition.y + 0.5f, 0);
+                GameObject enemyPrefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Count)];
+                GameObject enemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity, this.transform);
 
-                    enemy.GetComponent<EnemyAI>().InitializeWanderSpots(roomFloorPositions);
-                    totalEnemyCount++;
-                }
+                enemy.GetComponent<EnemyAI>().InitializeWanderSpots(roomFloorPositions);
+                totalEnemyCount++;
             }
         }
+
     }
 }

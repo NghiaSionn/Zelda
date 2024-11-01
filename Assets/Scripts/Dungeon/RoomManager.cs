@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -8,21 +9,22 @@ public class RoomManager : MonoBehaviour
     public int roomWidth = 10;
     public int roomHeight = 10;
     public int numberOfRooms = 5;
-    public int spacingRoom = 2;
-    public int corridorWidth = 2;
+    public int corridorLength = 4;
+    public int corridorWidth = 1;
+
+    [Header("Room type chances")]
+    [Range(0, 100)] public int treasureRoomChance = 20;
 
 
-    [Header("Random Room Settings")]
-    public bool isRandomWalk = false;
-    public int walkLength = 100;
-    public int walkIterations = 10;
-
-
-    [Header("Other settings")]
+    [Header("References")]
     public Transform player;
     public VectorValue startingPosition;
     public TilemapVisualizer tilemapVisualizer;
 
+    internal List<Room> rooms = new();
+    internal Vector2Int startRoomPosition = Vector2Int.zero;
+    internal HashSet<Vector2Int> floorPositions = new();
+    private HashSet<Vector2Int> potentialDoorPositions = new();
     private Vector2Int[] directions = {
         Vector2Int.right,
         Vector2Int.left,
@@ -30,18 +32,17 @@ public class RoomManager : MonoBehaviour
         Vector2Int.down
     };
 
-    internal List<Room> rooms = new();
-    internal Vector2Int startRoomPosition = new();
-    internal HashSet<Vector2Int> floorPositions = new();
-
     public void GenerateRooms()
     {
-        ClearDungeon();
+        ClearRooms();
         CreateRooms();
+        tilemapVisualizer.PaintFloorTiles(floorPositions);
+        WallGenerator.CreateWalls(floorPositions, tilemapVisualizer);
+
         SetPlayer();
     }
 
-    public void ClearDungeon()
+    public void ClearRooms()
     {
         rooms.Clear();
         floorPositions.Clear();
@@ -50,45 +51,58 @@ public class RoomManager : MonoBehaviour
 
     private void CreateRooms()
     {
-        Vector2Int currentRoomPosition = startRoomPosition;
-        CreateRoom(currentRoomPosition);
-        rooms.Add(new Room(currentRoomPosition, roomWidth, roomHeight));
+        var startRoom = new Room(startRoomPosition, roomWidth, roomHeight, RoomType.Start);
+        rooms.Add(startRoom);
+        CreateRoom(startRoomPosition);
 
-        for (int i = 1; i < numberOfRooms; i++)
+        Queue<Room> roomQueue = new Queue<Room>();
+        roomQueue.Enqueue(rooms[0]);
+
+        int roomsCreated = 1;
+
+        while(roomQueue.Count > 0 && roomsCreated < numberOfRooms)
         {
-            Vector2Int direction = directions[Random.Range(0, directions.Length)];
-            Vector2Int newRoomPosition = currentRoomPosition + direction * new Vector2Int(roomWidth + spacingRoom, roomHeight + spacingRoom);
+            Room currentRoom = roomQueue.Dequeue();
 
-            if (!IsRoomOverlap(newRoomPosition))
+            for(int i = 0; i < directions.Length; i++)
             {
-                CreateRoom(newRoomPosition);
-                CreateCorridor(currentRoomPosition, newRoomPosition);
-                rooms.Add(new Room(newRoomPosition, roomWidth, roomHeight));
-                currentRoomPosition = newRoomPosition;
+                int randomIndex = Random.Range(i, directions.Length);
+                (directions[i], directions[randomIndex]) = (directions[randomIndex], directions[i]);
             }
-            else
+
+            foreach (Vector2Int direction in directions)
             {
-                i--;
+                if (!currentRoom.CanConnectInDirection(direction) || roomsCreated >= numberOfRooms)
+                    continue;
+
+                Vector2Int newRoomPosition = currentRoom.position + direction * (roomWidth + corridorLength);
+
+                if (IsRoomOverlap(newRoomPosition))
+                    continue;
+
+                RoomType newRoomType = DetermineRoomType(roomsCreated);
+
+                var newRoom = new Room(newRoomPosition, roomWidth, roomHeight, newRoomType);
+                rooms.Add(newRoom);
+                CreateRoom(newRoomPosition);
+
+                CreateCorridor(currentRoom.position, newRoomPosition, direction);
+
+                currentRoom.connectedDoors.Add(direction);
+                newRoom.connectedDoors.Add(-direction);
+                currentRoom.neighbors[direction] = newRoom;
+                newRoom.neighbors[-direction] = currentRoom;
+
+                roomQueue.Enqueue(newRoom);
+                roomsCreated++;
+
+                if (newRoomType == RoomType.Treasure)
+                    break;
             }
         }
-
-        tilemapVisualizer.PaintFloorTiles(floorPositions);
-        WallGenerator.CreateWalls(floorPositions, tilemapVisualizer);
     }
 
     private void CreateRoom(Vector2Int roomPosition)
-    {
-        if (isRandomWalk)
-        {
-            CreateRandomWalkRoom(roomPosition);
-        }
-        else
-        {
-            CreateRectangularRoom(roomPosition);
-        }
-    }
-
-    private void CreateRectangularRoom(Vector2Int roomPosition)
     {
         for (int x = 0; x < roomWidth; x++)
         {
@@ -100,96 +114,92 @@ public class RoomManager : MonoBehaviour
         }
     }
 
-    private void CreateRandomWalkRoom(Vector2Int startPosition)
+    private bool IsRoomOverlap(Vector2Int newRoomPosition)
     {
-        floorPositions.Add(startPosition);
-        Vector2Int currentPosition = startPosition;
-
-        for (int i = 0; i < walkIterations; i++)
+        foreach (var room in rooms)
         {
-            HashSet<Vector2Int> path = RandomWalk(currentPosition);
-            foreach (var position in path)
-            {
-                floorPositions.Add(position);
-            }
+            Rect existingRect = new Rect(
+                room.position.x - 1,
+                room.position.y - 1,
+                roomWidth + 2,
+                roomHeight + 2
+            );
+
+            Rect newRect = new Rect(
+                newRoomPosition.x - 1,
+                newRoomPosition.y - 1,
+                roomWidth + 2,
+                roomHeight + 2
+            );
+
+            if (existingRect.Overlaps(newRect))
+                return true;
         }
+        return false;
     }
 
-    private void CreateCorridor(Vector2Int fromRoom, Vector2Int toRoom)
+    private RoomType DetermineRoomType(int currentRoomCount)
     {
-        Vector2Int start = fromRoom + new Vector2Int(roomWidth / 2, roomHeight / 2);
-        Vector2Int end = toRoom + new Vector2Int(roomWidth / 2, roomHeight / 2);
+        if (currentRoomCount == 0)
+            return RoomType.Start;
 
-        int xStart = Mathf.Min(start.x, end.x);
-        int xEnd = Mathf.Max(start.x, end.x);
+        if (currentRoomCount == numberOfRooms - 1)
+            return RoomType.Boss;
 
-        for (int x = xStart; x <= xEnd; x++)
+        int roll = Random.Range(0, 100);
+        if (roll < treasureRoomChance && !rooms.Any(r => r.type == RoomType.Treasure))
+            return RoomType.Treasure;
+
+        return RoomType.Normal;
+    }
+
+    private void CreateCorridor(Vector2Int fromRoom, Vector2Int toRoom, Vector2Int direction)
+    {
+        Vector2Int current = fromRoom + new Vector2Int(roomWidth / 2, roomHeight / 2);
+        Vector2Int target = toRoom + new Vector2Int(roomWidth / 2, roomHeight / 2);
+
+        Vector2Int doorStart = current + direction * (roomWidth / 2);
+        Vector2Int doorEnd = target - direction * (roomWidth / 2);
+        potentialDoorPositions.Add(doorStart);
+        potentialDoorPositions.Add(doorEnd);
+
+        while (current != target)
         {
-            for (int w = 0; w < corridorWidth; w++)
+            current += direction;
+            floorPositions.Add(current);
+
+            if (direction.x != 0)
             {
-                Vector2Int tilePos = new Vector2Int(x, start.y - corridorWidth / 2 + w);
-                floorPositions.Add(tilePos);
+                for (int i = 1; i <= corridorWidth / 2; i++)
+                {
+                    floorPositions.Add(current + Vector2Int.up * i);
+                }
+                for (int i = 1; i <= (corridorWidth - 1) / 2; i++)
+                {
+                    floorPositions.Add(current + Vector2Int.down * i);
+                }
             }
-        }
 
-        int yStart = Mathf.Min(start.y, end.y);
-        int yEnd = Mathf.Max(start.y, end.y);
-
-        for (int y = yStart; y <= yEnd; y++)
-        {
-            for (int w = 0; w < corridorWidth; w++)
+            if (direction.y != 0)
             {
-                Vector2Int tilePos = new Vector2Int(end.x - corridorWidth / 2 + w, y);
-                floorPositions.Add(tilePos);
+                for (int i = 1; i <= corridorWidth / 2; i++)
+                {
+                    floorPositions.Add(current + Vector2Int.right * i);
+                }
+                for (int i = 1; i <= (corridorWidth - 1) / 2; i++)
+                {
+                    floorPositions.Add(current + Vector2Int.left * i);
+                }
             }
         }
     }
 
     private void SetPlayer()
     {
-        startingPosition.initialValue = new Vector2(startRoomPosition.x + roomWidth / 2 + 0.5f, startRoomPosition.y + roomHeight / 2 + 0.5f);
+        startingPosition.initialValue = new Vector2(
+            startRoomPosition.x + roomWidth / 2 + 0.5f,
+            startRoomPosition.y + roomHeight / 2 + 0.5f
+        );
         player.position = startingPosition.initialValue;
-
-        int radius = 2;
-        Vector2Int playerPosition = new Vector2Int((int)player.position.x, (int)player.position.y);
-
-        for (int x = playerPosition.x - radius; x <= playerPosition.x + radius; x++)
-        {
-            for (int y = playerPosition.y - radius; y <= playerPosition.y + radius; y++)
-            {
-                Vector2Int tilePos = new Vector2Int(x, y);
-                floorPositions.Add(tilePos);
-            }
-        }
-    }
-
-    private HashSet<Vector2Int> RandomWalk(Vector2Int startPosition)
-    {
-        HashSet<Vector2Int> path = new();
-        path.Add(startPosition);
-
-        Vector2Int currentPosition = startPosition;
-
-        for (int i = 0; i < walkLength; i++)
-        {
-            Vector2Int direction = directions[Random.Range(0, directions.Length)];
-            currentPosition += direction;
-
-            path.Add(currentPosition);
-        }
-
-        return path;
-    }
-
-    private bool IsRoomOverlap(Vector2Int newRoomPosition)
-    {
-        foreach (var room in rooms)
-        {
-            if (room.position == newRoomPosition)
-            {
-                return true;
-            }
-        }
-        return false;
     }
 }

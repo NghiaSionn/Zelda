@@ -100,6 +100,15 @@ public class RoomManager : MonoBehaviour
                     break;
             }
         }
+
+        foreach (Room room in rooms)
+        {
+            if (Application.IsPlaying(this))
+            {
+                Vector3 position = new Vector3(room.position.x + roomWidth / 2, room.position.y + roomHeight / 2, 0);
+                Instantiate(new GameObject($"{room.type}_{room.position}"), position, Quaternion.identity, this.transform);
+            }
+        }
     }
 
     private void CreateRoom(Vector2Int roomPosition)

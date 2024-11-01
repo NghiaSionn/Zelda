@@ -20,7 +20,7 @@ public class RoomEditor : Editor
         }
         if(GUILayout.Button("Clear"))
         {
-            roomManager.ClearDungeon();
+            roomManager.ClearRooms();
         }
     }
 }

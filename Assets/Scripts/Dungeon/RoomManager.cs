@@ -21,10 +21,9 @@ public class RoomManager : MonoBehaviour
     public VectorValue startingPosition;
     public TilemapVisualizer tilemapVisualizer;
 
-    internal List<Room> rooms = new();
-    internal Vector2Int startRoomPosition = Vector2Int.zero;
-    internal HashSet<Vector2Int> floorPositions = new();
-    private HashSet<Vector2Int> potentialDoorPositions = new();
+    internal HashSet<Room> rooms = new();
+    private Vector2Int startRoomPosition = Vector2Int.zero;
+    private HashSet<Vector2Int> floorPositions = new();
     private Vector2Int[] directions = {
         Vector2Int.right,
         Vector2Int.left,
@@ -38,8 +37,6 @@ public class RoomManager : MonoBehaviour
         CreateRooms();
         tilemapVisualizer.PaintFloorTiles(floorPositions);
         WallGenerator.CreateWalls(floorPositions, tilemapVisualizer);
-
-        SetPlayer();
     }
 
     public void ClearRooms()
@@ -52,14 +49,13 @@ public class RoomManager : MonoBehaviour
     private void CreateRooms()
     {
         var startRoom = new Room(startRoomPosition, roomWidth, roomHeight, RoomType.Start);
-        rooms.Add(startRoom);
-        CreateRoom(startRoomPosition);
+        CreateRoom(startRoom);
+        SetPlayer(startRoom);
 
-        Queue<Room> roomQueue = new Queue<Room>();
-        roomQueue.Enqueue(rooms[0]);
+        Queue<Room> roomQueue = new();
+        roomQueue.Enqueue(startRoom);
 
         int roomsCreated = 1;
-
         while(roomQueue.Count > 0 && roomsCreated < numberOfRooms)
         {
             Room currentRoom = roomQueue.Dequeue();
@@ -72,32 +68,23 @@ public class RoomManager : MonoBehaviour
 
             foreach (Vector2Int direction in directions)
             {
-                if (!currentRoom.CanConnectInDirection(direction) || roomsCreated >= numberOfRooms)
-                    continue;
+                if (!currentRoom.CanConnectInDirection(direction) || roomsCreated >= numberOfRooms) continue;
 
-                Vector2Int newRoomPosition = currentRoom.position + direction * (roomWidth + corridorLength);
-
-                if (IsRoomOverlap(newRoomPosition))
-                    continue;
-
+                Vector2Int newRoomPosition = currentRoom.position + direction
+                                             * ((roomWidth > roomHeight ? roomWidth : roomHeight) + corridorLength);
                 RoomType newRoomType = DetermineRoomType(roomsCreated);
+                Room newRoom = new Room(newRoomPosition, roomWidth, roomHeight, newRoomType);
 
-                var newRoom = new Room(newRoomPosition, roomWidth, roomHeight, newRoomType);
-                rooms.Add(newRoom);
-                CreateRoom(newRoomPosition);
-
+                CreateRoom(newRoom);
                 CreateCorridor(currentRoom.position, newRoomPosition, direction);
 
-                currentRoom.connectedDoors.Add(direction);
-                newRoom.connectedDoors.Add(-direction);
                 currentRoom.neighbors[direction] = newRoom;
                 newRoom.neighbors[-direction] = currentRoom;
 
                 roomQueue.Enqueue(newRoom);
                 roomsCreated++;
 
-                if (newRoomType == RoomType.Treasure)
-                    break;
+                if (newRoomType == RoomType.Treasure) break;
             }
         }
 
@@ -105,46 +92,24 @@ public class RoomManager : MonoBehaviour
         {
             if (Application.IsPlaying(this))
             {
-                Vector3 position = new Vector3(room.position.x + roomWidth / 2, room.position.y + roomHeight / 2, 0);
-                Instantiate(new GameObject($"{room.type}_{room.position}"), position, Quaternion.identity, this.transform);
+                Instantiate(new GameObject($"{room.type}_{room.position}"), room.GetCenter(), Quaternion.identity, this.transform);
             }
         }
     }
-
-    private void CreateRoom(Vector2Int roomPosition)
+    private void CreateRoom(Room room)
     {
+        rooms.Add(room);
+
         for (int x = 0; x < roomWidth; x++)
         {
             for (int y = 0; y < roomHeight; y++)
             {
-                Vector2Int tilePos = new Vector2Int(x + roomPosition.x, y + roomPosition.y);
-                floorPositions.Add(tilePos);
+                Vector2Int tilePos = new Vector2Int(x + room.position.x, y + room.position.y);
+                room.floorPositions.Add(tilePos);
             }
         }
-    }
 
-    private bool IsRoomOverlap(Vector2Int newRoomPosition)
-    {
-        foreach (var room in rooms)
-        {
-            Rect existingRect = new Rect(
-                room.position.x - 1,
-                room.position.y - 1,
-                roomWidth + 2,
-                roomHeight + 2
-            );
-
-            Rect newRect = new Rect(
-                newRoomPosition.x - 1,
-                newRoomPosition.y - 1,
-                roomWidth + 2,
-                roomHeight + 2
-            );
-
-            if (existingRect.Overlaps(newRect))
-                return true;
-        }
-        return false;
+        floorPositions.UnionWith(room.floorPositions);
     }
 
     private RoomType DetermineRoomType(int currentRoomCount)
@@ -167,11 +132,6 @@ public class RoomManager : MonoBehaviour
         Vector2Int current = fromRoom + new Vector2Int(roomWidth / 2, roomHeight / 2);
         Vector2Int target = toRoom + new Vector2Int(roomWidth / 2, roomHeight / 2);
 
-        Vector2Int doorStart = current + direction * (roomWidth / 2);
-        Vector2Int doorEnd = target - direction * (roomWidth / 2);
-        potentialDoorPositions.Add(doorStart);
-        potentialDoorPositions.Add(doorEnd);
-
         while (current != target)
         {
             current += direction;
@@ -179,11 +139,11 @@ public class RoomManager : MonoBehaviour
 
             if (direction.x != 0)
             {
-                for (int i = 1; i <= corridorWidth / 2; i++)
+                for (int i = 1; i <= (corridorWidth - 1) / 2; i++)
                 {
                     floorPositions.Add(current + Vector2Int.up * i);
                 }
-                for (int i = 1; i <= (corridorWidth - 1) / 2; i++)
+                for (int i = 1; i <= corridorWidth / 2; i++)
                 {
                     floorPositions.Add(current + Vector2Int.down * i);
                 }
@@ -191,11 +151,11 @@ public class RoomManager : MonoBehaviour
 
             if (direction.y != 0)
             {
-                for (int i = 1; i <= corridorWidth / 2; i++)
+                for (int i = 1; i <= (corridorWidth - 1) / 2; i++)
                 {
                     floorPositions.Add(current + Vector2Int.right * i);
                 }
-                for (int i = 1; i <= (corridorWidth - 1) / 2; i++)
+                for (int i = 1; i <= corridorWidth / 2; i++)
                 {
                     floorPositions.Add(current + Vector2Int.left * i);
                 }
@@ -203,12 +163,9 @@ public class RoomManager : MonoBehaviour
         }
     }
 
-    private void SetPlayer()
+    private void SetPlayer(Room room)
     {
-        startingPosition.initialValue = new Vector2(
-            startRoomPosition.x + roomWidth / 2 + 0.5f,
-            startRoomPosition.y + roomHeight / 2 + 0.5f
-        );
+        startingPosition.initialValue = room.GetCenter();
         player.position = startingPosition.initialValue;
     }
 }

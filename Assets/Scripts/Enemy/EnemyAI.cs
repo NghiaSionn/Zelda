@@ -4,7 +4,7 @@ using System.Collections.Generic;
 public class EnemyAI : MonoBehaviour
 {
 
-    private Enemy enemy;
+    private EnemyDungeon enemy;
     private Rigidbody2D rb;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
@@ -24,7 +24,7 @@ public class EnemyAI : MonoBehaviour
 
     void Start()
     {
-        enemy = GetComponent<Enemy>();
+        enemy = GetComponent<EnemyDungeon>();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -136,7 +136,14 @@ public class EnemyAI : MonoBehaviour
     {
         if (enemy.currentState == EnemyState.idle) return;
 
-        rb.MovePosition(rb.position + direction * enemy.moveSpeed * Time.fixedDeltaTime);
+        if(Vector2.Distance(transform.position, player.position) > 1f)
+        {
+            rb.MovePosition(rb.position + direction * enemy.moveSpeed * Time.fixedDeltaTime);
+        }
+        else
+        {
+            rb.velocity = Vector2.zero;
+        }
     }
 
     private void FixedUpdateAnimation()

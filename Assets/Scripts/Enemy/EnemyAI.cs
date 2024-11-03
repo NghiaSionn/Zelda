@@ -1,15 +1,17 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class EnemyAI : Enemy
+public class EnemyAI : MonoBehaviour
 {
+
+    private Enemy enemy;
     private Rigidbody2D rb;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
     private Transform player;
 
     private Vector2 movespotPosition;
-    private List<Vector2Int> wanderspotPositions;
+    internal List<Vector2Int> wanderspotPositions;
     private Vector2 direction;
     private Vector2 startingPosition;
     private float waitTimer;
@@ -22,6 +24,7 @@ public class EnemyAI : Enemy
 
     void Start()
     {
+        enemy = GetComponent<Enemy>();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -67,13 +70,13 @@ public class EnemyAI : Enemy
     private void SetChaseState()
     {
         direction = (player.position - transform.position).normalized;
-        currentState = EnemyState.chase;
+        enemy.currentState = EnemyState.chase;
         waitTimer = waitTime;
     }
 
     private void SetWanderState()
     {
-        if (currentState == EnemyState.idle)
+        if (enemy.currentState == EnemyState.idle)
         {
             if (waitTimer <= 0)
             {
@@ -90,10 +93,10 @@ public class EnemyAI : Enemy
         if (Vector2.Distance(transform.position, movespotPosition) < 0.2f)
         {
             direction = Vector2.zero;
-            currentState = EnemyState.idle;
+            enemy.currentState = EnemyState.idle;
             waitTimer = waitTime;
         }
-        else if (currentState != EnemyState.wander)
+        else if (enemy.currentState != EnemyState.wander)
         {
             SelectNewWanderSpot();
         }
@@ -103,7 +106,7 @@ public class EnemyAI : Enemy
     {
         movespotPosition = wanderspotPositions[Random.Range(0, wanderspotPositions.Count)];
         direction = (movespotPosition - (Vector2)transform.position).normalized;
-        currentState = EnemyState.wander;
+        enemy.currentState = EnemyState.wander;
         waitTimer = waitTime;
     }
 
@@ -114,12 +117,12 @@ public class EnemyAI : Enemy
             if (distanceToStart < 0.2f)
             {
                 direction = Vector2.zero;
-                currentState = EnemyState.idle;
+                enemy.currentState = EnemyState.idle;
             }
             else
             {
                 direction = (startingPosition - (Vector2)transform.position).normalized;
-                currentState = EnemyState.chase;
+                enemy.currentState = EnemyState.chase;
             }
         }
         else
@@ -131,10 +134,9 @@ public class EnemyAI : Enemy
 
     private void FixedUpdateMovement()
     {
-        if (currentState == EnemyState.idle) return;
+        if (enemy.currentState == EnemyState.idle) return;
 
-        rb.MovePosition(rb.position + direction * moveSpeed * Time.fixedDeltaTime);
-
+        rb.MovePosition(rb.position + direction * enemy.moveSpeed * Time.fixedDeltaTime);
     }
 
     private void FixedUpdateAnimation()
@@ -143,7 +145,7 @@ public class EnemyAI : Enemy
 
         animator.SetFloat("posX", Mathf.Abs(direction.x));
         animator.SetFloat("posY", direction.y);
-        animator.SetBool("isWalking", currentState != EnemyState.idle);
+        animator.SetBool("isWalking", enemy.currentState != EnemyState.idle);
     }
 
     public void InitializeWanderSpots(List<Vector2Int> positions)
@@ -164,7 +166,7 @@ public class EnemyAI : Enemy
         Gizmos.color = Color.white;
         Gizmos.DrawWireSphere(transform.position, chaseRange);
 
-        if (currentState == EnemyState.wander)
+        if (enemy.currentState == EnemyState.wander)
         {
             Gizmos.color = Color.yellow;
             Gizmos.DrawWireSphere(movespotPosition, 0.2f);

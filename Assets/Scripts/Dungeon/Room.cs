@@ -62,4 +62,22 @@ public class Room
         hasEnemies = count > 0;
         isCleared = count == 0;
     }
+
+    public void OnEnemyDefeated()
+    {
+        if (enemyCount > 0)
+        {
+            enemyCount--;
+            if (enemyCount == 0)
+            {
+                isCleared = true;
+                OnRoomCleared();
+            }
+        }
+    }
+
+    protected virtual void OnRoomCleared()
+    {
+        Debug.Log("Open door");
+    }
 }

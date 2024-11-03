@@ -22,7 +22,6 @@ public class KnockBack : MonoBehaviour
             // ngăn kẻ địch giết nhau
             if (other.gameObject.CompareTag("Enemy") && gameObject.CompareTag("Enemy")) return;
 
-
             Rigidbody2D hit = other.GetComponent<Rigidbody2D>();
             if (hit != null)
             {
@@ -41,6 +40,11 @@ public class KnockBack : MonoBehaviour
                         hit.GetComponent<PlayerMovement>().currentState = PlayerState.stagger;
                         other.GetComponent<PlayerMovement>().Knock(knockTime, damage);
                     }
+                }
+                if (other.gameObject.CompareTag("Enemy"))
+                {
+                    var enemy = other.gameObject.GetComponent<EnemyDungeon>();
+                    enemy.Knock(hit, knockTime, damage);
                 }
             }
         }

@@ -4,7 +4,7 @@ using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class EnemyManager : MonoBehaviour
+public class SpawnerManager : MonoBehaviour
 {
     public RoomManager roomManager;
 
@@ -73,9 +73,8 @@ public class EnemyManager : MonoBehaviour
                 Vector2 randomFloorPosition = roomFloorPositions[Random.Range(0, roomFloorPositions.Count)];
                 Vector3 spawnPosition = new Vector3(randomFloorPosition.x + 0.5f, randomFloorPosition.y + 0.5f, 0);
                 GameObject enemyPrefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Count)];
-                GameObject enemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity, this.transform);
 
-                enemy.GetComponent<EnemyAI>().InitializeWanderSpots(roomFloorPositions);
+                Instantiate(enemyPrefab, spawnPosition, Quaternion.identity, this.transform);
                 totalEnemyCount++;
             }
         }

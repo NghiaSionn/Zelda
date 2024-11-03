@@ -6,20 +6,17 @@ using UnityEngine;
 public class DungeonManager : MonoBehaviour
 {
     public RoomManager roomManager;
-    public EnemyManager enemyManager;
-    public DoorManager doorManager;
+    public SpawnerManager spawnerManager;
 
     void Awake()
     {
         roomManager = FindFirstObjectByType<RoomManager>();
-        enemyManager = FindFirstObjectByType<EnemyManager>();
-        doorManager = FindFirstObjectByType<DoorManager>();
+        spawnerManager = FindFirstObjectByType<SpawnerManager>();
     }
 
     void Start()
     {
         roomManager.GenerateRooms();
-        enemyManager.GenerateEnemies();
-        if(!roomManager.isRandomWalk) doorManager.GenerateDoors();
+        spawnerManager.GenerateEnemies();
     }
 }

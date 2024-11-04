@@ -3,78 +3,67 @@ using System.Collections.Generic;
 
 public class DoorManager : MonoBehaviour
 {
-    public RoomManager roomManager;
-
     [Header("Door Prefabs")]
-    public GameObject doorHorizontalPrefab;
-    public GameObject doorVerticalPrefab;
-    public GameObject bossDoorHorizontalPrefab;
-    public GameObject bossDoorVerticalPrefab;
+    public GameObject horizontalDoorPrefab;
+    public GameObject verticalDoorPrefab;
 
-    private Dictionary<Vector2Int, List<GameObject>> roomDoors = new();
+    public RoomManager roomManager;
+    private Dictionary<Vector2, Door> createdDoors = new();
 
     public void GenerateDoors()
     {
-        ClearAllDoors();
-        CreateDoorsForAllRooms();
+        createdDoors.Clear();
+        foreach (Room room in roomManager.rooms)
+        {
+            CreateDoorsForRoom(room);
+        }
     }
 
-    private void ClearAllDoors()
+    private void CreateDoorsForRoom(Room room)
     {
-        foreach (var doorList in roomDoors.Values)
+        foreach (var neighborPair in room.neighbors)
         {
-            foreach (var door in doorList)
+            Vector2Int direction = neighborPair.Key;
+            Room neighborRoom = neighborPair.Value;
+
+            Vector3 doorPosition = CalculateCorridorDoorPosition(room, neighborRoom);
+
+            if (!createdDoors.ContainsKey(doorPosition))
             {
-                if (door != null)
-                    Destroy(door);
+                CreateDoor(room, neighborRoom, direction, doorPosition);
+            }
+            else
+            {
+                Door existingDoor = createdDoors[doorPosition];
+                if (!room.doors.Contains(existingDoor))
+                {
+                    room.doors.Add(existingDoor);
+                }
             }
         }
-        roomDoors.Clear();
     }
 
-    private void CreateDoorsForAllRooms()
+    private Vector3 CalculateCorridorDoorPosition(Room fromRoom, Room toRoom)
     {
-        for (int i = 1; i < roomManager.rooms.Count; i++)
-        {
-            Room currentRoom = roomManager.rooms[i];
-            bool isBossRoom = i == roomManager.rooms.Count - 1;
+        Vector3 fromCenter = fromRoom.GetCenter();
+        Vector3 toCenter = toRoom.GetCenter();
 
-            Room previousRoom = roomManager.rooms[i - 1];
-            CreateDoorsBetweenRooms(previousRoom, currentRoom, isBossRoom);
-        }
+        return Vector3.Lerp(fromCenter, toCenter, 0.5f);
     }
 
-    private void CreateDoorsBetweenRooms(Room fromRoom, Room toRoom, bool isBossRoom)
+    private void CreateDoor(Room fromRoom, Room toRoom, Vector2Int direction, Vector3 position)
     {
-        Vector2 direction = new Vector2(toRoom.position.x - fromRoom.position.x,
-                                      toRoom.position.y - fromRoom.position.y).normalized;
+        GameObject prefabToUse = (direction.x != 0) ? horizontalDoorPrefab : verticalDoorPrefab;
 
-        float centerCorridor = roomManager.spacingRoom / 2f;
-        Vector3 doorPosition;
-        GameObject doorPrefabToUse;
+        GameObject doorObj = Instantiate(prefabToUse, position, Quaternion.identity, transform);
+        Door door = doorObj.GetComponent<Door>();
 
-        if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
-        {
-            doorPrefabToUse = isBossRoom ? bossDoorHorizontalPrefab : doorHorizontalPrefab;
-            doorPosition = direction.x > 0 ? new Vector3(toRoom.position.x - centerCorridor,
-                                                         toRoom.position.y + toRoom.height / 2, 0)
-                                           : new Vector3(toRoom.position.x + toRoom.width  + centerCorridor,
-                                                         toRoom.position.y + toRoom.height / 2, 0);
-        }
-        else
-        {
-            doorPrefabToUse = isBossRoom ? bossDoorVerticalPrefab : doorVerticalPrefab;
-            doorPosition = direction.y > 0 ? new Vector3(toRoom.position.x + toRoom.width / 2,
-                                                         toRoom.position.y - centerCorridor, 0)
-                                           : new Vector3(toRoom.position.x + toRoom.width / 2,
-                                                         toRoom.position.y + toRoom.height + centerCorridor, 0);
-        }
-        GameObject door = Instantiate(doorPrefabToUse, doorPosition, Quaternion.identity, transform);
-        Vector2Int roomKey = new Vector2Int(toRoom.position.x, toRoom.position.y);
-        if (!roomDoors.ContainsKey(roomKey))
-        {
-            roomDoors[roomKey] = new List<GameObject>();
-        }
-        roomDoors[roomKey].Add(door);
+        door.Initialize(fromRoom, direction);
+        door.AddConnected(toRoom);
+
+        fromRoom.doors.Add(door);
+        toRoom.doors.Add(door);
+
+        createdDoors.Add(position, door);
     }
 }

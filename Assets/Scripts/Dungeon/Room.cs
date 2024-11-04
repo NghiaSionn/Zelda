@@ -12,7 +12,7 @@ public enum RoomType
     Treasure
 }
 
-[System.Serializable]
+[Serializable]
 public class Room
 {
     public int width;
@@ -21,11 +21,8 @@ public class Room
     public Vector2Int position;
     public HashSet<Vector2Int> floorPositions = new();
     public Dictionary<Vector2Int, Room> neighbors = new();
-    public List<Door> doors = new List<Door>();
-    public bool hasEnemies;
-    public bool isCleared;
-    public int enemyCount;
-    public event Action OnRoomStateChanged;
+    public List<Door> doors = new();
+    public List<EnemyDungeon> enemies = new();
 
     public Room(Vector2Int position, int width, int height, RoomType type = RoomType.Normal)
     {
@@ -33,10 +30,6 @@ public class Room
         this.width = width;
         this.height = height;
         this.type = type;
-
-        hasEnemies = type != RoomType.Start && type != RoomType.Treasure;
-        isCleared = !hasEnemies;
-        enemyCount = 0;
     }
 
     public bool CanConnectInDirection(Vector2Int direction)
@@ -58,35 +51,40 @@ public class Room
                              .ToList();
     }
 
-    public void SetEnemyCount(int count)
+    public bool ContainsPlayer(Vector3 playerPosition)
     {
-        enemyCount = count;
-        hasEnemies = count > 0;
-        isCleared = count == 0;
-        OnRoomStateChanged?.Invoke();
+        float playerX = playerPosition.x;
+        float playerY = playerPosition.y;
+        return playerX >= position.x && playerX < position.x + width
+            && playerY >= position.y && playerY < position.y + height;
     }
 
-    public void OnEnemyDefeated()
+    public void LockDoors()
     {
-        if (enemyCount > 0)
+        foreach (var door in doors)
         {
-            enemyCount--;
-            Debug.Log(enemyCount);
-            if (enemyCount == 0)
+            door.Lock();
+        }
+    }
+
+    public void UnlockDoors()
+    {
+        if (isCleared())
+        {
+            foreach (var door in doors)
             {
-                isCleared = true;
-                OnRoomCleared();
-                OnRoomStateChanged?.Invoke();
+                door.Unlock();
             }
         }
     }
 
-    protected virtual void OnRoomCleared()
+    public bool isCleared()
     {
-        Debug.Log($"Room cleared at position {position}");
-        foreach (var door in doors)
+        foreach (var enemy in enemies)
         {
-            door.UpdateDoorState();
+            if (!enemy.isDefeated)
+                return false;
         }
+        return true;
     }
 }

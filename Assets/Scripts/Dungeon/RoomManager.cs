@@ -20,6 +20,7 @@ public class RoomManager : MonoBehaviour
     public Transform player;
     public VectorValue startingPosition;
     public TilemapVisualizer tilemapVisualizer;
+    public DoorManager doorManager;
 
     internal HashSet<Room> rooms = new();
     private Vector2Int startRoomPosition = Vector2Int.zero;
@@ -37,6 +38,7 @@ public class RoomManager : MonoBehaviour
         CreateRooms();
         tilemapVisualizer.PaintFloorTiles(floorPositions);
         WallGenerator.CreateWalls(floorPositions, tilemapVisualizer);
+        doorManager.GenerateDoors();
     }
 
     public void ClearRooms()

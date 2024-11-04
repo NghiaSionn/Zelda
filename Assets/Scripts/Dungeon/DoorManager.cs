@@ -27,6 +27,7 @@ public class DoorManager : MonoBehaviour
             Room neighborRoom = neighborPair.Value;
 
             Vector3 doorPosition = CalculateCorridorDoorPosition(room, neighborRoom);
+            if (direction.x != 0) doorPosition.y += 0.3f;
 
             if (!createdDoors.ContainsKey(doorPosition))
             {
@@ -57,9 +58,6 @@ public class DoorManager : MonoBehaviour
 
         GameObject doorObj = Instantiate(prefabToUse, position, Quaternion.identity, transform);
         Door door = doorObj.GetComponent<Door>();
-
-        door.Initialize(fromRoom, direction);
-        door.AddConnected(toRoom);
 
         fromRoom.doors.Add(door);
         toRoom.doors.Add(door);

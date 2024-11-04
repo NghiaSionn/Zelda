@@ -11,10 +11,8 @@ public class RoomManager : MonoBehaviour
     public int numberOfRooms = 5;
     public int corridorLength = 4;
     public int corridorWidth = 1;
-
-    [Header("Room type chances")]
     [Range(0, 100)] public int treasureRoomChance = 20;
-
+    public List<Room> rooms = new();
 
     [Header("References")]
     public Transform player;
@@ -22,7 +20,7 @@ public class RoomManager : MonoBehaviour
     public TilemapVisualizer tilemapVisualizer;
     public DoorManager doorManager;
 
-    internal HashSet<Room> rooms = new();
+    private Room currentRoom;
     private Vector2Int startRoomPosition = Vector2Int.zero;
     private HashSet<Vector2Int> floorPositions = new();
     private Vector2Int[] directions = {
@@ -32,10 +30,16 @@ public class RoomManager : MonoBehaviour
         Vector2Int.down
     };
 
+    void Update()
+    {
+        CheckRoomStatus();
+    }
+
     public void GenerateRooms()
     {
         ClearRooms();
         CreateRooms();
+
         tilemapVisualizer.PaintFloorTiles(floorPositions);
         WallGenerator.CreateWalls(floorPositions, tilemapVisualizer);
         doorManager.GenerateDoors();
@@ -58,11 +62,11 @@ public class RoomManager : MonoBehaviour
         roomQueue.Enqueue(startRoom);
 
         int roomsCreated = 1;
-        while(roomQueue.Count > 0 && roomsCreated < numberOfRooms)
+        while (roomQueue.Count > 0 && roomsCreated < numberOfRooms)
         {
-            Room currentRoom = roomQueue.Dequeue();
+            currentRoom = roomQueue.Dequeue();
 
-            for(int i = 0; i < directions.Length; i++)
+            for (int i = 0; i < directions.Length; i++)
             {
                 int randomIndex = Random.Range(i, directions.Length);
                 (directions[i], directions[randomIndex]) = (directions[randomIndex], directions[i]);
@@ -89,15 +93,8 @@ public class RoomManager : MonoBehaviour
                 if (newRoomType == RoomType.Treasure) break;
             }
         }
-
-        foreach (Room room in rooms)
-        {
-            if (Application.IsPlaying(this))
-            {
-                Instantiate(new GameObject($"{room.type}_{room.position}"), room.GetCenter(), Quaternion.identity, this.transform);
-            }
-        }
     }
+
     private void CreateRoom(Room room)
     {
         rooms.Add(room);
@@ -169,5 +166,40 @@ public class RoomManager : MonoBehaviour
     {
         startingPosition.initialValue = room.GetCenter();
         player.position = startingPosition.initialValue;
+    }
+
+    private void CheckRoomStatus()
+    {
+        if (currentRoom != null && currentRoom.isCleared())
+        {
+            currentRoom.UnlockDoors();
+        }
+
+        Room newRoom = null;
+        foreach (Room room in rooms)
+        {
+            if (room.ContainsPlayer(player.position))
+            {
+                newRoom = room;
+                break;
+            }
+        }
+
+        if (newRoom != currentRoom)
+        {
+            if (currentRoom != null)
+            {
+                currentRoom = null;
+            }
+
+            if (newRoom != null)
+            {
+                currentRoom = newRoom;
+                if (!newRoom.isCleared())
+                {
+                    newRoom.LockDoors();
+                }
+            }
+        }
     }
 }

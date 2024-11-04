@@ -33,12 +33,10 @@ public class SpawnerManager : MonoBehaviour
         switch (room.type)
         {
             case RoomType.Treasure:
-                room.SetEnemyCount(0);
                 break;
 
             case RoomType.Boss:
                 CreateBoss();
-                room.SetEnemyCount(1);
                 break;
 
             case RoomType.Normal:
@@ -46,11 +44,6 @@ public class SpawnerManager : MonoBehaviour
                 {
                     int enemyCount = Random.Range(minEnemyCountInRoom, maxEnemyCountInRoom + 1);
                     CreateEnemies(enemyCount, room);
-                    room.SetEnemyCount(enemyCount);
-                }
-                else
-                {
-                    room.SetEnemyCount(0);
                 }
                 break;
         }
@@ -74,7 +67,10 @@ public class SpawnerManager : MonoBehaviour
                 Vector3 spawnPosition = new Vector3(randomFloorPosition.x + 0.5f, randomFloorPosition.y + 0.5f, 0);
                 GameObject enemyPrefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Count)];
 
-                Instantiate(enemyPrefab, spawnPosition, Quaternion.identity, this.transform);
+                var enemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity, this.transform);
+                // enemy.SetActive(false);
+
+                room.enemies.Add(enemy.GetComponent<EnemyDungeon>());
                 totalEnemyCount++;
             }
         }

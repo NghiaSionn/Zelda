@@ -5,81 +5,31 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    public enum DoorState
+    public bool isLocked;
+    public BoxCollider2D doorCollider;
+
+    void Start()
     {
-        Open,
-        Closed,
-        Locked
-    }
-
-    public enum DoorType
-    {
-        Horizontal,
-        Vertical
-    }
-
-    [Header("Door Settings")]
-    public DoorState doorState;
-    public DoorType doorType;
-    public Vector2Int direction;
-    public List<Room> connectedRooms = new List<Room>();
-
-    public void Initialize(Room room, Vector2Int direction)
-    {
-        this.direction = direction;
-        doorType = (direction.x != 0) ? DoorType.Vertical : DoorType.Horizontal;
-
-        AddConnected(room);
-        UpdateDoorState();
-    }
-
-    public void AddConnected(Room room)
-    {
-        if (!connectedRooms.Contains(room))
+        doorCollider = GetComponent<BoxCollider2D>();
+        if (isLocked)
         {
-            connectedRooms.Add(room);
-            room.OnRoomStateChanged += UpdateDoorState;
+            doorCollider.enabled = true;
+        }
+        else
+        {
+            doorCollider.enabled = false;
         }
     }
 
-    public void UpdateDoorState()
+    public void Lock()
     {
-        bool anyRoomStart = connectedRooms.Any(r => r.type == RoomType.Start);
-        bool allRoomsCleared = connectedRooms.All(r => r.isCleared || !r.hasEnemies);
-
-        if (anyRoomStart)
-        {
-            SetState(DoorState.Closed);
-        }
-        else if (allRoomsCleared)
-        {
-            SetState(DoorState.Open);
-        }
+        isLocked = true;
+        doorCollider.enabled = true;
     }
 
-    public void SetState(DoorState newState)
+    public void Unlock()
     {
-        doorState = newState;
-
-        switch (newState)
-        {
-            case DoorState.Open:
-                break;
-            case DoorState.Closed:
-                break;
-            case DoorState.Locked:
-                break;
-        }
-    }
-
-    private void OnDestroy()
-    {
-        foreach (var room in connectedRooms)
-        {
-            if (room != null)
-            {
-                room.OnRoomStateChanged -= UpdateDoorState;
-            }
-        }
+        isLocked = false;
+        doorCollider.enabled = false;
     }
 }

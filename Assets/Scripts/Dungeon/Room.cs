@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,10 +21,11 @@ public class Room
     public Vector2Int position;
     public HashSet<Vector2Int> floorPositions = new();
     public Dictionary<Vector2Int, Room> neighbors = new();
-
+    public List<Door> doors = new List<Door>();
     public bool hasEnemies;
     public bool isCleared;
     public int enemyCount;
+    public event Action OnRoomStateChanged;
 
     public Room(Vector2Int position, int width, int height, RoomType type = RoomType.Normal)
     {
@@ -61,6 +63,7 @@ public class Room
         enemyCount = count;
         hasEnemies = count > 0;
         isCleared = count == 0;
+        OnRoomStateChanged?.Invoke();
     }
 
     public void OnEnemyDefeated()
@@ -68,16 +71,22 @@ public class Room
         if (enemyCount > 0)
         {
             enemyCount--;
+            Debug.Log(enemyCount);
             if (enemyCount == 0)
             {
                 isCleared = true;
                 OnRoomCleared();
+                OnRoomStateChanged?.Invoke();
             }
         }
     }
 
     protected virtual void OnRoomCleared()
     {
-        Debug.Log("Open door");
+        Debug.Log($"Room cleared at position {position}");
+        foreach (var door in doors)
+        {
+            door.UpdateDoorState();
+        }
     }
 }

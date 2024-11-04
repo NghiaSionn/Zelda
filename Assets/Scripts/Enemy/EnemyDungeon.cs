@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class EnemyDungeon : Enemy
 {
-    public Room currentRoom;
+    public Room room;
+    internal bool isDefeated;
     private EnemyAI enemyAI;
 
     void Start()
@@ -30,7 +31,7 @@ public class EnemyDungeon : Enemy
 
             if (isInRoomX && isInRoomY)
             {
-                currentRoom = room;
+                this.room = room;
                 enemyAI.InitializeWanderSpots(room.GetFloor());
                 break;
             }
@@ -40,9 +41,9 @@ public class EnemyDungeon : Enemy
     protected override void TakeDamage(float damage)
     {
         base.TakeDamage(damage);
-        if (health <= 0 && currentRoom != null)
+        if(health <= 0 && room != null)
         {
-            currentRoom.OnEnemyDefeated();
+            isDefeated = true;
         }
     }
 }

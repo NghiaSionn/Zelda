@@ -6,6 +6,7 @@ TagManager:
   tags:
   - breakable
   - enemy
+  - NPC
   layers:
   - Default
   - TransparentFX
@@ -148,11 +149,11 @@ TagManager:
   - name: Stone Portal
     uniqueID: 3445549953
     locked: 0
-  - name: NPC
-    uniqueID: 554704805
-    locked: 0
   - name: Player
     uniqueID: 1667486233
+    locked: 0
+  - name: NPC
+    uniqueID: 554704805
     locked: 0
   - name: Top BigDeco
     uniqueID: 1027812963

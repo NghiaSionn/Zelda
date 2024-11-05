@@ -1,23 +1,26 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PasueManager : MonoBehaviour
 {
     [Header("Pause Menu")]
     public GameObject pauseMenu;
 
+    [Header("Hiệu ứng FadeIn/Out")]
+    public GameObject effectTransition;
+
     public bool isPaused = false;
 
     private Animator currentPanel;
-
-    string panelFadeIn = "PanelFadeIn";
+    private Animator panelFadeIn;
 
     // Start is called before the first frame update
     void Start()
     {
-        panelFadeIn = currentPanel.GetComponent<Animator>().name;
+        panelFadeIn = effectTransition.GetComponent<Animator>();
         pauseMenu.SetActive(false);
     }
 
@@ -50,23 +53,35 @@ public class PasueManager : MonoBehaviour
         //Time.timeScale = 1;
         pauseMenu.SetActive(false);
         
+        
     }
 
     public void LoadMainMenu()
     {
+        StartCoroutine(WaitLoadFadeIn("Menu", 2f));
         ResumeGame();
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
+        
         //panelFadeIn.Play();
     }
 
     public void RestartGame()
     {
+        string sceneName = SceneManager.GetActiveScene().name;
+        StartCoroutine(WaitLoadFadeIn(sceneName, 2f));
         ResumeGame();
-        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+        
     }
 
     public void QuitGame()
     {
+        panelFadeIn.Play("Fade In");
         Application.Quit();
+    }
+
+    private IEnumerator WaitLoadFadeIn(string sceneName, float fadeDuration)
+    {
+        panelFadeIn.Play("Fade In");
+        yield return new WaitForSeconds(fadeDuration);
+        SceneManager.LoadScene(sceneName);      
     }
 }

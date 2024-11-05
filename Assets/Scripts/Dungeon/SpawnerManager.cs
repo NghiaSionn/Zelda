@@ -52,7 +52,8 @@ public class SpawnerManager : MonoBehaviour
     private void CreateBoss()
     {
         var bossRoom = roomManager.rooms.Last();
-        Instantiate(bossPrefab, bossRoom.GetCenter(), Quaternion.identity, this.transform);
+        var boss = Instantiate(bossPrefab, bossRoom.GetCenter(), Quaternion.identity, this.transform);
+        bossRoom.enemies.Add(boss.GetComponent<EnemyDungeon>());
     }
 
     private void CreateEnemies(int enemyCount, Room room)

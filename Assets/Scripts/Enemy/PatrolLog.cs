@@ -27,8 +27,7 @@ public class PatrolLog : Log
                 changeAnim(temp - transform.position);
                 myRigidbody.MovePosition(temp);
                 //ChangeState(EnemyState.walk);
-                anim.SetBool("wakeUp",
- true);
+                anim.SetBool("wakeUp",true);
             }
         }
         else if (Vector3.Distance(target.position, 

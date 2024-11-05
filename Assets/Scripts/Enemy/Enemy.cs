@@ -10,7 +10,14 @@ public enum EnemyState
     attack,
     stagger,
     chase,
-    wander
+    wander,
+    retreat
+}
+
+public enum EnemyType
+{
+    melee,
+    ranged
 }
 
 
@@ -18,6 +25,7 @@ public class Enemy : MonoBehaviour
 {
     [Header("Enemy")]
     public EnemyState currentState = EnemyState.idle;
+    public EnemyType enemyType = EnemyType.melee;
     public FloatValue maxHealth;
     public float health;
     public string enemyName;

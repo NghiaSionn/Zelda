@@ -1,5 +1,8 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System;
+using Random = UnityEngine.Random;
+using System.Collections;
 
 public class EnemyAI : MonoBehaviour
 {
@@ -14,12 +17,19 @@ public class EnemyAI : MonoBehaviour
     private Vector2 direction;
     private Vector2 startingPosition;
     private float waitTimer;
+    private float lastAttackTimer = 0f;
 
 
     [Header("AI Settings")]
-    [SerializeField] private float chaseRange = 5f;
     [SerializeField] private bool canWander = true;
     [SerializeField] private float waitTime = 5f;
+    [SerializeField] private float chaseRange = 5f;
+    [SerializeField] private float attackRange = 1f;
+    [SerializeField] private float attackCooldown = 2f;
+    [Header("Range Settings")]
+    [SerializeField] private float retreatRange = 3f;
+    [SerializeField] private float retreatSpeed = 1.5f;
+    [SerializeField] private GameObject projectilePrefab;
 
     void Start()
     {
@@ -27,9 +37,7 @@ public class EnemyAI : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        if(player == null)
-        Debug.Log("Yeah");
+        player = GameObject.FindGameObjectWithTag("Player")?.GetComponent<Transform>();
 
         startingPosition = transform.position;
         waitTimer = waitTime;
@@ -49,7 +57,32 @@ public class EnemyAI : MonoBehaviour
 
         if (distanceToPlayer <= chaseRange && CheckLineOfSight())
         {
-            SetChaseState();
+            if (enemy.enemyType == EnemyType.ranged)
+            {
+                if (distanceToPlayer < retreatRange)
+                {
+                    SetRetreatState();
+                }
+                else if (distanceToPlayer <= attackRange)
+                {
+                    SetAttackState();
+                }
+                else
+                {
+                    SetChaseState();
+                }
+            }
+            else if (enemy.enemyType == EnemyType.melee)
+            {
+                if (distanceToPlayer <= attackRange)
+                {
+                    SetAttackState();
+                }
+                else if (enemy.currentState != EnemyState.attack)
+                {
+                    SetChaseState();
+                }
+            }
         }
         else if (canWander)
         {
@@ -134,13 +167,72 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+    private void SetRetreatState()
+    {
+        direction = -(player.position - transform.position).normalized;
+        enemy.currentState = EnemyState.retreat;
+    }
+
+    private void SetAttackState()
+    {
+        if (enemy.currentState == EnemyState.attack) return;
+        if (Time.time < lastAttackTimer + attackCooldown) return;
+        enemy.currentState = EnemyState.attack;
+
+        if (enemy.enemyType == EnemyType.melee)
+        {
+            StartCoroutine(MeleeAttack());
+        }
+        else if (enemy.enemyType == EnemyType.ranged)
+        {
+            StartCoroutine(RangeAttack());
+        }
+    }
+
+    private IEnumerator MeleeAttack()
+    {
+        animator.SetTrigger("attackMelee");
+        lastAttackTimer = Time.time;
+
+        var length = animator.GetCurrentAnimatorStateInfo(0).length;
+        yield return new WaitForSeconds(length + 0.5f);
+
+        enemy.currentState = EnemyState.idle;
+    }
+
+    private IEnumerator RangeAttack()
+    {
+        animator.SetTrigger("attackRanged");
+        lastAttackTimer = Time.time;
+
+        var length = animator.GetCurrentAnimatorStateInfo(0).length;
+        yield return new WaitForSeconds(length);
+
+        Vector2 shootDirection = (player.position - transform.position).normalized;
+        GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+        Rigidbody2D projectileRb = projectile.GetComponent<Rigidbody2D>();
+        projectileRb.velocity = shootDirection * 10f;
+
+        enemy.currentState = EnemyState.idle;
+    }
+
     private void FixedUpdateMovement()
     {
-        if (enemy.currentState == EnemyState.idle) return;
-
-        if(Vector2.Distance(transform.position, player.position) > 1f)
+        if (enemy.currentState == EnemyState.idle || enemy.currentState == EnemyState.attack)
         {
-            rb.MovePosition(rb.position + direction * enemy.moveSpeed * Time.fixedDeltaTime);
+            rb.velocity = Vector2.zero;
+            return;
+        }
+
+        float currentSpeed = enemy.moveSpeed;
+        if (enemy.currentState == EnemyState.retreat)
+        {
+            currentSpeed *= retreatSpeed;
+        }
+
+        if (enemy.currentState == EnemyState.retreat || Vector2.Distance(transform.position, player.position) > 1f)
+        {
+            rb.MovePosition(rb.position + direction * currentSpeed * Time.fixedDeltaTime);
         }
         else
         {
@@ -164,7 +256,7 @@ public class EnemyAI : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Wall"))
+        if (other.gameObject.CompareTag("Wall") && canWander)
         {
             movespotPosition = transform.position;
         }
@@ -180,5 +272,8 @@ public class EnemyAI : MonoBehaviour
             Gizmos.color = Color.yellow;
             Gizmos.DrawWireSphere(movespotPosition, 0.2f);
         }
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, attackRange);
     }
 }

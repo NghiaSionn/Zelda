@@ -59,9 +59,10 @@ public class DoorManager : MonoBehaviour
         GameObject doorObj = Instantiate(prefabToUse, position, Quaternion.identity, transform);
         Door door = doorObj.GetComponent<Door>();
 
+        door.Initialize(direction, false);
+
         fromRoom.doors.Add(door);
         toRoom.doors.Add(door);
-
         createdDoors.Add(position, door);
     }
 }

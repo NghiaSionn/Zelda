@@ -28,7 +28,6 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private float attackCooldown = 2f;
     [Header("Range Settings")]
     [SerializeField] private float retreatRange = 3f;
-    [SerializeField] private float retreatSpeed = 1.5f;
     [SerializeField] private GameObject projectilePrefab;
 
     void Start()
@@ -206,12 +205,14 @@ public class EnemyAI : MonoBehaviour
         lastAttackTimer = Time.time;
 
         var length = animator.GetCurrentAnimatorStateInfo(0).length;
-        yield return new WaitForSeconds(length);
+        yield return new WaitForSeconds(length + 0.5f);
 
         Vector2 shootDirection = (player.position - transform.position).normalized;
         GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
         Rigidbody2D projectileRb = projectile.GetComponent<Rigidbody2D>();
-        projectileRb.velocity = shootDirection * 10f;
+        projectileRb.velocity = shootDirection * projectile.GetComponent<Projectile>().speed;
+
+        yield return null;
 
         enemy.currentState = EnemyState.idle;
     }
@@ -224,15 +225,9 @@ public class EnemyAI : MonoBehaviour
             return;
         }
 
-        float currentSpeed = enemy.moveSpeed;
-        if (enemy.currentState == EnemyState.retreat)
-        {
-            currentSpeed *= retreatSpeed;
-        }
-
         if (enemy.currentState == EnemyState.retreat || Vector2.Distance(transform.position, player.position) > 1f)
         {
-            rb.MovePosition(rb.position + direction * currentSpeed * Time.fixedDeltaTime);
+            rb.MovePosition(rb.position + direction * enemy.moveSpeed * Time.fixedDeltaTime);
         }
         else
         {
@@ -242,7 +237,14 @@ public class EnemyAI : MonoBehaviour
 
     private void FixedUpdateAnimation()
     {
-        spriteRenderer.flipX = direction.x < 0;
+        if (enemy.currentState != EnemyState.retreat)
+        {
+            spriteRenderer.flipX = direction.x < 0;
+        }
+        else
+        {
+            spriteRenderer.flipX = direction.x > 0;
+        }
 
         animator.SetFloat("posX", Mathf.Abs(direction.x));
         animator.SetFloat("posY", direction.y);

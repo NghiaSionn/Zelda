@@ -41,8 +41,11 @@ public class Enemy : MonoBehaviour
 
     public void Knock(Rigidbody2D myRigibody, float knockTime, float damage)
     {
-        StartCoroutine(KnockCo(myRigibody, knockTime));
-        TakeDamage(damage);
+        if (gameObject.activeInHierarchy)
+        {
+            StartCoroutine(KnockCo(myRigibody, knockTime));
+            TakeDamage(damage);
+        }
     }
 
 
@@ -58,12 +61,15 @@ public class Enemy : MonoBehaviour
 
     private IEnumerator KnockCo(Rigidbody2D myRigibody, float knockTime)
     {
-        if (myRigibody != null)
+        if (myRigibody != null && gameObject.activeInHierarchy)
         {
             yield return new WaitForSeconds(knockTime);
-            myRigibody.velocity = Vector2.zero;
-            currentState = EnemyState.idle;
-            myRigibody.velocity = Vector2.zero;
+            if (gameObject.activeInHierarchy)
+            {
+                myRigibody.velocity = Vector2.zero;
+                currentState = EnemyState.idle;
+                myRigibody.velocity = Vector2.zero;
+            }
         }
     }
 }

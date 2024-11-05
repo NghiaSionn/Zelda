@@ -43,7 +43,7 @@ public class KnockBack : MonoBehaviour
                 }
                 if (other.gameObject.CompareTag("Enemy"))
                 {
-                    var enemy = other.gameObject.GetComponent<EnemyDungeon>();
+                    var enemy = other.gameObject.GetComponent<Enemy>();
                     enemy.Knock(hit, knockTime, damage);
                 }
             }

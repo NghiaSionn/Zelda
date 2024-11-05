@@ -3,8 +3,7 @@ using System.Collections.Generic;
 
 public class EnemyAI : MonoBehaviour
 {
-
-    private EnemyDungeon enemy;
+    private Enemy enemy;
     private Rigidbody2D rb;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
@@ -24,11 +23,14 @@ public class EnemyAI : MonoBehaviour
 
     void Start()
     {
-        enemy = GetComponent<EnemyDungeon>();
+        enemy = GetComponent<Enemy>();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        player = GameObject.FindGameObjectWithTag("Player")?.GetComponent<Transform>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        if(player == null)
+        Debug.Log("Yeah");
+
         startingPosition = transform.position;
         waitTimer = waitTime;
     }

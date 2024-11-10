@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public enum DoorType
@@ -24,36 +25,58 @@ public class Door : Interactable
     [Header("Box2D")]
     public Collider2D physicsCollider;
 
+    [Header("Chuyển Scene")]
+    public GameObject sceneTransitions;
+    private Animator currentFade;
+    public string sceneName;
+
     public bool open = false;
 
+
+  
     private Animator currentDoor;
 
 
-    public void Start()
+    public void Awake()
     {
         currentDoor = door.GetComponent<Animator>();
+        currentFade = sceneTransitions.GetComponent<Animator>();
     }
 
     private void Update()
     {
-        if (Input.GetKeyUp(KeyCode.E))
+
+        if (Input.GetKeyUp(KeyCode.E) && playerInRange)
         {
-            if (playerInRange && thisDoorType == DoorType.key)
+            if (thisDoorType == DoorType.key)
             {
-                if (playerInventory.numberOfKeys > 0)
+                if (!open && playerInventory.numberOfKeys > 0) 
                 {
                     playerInventory.numberOfKeys--;
                     Open();
                 }
-            }           
+                else if (open) 
+                {
+                    StartCoroutine(LoadScene(sceneName));
+                }
+            }
         }
+
     }
 
     public void Open()
     {
         currentDoor.Play("open");
         open = true;
-        physicsCollider.enabled = false;
+
+             
+    }
+
+    IEnumerator LoadScene(string sceneName)
+    {
+        currentFade.Play("Fade In");
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene(sceneName);
         
     }
 

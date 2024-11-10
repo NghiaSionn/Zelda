@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Cinemachine;
+using System.Collections;
 using System.Collections.Generic;
 using Unity.Burst.CompilerServices;
 using UnityEngine;
@@ -10,7 +11,14 @@ public class KnockBack : MonoBehaviour
     public float knockTime;
     public float damage;
 
-    
+
+    private CinemachineImpulseSource impulseSource;
+
+    private void Awake()
+    {
+        impulseSource = GetComponent<CinemachineImpulseSource>();
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         // Phá bình 
@@ -34,6 +42,7 @@ public class KnockBack : MonoBehaviour
                 
                 if (other.gameObject.CompareTag("enemy"))
                 {
+                    CameraShakeManager.instance.CameraShake(impulseSource);
                     hit.GetComponent<Enemy>().currentState = EnemyState.stagger;
                     other.GetComponent<Enemy>().Knock(hit, knockTime, damage);
                 }
@@ -62,6 +71,7 @@ public class KnockBack : MonoBehaviour
                 {
                     if (other.GetComponent<PlayerMovement>().currentState != PlayerState.stagger)
                     {
+                        CameraShakeManager.instance.CameraShake(impulseSource);
                         hit.GetComponent<PlayerMovement>().currentState = PlayerState.stagger;
                         other.GetComponent<PlayerMovement>().Knock(knockTime, damage);
                     }

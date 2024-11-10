@@ -45,11 +45,7 @@ public class Door : Interactable
                     playerInventory.numberOfKeys--;
                     Open();
                 }
-            }
-            else
-            {
-                Close();
-            }
+            }           
         }
     }
 
@@ -61,8 +57,4 @@ public class Door : Interactable
         
     }
 
-    public void Close() 
-    { 
-
-    }
 }

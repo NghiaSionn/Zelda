@@ -68,6 +68,13 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public Vector2 GetFacingDirection()
+    {
+        
+        return new Vector2(animator.GetFloat("moveX"), animator.GetFloat("moveY")).normalized;
+    }
+
+
     private IEnumerator AttackCo()
     {
         animator.SetBool("attacking", true);

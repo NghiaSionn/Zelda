@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 
 public class KnockBack : MonoBehaviour
@@ -12,14 +13,38 @@ public class KnockBack : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D other)
     {
+        // Phá bình 
         if (other.gameObject.CompareTag("breakable") && this.gameObject.CompareTag("Player"))
         {
             other.GetComponent<Pot>().Smash();
         }
+
+        // đẩy lùi kẻ địch bằng skill
+        if (this.gameObject.CompareTag("Skill") && other.gameObject.CompareTag("enemy"))
+        {
+            Rigidbody2D hit = other.GetComponent<Rigidbody2D>();
+            
+
+           
+            if (hit != null)
+            {
+                Vector2 difference = hit.transform.position - transform.position;
+                difference = difference.normalized * thrust;
+                hit.AddForce(difference, ForceMode2D.Impulse);
+                
+                if (other.gameObject.CompareTag("enemy"))
+                {
+                    hit.GetComponent<Enemy>().currentState = EnemyState.stagger;
+                    other.GetComponent<Enemy>().Knock(hit, knockTime, damage);
+                }
+            }
+        }
+
+
         if (other.gameObject.CompareTag("enemy") || other.gameObject.CompareTag("Player"))
         {
             // ngăn kẻ địch giết nhau
-            //if (other.gameObject.CompareTag("Enemy") && gameObject.CompareTag("Enemy")) return;
+            if (other.gameObject.CompareTag("enemy") && gameObject.CompareTag("enemy")) return;
 
 
             Rigidbody2D hit = other.GetComponent<Rigidbody2D>();

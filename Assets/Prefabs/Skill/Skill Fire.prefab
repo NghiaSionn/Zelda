@@ -345,7 +345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f21bc319248df240918649f4de018f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 15
 --- !u!61 &2890139461045955626
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -406,7 +406,6 @@ MonoBehaviour:
   thrust: 5
   knockTime: 0.2
   damage: 0.5
-  impulseSource: {fileID: 0}
 --- !u!114 &8155614064933739254
 MonoBehaviour:
   m_ObjectHideFlags: 0

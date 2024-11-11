@@ -37,6 +37,7 @@ public class Projectile : MonoBehaviour
     {
         if (other.gameObject.CompareTag("breakable"))
         {
+            CameraShakeManager.instance.CameraShake(impulseSource);
             Destroy(gameObject);
             other.gameObject.GetComponent<Pot>().Smash();
         }

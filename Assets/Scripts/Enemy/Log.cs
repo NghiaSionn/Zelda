@@ -1,13 +1,19 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Log : Enemy
 {
-    private Rigidbody2D myRigidbody;
+    [Header("Rigibody")]
+    public Rigidbody2D myRigidbody;
+
+    [Header("Người bị tấn công")]
     public Transform target;
+
+    [Header("Khoảng cách tấn công")]
     public float chaseRaidus;
     public float attackRadius;
+
     public Transform homePosition;
     public Animator anim;
 
@@ -19,6 +25,7 @@ public class Log : Enemy
         target = GameObject.FindWithTag("Player").transform;
         anim = GetComponent<Animator>();
         myRigidbody = GetComponent<Rigidbody2D>();
+        anim.SetBool("wakeUp", true);
     }
 
 
@@ -29,7 +36,7 @@ public class Log : Enemy
     }
 
 
-    void CheckDistance()
+    public virtual void CheckDistance()
     {
         if (Vector3.Distance(target.position,
                             transform.position) <= chaseRaidus
@@ -63,7 +70,7 @@ public class Log : Enemy
     }
 
 
-    private void changeAnim(Vector2 direction)
+    public void changeAnim(Vector2 direction)
     {
         if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
         {
@@ -92,7 +99,7 @@ public class Log : Enemy
  
 
 
-    private void ChangeState(EnemyState newState)
+    public void ChangeState(EnemyState newState)
     {
         if (currentState != newState)
         {

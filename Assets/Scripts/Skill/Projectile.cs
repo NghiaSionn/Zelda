@@ -38,7 +38,7 @@ public class Projectile : MonoBehaviour
         if (other.gameObject.CompareTag("breakable"))
         {
             CameraShakeManager.instance.CameraShake(impulseSource);
-            Destroy(gameObject);
+            StartCoroutine(EffectSkill());
             other.gameObject.GetComponent<Pot>().Smash();
         }
 
@@ -46,12 +46,18 @@ public class Projectile : MonoBehaviour
         if (other.gameObject.CompareTag("Interactive") || other.gameObject.CompareTag("Tree") 
             || other.gameObject.CompareTag("House") || other.gameObject.CompareTag("enemy"))
         {
-            CameraShakeManager.instance.CameraShake(impulseSource);
-            Destroy(gameObject);
+            CameraShakeManager.instance.CameraShake(impulseSource);          
+            StartCoroutine(EffectSkill());
         }
     }
 
-   
+   IEnumerator EffectSkill()
+   {
+        animator.Play("Target");
+        yield return new WaitForSeconds(0.5f);
+        Destroy(gameObject);
+       
+   }
 
 
 }

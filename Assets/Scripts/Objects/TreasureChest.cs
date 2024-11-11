@@ -103,4 +103,12 @@ public class TreasureChest : Interactable
             playerInRange = false;
         }
     }
+
+    public void ResetChest()
+    {
+        PlayerPrefs.SetInt(chestID, 0); 
+        anim.Play("Close"); 
+        isOpen = false;
+
+    }
 }

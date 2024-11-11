@@ -22,8 +22,16 @@ public class WorldTime : MonoBehaviour
         // Load thời gian và ngày từ Scriptable Object
         dayCount = gameTimeData.dayCount;
 
-        // Chuyển đổi string sang TimeSpan (chỉ lấy giờ và phút)
-        _currentTime = TimeSpan.ParseExact(gameTimeData.currentTimeString, "hh\\:mm", null);
+       
+        if (dayCount == 1)
+        {
+            _currentTime = new TimeSpan(7, 0, 0); 
+        }
+        else
+        {
+            // Chuyển đổi string sang TimeSpan (chỉ lấy giờ và phút)
+            _currentTime = TimeSpan.ParseExact(gameTimeData.currentTimeString, "hh\\:mm", null);
+        }
 
         StartCoroutine(AddMinute());
     }

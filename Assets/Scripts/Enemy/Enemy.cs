@@ -8,20 +8,31 @@ public enum EnemyState
     idle,
     walk,
     attack,
-    stagger
+    stagger,
+    chase,
+    wander,
+    retreat,
+    death
+}
+
+public enum EnemyType
+{
+    melee,
+    ranged,
+    none
 }
 
 
 public class Enemy : MonoBehaviour
 {
     [Header("Enemy")]
-    public EnemyState currentState;
+    public EnemyState currentState = EnemyState.idle;
+    public EnemyType enemyType;
     public FloatValue maxHealth;
     public float health;
     public string enemyName;
     public int baseAttack;
     public float moveSpeed;
-
 
     public void Awake()
     {
@@ -31,12 +42,15 @@ public class Enemy : MonoBehaviour
 
     public void Knock(Rigidbody2D myRigibody, float knockTime, float damage)
     {
-        StartCoroutine(KnockCo(myRigibody, knockTime));
-        TakeDamage(damage);
+        if (gameObject.activeInHierarchy)
+        {
+            StartCoroutine(KnockCo(myRigibody, knockTime));
+            TakeDamage(damage);
+        }
     }
 
 
-    private void TakeDamage(float damage)
+    protected virtual void TakeDamage(float damage)
     {
         health -= damage;
         if (health <= 0)
@@ -48,12 +62,15 @@ public class Enemy : MonoBehaviour
 
     private IEnumerator KnockCo(Rigidbody2D myRigibody, float knockTime)
     {
-        if (myRigibody != null)
+        if (myRigibody != null && gameObject.activeInHierarchy)
         {
             yield return new WaitForSeconds(knockTime);
-            myRigibody.velocity = Vector2.zero;
-            currentState = EnemyState.idle;
-            myRigibody.velocity = Vector2.zero;
+            if (gameObject.activeInHierarchy)
+            {
+                myRigibody.velocity = Vector2.zero;
+                currentState = EnemyState.idle;
+                myRigibody.velocity = Vector2.zero;
+            }
         }
     }
 }

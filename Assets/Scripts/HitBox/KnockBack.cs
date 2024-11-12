@@ -1,7 +1,11 @@
 ﻿using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
+<<<<<<< HEAD
+using UnityEditor;
+=======
 using Unity.Burst.CompilerServices;
+>>>>>>> master
 using UnityEngine;
 
 public class KnockBack : MonoBehaviour
@@ -12,6 +16,8 @@ public class KnockBack : MonoBehaviour
     public float damage;
 
 
+<<<<<<< HEAD
+=======
     private CinemachineImpulseSource impulseSource;
 
     private void Awake()
@@ -19,6 +25,7 @@ public class KnockBack : MonoBehaviour
         impulseSource = GetComponent<CinemachineImpulseSource>();
     }
 
+>>>>>>> master
     private void OnTriggerEnter2D(Collider2D other)
     {
         // Phá bình 
@@ -26,6 +33,9 @@ public class KnockBack : MonoBehaviour
         {
             other.GetComponent<Pot>().Smash();
         }
+<<<<<<< HEAD
+        if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Player"))
+=======
 
         
 
@@ -53,18 +63,18 @@ public class KnockBack : MonoBehaviour
 
 
         if (other.gameObject.CompareTag("enemy") || other.gameObject.CompareTag("Player"))
+>>>>>>> master
         {
             // ngăn kẻ địch giết nhau
             if (other.gameObject.CompareTag("enemy") && gameObject.CompareTag("enemy")) return;
 
-
             Rigidbody2D hit = other.GetComponent<Rigidbody2D>();
-            if(hit != null)
+            if (hit != null)
             {
                 Vector2 difference = hit.transform.position - transform.position;
                 difference = difference.normalized * thrust;
                 hit.AddForce(difference, ForceMode2D.Impulse);
-                if (other.gameObject.CompareTag("enemy") && other.isTrigger)
+                if (other.gameObject.CompareTag("Enemy") && other.isTrigger)
                 {
                     hit.GetComponent<Enemy>().currentState = EnemyState.stagger;
                     other.GetComponent<Enemy>().Knock(hit, knockTime, damage);
@@ -77,8 +87,19 @@ public class KnockBack : MonoBehaviour
                         hit.GetComponent<PlayerMovement>().currentState = PlayerState.stagger;
                         other.GetComponent<PlayerMovement>().Knock(knockTime, damage);
                     }
-                }                                
+                }
+                if (other.gameObject.CompareTag("Enemy"))
+                {
+                    var enemy = other.gameObject.GetComponent<Enemy>();
+                    enemy.Knock(hit, knockTime, damage);
+                }
             }
         }
-    }  
+
+        if (other.gameObject.CompareTag("Ores"))
+        {
+            other.GetComponent<Ore>().MineOre(1);
+            Debug.Log("Hit resource");
+        }
+    }
 }

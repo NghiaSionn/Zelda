@@ -18,13 +18,17 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D myRigibody;
     private Vector3 change;
     public PlayerState currentState;
+
     [Header("Heatlh")]
     public FloatValue currentHealth;
     public SignalSender playerHealthSignal;
+
     [Header("Position")]
     public VectorValue startingPosition;
+
     [Header("Inventory")]
     public Inventory playerInventory;
+
     [Header("Item")]
     public SpriteRenderer receivedItemSprite;
 

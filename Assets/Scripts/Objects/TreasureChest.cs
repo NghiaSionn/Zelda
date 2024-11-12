@@ -1,21 +1,42 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 public class TreasureChest : Interactable
 {
+    [Header("ID Rương")]
+    public string chestID;
+
+    [Header("Vật phẩm")]
     public Item contents;
+
+    [Header("Túi đồ người chơi")]
     public Inventory playerInventory;
     public bool isOpen;
+
+
+    [Header("Data")]
     public SignalSender raiseItem;
+
+
+    [Header("UI")]
     public GameObject dialogBox;
     public TextMeshProUGUI diablogText;
+
+
     private Animator anim;
 
-    void Start()
+    void Awake()
     {
         anim = GetComponent<Animator>();
+
+        // Kiểm tra trạng thái
+        if (PlayerPrefs.GetInt(chestID, 0) == 1) 
+        {
+            anim.Play("Open_Idle");
+            isOpen = true;
+        }
     }
 
     private void Update()
@@ -49,14 +70,16 @@ public class TreasureChest : Interactable
         anim.SetBool("opened", true);
 
         SoundManager.Instance.PlaySound3D("openchest", transform.position);
-        
+
+        PlayerPrefs.SetInt(chestID, 1);
+
     }
 
     public void ChestIsOpen()
     {
        
             
-            Debug.Log("Chest is already open");
+            Debug.Log("Rương đã mở");
             dialogBox.SetActive(false);
             raiseItem.Raise();
             playerInRange = false;                 
@@ -79,5 +102,13 @@ public class TreasureChest : Interactable
             context.Raise();
             playerInRange = false;
         }
+    }
+
+    public void ResetChest()
+    {
+        PlayerPrefs.SetInt(chestID, 0); 
+        anim.Play("Close"); 
+        isOpen = false;
+
     }
 }

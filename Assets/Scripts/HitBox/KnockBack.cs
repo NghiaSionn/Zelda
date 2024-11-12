@@ -27,7 +27,9 @@ public class KnockBack : MonoBehaviour
             other.GetComponent<Pot>().Smash();
         }
 
-        // đẩy lùi kẻ địch bằng skill
+        
+
+        // Giết kẻ địch bằng skill
         if (this.gameObject.CompareTag("Skill") && other.gameObject.CompareTag("enemy"))
         {
             Rigidbody2D hit = other.GetComponent<Rigidbody2D>();

@@ -1,37 +1,38 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using TMPro;
 using UnityEngine;
 
-[RequireComponent(typeof(TMP_Text))]
 public class WorldTimeDisplay : MonoBehaviour
 {
-    [SerializeField] 
-    private WorldTime _worldTime;
-    private TMP_Text _text;
+    [SerializeField] private WorldTime _worldTime;
+    [SerializeField] private TMP_Text _dayText;
+    [SerializeField] private TMP_Text _timeText;
 
-    // Start is called before the first frame update
-    void Awake()
+    private void Awake()
     {
-        _text = GetComponent<TMP_Text>();
+        // Đăng ký event
         _worldTime.WorldTimeChange += OnWorldTimeChange;
+        _worldTime.WorldDayChange += OnWorldDayChange;
+
+        // Hiển thị thời gian ban đầu
+        OnWorldTimeChange(this, TimeSpan.Parse(_worldTime.gameTimeData.currentTimeString));
+        OnWorldDayChange(this, _worldTime.gameTimeData.dayCount);
     }
 
     private void OnDestroy()
     {
+        // Hủy đăng ký event
         _worldTime.WorldTimeChange -= OnWorldTimeChange;
+        _worldTime.WorldDayChange -= OnWorldDayChange;
     }
 
     private void OnWorldTimeChange(object sender, TimeSpan newTime)
     {
-        _text.SetText(newTime.ToString(@"hh\:mm"));
-       
+        _timeText.SetText(newTime.ToString(@"hh\:mm"));
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnWorldDayChange(object sender, int newDay)
     {
-        
+        _dayText.SetText($"Day {newDay}");
     }
 }

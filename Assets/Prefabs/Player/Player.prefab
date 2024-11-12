@@ -392,7 +392,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1765880199
-  m_SortingLayer: 27
+  m_SortingLayer: 40
   m_SortingOrder: 0
   m_Sprite: {fileID: 1516748338, guid: e21faaf6c05b6f6438a5f5d24eb8c4a9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -590,7 +590,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: ce5e4f432f9e399448fc251f43723b14, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -609,7 +609,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1667486233
-  m_SortingLayer: 26
+  m_SortingLayer: 37
   m_SortingOrder: 0
   m_Sprite: {fileID: 1020593685, guid: 4a9b9f063bcbb2942848fa33fe6662a8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -711,6 +711,8 @@ MonoBehaviour:
   currentHealth: {fileID: 11400000, guid: 3d71eb3e956c358418bc54923b11d112, type: 2}
   playerHealthSignal: {fileID: 11400000, guid: 987497245c3f53c46bb0db6bbcdec1ea, type: 2}
   startingPosition: {fileID: 11400000, guid: cba479c34ffbc8244a3751f160802f6c, type: 2}
+  playerInventory: {fileID: 11400000, guid: c8fff1b9deb4c6d4da86362e68b520a4, type: 2}
+  receivedItemSprite: {fileID: 0}
 --- !u!95 &2824830946106686257
 Animator:
   serializedVersion: 5

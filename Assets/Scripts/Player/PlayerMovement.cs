@@ -18,9 +18,19 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D myRigibody;
     private Vector3 change;
     public PlayerState currentState;
+
+    [Header("Heatlh")]
     public FloatValue currentHealth;
     public SignalSender playerHealthSignal;
+
+    [Header("Position")]
     public VectorValue startingPosition;
+
+    [Header("Inventory")]
+    public Inventory playerInventory;
+
+    [Header("Item")]
+    public SpriteRenderer receivedItemSprite;
 
 
     private Animator animator;
@@ -41,6 +51,11 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (currentState == PlayerState.interact)
+        {
+            return;
+        }
+
         change = Vector3.zero;
         change.x = Input.GetAxisRaw("Horizontal");
         change.y = Input.GetAxisRaw("Vertical");
@@ -57,20 +72,52 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public Vector2 GetFacingDirection()
+    {
+        
+        return new Vector2(animator.GetFloat("moveX"), animator.GetFloat("moveY")).normalized;
+    }
+
+
     private IEnumerator AttackCo()
     {
         animator.SetBool("attacking", true);
-        currentState = PlayerState.attack;
-
-        
-        SoundManager.Instance.PlaySound3D("sword", transform.position); 
-            
-        
+        currentState = PlayerState.attack;             
+        SoundManager.Instance.PlaySound3D("sword", transform.position);        
         yield return null;
+
         animator.SetBool("attacking", false);
         yield return new WaitForSeconds(.3f);
-        currentState = PlayerState.walk;
+        
+        if (currentState != PlayerState.interact)
+        {
+            currentState = PlayerState.walk;
+        }
+        
     }
+
+
+    public void RaiseItem()
+    {
+        if (playerInventory.currentItem != null)
+        {
+            if (currentState != PlayerState.interact)
+            {
+                animator.SetBool("receiveitem", true);
+                SoundManager.Instance.PlaySound2D("pickitem");
+                currentState = PlayerState.interact;
+                receivedItemSprite.sprite = playerInventory.currentItem.itemSprite;
+            }
+            else
+            {
+                animator.SetBool("receiveitem", false);
+                currentState = PlayerState.idle;
+                receivedItemSprite.sprite = null;
+            }
+        }
+            
+    }   
+
 
     void UpdateAnimationAndMove()
     {

@@ -55,7 +55,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 2277bd88cc7a4c14d894d09d80550d8d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 872479985
-  m_SortingLayer: 22
+  m_SortingLayer: 28
   m_SortingOrder: 0
   m_Sprite: {fileID: -1833822799, guid: 99694c8344964244aa791dadbbe6b275, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -190,9 +190,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   context: {fileID: 11400000, guid: 4c31505004ede174cb55ce91ae39de09, type: 2}
+  playerInRange: 0
   dialogBox: {fileID: 0}
   diablogText: {fileID: 0}
   dialog: "\u1EDE tr\xEAn r\u1EA5t nguy hi\u1EC3m, kh\xF4ng d\xE0nh cho m\u1EA5y
     th\u1EB1ng g\xE0"
-  dialogActive: 0
-  playerInRange: 0

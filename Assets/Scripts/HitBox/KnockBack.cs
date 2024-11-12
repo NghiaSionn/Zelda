@@ -1,11 +1,7 @@
 ﻿using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
-<<<<<<< HEAD
-using UnityEditor;
-=======
 using Unity.Burst.CompilerServices;
->>>>>>> master
 using UnityEngine;
 
 public class KnockBack : MonoBehaviour
@@ -15,9 +11,6 @@ public class KnockBack : MonoBehaviour
     public float knockTime;
     public float damage;
 
-
-<<<<<<< HEAD
-=======
     private CinemachineImpulseSource impulseSource;
 
     private void Awake()
@@ -25,7 +18,7 @@ public class KnockBack : MonoBehaviour
         impulseSource = GetComponent<CinemachineImpulseSource>();
     }
 
->>>>>>> master
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         // Phá bình 
@@ -33,25 +26,20 @@ public class KnockBack : MonoBehaviour
         {
             other.GetComponent<Pot>().Smash();
         }
-<<<<<<< HEAD
-        if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Player"))
-=======
-
-        
 
         // Giết kẻ địch bằng skill
         if (this.gameObject.CompareTag("Skill") && other.gameObject.CompareTag("enemy"))
         {
             Rigidbody2D hit = other.GetComponent<Rigidbody2D>();
-            
 
-           
+
+
             if (hit != null)
             {
                 Vector2 difference = hit.transform.position - transform.position;
                 difference = difference.normalized * thrust;
                 hit.AddForce(difference, ForceMode2D.Impulse);
-                
+
                 if (other.gameObject.CompareTag("enemy"))
                 {
                     CameraShakeManager.instance.CameraShake(impulseSource);
@@ -63,7 +51,6 @@ public class KnockBack : MonoBehaviour
 
 
         if (other.gameObject.CompareTag("enemy") || other.gameObject.CompareTag("Player"))
->>>>>>> master
         {
             // ngăn kẻ địch giết nhau
             if (other.gameObject.CompareTag("enemy") && gameObject.CompareTag("enemy")) return;

@@ -17,7 +17,7 @@ public class Projectile : MonoBehaviour
     public void SetDirection(Vector2 dir)
     {
         direction = dir;
-        
+
     }
 
     void Awake()
@@ -43,10 +43,10 @@ public class Projectile : MonoBehaviour
         }
 
 
-        if (other.gameObject.CompareTag("Interactive") || other.gameObject.CompareTag("Tree") 
+        if (other.gameObject.CompareTag("Interactive") || other.gameObject.CompareTag("Tree")
             || other.gameObject.CompareTag("House") || other.gameObject.CompareTag("enemy"))
         {
-            CameraShakeManager.instance.CameraShake(impulseSource);          
+            CameraShakeManager.instance.CameraShake(impulseSource);
             StartCoroutine(EffectSkill());
         }
     }
@@ -56,7 +56,7 @@ public class Projectile : MonoBehaviour
         animator.Play("Target");
         yield return new WaitForSeconds(0.5f);
         Destroy(gameObject);
-       
+
    }
 
 

@@ -8,7 +8,7 @@ public class DoorManager : MonoBehaviour
     public GameObject verticalDoorPrefab;
 
     public RoomManager roomManager;
-    private Dictionary<Vector2, Door> createdDoors = new();
+    private Dictionary<Vector2, DoorDungeon> createdDoors = new();
 
     public void GenerateDoors()
     {
@@ -35,7 +35,7 @@ public class DoorManager : MonoBehaviour
             }
             else
             {
-                Door existingDoor = createdDoors[doorPosition];
+                DoorDungeon existingDoor = createdDoors[doorPosition];
                 if (!room.doors.Contains(existingDoor))
                 {
                     room.doors.Add(existingDoor);
@@ -57,7 +57,7 @@ public class DoorManager : MonoBehaviour
         GameObject prefabToUse = (direction.x != 0) ? horizontalDoorPrefab : verticalDoorPrefab;
 
         GameObject doorObj = Instantiate(prefabToUse, position, Quaternion.identity, transform);
-        Door door = doorObj.GetComponent<Door>();
+        DoorDungeon door = doorObj.GetComponent<DoorDungeon>();
 
         door.Initialize(direction, false);
 

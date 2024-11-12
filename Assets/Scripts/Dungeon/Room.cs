@@ -21,7 +21,7 @@ public class Room
     public Vector2Int position;
     public HashSet<Vector2Int> floorPositions = new();
     public Dictionary<Vector2Int, Room> neighbors = new();
-    public List<Door> doors = new();
+    public List<DoorDungeon> doors = new();
     public List<EnemyDungeon> enemies = new();
 
     public Room(Vector2Int position, int width, int height, RoomType type = RoomType.Normal)

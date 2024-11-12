@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Door : MonoBehaviour
+public class DoorDungeon : MonoBehaviour
 {
     public bool isLocked;
     public Sprite unlockedSprite;

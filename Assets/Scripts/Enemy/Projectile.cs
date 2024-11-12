@@ -28,6 +28,10 @@ public class Projectile : MonoBehaviour
                 Vector2 normal = ((Vector2)transform.position - other.ClosestPoint(transform.position)).normalized;
                 rb.velocity = Vector2.Reflect(rb.velocity, normal);
             }
+            else
+            {
+                StartCoroutine(DestroyProjectile());
+            }
         }
         if(other.gameObject.CompareTag("Player"))
         {

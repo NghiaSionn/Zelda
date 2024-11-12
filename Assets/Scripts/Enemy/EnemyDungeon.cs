@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -6,13 +7,18 @@ using UnityEngine;
 public class EnemyDungeon : Enemy
 {
     public Room room;
-    internal bool isDefeated;
     private EnemyAI enemyAI;
+    private EnemyDrop enemyDrop;
+    private HealthBar healthBar;
 
     void Start()
     {
         base.Awake();
         enemyAI = GetComponent<EnemyAI>();
+        enemyDrop = GetComponent<EnemyDrop>();
+        healthBar = GetComponentInChildren<HealthBar>();
+
+        healthBar.UpdateHealthBar(health, maxHealth.initiaValue);
         FindCurrentRoom();
     }
     private void FindCurrentRoom()
@@ -40,10 +46,28 @@ public class EnemyDungeon : Enemy
 
     protected override void TakeDamage(float damage)
     {
-        base.TakeDamage(damage);
+        health -= damage;
+        healthBar.UpdateHealthBar(health, maxHealth.initiaValue);
         if(health <= 0 && room != null)
         {
-            isDefeated = true;
+            StartCoroutine(Death());
         }
+    }
+
+    private IEnumerator Death()
+    {
+        currentState = EnemyState.death;
+        enemyAI.enabled = false;
+
+        var animator = GetComponent<Animator>();
+        animator.SetTrigger("Death");
+
+        var length = animator.GetCurrentAnimatorStateInfo(0).length;
+        yield return new WaitForSeconds(length);
+
+        enemyDrop.DropItems(transform.position);
+
+        room.enemies.Remove(this);
+        Destroy(this.gameObject);
     }
 }

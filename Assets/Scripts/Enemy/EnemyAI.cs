@@ -54,26 +54,15 @@ public class EnemyAI : MonoBehaviour
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
         float distanceToStart = Vector2.Distance(transform.position, startingPosition);
 
-        if (distanceToPlayer <= chaseRange && CheckLineOfSight())
+        if (enemy.currentState != EnemyState.death)
         {
-            if (enemy.enemyType == EnemyType.ranged)
+            if (distanceToPlayer <= chaseRange && CheckLineOfSight())
             {
-                if (distanceToPlayer < retreatRange)
+                if (enemy.enemyType == EnemyType.ranged && distanceToPlayer < retreatRange && enemy.currentState != EnemyState.attack)
                 {
                     SetRetreatState();
                 }
                 else if (distanceToPlayer <= attackRange)
-                {
-                    SetAttackState();
-                }
-                else
-                {
-                    SetChaseState();
-                }
-            }
-            else if (enemy.enemyType == EnemyType.melee)
-            {
-                if (distanceToPlayer <= attackRange)
                 {
                     SetAttackState();
                 }
@@ -82,14 +71,14 @@ public class EnemyAI : MonoBehaviour
                     SetChaseState();
                 }
             }
-        }
-        else if (canWander)
-        {
-            SetWanderState();
-        }
-        else
-        {
-            SetReturnState(distanceToStart);
+            else if (canWander)
+            {
+                SetWanderState();
+            }
+            else
+            {
+                SetReturnState(distanceToStart);
+            }
         }
     }
 
@@ -174,8 +163,15 @@ public class EnemyAI : MonoBehaviour
 
     private void SetAttackState()
     {
+        if(enemy.enemyType == EnemyType.none)
+        {
+            SetChaseState();
+            return;
+        }
         if (enemy.currentState == EnemyState.attack) return;
         if (Time.time < lastAttackTimer + attackCooldown) return;
+
+        direction = (player.position - transform.position).normalized;
         enemy.currentState = EnemyState.attack;
 
         if (enemy.enemyType == EnemyType.melee)
@@ -196,7 +192,7 @@ public class EnemyAI : MonoBehaviour
         var length = animator.GetCurrentAnimatorStateInfo(0).length;
         yield return new WaitForSeconds(length + 0.5f);
 
-        enemy.currentState = EnemyState.idle;
+        SetChaseState();
     }
 
     private IEnumerator RangeAttack()
@@ -214,37 +210,29 @@ public class EnemyAI : MonoBehaviour
 
         yield return null;
 
-        enemy.currentState = EnemyState.idle;
+        SetChaseState();
     }
 
     private void FixedUpdateMovement()
     {
-        if (enemy.currentState == EnemyState.idle || enemy.currentState == EnemyState.attack)
+        if (enemy.currentState == EnemyState.idle || enemy.currentState == EnemyState.attack || enemy.currentState == EnemyState.death)
         {
             rb.velocity = Vector2.zero;
             return;
         }
 
-        if (enemy.currentState == EnemyState.retreat || Vector2.Distance(transform.position, player.position) > 1f)
+        if(Vector2.Distance(transform.position, player.position) > 0.1f)
         {
             rb.MovePosition(rb.position + direction * enemy.moveSpeed * Time.fixedDeltaTime);
         }
-        else
-        {
+        else{
             rb.velocity = Vector2.zero;
         }
     }
 
     private void FixedUpdateAnimation()
     {
-        if (enemy.currentState != EnemyState.retreat)
-        {
-            spriteRenderer.flipX = direction.x < 0;
-        }
-        else
-        {
-            spriteRenderer.flipX = direction.x > 0;
-        }
+        spriteRenderer.flipX = direction.x < 0;
 
         animator.SetFloat("posX", Mathf.Abs(direction.x));
         animator.SetFloat("posY", direction.y);
@@ -268,12 +256,6 @@ public class EnemyAI : MonoBehaviour
     {
         Gizmos.color = Color.white;
         Gizmos.DrawWireSphere(transform.position, chaseRange);
-
-        if (enemy.currentState == EnemyState.wander)
-        {
-            Gizmos.color = Color.yellow;
-            Gizmos.DrawWireSphere(movespotPosition, 0.2f);
-        }
 
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackRange);

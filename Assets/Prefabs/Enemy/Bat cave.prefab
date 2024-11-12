@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7348494878416041936}
   - component: {fileID: -4758673453355623517}
   - component: {fileID: 3056516183364943363}
+  - component: {fileID: -7859508605217411391}
   - component: {fileID: -8189527779647571576}
   m_Layer: 6
   m_Name: Bat cave
@@ -195,9 +196,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1098636d074c73541b3b9439054adb18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chaseRange: 5
   canWander: 1
   waitTime: 2
+  chaseRange: 5
+  attackRange: 1
+  attackCooldown: 2
+  retreatRange: 3
+  projectilePrefab: {fileID: 0}
 --- !u!114 &3056516183364943363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,11 +216,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
+  enemyType: 2
   maxHealth: {fileID: 11400000, guid: f0180459f6b8f8c43a4c61dd8de4a72f, type: 2}
   health: 3
   enemyName: Bat_cave
   baseAttack: 1
   moveSpeed: 2
+--- !u!114 &-7859508605217411391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2042021448347363090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf153b6be0dbb9c49ab6fa2556292bc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemDropList:
+  - {fileID: 11400000, guid: 5887973c42726e4459cb7ac53c62852c, type: 2}
+  guaranteeOneItem: 0
 --- !u!114 &-8189527779647571576
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -17,6 +17,6 @@ public class DungeonManager : MonoBehaviour
     void Start()
     {
         roomManager.GenerateRooms();
-        spawnerManager.GenerateEnemies();
+        spawnerManager.Generate();
     }
 }

@@ -80,11 +80,12 @@ public class Room
 
     public bool isCleared()
     {
-        foreach (var enemy in enemies)
+        if(enemies.Count == 0)
         {
-            if (!enemy.isDefeated)
-                return false;
+            return true;
         }
-        return true;
+        else {
+            return false;
+        }
     }
 }

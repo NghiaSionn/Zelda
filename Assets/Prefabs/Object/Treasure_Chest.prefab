@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8269441237335957055}
   m_Layer: 0
   m_Name: Treasure_Chest
-  m_TagString: Untagged
+  m_TagString: Interactive
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -218,6 +218,5 @@ MonoBehaviour:
   playerInventory: {fileID: 11400000, guid: c8fff1b9deb4c6d4da86362e68b520a4, type: 2}
   isOpen: 0
   raiseItem: {fileID: 11400000, guid: 29e67af19abf08e43957da90f2a295df, type: 2}
-  storedOpen: {fileID: 11400000, guid: c09d4ae1168eebe438dd10af59536412, type: 2}
   dialogBox: {fileID: 0}
   diablogText: {fileID: 0}

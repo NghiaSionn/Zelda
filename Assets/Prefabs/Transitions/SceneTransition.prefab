@@ -90,7 +90,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 608a1f5548c417a40a5a7ce14fc31bdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: Map1
-  playerPosition: {x: 0, y: 0}
+  sceneToLoad: House
+  playerPosition: {x: 0, y: -4}
   playerStorage: {fileID: 11400000, guid: cba479c34ffbc8244a3751f160802f6c, type: 2}
   fadeInPanel: {fileID: 5864355405590821783, guid: 91d265e4c72d36a41a8278fcdc90792d, type: 3}
+  fadeOutPanel: {fileID: 0}
+  fadeWait: 0

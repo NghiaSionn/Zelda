@@ -9,7 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2614538948943790770}
-  - component: {fileID: 1190066200083051749}
+  - component: {fileID: 6638800968054442768}
+  - component: {fileID: 268862495341699941}
   m_Layer: 0
   m_Name: DayNight System
   m_TagString: Untagged
@@ -32,7 +33,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1190066200083051749
+--- !u!114 &6638800968054442768
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,7 +42,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 2494077192638291628}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3603537f3f0fc1140982f6b1fe9dcee1, type: 3}
+  m_Script: {fileID: 11500000, guid: f1a4d0a527ca1a94bb201c5099c0431c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameTimeData: {fileID: 11400000, guid: c5ba36bca72d0f04fa71c997d690372c, type: 2}
   _dayLength: 1000
+--- !u!114 &268862495341699941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2494077192638291628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d345832533995124e88cd7eb725b8c12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _worldTime: {fileID: 6638800968054442768}
+  _dayText: {fileID: 0}
+  _timeText: {fileID: 0}

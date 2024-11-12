@@ -5,11 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - breakable
-  - Resources
-  - Ores
-  - Wall
-  - Enemy
-  - Projectile
+  - enemy
+  - NPC
+  - Interactive
+  - Tree
+  - House
+  - Skill
   layers:
   - Default
   - TransparentFX
@@ -18,10 +19,10 @@ TagManager:
   - Water
   - UI
   - Enemy
-  - Resources
-  - Ores
-  - Player
-  - Projectile
+  - BackGorund 1
+  - Stair
+  - 
+  - 
   - 
   - 
   - 
@@ -56,17 +57,20 @@ TagManager:
   - name: Wall
     uniqueID: 688285723
     locked: 0
-  - name: Stair
-    uniqueID: 3311460969
-    locked: 0
   - name: Carpet
     uniqueID: 2987071943
     locked: 0
   - name: Door
     uniqueID: 560555401
     locked: 0
+  - name: Shadow
+    uniqueID: 3247994075
+    locked: 0
   - name: DecoBG
     uniqueID: 3641743785
+    locked: 0
+  - name: Grass
+    uniqueID: 2549037139
     locked: 0
   - name: DecoWaterBG
     uniqueID: 3087664631
@@ -80,8 +84,14 @@ TagManager:
   - name: 'BackGround 1 '
     uniqueID: 867697307
     locked: 0
+  - name: Shadow 1
+    uniqueID: 2673310133
+    locked: 0
   - name: DecoBG1
     uniqueID: 3704486467
+    locked: 0
+  - name: Stair
+    uniqueID: 873006147
     locked: 0
   - name: DoorDG
     uniqueID: 2285079699
@@ -92,14 +102,20 @@ TagManager:
   - name: BackGround 2
     uniqueID: 2149919349
     locked: 0
+  - name: Shadow 2
+    uniqueID: 222362683
+    locked: 0
+  - name: DecoBG2
+    uniqueID: 1701783495
+    locked: 0
   - name: WaterFall
     uniqueID: 3800075867
     locked: 0
+  - name: Splash Effect
+    uniqueID: 657174715
+    locked: 0
   - name: Fence
     uniqueID: 2500958619
-    locked: 0
-  - name: House
-    uniqueID: 3169466193
     locked: 0
   - name: Tree Fence
     uniqueID: 1814422921
@@ -116,15 +132,45 @@ TagManager:
   - name: Sign
     uniqueID: 872479985
     locked: 0
+  - name: Key
+    uniqueID: 2304228439
+    locked: 0
   - name: Pot
     uniqueID: 1301429067
     locked: 0
   - name: Enemy
     uniqueID: 992279263
     locked: 0
+  - name: BigDeco
+    uniqueID: 1197099343
+    locked: 0
+  - name: Stair
+    uniqueID: 3311460969
+    locked: 0
+  - name: House
+    uniqueID: 3169466193
+    locked: 0
+  - name: Stone Portal
+    uniqueID: 3445549953
+    locked: 0
+  - name: NPC
+    uniqueID: 554704805
+    locked: 0
   - name: Player
     uniqueID: 1667486233
     locked: 0
+  - name: Top BigDeco
+    uniqueID: 1027812963
+    locked: 0
+  - name: Rain Effect
+    uniqueID: 2489561319
+    locked: 0
   - name: Tree
     uniqueID: 2529087097
+    locked: 0
+  - name: 'Falling Effect '
+    uniqueID: 31907129
+    locked: 0
+  - name: Item
+    uniqueID: 3162548095
     locked: 0

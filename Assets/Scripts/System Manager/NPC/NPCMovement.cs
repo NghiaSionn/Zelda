@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -18,7 +17,7 @@ public class NPCMovement : MonoBehaviour
     private int currentWaypointIndex = 0;
     private Animator anim;
     private NavMeshAgent agent;
-    private bool isMoving = false; 
+    private bool isMoving = false;
 
     void Start()
     {
@@ -28,31 +27,45 @@ public class NPCMovement : MonoBehaviour
         StartCoroutine(MoveBetweenWaypoints());
     }
 
+    void Update()
+    {
+        // Cập nhật trạng thái "moving" dựa trên vận tốc hoặc khoảng cách còn lại
+        if (agent.velocity.sqrMagnitude > 0.01f && agent.remainingDistance > agent.stoppingDistance)
+        {
+            if (!isMoving) // Tránh set lại liên tục
+            {
+                anim.SetBool("moving", true);
+                isMoving = true;
+            }
+        }
+        else
+        {
+            if (isMoving) // Tránh set lại liên tục
+            {
+                anim.SetBool("moving", false);
+                isMoving = false;
+            }
+        }
+    }
+
     private IEnumerator MoveBetweenWaypoints()
     {
         while (true)
         {
             // Chọn waypoint ngẫu nhiên
-            currentWaypointIndex = UnityEngine.Random.Range(0, waypoints.Length);
+            currentWaypointIndex = Random.Range(0, waypoints.Length);
             Transform currentWaypoint = waypoints[currentWaypointIndex];
 
             // Di chuyển đến waypoint
             agent.SetDestination(currentWaypoint.position);
-            isMoving = true;
-            anim.SetBool("moving", true);
 
             // Chờ cho đến khi đến đích
             while (agent.remainingDistance > agent.stoppingDistance)
             {
-                // Cập nhật animation walking
-                Vector2 direction = agent.destination - transform.position;
+                Vector2 direction = (agent.destination - transform.position).normalized;
                 UpdateAnimation(direction);
-
                 yield return null;
             }
-
-            isMoving = false;
-            anim.SetBool("moving", false);
 
             // Dừng lại một khoảng thời gian ngẫu nhiên
             float stopTime = Random.Range(minStopTime, maxStopTime);
@@ -82,7 +95,6 @@ public class NPCMovement : MonoBehaviour
             else if (direction.y < 0)
             {
                 SetAnimFloat(Vector2.down);
-
             }
         }
     }
@@ -91,6 +103,5 @@ public class NPCMovement : MonoBehaviour
     {
         anim.SetFloat("moveX", setVector.x);
         anim.SetFloat("moveY", setVector.y);
-
     }
 }

@@ -12,20 +12,34 @@ public class LightManager : MonoBehaviour
     [Header("Đèn")]
     [SerializeField] private Light2D[] lights;
 
+    [Header("Các object lấy animator")]
+    [SerializeField] private GameObject[] animatorObject;
+
     [Header("Thời gian sáng")]
     [SerializeField] private float turnOnTime = 18f;
 
     [Header("Thời gian tắt")]
-    [SerializeField] private float turnOffTime = 6f; 
+    [SerializeField] private float turnOffTime = 6f;
+
+    private Animator[] animators;
 
     private void Awake()
     {
-        worldTime.WorldTimeChange += OnWorldTimeChange; 
+
+        animators = new Animator[animatorObject.Length];
+        for (int i = 0; i < animatorObject.Length; i++)
+        {
+            animators[i] = animatorObject[i].GetComponent<Animator>();
+        }
+
+
+        worldTime.WorldTimeChange += OnWorldTimeChange;
     }
 
     private void OnDestroy()
     {
-        worldTime.WorldTimeChange -= OnWorldTimeChange; 
+
+        worldTime.WorldTimeChange -= OnWorldTimeChange;
     }
 
     private void OnWorldTimeChange(object sender, TimeSpan newTime)
@@ -43,21 +57,28 @@ public class LightManager : MonoBehaviour
 
     private void TurnOnLights()
     {
-        
         foreach (var light in lights)
         {
-            Debug.Log("Đèn bật");
-            light.enabled = true;
+            light.enabled = true; 
+        }
+
+        foreach (var animator in animators)
+        {
+            animator.Play("Night"); 
         }
     }
 
     private void TurnOffLights()
     {
-        
         foreach (var light in lights)
         {
-            Debug.Log("Đèn tắt");
-            light.enabled = false;
+            light.enabled = false; 
+        }
+
+        foreach (var animator in animators)
+        {
+
+            animator.Play("Day"); 
         }
     }
 }

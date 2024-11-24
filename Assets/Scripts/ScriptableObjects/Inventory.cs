@@ -12,6 +12,7 @@ public class Inventory : ScriptableObject
     public int coins;
     public int meats;
     public int logs;
+    public int fish;
 
     public void AddItem(Item itemToAdd)
     {

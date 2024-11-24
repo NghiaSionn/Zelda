@@ -5,9 +5,11 @@ using UnityEngine.UI;
 
 public class StaminaWheel : MonoBehaviour
 {
+    [Header("Thông số")]
     public float stamina;
     public float maxStamina;
 
+    [Header("UI")]
     public Slider staminaWheel;
     public Slider usageWheel;
 
@@ -56,8 +58,13 @@ public class StaminaWheel : MonoBehaviour
 
         staminaWheel.value = stamina / maxStamina;
 
-        if (stamina <= 0)
+        // Ẩn Stamina Wheel khi ngừng chạy và thanh stamina đầy
+        if (stamina >= maxStamina)
         {
+            staminaWheel.gameObject.SetActive(false);
+            usageWheel.gameObject.SetActive(false);
         }
+
+        staminaWheel.value = stamina / maxStamina;
     }
 }

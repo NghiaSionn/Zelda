@@ -20,6 +20,6 @@ public class Item : ScriptableObject
     [Header("Số lượng")]
     public int quantity;
 
-    public enum ItemType { Coin, Meat, Log, Other } 
+    public enum ItemType { Coin, Meat, Log, Fish,Other } 
     public ItemType itemType; 
 }

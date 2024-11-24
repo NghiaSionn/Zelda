@@ -5,35 +5,66 @@ using UnityEngine;
 
 public class FishingMiniGame : MonoBehaviour
 {
+    [Header("Đỉnh thanh")]
     [SerializeField] Transform topPivot;
+
+    [Header("Dưới thanh")]
     [SerializeField] Transform bottomPivot;
 
+    [Header("Ảnh con cá ")]
     [SerializeField] Transform fish;
+
+    public GameObject fishingMiniGame;
 
 
     private float fishPosition;
     private float fishDestination;
 
     private float fishTimer;
+
+    [Header("Thời gian")]
     [SerializeField] float timerMultiplicator = 3f;
 
     private float fishSpeed;
+
+    [Header("Tốc độ")]
     [SerializeField] float smoothMotion = 1f;
 
-
+    [Header("Ô")]
     [SerializeField] Transform hook;
     float hookPosition;
+
+    [Header("Size của ô")]
     [SerializeField] float hookSize= 0.1f;
+
+    [Header("Sức mạnh của ô")]
     [SerializeField] float hookPower = 0.5f;
+
+
     private float hookProgress;
     private float hookPullVelocity;
-    [SerializeField] float hookPullPower = 0.01f;
-    [SerializeField] float hookGravityPower = 0.005f;
-    [SerializeField] float hookProgressDegradationPower = 0.1f;
 
+    [Header("Lực đẩy")]
+    [SerializeField] float hookPullPower = 0.01f;
+
+    [Header("Lực kéo")]
+    [SerializeField] float hookGravityPower = 0.005f;
+       
+    [Header("Độ tụt của thanh hoàn thành")]
+    [SerializeField] float hookProgressDegradationPower = 0.1f;
+   
     [SerializeField] SpriteRenderer hookSpriteRenderer;
 
+    [Header("Thanh hoàn thành")]
     [SerializeField] Transform progressBarContainer;
+
+    bool pause = false;
+
+    [Header("Thời gian thất bại")]
+    [SerializeField] float failTimer = 10f;
+
+    public bool IsComplete { get; private set; } = false;
+    public bool IsWin { get; private set; } = false;
 
 
 
@@ -56,6 +87,11 @@ public class FishingMiniGame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(pause)
+        {
+            return;
+        }
+
         Fish();
         Hook();
         ProgressCheck();
@@ -77,20 +113,62 @@ public class FishingMiniGame : MonoBehaviour
         else
         {
             hookProgress -= hookProgressDegradationPower * Time.deltaTime;
+
+            failTimer -= Time.deltaTime;
+            if (failTimer < 0f)
+            {
+                Lose();
+            }
+        }
+
+        if(hookProgress >= 1f)
+        {
+            Win();
         }
         hookProgress = Mathf.Clamp(hookProgress, 0f, 1f);
+    }
+
+    private void Lose()
+    {
+        
+        pause = true;
+        fishingMiniGame.SetActive(false);
+        ResetGame();
+        IsComplete = true;
+        IsWin = false;
+        Debug.Log("Minigame: Thua!");
+    }
+
+    private void Win()
+    {
+        
+        pause = true;
+        fishingMiniGame.SetActive(false);
+        ResetGame();
+        IsComplete = true;
+        IsWin = true;
+        Debug.Log("Minigame: Thắng!");
     }
 
     private void Hook()
     {
         if (Input.GetKey(KeyCode.Space))
         {
-            Debug.Log("Ấn thành công");
             hookPullVelocity += hookPullPower * Time.deltaTime;
         }
         hookPullVelocity -= hookGravityPower * Time.deltaTime;
 
         hookPosition += hookPullVelocity;
+
+        if(hookPosition - hookSize/2 < 0f && hookPullVelocity <0f)
+        {
+            hookPullVelocity = 0f;
+        }
+
+        if(hookPosition + hookSize/2 >= 1f && hookPullVelocity >0f)
+        {
+            hookPullVelocity = 0f;
+        }
         hookPosition = Mathf.Clamp(hookPosition, 0,1);
         hook.position = Vector3.Lerp(bottomPivot.position, topPivot.position, hookPosition);
 
@@ -108,5 +186,26 @@ public class FishingMiniGame : MonoBehaviour
 
         fishPosition = Mathf.SmoothDamp(fishPosition, fishDestination, ref fishSpeed, smoothMotion);
         fish.position = Vector3.Lerp(bottomPivot.position, topPivot.position, fishPosition);
+    }
+
+    public void ResetGame()
+    {
+        IsComplete = false; 
+        IsWin = false;
+
+        pause = false;
+        failTimer = 10f; 
+        hookProgress = 0f; 
+        hookPosition = 0f; 
+        hookPullVelocity = 0f; 
+        fishTimer = 0f; 
+        fishPosition = 0f; 
+        fishDestination = 0f; 
+        fishSpeed = 0f; 
+
+        // Cập nhật lại vị trí của móc câu và cá
+        hook.position = Vector3.Lerp(bottomPivot.position, topPivot.position, hookPosition);
+        fish.position = Vector3.Lerp(bottomPivot.position, topPivot.position, fishPosition);
+
     }
 }

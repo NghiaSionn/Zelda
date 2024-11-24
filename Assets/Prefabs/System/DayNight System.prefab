@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2614538948943790770}
   - component: {fileID: 6638800968054442768}
   - component: {fileID: 268862495341699941}
+  - component: {fileID: 9219793901488614304}
   m_Layer: 0
   m_Name: DayNight System
   m_TagString: Untagged
@@ -46,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameTimeData: {fileID: 11400000, guid: c5ba36bca72d0f04fa71c997d690372c, type: 2}
-  _dayLength: 1000
+  _dayLength: 1440
 --- !u!114 &268862495341699941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,3 +63,21 @@ MonoBehaviour:
   _worldTime: {fileID: 6638800968054442768}
   _dayText: {fileID: 0}
   _timeText: {fileID: 0}
+--- !u!114 &9219793901488614304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2494077192638291628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76ce741eaa36dad498795347672e604c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  worldTime: {fileID: 6638800968054442768}
+  weatherIcon: {fileID: 0}
+  sunnyIcon: {fileID: -241258101, guid: 666d7bb7af11a5947a89eeec35b98776, type: 3}
+  rainyIcon: {fileID: -96909182, guid: a732fffbd41fbfc4d86268aca7f29a38, type: 3}
+  nightSunnyIcon: {fileID: -2106917445, guid: f2cb290fbde9ed245b1449907289f80e, type: 3}
+  nightRainyIcon: {fileID: 879871153, guid: 527e04ac51c99464aa16efeb21e6e286, type: 3}

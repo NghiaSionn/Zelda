@@ -543,6 +543,7 @@ GameObject:
   - component: {fileID: 4845916879310207052}
   - component: {fileID: 3876002372850754682}
   - component: {fileID: 1231259692504429329}
+  - component: {fileID: 4568470782575956290}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -706,7 +707,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c36f55acaa6d344ebf3e5b4ecbe854f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 8
   currentState: 0
   currentHealth: {fileID: 11400000, guid: 3d71eb3e956c358418bc54923b11d112, type: 2}
   playerHealthSignal: {fileID: 11400000, guid: 987497245c3f53c46bb0db6bbcdec1ea, type: 2}
@@ -821,3 +822,16 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &4568470782575956290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7052677178912785717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 889f98f73fa44b54f9061e912e8084c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillManager: {fileID: 11400000, guid: 93c7f2f02746fef49906c978a70aef5f, type: 2}

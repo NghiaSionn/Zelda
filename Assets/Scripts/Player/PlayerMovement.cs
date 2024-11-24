@@ -19,6 +19,10 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 change;
     public PlayerState currentState;
 
+    [Header("Stamina")]
+    public StaminaWheel staminaWheel; 
+    public float runningSpeedMultiplier = 2f;
+
     [Header("Heatlh")]
     public FloatValue currentHealth;
     public SignalSender playerHealthSignal;
@@ -35,7 +39,8 @@ public class PlayerMovement : MonoBehaviour
 
     private Animator animator;
     private bool isWalkingSoundPlaying = false;
-    //private bool isAttackingSoundPlaying = false;
+    public bool isRunning = false;
+    
 
 
     void Start()
@@ -59,6 +64,26 @@ public class PlayerMovement : MonoBehaviour
         change = Vector3.zero;
         change.x = Input.GetAxisRaw("Horizontal");
         change.y = Input.GetAxisRaw("Vertical");
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            // Nếu đang giữ Shift và di chuyển, thì chạy
+            if (change != Vector3.zero)
+            {
+                isRunning = true;
+            }
+            // Nếu đang giữ Shift nhưng không di chuyển, thì không chạy
+            else
+            {
+                isRunning = false;
+            }
+        }
+        // Nếu không giữ Shift, thì không chạy
+        else
+        {
+            isRunning = false;
+        }
+
 
 
         if (Input.GetButtonDown("attack") && currentState != PlayerState.attack
@@ -149,8 +174,10 @@ public class PlayerMovement : MonoBehaviour
     void MoveCharacter()
     {
         change.Normalize();
+        float currentSpeed = isRunning ? speed * runningSpeedMultiplier : speed;
+
         myRigibody.MovePosition(
-            transform.position + change * speed * Time.deltaTime);
+            transform.position + change * currentSpeed * Time.deltaTime);
     }
 
     public void Knock(float knockTime, float damage)

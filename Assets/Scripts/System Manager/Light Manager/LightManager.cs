@@ -38,7 +38,6 @@ public class LightManager : MonoBehaviour
 
     private void OnDestroy()
     {
-
         worldTime.WorldTimeChange -= OnWorldTimeChange;
     }
 

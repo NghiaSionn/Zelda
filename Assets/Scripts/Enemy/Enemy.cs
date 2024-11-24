@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -34,6 +34,9 @@ public class Enemy : MonoBehaviour
     public int baseAttack;
     public float moveSpeed;
 
+    [Header("Rớt đồ")]
+    public LootTable thisLoot;
+
     public void Awake()
     {
         health = maxHealth.initiaValue;
@@ -49,12 +52,25 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    private void MakeLoot()
+    {
+        if(thisLoot != null)
+        {
+            GameObject current = thisLoot.LootPowerup();
+
+            if (current != null)
+            {
+                Instantiate(current.gameObject,transform.position, Quaternion.identity);
+            }
+        }
+    }
 
     protected virtual void TakeDamage(float damage)
     {
         health -= damage;
         if (health <= 0)
         {
+            MakeLoot();
             this.gameObject.SetActive(false);
         }
     }

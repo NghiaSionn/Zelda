@@ -44,13 +44,7 @@ public class FishingZone : Interactable
 
     public void Fishing()
     {
-        fishMinigame.ResetGame();
-
-        if (playerMovement != null)
-        {
-            playerMovement.enabled = false; 
-        }
-
+        fishMinigame.ResetGame();    
         isFishing = true;
         StartCoroutine(IsFishing());
         Debug.Log("Fishing: " + playerAnimator.GetBool("fishing"));
@@ -75,6 +69,9 @@ public class FishingZone : Interactable
 
     IEnumerator IsFishing()
     {
+
+        playerMovement.enabled = false;
+
         isFishing = true;
         playerAnimator.SetBool("fishing", true);
         fishingMiniGame.SetActive(true);
@@ -125,6 +122,7 @@ public class FishingZone : Interactable
 
     private void EndFishing()
     {
+        playerMovement.enabled = true;
         isFishing = false;
         playerAnimator.SetBool("fishing", false);
     }

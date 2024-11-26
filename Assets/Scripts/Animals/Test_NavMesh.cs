@@ -11,7 +11,7 @@ public class Test_NavMesh : MonoBehaviour
     public Animator anim;
 
     private Vector3 lastDirection;
-    private bool isAtDestination = false; // Biến kiểm tra trạng thái đã đến đích
+    private bool isAtDestination = false; 
 
     void Start()
     {
@@ -21,7 +21,7 @@ public class Test_NavMesh : MonoBehaviour
         if (anim == null)
             anim = GetComponent<Animator>();
 
-        // Cấu hình NavMeshAgent để di chuyển trong không gian 2D
+        
         agent.updateRotation = false;
         agent.updateUpAxis = false;
 
@@ -35,7 +35,7 @@ public class Test_NavMesh : MonoBehaviour
         {
             isAtDestination = true;
             Debug.Log("Đã đến điểm đến: " + agent.destination);
-            anim.SetBool("moving", false); // Dừng di chuyển
+            anim.SetBool("moving", false); 
         }
         else if (agent.remainingDistance > 0.5f)
         {

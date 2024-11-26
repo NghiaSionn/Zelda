@@ -43,7 +43,7 @@ public class Test_NavMesh : MonoBehaviour
         }
 
         // Cập nhật trạng thái "moving" dựa trên vận tốc
-        if (agent.velocity.sqrMagnitude > 0.01f) // Di chuyển nếu vận tốc lớn hơn ngưỡng
+        if (agent.velocity.sqrMagnitude > 0.01f) 
         {
             anim.SetBool("moving", true);
         }

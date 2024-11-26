@@ -103,7 +103,7 @@ public class Test_Rigidbody2D : MonoBehaviour
                 SetAnimFloat(Vector2.down);
         }
 
-        Debug.Log("moveX: " + direction.x + ", moveY: " + direction.y);
+        //Debug.Log("moveX: " + direction.x + ", moveY: " + direction.y);
     }
 
     void ChooseNewTarget()
@@ -120,7 +120,7 @@ public class Test_Rigidbody2D : MonoBehaviour
         if (collision.collider.CompareTag("Interactive")) 
         {
             Debug.Log("Va chạm với vật cản: " + collision.collider.name);
-            ChooseNewTarget(); // Chọn một điểm mới để né vật cản
+            ChooseNewTarget(); 
         }
     }
 

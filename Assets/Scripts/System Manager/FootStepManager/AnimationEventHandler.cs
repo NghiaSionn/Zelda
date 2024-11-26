@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,7 +12,13 @@ public class AnimationEventHandler : MonoBehaviour
     void Awake()
     {
         mapManager = FindObjectOfType<MapManager>();
-        audioSource = GetComponent<AudioSource>();
+        //audioSource = GetComponent<AudioSource>();
+
+        // Kiểm tra nếu audioSource null
+        if (audioSource == null)
+        {
+            Debug.LogError("AudioSource không được gán!");
+        }
     }
 
     public void OnDeathAnimationEnd()

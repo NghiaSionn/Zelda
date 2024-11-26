@@ -13,7 +13,8 @@ public enum FloorType
     Wood,
     Tiling,
     Snow,
-    Gravel
+    Gravel,
+    Sand
 
 }
 

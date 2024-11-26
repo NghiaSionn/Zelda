@@ -155,7 +155,7 @@ public class PlayerMovement : MonoBehaviour
 
             if (!isWalkingSoundPlaying)
             {
-                SoundManager.Instance.PlaySound2D("walk");
+                
                 isWalkingSoundPlaying = true;
             }
         }
@@ -165,7 +165,7 @@ public class PlayerMovement : MonoBehaviour
 
             if (isWalkingSoundPlaying)
             {
-                SoundManager.Instance.StopSound2D("walk");
+               
                 isWalkingSoundPlaying = false;
             }
         }

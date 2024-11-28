@@ -32,10 +32,10 @@ public class Test_Rigidbody2D : MonoBehaviour
         // Raycast để kiểm tra chướng ngại vật phía trước
         RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, 0.5f, LayerMask.GetMask("Obstacle"));
 
-        if (hit.collider != null) // Nếu va chạm với vật cản
+        if (hit.collider != null) 
         {
             Debug.Log("Đụng vật cản: " + hit.collider.name);
-            ChooseNewTarget(); // Chọn điểm mới
+            ChooseNewTarget(); 
         }
         else
         {
@@ -64,7 +64,7 @@ public class Test_Rigidbody2D : MonoBehaviour
     {
         while (true)
         {
-            // Tạo vị trí ngẫu nhiên trong vùng chỉ định
+            // Tạo vị trí ngẫu nhiên 
             Vector2 randomPosition = new Vector2(
                 Random.Range(-areaSize.x / 2f, areaSize.x / 2f),
                 Random.Range(-areaSize.y / 2f, areaSize.y / 2f)
@@ -103,7 +103,7 @@ public class Test_Rigidbody2D : MonoBehaviour
                 SetAnimFloat(Vector2.down);
         }
 
-        //Debug.Log("moveX: " + direction.x + ", moveY: " + direction.y);
+        
     }
 
     void ChooseNewTarget()
@@ -117,7 +117,7 @@ public class Test_Rigidbody2D : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.CompareTag("Interactive")) 
+        if (collision.collider.CompareTag("Interactive") || collision.collider.CompareTag("enemy") || collision.collider.CompareTag("Animal")) 
         {
             Debug.Log("Va chạm với vật cản: " + collision.collider.name);
             ChooseNewTarget(); 
@@ -128,5 +128,11 @@ public class Test_Rigidbody2D : MonoBehaviour
     {
         Gizmos.color = new Color(0f, 1f, 0f, 0.2f);
         Gizmos.DrawWireCube(transform.position, new Vector3(areaSize.x, areaSize.y, 0));
+
+        if (Application.isPlaying)
+        {
+            Gizmos.color = Color.red; 
+            Gizmos.DrawSphere(targetPosition, 0.2f); 
+        }
     }
 }

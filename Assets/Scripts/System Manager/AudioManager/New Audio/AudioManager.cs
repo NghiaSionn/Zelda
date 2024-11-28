@@ -1,6 +1,7 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public enum SoundType
@@ -9,7 +10,12 @@ public enum SoundType
     FIREBALL,
     HURT,
     ITEMPICKUP,
-    FOOTSTEP
+    BREAK,
+    OPEN,
+    CLOSE,
+    EXPLOSION,
+    RAIN,
+    NIGHT
 }
 
 [RequireComponent(typeof(AudioSource)), ExecuteInEditMode]
@@ -18,6 +24,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private SoundList[] soundList;
     private static AudioManager instance;
     private AudioSource audioSource;
+
+    public AudioSource rainAudioSource;
 
     void Awake()
     {
@@ -34,6 +42,26 @@ public class AudioManager : MonoBehaviour
         AudioClip[] clips = instance.soundList[(int)sound].Sounds;
         AudioClip randomClip = clips[UnityEngine.Random.Range(0, clips.Length)];
         instance.audioSource.PlayOneShot(randomClip, volume);
+    }
+
+    public static void PlayRainSound(float volume)
+    {
+        if (instance.rainAudioSource.isPlaying) return; 
+        AudioClip[] clips = instance.soundList[(int)SoundType.RAIN].Sounds;
+        if (clips.Length > 0)
+        {
+            instance.rainAudioSource.clip = clips[UnityEngine.Random.Range(0, clips.Length)];
+            instance.rainAudioSource.volume = volume;
+            instance.rainAudioSource.Play();
+        }
+    }
+
+    public static void StopRainSound()
+    {
+        if (instance.rainAudioSource.isPlaying)
+        {
+            instance.rainAudioSource.Stop();
+        }
     }
 
 #if UNITY_EDITOR

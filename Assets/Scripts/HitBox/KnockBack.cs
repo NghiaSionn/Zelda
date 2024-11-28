@@ -40,9 +40,35 @@ public class KnockBack : MonoBehaviour
 
                 if (other.gameObject.CompareTag("enemy"))
                 {
-                    CameraShakeManager.instance.CameraShake(impulseSource);
-                    hit.GetComponent<Enemy>().currentState = EnemyState.stagger;
-                    other.GetComponent<Enemy>().Knock(hit, knockTime, damage);
+                    var enemy = other.GetComponent<Enemy>();
+                    if (enemy != null)
+                    {
+                        CameraShakeManager.instance.CameraShake(impulseSource);
+                        enemy.currentState = EnemyState.stagger;
+                        enemy.Knock(hit, knockTime, damage);
+                    }
+
+                    // Xử lý Boss
+                    var boss = other.GetComponent<Boss>();
+                    if (boss != null)
+                    {
+                        CameraShakeManager.instance.CameraShake(impulseSource);
+                        boss.currentState = EnemyState.stagger;
+                        boss.Knock(hit, knockTime, damage);
+                    }
+
+                    
+                }
+
+                if(other.gameObject.CompareTag("Animal"))
+                {
+                    var animal = other.GetComponent<Animals>();
+                    if (animal != null)
+                    {
+                        CameraShakeManager.instance.CameraShake(impulseSource);
+                        //animal.currentState = EnemyState.stagger;
+                        animal.Knock(hit, knockTime, damage);
+                    }
                 }
 
                 // Thêm xử lý cho Player khi bị skill đánh trúng
@@ -60,7 +86,7 @@ public class KnockBack : MonoBehaviour
         }
 
         // Xử lý chung cho enemy và Player
-        if (other.gameObject.CompareTag("enemy") || other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("enemy") || other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Animal"))
         {
             // Ngăn kẻ địch giết nhau
             if (other.gameObject.CompareTag("enemy") && gameObject.CompareTag("enemy")) return;
@@ -74,8 +100,32 @@ public class KnockBack : MonoBehaviour
 
                 if (other.gameObject.CompareTag("enemy") && other.isTrigger)
                 {
-                    hit.GetComponent<Enemy>().currentState = EnemyState.stagger;
-                    other.GetComponent<Enemy>().Knock(hit, knockTime, damage);
+                    var enemy = other.GetComponent<Enemy>();
+                    if (enemy != null)
+                    {
+                       
+                        enemy.currentState = EnemyState.stagger;
+                        enemy.Knock(hit, knockTime, damage);
+                    }
+
+                    // Xử lý Boss
+                    var boss = other.GetComponent<Boss>();
+                    if (boss != null)
+                    {
+                        
+                        boss.currentState = EnemyState.stagger;
+                        boss.Knock(hit, knockTime, damage);
+                    }                  
+                }
+
+                if(other.gameObject.CompareTag("Animal"))
+                {
+                    var animal = other.GetComponent<Animals>();
+                    if (animal != null)
+                    {
+                        //animal.currentState = EnemyState.stagger;
+                        animal.Knock(hit, knockTime, damage);
+                    }
                 }
 
                 if (other.gameObject.CompareTag("Player"))

@@ -14,11 +14,6 @@ public class AnimationEventHandler : MonoBehaviour
         mapManager = FindObjectOfType<MapManager>();
         //audioSource = GetComponent<AudioSource>();
 
-        // Kiểm tra nếu audioSource null
-        if (audioSource == null)
-        {
-            Debug.LogError("AudioSource không được gán!");
-        }
     }
 
     public void OnDeathAnimationEnd()
@@ -31,7 +26,7 @@ public class AnimationEventHandler : MonoBehaviour
         if (mapManager != null && audioSource != null)
         {
             AudioClip currentFloorClip = mapManager.GetCurrentFloorClip(transform.position);
-            audioSource.PlayOneShot(currentFloorClip);
+            audioSource.PlayOneShot(currentFloorClip,0.5f);
         }
         else
         {

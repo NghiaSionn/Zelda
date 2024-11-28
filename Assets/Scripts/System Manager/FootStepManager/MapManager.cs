@@ -31,21 +31,18 @@ public class MapManager : MonoBehaviour
 
         if (tile == null || !dataFromTiles.ContainsKey(tile))
         {
-            Debug.LogWarning("Không tìm thấy Tile hoặc Tile không có dữ liệu trong Dictionary.");
+
             return null; 
         }
 
         if (dataFromTiles[tile].clip.Length == 0)
         {
-            Debug.LogWarning("Tile không có âm thanh tương ứng.");
+
             return null;
         }
         int index = Random.Range(0, dataFromTiles[tile].clip.Length);
         AudioClip currentFloorClip = dataFromTiles[tile].clip[index];
 
-        Debug.Log("Grid Position: " + gridPosition);
-        Debug.Log("Tile: " + tile);
-        Debug.Log("Clip: " + currentFloorClip);
 
         return currentFloorClip;
     }

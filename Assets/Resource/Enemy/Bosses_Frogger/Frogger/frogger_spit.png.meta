@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -69,7 +69,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -108,7 +108,238 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: frogger_spit_0
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 0
+        width: 74
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cf78808110a49b4ba2c3cac9841983b
+      internalID: -2144467880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frogger_spit_1
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 0
+        width: 81
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a78c10e75539d144a274c4b5d097bb7
+      internalID: 392780854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frogger_spit_2
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 0
+        width: 82
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 203fa75f3d7cffe4f9b07a16c2d25357
+      internalID: -1863914226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frogger_spit_3
+      rect:
+        serializedVersion: 2
+        x: 1303
+        y: 0
+        width: 87
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 716f74ea66145fb43bc3f6acfcbd909c
+      internalID: 2071323485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frogger_spit_4
+      rect:
+        serializedVersion: 2
+        x: 1689
+        y: 0
+        width: 85
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc4663455d90a0748a1e737bf29ab0e0
+      internalID: -1431664746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frogger_spit_5
+      rect:
+        serializedVersion: 2
+        x: 2073
+        y: 0
+        width: 88
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3a911043813e5a4fa5ad7cbfcf31e7f
+      internalID: -613152347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frogger_spit_6
+      rect:
+        serializedVersion: 2
+        x: 2458
+        y: 0
+        width: 91
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ffd87bffd7361f4cad43ea9c09a087a
+      internalID: 708536824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frogger_spit_7
+      rect:
+        serializedVersion: 2
+        x: 2844
+        y: 0
+        width: 196
+        height: 54
+      alignment: 9
+      pivot: {x: 0.2, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebc9d90030e8ef64a9995b253880e239
+      internalID: 237535292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frogger_spit_8
+      rect:
+        serializedVersion: 2
+        x: 3228
+        y: 0
+        width: 208
+        height: 54
+      alignment: 9
+      pivot: {x: 0.2, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f595ad0e893599c4dbb7b1ff7e066f12
+      internalID: -475456979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frogger_spit_10
+      rect:
+        serializedVersion: 2
+        x: 3611
+        y: 0
+        width: 231
+        height: 56
+      alignment: 9
+      pivot: {x: 0.2, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27d24e0d54bb7da48b1842c4933e9018
+      internalID: -1474846842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frogger_spit_13
+      rect:
+        serializedVersion: 2
+        x: 3995
+        y: 0
+        width: 229
+        height: 56
+      alignment: 9
+      pivot: {x: 0.2, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 325a995f4a28e8b4b92cdd686aada0d2
+      internalID: 661803594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +350,24 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      frogger_spit_0: -2144467880
+      frogger_spit_1: 392780854
+      frogger_spit_10: -1474846842
+      frogger_spit_11: 535761824
+      frogger_spit_12: -127344852
+      frogger_spit_13: 661803594
+      frogger_spit_14: 320470089
+      frogger_spit_15: -485957031
+      frogger_spit_16: -1694854236
+      frogger_spit_2: -1863914226
+      frogger_spit_3: 2071323485
+      frogger_spit_4: -1431664746
+      frogger_spit_5: -613152347
+      frogger_spit_6: 708536824
+      frogger_spit_7: 237535292
+      frogger_spit_8: -475456979
+      frogger_spit_9: -1783339058
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

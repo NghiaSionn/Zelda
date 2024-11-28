@@ -1,10 +1,12 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class MeleeEnemy : Log
 {
-    // Start is called before the first frame update
+    public Test_Rigidbody2D testRigidbody2D;  
+
+    
     void Start()
     {
         
@@ -13,38 +15,46 @@ public class MeleeEnemy : Log
     // Update is called once per frame
     void Update()
     {
-        
+        CheckDistance();
     }
 
     public override void CheckDistance()
     {
-        if (Vector3.Distance(target.position,
-                            transform.position) <= chaseRaidus
-           && Vector3.Distance(target.position,
-                               transform.position) > attackRadius)
+        float distanceToPlayer = Vector3.Distance(target.position, transform.position);
+
+        if (distanceToPlayer <= chaseRaidus && distanceToPlayer > attackRadius)
         {
-            if (currentState == EnemyState.idle || currentState == EnemyState.walk
-                && currentState != EnemyState.stagger)
+            
+            if (testRigidbody2D != null)
+                testRigidbody2D.enabled = false; 
+
+            if (currentState == EnemyState.idle || currentState == EnemyState.walk && currentState != EnemyState.stagger)
             {
-                Vector3 temp = Vector3.MoveTowards(transform.position,
-                                                     target.position,
-                                                     moveSpeed * Time.deltaTime);
+                Vector3 temp = Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
                 changeAnim(temp - transform.position);
                 myRigidbody.MovePosition(temp);
                 ChangeState(EnemyState.walk);
+                anim.SetBool("moving", true); 
+                
             }
+            
         }
-        else if(Vector3.Distance(target.position,
-                            transform.position) <= chaseRaidus
-                 && Vector3.Distance(target.position,
-                            transform.position) <= attackRadius)
+        
+
+        else if (distanceToPlayer <= chaseRaidus && distanceToPlayer <= attackRadius)
         {
-            if ( currentState == EnemyState.walk  && currentState != EnemyState.stagger)
+            // Khi ở trong tầm tấn công, thực hiện tấn công
+            if (currentState == EnemyState.walk && currentState != EnemyState.stagger)
             {
                 StartCoroutine(AttackCo());
             }
-               
+        }
+        else
+        {
+            anim.SetBool("moving", false);
 
+            if (testRigidbody2D != null)
+                testRigidbody2D.enabled = true; 
         }
     }
 
@@ -57,4 +67,9 @@ public class MeleeEnemy : Log
         anim.SetBool("attack", false);
     }
 
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, chaseRaidus);
+    }
 }

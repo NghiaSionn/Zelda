@@ -40,7 +40,8 @@ public class PlayerMovement : MonoBehaviour
     private Animator animator;
     private bool isWalkingSoundPlaying = false;
     public bool isRunning = false;
-    
+    public bool canRun = true;
+
 
 
     void Start()
@@ -65,20 +66,19 @@ public class PlayerMovement : MonoBehaviour
         change.x = Input.GetAxisRaw("Horizontal");
         change.y = Input.GetAxisRaw("Vertical");
 
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift) && canRun)
         {
-            // Nếu đang giữ Shift và di chuyển, thì chạy
             if (change != Vector3.zero)
             {
                 isRunning = true;
             }
-            // Nếu đang giữ Shift nhưng không di chuyển, thì không chạy
+            
             else
             {
                 isRunning = false;
             }
         }
-        // Nếu không giữ Shift, thì không chạy
+        
         else
         {
             isRunning = false;
@@ -107,8 +107,8 @@ public class PlayerMovement : MonoBehaviour
     private IEnumerator AttackCo()
     {
         animator.SetBool("attacking", true);
-        currentState = PlayerState.attack;             
-        SoundManager.Instance.PlaySound3D("sword", transform.position);        
+        currentState = PlayerState.attack;     
+        
         yield return null;
 
         animator.SetBool("attacking", false);
@@ -186,12 +186,14 @@ public class PlayerMovement : MonoBehaviour
         playerHealthSignal.Raise();
         if (currentHealth.RuntimeValue > 0)
         {
+            StartCoroutine(Hurt());
             StartCoroutine(KnockCo(knockTime));
         }
         else
         {
             this.gameObject.SetActive(false);
         }
+
     }
 
     private IEnumerator KnockCo(float knockTime)
@@ -203,5 +205,13 @@ public class PlayerMovement : MonoBehaviour
             currentState = PlayerState.idle;
             myRigibody.velocity = Vector2.zero;
         }
+    }
+
+    private IEnumerator Hurt()
+    {
+        animator.SetBool("hurt", true);
+        yield return new WaitForSeconds(0.1f);
+        animator.SetBool("hurt", false);
+        yield return null;
     }
 }

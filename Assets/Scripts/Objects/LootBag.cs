@@ -38,52 +38,51 @@ public class LootBag : Interactable
         }
     }
 
-    private void LootingBag()
+  private void LootingBag()
+{
+    isLoot = true;
+    Debug.Log("Đã loot túi!");
+
+    int lootCount = Random.Range(lootBagData.lootCountRange.x, lootBagData.lootCountRange.y + 1);
+    Debug.Log($"Nhặt được {lootCount} vật phẩm.");
+
+    List<LootBagData.LootItem> tempItems = new List<LootBagData.LootItem>(lootBagData.lootItems);
+    tempItems.Shuffle();
+
+    // Tạo một danh sách mới để chứa các LootItem đã có số lượng được tính sẵn
+    List<LootBagData.LootItem> lootItemsToDisplay = new List<LootBagData.LootItem>();
+
+    for (int i = 0; i < lootCount && i < tempItems.Count; i++)
     {
-        isLoot = true;
-        Debug.Log("Đã loot túi!");
+        LootBagData.LootItem lootItem = tempItems[i];
+        int quantity = Random.Range(lootItem.quantityRange.x, lootItem.quantityRange.y + 1);
 
-        int lootCount = Random.Range(lootBagData.lootCountRange.x, lootBagData.lootCountRange.y + 1);
-        Debug.Log($"Nhặt được {lootCount} vật phẩm.");
+        lootItem.quantity = quantity;  // Lưu số lượng cho LootItem
 
-        // Tạo danh sách tạm thời và shuffle
-        List<LootBagData.LootItem> tempItems = new List<LootBagData.LootItem>(lootBagData.lootItems);
-        tempItems.Shuffle();
+        lootItemsToDisplay.Add(lootItem);  // Thêm vào danh sách để hiển thị
 
-        // Gọi hàm DisplayLoot của LootUIManager để hiển thị UI
-        lootUIManager.DisplayLoot(tempItems.GetRange(0, lootCount));
+        Debug.Log($"Nhặt được {quantity} {lootItem.item.itemName}.");
 
-        for (int i = 0; i < lootCount && i < tempItems.Count; i++)
+        // Thêm vật phẩm vào Inventory
+        playerInventory.AddItem(lootItem.item, quantity);
+
+        // Nếu là coin, chỉ cập nhật số lượng coin trong CoinTextManager
+        if (lootItem.item.itemType == Item.ItemType.Coin)
         {
-            LootBagData.LootItem lootItem = tempItems[i];
-            Item selectedItem = lootItem.item;
-            int quantity = Random.Range(lootItem.quantityRange.x, lootItem.quantityRange.y + 1);
-
-            if (selectedItem.itemType == Item.ItemType.Coin)
-            {
-                // Cập nhật UI tiền
-                playerInventory.coins += quantity;
-                coinTextManager.UpdateCoinCount();
-            }
-            else
-            {
-                // Thêm vào Inventory
-                playerInventory.AddItem(selectedItem);
-
-                switch (selectedItem.itemType)
-                {
-                    case Item.ItemType.Log:
-                        playerInventory.logs += quantity;
-                        break;
-                    case Item.ItemType.Meat:
-                        playerInventory.meats += quantity;
-                        break;
-                }
-            }
+            coinTextManager.UpdateCoinCount();
         }
-
-        StartCoroutine(DestroyLootBag());
     }
+
+    // Hiển thị UI loot với danh sách vật phẩm đã tính số lượng
+    lootUIManager.DisplayLoot(lootItemsToDisplay);
+
+    StartCoroutine(DestroyLootBag());
+}
+
+
+
+
+
 
     private IEnumerator DestroyLootBag()
 

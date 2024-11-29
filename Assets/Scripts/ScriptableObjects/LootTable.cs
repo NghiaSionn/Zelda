@@ -21,13 +21,13 @@ public class LootTable : ScriptableObject
         int cumProb = 0;
         int currentPob = Random.Range(0, 101);  
 
-        Debug.Log("Current probability: " + currentPob); 
+        
 
         for (int i = 0; i < loots.Length; i++)
         {
             cumProb += loots[i].lootChance;
 
-            Debug.Log("Cumulative probability: " + cumProb); 
+            
 
             if (currentPob <= cumProb) 
             {
@@ -35,7 +35,7 @@ public class LootTable : ScriptableObject
             }
         }
 
-        Debug.LogWarning("Không tìm thấy vật phẩm loot!"); 
+        
         return null;
     }
 }

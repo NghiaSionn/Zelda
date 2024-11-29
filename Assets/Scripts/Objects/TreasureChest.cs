@@ -11,6 +11,7 @@ public class TreasureChest : Interactable
 
     [Header("Vật phẩm")]
     public Item contents;
+    public int amount = 1;
 
     [Header("Túi đồ người chơi")]
     public Inventory playerInventory;
@@ -62,7 +63,7 @@ public class TreasureChest : Interactable
         dialogBox.SetActive(true);
         diablogText.text = contents.itemDescription;
 
-        playerInventory.AddItem(contents);
+        playerInventory.AddItem(contents,amount);
         playerInventory.currentItem = contents;
 
         raiseItem.Raise();               

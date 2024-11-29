@@ -15,9 +15,12 @@ MonoBehaviour:
   bagName: "T\xFAi "
   lootItems:
   - item: {fileID: 11400000, guid: 6e8fe923c57b62446932c800d12e4309, type: 2}
-    quantityRange: {x: 1, y: 10}
+    quantityRange: {x: 1, y: 2}
+    quantity: 1
   - item: {fileID: 11400000, guid: 6b3959c839812c74280ab5930a7f527e, type: 2}
     quantityRange: {x: 1, y: 3}
+    quantity: 2
   - item: {fileID: 11400000, guid: 03a4390e42aa1be4782b313876f233c7, type: 2}
     quantityRange: {x: 1, y: 2}
+    quantity: 1
   lootCountRange: {x: 1, y: 3}

@@ -107,7 +107,9 @@ public class FishingZone : Interactable
         {
             Item item = lootItem.item;
             int quantity = Random.Range(lootItem.quantityRange.x, lootItem.quantityRange.y + 1);
-            playerInventory.AddItem(item);
+
+            playerInventory.AddItem(item,quantity);
+
             switch (item.itemType)
             {
                 case Item.ItemType.Fish:
@@ -115,7 +117,7 @@ public class FishingZone : Interactable
                       break;
             }
 
-                Debug.Log($"Nhặt được {item.itemName} x {quantity}.");
+                Debug.Log($"Nhặt được {item.itemName} + {quantity}.");
             
         }
     }

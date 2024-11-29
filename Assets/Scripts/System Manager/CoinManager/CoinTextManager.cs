@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -15,6 +15,6 @@ public class CoinTextManager : MonoBehaviour
 
     public void UpdateCoinCount()
     {
-        coinDisplay.text = "" + playerInventory.coins;
+        coinDisplay.text = playerInventory.coins.ToString();
     }
 }

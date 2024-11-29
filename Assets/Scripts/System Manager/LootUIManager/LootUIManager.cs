@@ -8,7 +8,9 @@ public class LootUIManager : MonoBehaviour
 {
     [Header("UI")]
     public TextMeshProUGUI[] textItems; 
-    public Image[] imageItems; 
+    public Image[] imageItems;
+
+    
 
     [Header("Thời gian hiển thị UI")]
     public float uiDisplayDuration = 2f;
@@ -21,27 +23,35 @@ public class LootUIManager : MonoBehaviour
     public void DisplayLoot(List<LootBagData.LootItem> lootItems)
     {
         HideLootUI();
+        int maxItemsToDisplay = Mathf.Min(lootItems.Count, textItems.Length);
 
-        // Hiển thị tối đa 3 vật phẩm
-        int maxItemsToDisplay = Mathf.Min(lootItems.Count, 3);
-        
-
+        // Hiển thị thông tin cho từng vật phẩm
         for (int i = 0; i < maxItemsToDisplay; i++)
         {
-            Item item = lootItems[i].item;
-            int quantity = Random.Range(lootItems[i].quantityRange.x, lootItems[i].quantityRange.y + 1);
+            LootBagData.LootItem lootItem = lootItems[i];
+            Item item = lootItem.item;
 
-            // Hiển thị thông tin vật phẩm
-            textItems[i].text = $"+ {item.itemName} x{quantity}";
+            // Chỉ cần hiển thị số lượng vật phẩm đã được tính sẵn từ LootBag
+            int quantity = lootItem.quantity;
+
+            // Hiển thị thông tin vật phẩm và số lượng
+            textItems[i].text = $"+ {quantity} {item.itemName}";
             imageItems[i].sprite = item.itemSprite;
 
-            // Kích hoạt UI
             textItems[i].gameObject.SetActive(true);
             imageItems[i].gameObject.SetActive(true);
         }
 
+        // Ẩn UI sau một thời gian
         StartCoroutine(HideLootUIAfterDelay());
     }
+
+
+
+
+
+
+
 
     public void HideLootUI()
     {

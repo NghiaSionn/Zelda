@@ -26,15 +26,15 @@ public class Test_Rigidbody2D : MonoBehaviour
 
     void Update()
     {
-        // Tính toán hướng di chuyển
+
         Vector2 direction = (targetPosition - (Vector2)transform.position).normalized;
 
-        // Raycast để kiểm tra chướng ngại vật phía trước
+
         RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, 0.5f, LayerMask.GetMask("Obstacle"));
 
         if (hit.collider != null) 
         {
-            Debug.Log("Đụng vật cản: " + hit.collider.name);
+            //Debug.Log("Đụng vật cản: " + hit.collider.name);
             ChooseNewTarget(); 
         }
         else
@@ -119,7 +119,7 @@ public class Test_Rigidbody2D : MonoBehaviour
     {
         if (collision.collider.CompareTag("Interactive") || collision.collider.CompareTag("enemy") || collision.collider.CompareTag("Animal")) 
         {
-            Debug.Log("Va chạm với vật cản: " + collision.collider.name);
+           // Debug.Log("Va chạm với vật cản: " + collision.collider.name);
             ChooseNewTarget(); 
         }
     }

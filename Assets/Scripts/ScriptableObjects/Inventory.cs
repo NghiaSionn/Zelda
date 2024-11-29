@@ -14,36 +14,43 @@ public class Inventory : ScriptableObject
     public int logs;
     public int fish;
 
-    public void AddItem(Item itemToAdd)
+    public void AddItem(Item itemToAdd, int amount)
     {
-        // Kiểm tra xem vật phẩm có tồn tại trong inventory chưa
         bool itemExists = false;
         foreach (Item item in items)
         {
             if (item.itemName == itemToAdd.itemName)
             {
-                item.quantity++;
+                item.quantity += amount;
                 itemExists = true;
                 break;
             }
         }
 
-        // Nếu vật phẩm chưa tồn tại, thêm mới vào inventory
         if (!itemExists)
         {
-            items.Add(itemToAdd);
-            itemToAdd.quantity = 1;
 
-            // Kiểm tra itemType và cập nhật số lượng log/meat
-            switch (itemToAdd.itemType)
-            {
-                case Item.ItemType.Log:
-                    logs++;
-                    break;
-                case Item.ItemType.Meat:
-                    meats++;
-                    break;
-            }
+            itemToAdd.quantity = amount;
+            items.Add(itemToAdd);
+        }
+
+
+        switch (itemToAdd.itemType)
+        {
+            case Item.ItemType.Coin:
+                coins += amount;
+                break;
+            case Item.ItemType.Meat:
+                meats += amount;
+                break;
+            case Item.ItemType.Log:
+                logs += amount;
+                break;
+            case Item.ItemType.Fish:
+                fish += amount;
+                break;
         }
     }
+
+    
 }

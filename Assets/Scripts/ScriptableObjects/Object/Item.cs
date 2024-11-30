@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEngine.Events;
 
 
 [CreateAssetMenu]
@@ -20,10 +21,17 @@ public class Item : ScriptableObject
     [Header("Số lượng")]
     public int quantity;
 
-    public int numberHeld;
     public bool usable;
     public bool unique;
     public bool isKey;
+
+    public UnityEvent thisEvent;
+
+    public void Use()
+    {
+        Debug.Log("vật phẩm đã đc dùng");
+        thisEvent.Invoke();
+    }
 
     public enum ItemType { Coin, Meat, Log, Fish,Other } 
     public ItemType itemType; 

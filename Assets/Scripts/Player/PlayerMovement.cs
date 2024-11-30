@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public enum PlayerState
@@ -32,15 +33,17 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Inventory")]
     public Inventory playerInventory;
+    public GameObject inventoryPanel;
 
     [Header("Item")]
     public SpriteRenderer receivedItemSprite;
 
 
     private Animator animator;
-    private bool isWalkingSoundPlaying = false;
+    public bool isWalkingSoundPlaying = false;
     public bool isRunning = false;
     public bool canRun = true;
+    private bool isOpen = false;
 
 
 
@@ -52,6 +55,7 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("moveX", 0);
         animator.SetFloat("moveY", -1);
         transform.position = startingPosition.initialValue;
+        inventoryPanel.SetActive(false);
     }
 
     // Update is called once per frame
@@ -95,6 +99,20 @@ public class PlayerMovement : MonoBehaviour
         {
             UpdateAnimationAndMove();
         }
+
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            if(!isOpen)
+            {
+                OpenPanel();
+            }
+            else
+            {
+                ClosePanel();
+            }
+
+        }
+        
     }
 
     public Vector2 GetFacingDirection()
@@ -213,5 +231,17 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         animator.SetBool("hurt", false);
         yield return null;
+    }
+
+    private void OpenPanel()
+    {
+        isOpen = true;
+        inventoryPanel.SetActive(true);
+    }
+
+    private void ClosePanel()
+    {
+        isOpen = false;    
+        inventoryPanel.SetActive(false);
     }
 }

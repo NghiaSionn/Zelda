@@ -47,6 +47,7 @@ public class InventoryManager : MonoBehaviour
                 {
                     newSlot.Setup(playerInventory.items[i], this);
                     newSlot.descriptionPanel = descriptionPanel;
+                    
                 }
             }
         }
@@ -58,6 +59,19 @@ public class InventoryManager : MonoBehaviour
         descriptionPanel.SetActive(false);
         MakeInventorySlots();
         SetTextAndButton("", "", false);
+        playerInventory.OnItemAdded += UpdateInventoryUI;
+    }
+
+    private void UpdateInventoryUI()
+    {
+        // Xóa các slot cũ
+        foreach (Transform child in inventoryPanel.transform)
+        {
+            Destroy(child.gameObject);
+        }
+
+        // Tạo lại các slot mới
+        MakeInventorySlots();
     }
 
     public void SetUpDescriptionAndButton(string newDescriptionString, string newNameTextString, bool isButtonUsable, Item newItem)

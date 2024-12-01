@@ -57,9 +57,9 @@ public class LootBag : Interactable
         LootBagData.LootItem lootItem = tempItems[i];
         int quantity = Random.Range(lootItem.quantityRange.x, lootItem.quantityRange.y + 1);
 
-        lootItem.quantity = quantity;  // Lưu số lượng cho LootItem
+        lootItem.quantity = quantity;  
 
-        lootItemsToDisplay.Add(lootItem);  // Thêm vào danh sách để hiển thị
+        lootItemsToDisplay.Add(lootItem);  
 
         Debug.Log($"Nhặt được {quantity} {lootItem.item.itemName}.");
 

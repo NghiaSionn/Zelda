@@ -98,28 +98,23 @@ public class FishingZone : Interactable
         List<LootBagData.LootItem> tempItems = new List<LootBagData.LootItem>(fishingLootData.lootItems);
         tempItems.Shuffle();
 
-        List<LootBagData.LootItem> selectedLoot = tempItems.GetRange(0, lootCount);
+        List<LootBagData.LootItem> selectedLoot = new List<LootBagData.LootItem>();
 
-        // Hiển thị UI loot
-        lootUIManager.DisplayLoot(selectedLoot);
-
-        foreach (var lootItem in selectedLoot)
+        for (int i = 0; i < lootCount && i < tempItems.Count; i++)
         {
-            Item item = lootItem.item;
+            LootBagData.LootItem lootItem = tempItems[i];
             int quantity = Random.Range(lootItem.quantityRange.x, lootItem.quantityRange.y + 1);
 
-            playerInventory.AddItem(item,quantity);
+            lootItem.quantity = quantity;
 
-            switch (item.itemType)
-            {
-                case Item.ItemType.Fish:
-                     playerInventory.fish += quantity;
-                      break;
-            }
+            selectedLoot.Add(lootItem);
 
-                Debug.Log($"Nhặt được {item.itemName} + {quantity}.");
-            
+            Debug.Log($"Nhặt được {quantity} {lootItem.item.itemName}.");
+
+            playerInventory.AddItem(lootItem.item, quantity);           
         }
+
+        lootUIManager.DisplayLoot(selectedLoot);
     }
 
     private void EndFishing()

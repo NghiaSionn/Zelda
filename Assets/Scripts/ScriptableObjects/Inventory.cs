@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,6 +15,7 @@ public class Inventory : ScriptableObject
     public int logs;
     public int fish;
 
+    public event Action OnItemAdded;
     public void AddItem(Item itemToAdd, int amount)
     {
         bool itemExists = false;
@@ -50,6 +52,8 @@ public class Inventory : ScriptableObject
                 fish += amount;
                 break;
         }
+
+        OnItemAdded?.Invoke();
     }
 
     

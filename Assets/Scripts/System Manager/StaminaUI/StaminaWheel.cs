@@ -26,7 +26,7 @@ public class StaminaWheel : MonoBehaviour
 
     private Coroutine hideCoroutine;
 
-    void Start()
+    void Awake()
     {
         // Thiết lập giá trị ban đầu
         stamina = maxStamina;

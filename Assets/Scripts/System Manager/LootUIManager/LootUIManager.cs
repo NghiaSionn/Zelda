@@ -10,13 +10,15 @@ public class LootUIManager : MonoBehaviour
     public TextMeshProUGUI[] textItems; 
     public Image[] imageItems;
 
+
     
 
     [Header("Thời gian hiển thị UI")]
     public float uiDisplayDuration = 2f;
 
-    private void Start()
+    private void Awake()
     {
+
         HideLootUI();
     }
 
@@ -45,12 +47,6 @@ public class LootUIManager : MonoBehaviour
         // Ẩn UI sau một thời gian
         StartCoroutine(HideLootUIAfterDelay());
     }
-
-
-
-
-
-
 
 
     public void HideLootUI()

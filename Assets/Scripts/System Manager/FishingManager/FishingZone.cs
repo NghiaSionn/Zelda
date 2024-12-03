@@ -23,7 +23,7 @@ public class FishingZone : Interactable
     public bool isFishing;
     private bool canFish = false;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         fishingMiniGame.SetActive(false);
         lootUIManager = FindObjectOfType<LootUIManager>();

@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -18,7 +18,7 @@ public class SceneTransitions : MonoBehaviour
 
     private void Awake()
     {
-        if(fadeInPanel != null)
+        if (fadeInPanel != null)
         {
             GameObject panel = Instantiate(fadeInPanel, Vector3.zero, Quaternion.identity) as GameObject;
             Destroy(panel, 1);
@@ -28,23 +28,23 @@ public class SceneTransitions : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("Player") && !other.isTrigger)
+        if (other.CompareTag("Player") && !other.isTrigger)
         {
             playerStorage.initialValue = playerPosition;
             StartCoroutine(FadeCo());
-            //SceneManager.LoadScene(sceneToLoad);
+
         }
     }
 
 
     public IEnumerator FadeCo()
     {
-        if (fadeOutPanel = null)  
+        if (fadeOutPanel = null)
         {
             Instantiate(fadeOutPanel, Vector3.zero, Quaternion.identity);
         }
 
-    
+
         AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(sceneToLoad);
         while (!asyncOperation.isDone)
         {

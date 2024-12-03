@@ -55,8 +55,9 @@ public class InventoryManager : MonoBehaviour
     }
 
 
-    void Start()
+    void Awake()
     {
+        
         descriptionPanel.SetActive(false);
         MakeInventorySlots();
         SetTextAndButton("", "", false,0);
@@ -65,15 +66,21 @@ public class InventoryManager : MonoBehaviour
 
     private void UpdateInventoryUI()
     {
-        // Xóa các slot cũ
         foreach (Transform child in inventoryPanel.transform)
         {
+            if (child == null || child.gameObject == null)
+            {
+                Debug.LogWarning("Slot bị null trước khi Destroy.");
+                continue;
+            }
+
             Destroy(child.gameObject);
         }
 
-        // Tạo lại các slot mới
         MakeInventorySlots();
     }
+
+
 
     public void SetUpDescriptionAndButton(string newDescriptionString, string newNameTextString, bool isButtonUsable, Item newItem)
     {
@@ -112,7 +119,7 @@ public class InventoryManager : MonoBehaviour
             }
         }
 
-        // Nếu số lượng vật phẩm còn lại ít hơn 1, ẩn button và description
+       
         if (itemToUse.quantity < 1)
         {
             SetTextAndButton("", "", false, 0);
@@ -161,7 +168,7 @@ public class InventoryManager : MonoBehaviour
         if (!playerMovement.IsHealthFull())
         {
             playerMovement.UpdateHealth(healAmount);
-            //Debug.Log($"Hồi {healAmount} máu. Máu hiện tại: {playerMovement.currentHealth.RuntimeValue}/{playerMovement.maxHealth.RuntimeValue}");
+            
         }
     }
 

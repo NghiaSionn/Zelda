@@ -24,10 +24,11 @@ public class LootBag : Interactable
     public float destroyDelay = 1f;
 
     void Awake()
-    {
-        
+    {       
         coinTextManager = FindObjectOfType<CoinTextManager>();
         lootUIManager = FindObjectOfType<LootUIManager>();
+
+        
     }
 
     private void Update()
@@ -59,9 +60,14 @@ public class LootBag : Interactable
 
         lootItem.quantity = quantity;  
 
-        lootItemsToDisplay.Add(lootItem);  
+        lootItemsToDisplay.Add(lootItem);
+        Debug.Log($"Inventory có {playerInventory.items.Count} vật phẩm.");
 
-        Debug.Log($"Nhặt được {quantity} {lootItem.item.itemName}.");
+        if (lootItemsToDisplay.Count == 0)
+        {
+            Debug.LogWarning("Không có vật phẩm nào để hiển thị trong Loot UI!");
+        }
+            Debug.Log($"Nhặt được {quantity} {lootItem.item.itemName}.");
 
         // Thêm vật phẩm vào Inventory
         playerInventory.AddItem(lootItem.item, quantity);
@@ -85,14 +91,20 @@ public class LootBag : Interactable
 
 
     private IEnumerator DestroyLootBag()
-
     {
-
         yield return new WaitForSeconds(destroyDelay);
 
-        Destroy(gameObject);
-
+        if (gameObject != null)
+        {
+            Debug.Log($"LootBag {this.name} đang được hủy.");
+            Destroy(gameObject);
+        }
+        else
+        {
+            Debug.LogWarning("LootBag đã null trước khi Destroy.");
+        }
     }
+
 
 }
 

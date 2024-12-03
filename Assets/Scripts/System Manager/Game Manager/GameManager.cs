@@ -3,7 +3,7 @@ using static PixelCrushers.AnimatorSaver;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject player;
+    
     public Canvas canvas;
     public AudioManager audioManager;
 
@@ -29,16 +29,24 @@ public class GameManager : MonoBehaviour
         {
             _instance = this;
             DontDestroyOnLoad(gameObject);
+
+            if (canvas != null)
+            {
+                DontDestroyOnLoad(canvas);
+            }
+
+            if (audioManager != null)
+            {
+                DontDestroyOnLoad(audioManager);
+            }
         }
         else
         {
+            // Nếu đã có instance, xóa đối tượng mới tạo
             Destroy(gameObject);
         }
-
-        DontDestroyOnLoad(player);
-        DontDestroyOnLoad(canvas);
-        DontDestroyOnLoad(audioManager);
     }
+
 
     private void OnEnable()
     {
@@ -54,16 +62,14 @@ public class GameManager : MonoBehaviour
 
     private void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, UnityEngine.SceneManagement.LoadSceneMode mode)
     {
-        // Tìm tất cả các Canvas trong scene hiện tại
         Canvas[] allCanvases = FindObjectsOfType<Canvas>();
-
         foreach (Canvas otherCanvas in allCanvases)
         {
-            // Nếu Canvas không phải của GameManager (theo Tag), thì xóa nó
             if (otherCanvas != canvas && otherCanvas.tag != "Canvas")
             {
                 Destroy(otherCanvas.gameObject); // Xóa Canvas thừa
             }
         }
     }
+
 }

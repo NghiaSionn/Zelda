@@ -21,6 +21,9 @@ public class Boss : MonoBehaviour
     [Header("Rớt đồ")]
     public LootTable thisLoot;
 
+    [Header("Ui Boss")]
+    public GameObject bossUI;
+
     public void Awake()
     {
         anim = GetComponent<Animator>();
@@ -66,6 +69,7 @@ public class Boss : MonoBehaviour
         {
             StartCoroutine(Hurt());
             MakeLoot();
+            
             this.gameObject.SetActive(false);
         }
     }
@@ -93,5 +97,11 @@ public class Boss : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
         anim.SetBool("hurt", false);
         yield return null;
+    }
+
+    private IEnumerator UIBoss()
+    {
+        bossUI.SetActive(false);
+        yield return new WaitForSeconds(3f);
     }
 }

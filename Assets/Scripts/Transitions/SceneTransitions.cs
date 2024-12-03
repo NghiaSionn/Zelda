@@ -39,7 +39,7 @@ public class SceneTransitions : MonoBehaviour
 
     public IEnumerator FadeCo()
     {
-        if (fadeOutPanel = null)  // so if there is no fadeOut
+        if (fadeOutPanel = null)  
         {
             Instantiate(fadeOutPanel, Vector3.zero, Quaternion.identity);
         }

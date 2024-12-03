@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     [Header("UI")]
-    [SerializeField] private TextMeshProUGUI itemNumberText;
+    [SerializeField] public TextMeshProUGUI itemNumberText;
     [SerializeField] private Image itemImage;
 
     [Header("Thông số vật phẩm")]

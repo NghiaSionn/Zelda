@@ -12,7 +12,7 @@ public class LevelManager : MonoBehaviour
     public Slider progressBar;
     public GameObject transitionsContainer;
 
-    private SceneTransition[] transitions;
+    public SceneTransition[] transitions;
 
 
     private void Awake()

@@ -2619,10 +2619,13 @@ MonoBehaviour:
   staminaWheel: {fileID: 0}
   runningSpeedMultiplier: 2
   currentHealth: {fileID: 11400000, guid: 3d71eb3e956c358418bc54923b11d112, type: 2}
+  maxHealth: {fileID: 11400000, guid: 930f7d312dd7524498eac6ee52e00372, type: 2}
   playerHealthSignal: {fileID: 11400000, guid: 987497245c3f53c46bb0db6bbcdec1ea, type: 2}
   startingPosition: {fileID: 11400000, guid: cba479c34ffbc8244a3751f160802f6c, type: 2}
   playerInventory: {fileID: 11400000, guid: c8fff1b9deb4c6d4da86362e68b520a4, type: 2}
+  inventoryPanel: {fileID: 0}
   receivedItemSprite: {fileID: 0}
+  isWalkingSoundPlaying: 0
   isRunning: 0
   canRun: 1
 --- !u!95 &2824830946106686257

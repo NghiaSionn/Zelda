@@ -56,5 +56,11 @@ public class Inventory : ScriptableObject
         OnItemAdded?.Invoke();
     }
 
-    
+    public void RemoveItem(Item itemToRemove)
+    {
+        if (items.Contains(itemToRemove))
+        {
+            items.Remove(itemToRemove);
+        }
+    }
 }

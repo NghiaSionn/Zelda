@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -26,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Heatlh")]
     public FloatValue currentHealth;
+    public FloatValue maxHealth;
     public SignalSender playerHealthSignal;
 
     [Header("Position")]
@@ -56,6 +58,8 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("moveY", -1);
         transform.position = startingPosition.initialValue;
         inventoryPanel.SetActive(false);
+
+        currentHealth.RuntimeValue = currentHealth.initiaValue;
     }
 
     // Update is called once per frame
@@ -119,6 +123,30 @@ public class PlayerMovement : MonoBehaviour
     {
         
         return new Vector2(animator.GetFloat("moveX"), animator.GetFloat("moveY")).normalized;
+    }
+
+    public void UpdateHealth(float healthAmount)
+    {
+            // Cập nhật giá trị RuntimeValue
+            currentHealth.RuntimeValue = Mathf.Clamp(currentHealth.RuntimeValue + healthAmount, 0, maxHealth.RuntimeValue);
+
+            playerHealthSignal?.Raise();
+
+            if (currentHealth.RuntimeValue <= 0)
+            {
+                Die();
+            }             
+    }
+
+    private void Die()
+    {
+        //Debug.Log("Người chơi đã chết!");
+        this.gameObject.SetActive(false);
+    }
+
+    public bool IsHealthFull()
+    {
+        return currentHealth.RuntimeValue >= maxHealth.RuntimeValue;
     }
 
 
@@ -209,7 +237,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            this.gameObject.SetActive(false);
+            Die();
         }
 
     }

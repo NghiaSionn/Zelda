@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb3897209235d344bb11e890a99338e4, type: 3}
+  m_Name: Carb Meat
+  m_EditorClassIdentifier: 
+  itemSprite: {fileID: -2088407174, guid: bdfb6329d5cbd604f911f9963aab7aa7, type: 3}
+  itemName: "Th\u1ECBt Cua"
+  itemDescription: "B\u1EA1n \u0111\u1ECBnh \u0103n th\u1ECBt s\u1ED1ng th\u1EADt
+    \xE0"
+  quantity: 0
+  usable: 1
+  unique: 0
+  isKey: 0
+  thisEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  itemType: 1
+  itemUseType: 1
+  healAmount: 1
+  manaAmount: 0

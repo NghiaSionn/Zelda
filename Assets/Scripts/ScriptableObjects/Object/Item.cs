@@ -33,6 +33,15 @@ public class Item : ScriptableObject
         thisEvent.Invoke();
     }
 
-    public enum ItemType { Coin, Meat, Log, Fish,Other } 
-    public ItemType itemType; 
+
+    public enum ItemType { Coin, Meat, Log, Fish, Other }
+    [Header("Thể loại vật phẩm")]  
+    public ItemType itemType;
+
+    public enum ItemUseType { Other,Healing,Mana,Buff, }
+    [Header("Thể loại vật phẩm đc dùng")]
+    public ItemUseType itemUseType;
+    public int healAmount;
+    public int manaAmount;
+
 }

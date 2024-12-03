@@ -15,7 +15,9 @@ public enum SoundType
     CLOSE,
     EXPLOSION,
     RAIN,
-    NIGHT
+    NIGHT,
+    BUTTON,
+    SELECTED
 }
 
 [RequireComponent(typeof(AudioSource)), ExecuteInEditMode]

@@ -52,7 +52,7 @@ public class StaminaWheel : MonoBehaviour
         {
             if (stamina > 0)
             {
-                stamina -= 10 * Time.deltaTime;
+                stamina -= 20 * Time.deltaTime;
             }
 
             if (stamina <= 0)

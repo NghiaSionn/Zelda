@@ -1,107 +1,125 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class NPCMovement : MonoBehaviour
 {
     [Header("Đường đi của NPC")]
-    public Transform[] waypoints;
+    [SerializeField] private Transform[] waypoints;
 
-    [Header("Thời gian dừng tối thiểu")]
-    public float minStopTime = 1f;
+    [Header("Tốc độ di chuyển")]
+    [SerializeField] private float moveSpeed = 3f;
 
-    [Header("Thời gian dừng tối đa")]
-    public float maxStopTime = 3f;
+    private Rigidbody2D rb;
+    public int currentWaypointIndex = 0; // Điểm hiện tại
+    public int targetWaypointIndex = 0; // Điểm ngẫu nhiên được chọn
+    private bool isMoving = true;
 
-    private int currentWaypointIndex = 0;
     private Animator anim;
-    private NavMeshAgent agent;
-    private bool isMoving = false;
 
-    void Start()
+    void Awake()
     {
-        agent = GetComponent<NavMeshAgent>();
+        rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 
-        StartCoroutine(MoveBetweenWaypoints());
+        // Đặt vị trí ban đầu cho NPC tại waypoint đầu tiên
+        transform.position = waypoints[currentWaypointIndex].position;
     }
 
     void Update()
     {
-        // Cập nhật trạng thái "moving" dựa trên vận tốc hoặc khoảng cách còn lại
-        if (agent.velocity.sqrMagnitude > 0.01f && agent.remainingDistance > agent.stoppingDistance)
+        if (isMoving)
         {
-            if (!isMoving) // Tránh set lại liên tục
-            {
-                anim.SetBool("moving", true);
-                isMoving = true;
-            }
+            Move();
         }
-        else
+    }
+
+    private void Move()
+    {
+        // Tính toán hướng di chuyển từ vị trí hiện tại đến waypoint kế tiếp
+        Vector2 direction = (waypoints[currentWaypointIndex].position - transform.position).normalized;
+
+        // Cập nhật hoạt ảnh hướng di chuyển
+        changeAnim(direction);
+
+        // Kích hoạt hoạt ảnh di chuyển
+        anim.SetBool("moving", true);
+
+        // Di chuyển NPC đến waypoint tiếp theo
+        transform.position = Vector2.MoveTowards(transform.position,
+            waypoints[currentWaypointIndex].position,
+            moveSpeed * Time.deltaTime);
+
+        // Kiểm tra nếu NPC đã đến gần waypoint
+        if (Vector2.Distance(transform.position, waypoints[currentWaypointIndex].position) < 0.1f)
         {
-            if (isMoving) // Tránh set lại liên tục
+            anim.SetBool("moving", false); // Tắt hoạt ảnh di chuyển
+
+            // Nếu đã đạt đến điểm ngẫu nhiên, ngừng di chuyển và chọn waypoint mới
+            if (currentWaypointIndex == targetWaypointIndex)
             {
-                anim.SetBool("moving", false);
-                isMoving = false;
+                StartCoroutine(SelectNextWaypoint());
+            }
+            else
+            {
+                // Tiếp tục đi đến waypoint kế tiếp theo hướng (lên hoặc xuống)
+                if (currentWaypointIndex < targetWaypointIndex)
+                {
+                    currentWaypointIndex++; // Tiến lên
+                }
+                else
+                {
+                    currentWaypointIndex--; // Quay ngược lại
+                }
             }
         }
     }
 
-    private IEnumerator MoveBetweenWaypoints()
+    private IEnumerator SelectNextWaypoint()
     {
-        while (true)
+        isMoving = false; // Dừng tạm thời
+
+        // Chờ 1 giây trước khi chọn waypoint mới
+        yield return new WaitForSeconds(1f);
+
+        // Chọn waypoint ngẫu nhiên trong mảng
+        do
         {
-            // Chọn waypoint ngẫu nhiên
-            currentWaypointIndex = Random.Range(0, waypoints.Length);
-            Transform currentWaypoint = waypoints[currentWaypointIndex];
+            targetWaypointIndex = Random.Range(0, waypoints.Length);
+        } while (targetWaypointIndex == currentWaypointIndex); // Tránh chọn lại điểm hiện tại
 
-            // Di chuyển đến waypoint
-            agent.SetDestination(currentWaypoint.position);
-
-            // Chờ cho đến khi đến đích
-            while (agent.remainingDistance > agent.stoppingDistance)
-            {
-                Vector2 direction = (agent.destination - transform.position).normalized;
-                UpdateAnimation(direction);
-                yield return null;
-            }
-
-            // Dừng lại một khoảng thời gian ngẫu nhiên
-            float stopTime = Random.Range(minStopTime, maxStopTime);
-            yield return new WaitForSeconds(stopTime);
-        }
-    }
-
-    private void UpdateAnimation(Vector2 direction)
-    {
-        if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
-        {
-            if (direction.x > 0)
-            {
-                SetAnimFloat(Vector2.right);
-            }
-            else if (direction.x < 0)
-            {
-                SetAnimFloat(Vector2.left);
-            }
-        }
-        else if (Mathf.Abs(direction.x) < Mathf.Abs(direction.y))
-        {
-            if (direction.y > 0)
-            {
-                SetAnimFloat(Vector2.up);
-            }
-            else if (direction.y < 0)
-            {
-                SetAnimFloat(Vector2.down);
-            }
-        }
+        // Kích hoạt lại di chuyển
+        isMoving = true;
     }
 
     private void SetAnimFloat(Vector2 setVector)
     {
         anim.SetFloat("moveX", setVector.x);
         anim.SetFloat("moveY", setVector.y);
+    }
+
+    public void changeAnim(Vector2 direction)
+    {
+        if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
+        {
+            if (direction.x > 0)
+            {
+                SetAnimFloat(Vector2.right); // Di chuyển sang phải
+            }
+            else if (direction.x < 0)
+            {
+                SetAnimFloat(Vector2.left); // Di chuyển sang trái
+            }
+        }
+        else
+        {
+            if (direction.y > 0)
+            {
+                SetAnimFloat(Vector2.up); // Di chuyển lên
+            }
+            else if (direction.y < 0)
+            {
+                SetAnimFloat(Vector2.down); // Di chuyển xuống
+            }
+        }
     }
 }

@@ -10,15 +10,18 @@ public class NPCMovement : MonoBehaviour
     [SerializeField] private float moveSpeed = 3f;
 
     private Rigidbody2D rb;
-    public int currentWaypointIndex = 0; // Điểm hiện tại
-    public int targetWaypointIndex = 0; // Điểm ngẫu nhiên được chọn
+    private Collider2D npcCollider;
+    public int currentWaypointIndex = 0;
+    public int targetWaypointIndex = 0;
     private bool isMoving = true;
 
     private Animator anim;
 
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        npcCollider = GetComponent<Collider2D>();
         anim = GetComponent<Animator>();
 
         // Đặt vị trí ban đầu cho NPC tại waypoint đầu tiên
@@ -35,40 +38,31 @@ public class NPCMovement : MonoBehaviour
 
     private void Move()
     {
-        // Tính toán hướng di chuyển từ vị trí hiện tại đến waypoint kế tiếp
         Vector2 direction = (waypoints[currentWaypointIndex].position - transform.position).normalized;
-
-        // Cập nhật hoạt ảnh hướng di chuyển
         changeAnim(direction);
-
-        // Kích hoạt hoạt ảnh di chuyển
         anim.SetBool("moving", true);
 
-        // Di chuyển NPC đến waypoint tiếp theo
         transform.position = Vector2.MoveTowards(transform.position,
             waypoints[currentWaypointIndex].position,
             moveSpeed * Time.deltaTime);
 
-        // Kiểm tra nếu NPC đã đến gần waypoint
         if (Vector2.Distance(transform.position, waypoints[currentWaypointIndex].position) < 0.1f)
         {
-            anim.SetBool("moving", false); // Tắt hoạt ảnh di chuyển
+            anim.SetBool("moving", false);
 
-            // Nếu đã đạt đến điểm ngẫu nhiên, ngừng di chuyển và chọn waypoint mới
             if (currentWaypointIndex == targetWaypointIndex)
             {
                 StartCoroutine(SelectNextWaypoint());
             }
             else
             {
-                // Tiếp tục đi đến waypoint kế tiếp theo hướng (lên hoặc xuống)
                 if (currentWaypointIndex < targetWaypointIndex)
                 {
-                    currentWaypointIndex++; // Tiến lên
+                    currentWaypointIndex++;
                 }
                 else
                 {
-                    currentWaypointIndex--; // Quay ngược lại
+                    currentWaypointIndex--;
                 }
             }
         }
@@ -76,18 +70,15 @@ public class NPCMovement : MonoBehaviour
 
     private IEnumerator SelectNextWaypoint()
     {
-        isMoving = false; // Dừng tạm thời
+        isMoving = false;
 
-        // Chờ 1 giây trước khi chọn waypoint mới
         yield return new WaitForSeconds(1f);
 
-        // Chọn waypoint ngẫu nhiên trong mảng
         do
         {
             targetWaypointIndex = Random.Range(0, waypoints.Length);
-        } while (targetWaypointIndex == currentWaypointIndex); // Tránh chọn lại điểm hiện tại
+        } while (targetWaypointIndex == currentWaypointIndex);
 
-        // Kích hoạt lại di chuyển
         isMoving = true;
     }
 
@@ -103,23 +94,42 @@ public class NPCMovement : MonoBehaviour
         {
             if (direction.x > 0)
             {
-                SetAnimFloat(Vector2.right); // Di chuyển sang phải
+                SetAnimFloat(Vector2.right);
             }
             else if (direction.x < 0)
             {
-                SetAnimFloat(Vector2.left); // Di chuyển sang trái
+                SetAnimFloat(Vector2.left);
             }
         }
         else
         {
             if (direction.y > 0)
             {
-                SetAnimFloat(Vector2.up); // Di chuyển lên
+                SetAnimFloat(Vector2.up);
             }
             else if (direction.y < 0)
             {
-                SetAnimFloat(Vector2.down); // Di chuyển xuống
+                SetAnimFloat(Vector2.down);
             }
+        }
+    }
+
+    
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("NPC") )
+        {
+            Debug.Log("Va chạm với NPC khác, tắt collider");
+            npcCollider.enabled = false; 
+        }
+    }
+
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("NPC"))
+        {
+            Debug.Log("Rời khỏi va chạm với NPC khác, bật collider");
+            npcCollider.enabled = true; 
         }
     }
 }

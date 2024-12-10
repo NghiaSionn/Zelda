@@ -39,6 +39,8 @@ public class GameManager : MonoBehaviour
             {
                 DontDestroyOnLoad(audioManager);
             }
+
+
         }
         else
         {
@@ -67,7 +69,7 @@ public class GameManager : MonoBehaviour
         {
             if (otherCanvas != canvas && otherCanvas.tag != "Canvas")
             {
-                Destroy(otherCanvas.gameObject); // Xóa Canvas thừa
+                Destroy(otherCanvas.gameObject); 
             }
         }
     }

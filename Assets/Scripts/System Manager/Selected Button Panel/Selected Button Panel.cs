@@ -40,13 +40,13 @@ public class SelectedButtonPanel : MonoBehaviour
         {
             if (!isInvenOpen)
             {
-                ivenAnimator.SetTrigger("Selected");
-                OpenInvenPanel();
+                
+                StartCoroutine(OpenInvenPanel());
             }
             else
             {
-                ivenAnimator.SetTrigger("Disabled");
-                CloseInvenPanel();
+
+                StartCoroutine(CloseInvenPanel());
             }
 
         }
@@ -55,13 +55,13 @@ public class SelectedButtonPanel : MonoBehaviour
         {
             if (!isProfileOpen)
             {
-                profileAnimator.SetTrigger("Selected");
-                OpenProfilePanel();
+
+                StartCoroutine(OpenProfilePanel());
             }
             else
             {
-                profileAnimator.SetTrigger("Disabled");
-                CloseProfilePanel();
+
+                StartCoroutine(CloseProfilePanel());
             }
 
         }
@@ -70,68 +70,100 @@ public class SelectedButtonPanel : MonoBehaviour
         {
             if (!isSkillOpen)
             {
-                skillAnimator.SetTrigger("Selected");
-                OpenSkillPanel();
+                
+                StartCoroutine(OpenSkillPanel());
             }
             else
             {
-                skillAnimator.SetTrigger("Disabled");
-                CloseSkillPanel();
+                
+                StartCoroutine(CloseSkillPanel());
             }
 
         }
     }
 
-    private void CloseSkillPanel()
+    private IEnumerator CloseSkillPanel()
     {
         isSkillOpen = false;
+        profileAnimator.SetTrigger("Disabled");
+        ivenAnimator.SetTrigger("Disabled");
+        skillAnimator.SetTrigger("Disabled");
+
+        yield return null;
+
         skillPanel.SetActive(false);
         selecPanel.SetActive(false);
         invenPanel.SetActive(false);
         profilePanel.SetActive(false);
     }
 
-    private void OpenSkillPanel()
+    private IEnumerator OpenSkillPanel()
     {
         isSkillOpen = true;
         skillPanel.SetActive(true);
+        skillAnimator.SetTrigger("Selected");
+
+        yield return null;
+
         selecPanel.SetActive(true);
         invenPanel.SetActive(false);
         profilePanel.SetActive(false);
     }
 
-    private void CloseProfilePanel()
+    private IEnumerator CloseProfilePanel()
     {
         isProfileOpen = false;
+        profileAnimator.SetTrigger("Disabled");
+        ivenAnimator.SetTrigger("Disabled");
+        skillAnimator.SetTrigger("Disabled");
+
+        yield return null;
+
         profilePanel.SetActive(false);
         selecPanel.SetActive(false);
         invenPanel.SetActive(false);
         skillPanel.SetActive(false);
     }
 
-    private void OpenProfilePanel()
+    private IEnumerator OpenProfilePanel()
     {
         isProfileOpen = true;
         profilePanel.SetActive(true);
+        profileAnimator.SetTrigger("Selected");
+
+        yield return null;
+
         selecPanel.SetActive(true);
         invenPanel.SetActive(false);
         skillPanel.SetActive(false);
     }
 
-    private void CloseInvenPanel()
+    private IEnumerator CloseInvenPanel()
     {
         isInvenOpen = false;
+        ivenAnimator.SetTrigger("Disabled");
+        profileAnimator.SetTrigger("Disabled");
+        skillAnimator.SetTrigger("Disabled");
+
+        yield return null;
+
         selecPanel.SetActive(false);
         profilePanel.SetActive(false);
         skillPanel.SetActive(false);
+        
     }
 
-    private void OpenInvenPanel()
+    private IEnumerator OpenInvenPanel()
     {
         isInvenOpen = true;      
         selecPanel.SetActive(true);
+        ivenAnimator.SetTrigger("Selected");
+
+        yield return null;
+
         profilePanel.SetActive(false);
         skillPanel.SetActive(false);
+        
     }
 
     private void UnActive()

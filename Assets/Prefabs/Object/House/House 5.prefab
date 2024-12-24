@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 555749973075282835}
   - component: {fileID: 1415440848617692555}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4421647129829603915}
   - component: {fileID: 3391533376378602847}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Light 2D (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,7 +174,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5743705325381357147}
   - component: {fileID: 435563616037067120}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Light 2D (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -256,7 +256,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7085093134340889541}
   - component: {fileID: 1757484636794230606}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sample_7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -341,9 +341,9 @@ GameObject:
   - component: {fileID: 2917426020545159877}
   - component: {fileID: 4314350109383055393}
   - component: {fileID: 2665939915942664490}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sample_8
-  m_TagString: Untagged
+  m_TagString: Interactive
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -401,8 +401,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1027812963
-  m_SortingLayer: 38
+  m_SortingLayerID: -1125501103
+  m_SortingLayer: 34
   m_SortingOrder: 0
   m_Sprite: {fileID: -1727557313, guid: 87e05d2bc9d1df4418beb99db86dc70f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -477,9 +477,9 @@ GameObject:
   - component: {fileID: 7927819711116646309}
   - component: {fileID: 5079969742361631003}
   - component: {fileID: 2288885299755135727}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sample_10
-  m_TagString: Untagged
+  m_TagString: Interactive
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -537,8 +537,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1027812963
-  m_SortingLayer: 38
+  m_SortingLayerID: -1125501103
+  m_SortingLayer: 34
   m_SortingOrder: 0
   m_Sprite: {fileID: -762502655, guid: 87e05d2bc9d1df4418beb99db86dc70f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -615,9 +615,10 @@ GameObject:
   - component: {fileID: 3855233703278472127}
   - component: {fileID: 3541605315879789244}
   - component: {fileID: 316932726491471271}
-  m_Layer: 0
+  - component: {fileID: 3361667360574163566}
+  m_Layer: 3
   m_Name: House 5
-  m_TagString: Untagged
+  m_TagString: Interactive
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -816,6 +817,22 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3361667360574163566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6431956906937190064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
 --- !u!1 &7111464954769111332
 GameObject:
   m_ObjectHideFlags: 0
@@ -826,7 +843,7 @@ GameObject:
   m_Component:
   - component: {fileID: 831840317990030755}
   - component: {fileID: 4795484274581656870}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Light 2D (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -908,7 +925,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6116823787844434289}
   - component: {fileID: 5165247460896856706}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sample_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}

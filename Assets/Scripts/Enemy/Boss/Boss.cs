@@ -68,14 +68,23 @@ public class Boss : MonoBehaviour
         if (maxHealth.RuntimeValue < 0)
         {
             StartCoroutine(Hurt());
+            Exp();
+            StartCoroutine(UIBoss());
             MakeLoot();
             
             this.gameObject.SetActive(false);
+           
         }
     }
 
-    
 
+    public int Exp()
+    {
+        PlayerMovement player = FindObjectOfType<PlayerMovement>();
+        int expToGive = thisLoot.GetExp();
+        player.AddExp(expToGive);
+        return expToGive;
+    }
 
     private IEnumerator KnockCo(Rigidbody2D myRigibody, float knockTime)
     {

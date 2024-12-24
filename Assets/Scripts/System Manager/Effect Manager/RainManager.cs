@@ -3,15 +3,15 @@ using UnityEngine;
 
 public class RainManager : MonoBehaviour
 {
-    [SerializeField] private WorldTime worldTime; // Tham chiếu tới WorldTime
+    [SerializeField] private WorldTime worldTime; 
     [Header("Các khu vực mưa")]
-    [SerializeField] private GameObject[] rainEffects; // Danh sách các khu vực mưa
+    [SerializeField] private GameObject[] rainEffects; 
 
     private void Awake()
     {
         if (worldTime != null)
         {
-            worldTime.WeatherChange += OnWeatherChange; // Đăng ký sự kiện thời tiết
+            worldTime.WeatherChange += OnWeatherChange; 
         }
         else
         {
@@ -23,7 +23,7 @@ public class RainManager : MonoBehaviour
     {
         if (worldTime != null)
         {
-            worldTime.WeatherChange -= OnWeatherChange; // Hủy đăng ký sự kiện
+            worldTime.WeatherChange -= OnWeatherChange; 
         }
     }
 

@@ -7,80 +7,156 @@ public class NPCMovement : MonoBehaviour
     [SerializeField] private Transform[] waypoints;
 
     [Header("Tốc độ di chuyển")]
-    [SerializeField] private float moveSpeed = 3f;
+    [SerializeField] private float moveSpeed = 2.5f;
 
     private Rigidbody2D rb;
-    private Collider2D npcCollider;
+    public BoxCollider2D npcCollider;
+
+    [Header("Kiểm tra ")]
     public int currentWaypointIndex = 0;
     public int targetWaypointIndex = 0;
-    private bool isMoving = true;
 
+    private bool isMoving = true;
     private Animator anim;
 
+    [Header("Thời gian nghỉ ngơi (giây)")]
+    [SerializeField] private float restTimeMin = 2f;
+    [SerializeField] private float restTimeMax = 5f;
+
+    [Header("Data DayNight")]
+    [SerializeField] private WorldTime _worldTime;
+
+    private bool isResting = false;
+    private bool isGoingHome = false;
+
+    public string npcId;
+
+    private const string NPC_ACTIVE_KEY = "NPC_Active";
+    private const string NPC_POSITION_X_KEY = "NPC_Position_X";
+    private const string NPC_POSITION_Y_KEY = "NPC_Position_Y";
+    private const string NPC_WAYPOINT_INDEX_KEY = "NPC_Waypoint_Index";
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        npcCollider = GetComponent<Collider2D>();
         anim = GetComponent<Animator>();
 
-        // Đặt vị trí ban đầu cho NPC tại waypoint đầu tiên
-        transform.position = waypoints[currentWaypointIndex].position;
+        LoadNPCState();
     }
+
+    void OnDisable()
+    {
+        SaveNPCState();
+    }
+
 
     void Update()
     {
-        if (isMoving)
+        if (isMoving && !isResting)
         {
-            Move();
+            CheckTimeAndControlNPC();
+
+            if (gameObject.activeSelf)
+            {
+                Move();
+            }
+
         }
     }
+
+    private void CheckTimeAndControlNPC()
+    {
+        int currentHour = _worldTime.CurrentGameHour;
+
+        if (currentHour >= 20 && !isGoingHome)
+        {
+            isGoingHome = true;
+            moveSpeed = 10f;
+            targetWaypointIndex = waypoints.Length - 1;
+            StartCoroutine(HideNPCAtNight());
+
+        }
+        else if (currentHour >= 6 && gameObject.activeSelf == false)
+        {
+            moveSpeed = 2.5f;
+            StartCoroutine(NPCAtDay());
+            isMoving = true;
+            isGoingHome = false;
+        }
+    }
+
 
     private void Move()
     {
-        Vector2 direction = (waypoints[currentWaypointIndex].position - transform.position).normalized;
-        changeAnim(direction);
-        anim.SetBool("moving", true);
-
-        transform.position = Vector2.MoveTowards(transform.position,
-            waypoints[currentWaypointIndex].position,
-            moveSpeed * Time.deltaTime);
-
-        if (Vector2.Distance(transform.position, waypoints[currentWaypointIndex].position) < 0.1f)
+        if (isGoingHome)
         {
-            anim.SetBool("moving", false);
+            MoveToWaypoint(targetWaypointIndex);
+        }
+        else
+        {
 
-            if (currentWaypointIndex == targetWaypointIndex)
-            {
-                StartCoroutine(SelectNextWaypoint());
-            }
-            else
-            {
-                if (currentWaypointIndex < targetWaypointIndex)
-                {
-                    currentWaypointIndex++;
-                }
-                else
-                {
-                    currentWaypointIndex--;
-                }
-            }
+            MoveToWaypoint(targetWaypointIndex);
         }
     }
 
-    private IEnumerator SelectNextWaypoint()
-    {
-        isMoving = false;
 
-        yield return new WaitForSeconds(1f);
+    private void MoveToWaypoint(int targetIndex)
+    {
+        int moveDirection = currentWaypointIndex < targetIndex ? 1 : -1;
+
+        if (currentWaypointIndex != targetIndex)
+        {
+            Vector2 direction = (waypoints[currentWaypointIndex + moveDirection].position - transform.position).normalized;
+            changeAnim(direction);
+            anim.SetBool("moving", true);
+
+            transform.position = Vector2.MoveTowards(transform.position,
+                                                    waypoints[currentWaypointIndex + moveDirection].position,
+                                                    moveSpeed * Time.deltaTime);
+
+            if (Vector2.Distance(transform.position, waypoints[currentWaypointIndex + moveDirection].position) < 0.1f)
+            {
+                currentWaypointIndex += moveDirection;
+            }
+        }
+        else
+        {
+            anim.SetBool("moving", false);
+            StartCoroutine(RestBeforeNextMove());
+        }
+    }
+
+
+
+    private void SelectNewTargetWaypoint()
+    {
+        int newTargetIndex;
 
         do
         {
-            targetWaypointIndex = Random.Range(0, waypoints.Length);
-        } while (targetWaypointIndex == currentWaypointIndex);
+            newTargetIndex = Random.Range(0, waypoints.Length);
+        } while (newTargetIndex == currentWaypointIndex);
 
-        isMoving = true;
+        targetWaypointIndex = newTargetIndex;
     }
+
+
+    private IEnumerator RestBeforeNextMove()
+    {
+        if (isGoingHome) yield break;
+
+        isMoving = false;
+        isResting = true;
+
+        float restTime = Random.Range(restTimeMin, restTimeMax);
+        yield return new WaitForSeconds(restTime);
+
+        SelectNewTargetWaypoint();
+        isMoving = true;
+        isResting = false;
+    }
+
+
 
     private void SetAnimFloat(Vector2 setVector)
     {
@@ -114,13 +190,65 @@ public class NPCMovement : MonoBehaviour
         }
     }
 
-    
+    private void SaveNPCState()
+    {
+        string activeKey = GetPrefKey(NPC_ACTIVE_KEY);
+
+        PlayerPrefs.SetInt(GetPrefKey(NPC_ACTIVE_KEY), gameObject.activeSelf ? 1 : 0);
+        PlayerPrefs.SetFloat(GetPrefKey(NPC_POSITION_X_KEY), transform.position.x);
+        PlayerPrefs.SetFloat(GetPrefKey(NPC_POSITION_Y_KEY), transform.position.y);
+        PlayerPrefs.SetInt(GetPrefKey(NPC_WAYPOINT_INDEX_KEY), currentWaypointIndex);
+        PlayerPrefs.Save();
+
+        Debug.Log("NPC State Saved!");
+    }
+
+    private void LoadNPCState()
+    {
+
+        string activeKey = GetPrefKey(NPC_ACTIVE_KEY);
+
+        if (PlayerPrefs.HasKey(activeKey))
+        {
+            bool isActive = PlayerPrefs.GetInt(activeKey) == 1;
+            gameObject.SetActive(isActive);
+
+            if (isActive)
+            {
+                float x = PlayerPrefs.GetFloat(GetPrefKey(NPC_POSITION_X_KEY));
+                float y = PlayerPrefs.GetFloat(GetPrefKey(NPC_POSITION_Y_KEY));
+                transform.position = new Vector2(x, y);
+
+                int loadedWaypointIndex = PlayerPrefs.GetInt(GetPrefKey(NPC_WAYPOINT_INDEX_KEY));
+                currentWaypointIndex = loadedWaypointIndex;
+                targetWaypointIndex = currentWaypointIndex;
+
+            }
+            else
+            {
+                currentWaypointIndex = waypoints.Length - 1;
+                targetWaypointIndex = currentWaypointIndex;
+                transform.position = waypoints[currentWaypointIndex].position;
+            }
+        }
+        else
+        {
+            currentWaypointIndex = 0;
+            targetWaypointIndex = currentWaypointIndex;
+            transform.position = waypoints[currentWaypointIndex].position;
+        }
+    }
+
+    private string GetPrefKey(string baseKey)
+    {
+        return $"{baseKey}_{npcId}";
+    }
+
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("NPC") )
+        if (collision.gameObject.CompareTag("NPC"))
         {
-            Debug.Log("Va chạm với NPC khác, tắt collider");
-            npcCollider.enabled = false; 
+            npcCollider.isTrigger = true;
         }
     }
 
@@ -128,8 +256,42 @@ public class NPCMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("NPC"))
         {
-            Debug.Log("Rời khỏi va chạm với NPC khác, bật collider");
-            npcCollider.enabled = true; 
+            npcCollider.isTrigger = false;
         }
+    }
+
+    private IEnumerator HideNPCAtNight()
+    {
+        Debug.Log("NPC về nhà");
+        isResting = true;
+        anim.SetBool("moving", true);
+
+        while (currentWaypointIndex != waypoints.Length - 1)
+        {
+            MoveToWaypoint(waypoints.Length - 1);
+            yield return null;
+        }
+
+        anim.SetBool("moving", false);
+        isMoving = false;
+        SaveNPCState();
+
+        gameObject.SetActive(false);
+        isResting = false;
+    }
+
+    private IEnumerator NPCAtDay()
+    {
+        Debug.Log("NPC rời khỏi nhà");
+        isResting = false;
+        SaveNPCState();
+
+        gameObject.SetActive(true);
+        transform.position = waypoints[currentWaypointIndex].position;
+
+        anim.SetBool("moving", false);
+        isMoving = true;
+        isResting = true;
+        yield return null;
     }
 }

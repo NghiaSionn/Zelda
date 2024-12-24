@@ -397,7 +397,7 @@ MonoBehaviour:
     - title: Display Name
       value: "Gi\u1EBFt Th\u1ECF"
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: Trackable
       value: True
       type: 2
@@ -413,11 +413,11 @@ MonoBehaviour:
     - title: Entry 1 State
       value: active
       type: 0
-      typeString: 
+      typeString: CustomFieldType_QuestState
     - title: Entry 1
       value: '[var=Kill.NumKilled]/5 Killed'
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
   - id: 6
     fields:
     - title: Name
@@ -501,7 +501,7 @@ MonoBehaviour:
       type: 0
       typeString: 
     - title: Initial Value
-      value: false
+      value: False
       type: 2
       typeString: CustomFieldType_Boolean
     - title: Description

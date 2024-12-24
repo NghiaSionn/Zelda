@@ -15,11 +15,8 @@ public class Test_Rigidbody2D : MonoBehaviour
 
     void Start()
     {
-        if (rb == null)
-            rb = GetComponent<Rigidbody2D>();
-
-        if (anim == null)
-            anim = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
 
         StartCoroutine(MoveRandomly());
     }

@@ -18,6 +18,9 @@ public class WorldTime : MonoBehaviour
     private bool isRaining = false;
     private TimeSpan rainEndTime = TimeSpan.Zero;
 
+    
+    public int CurrentGameHour => _currentTime.Hours;
+
     void Start()
     {
         dayCount = gameTimeData.dayCount;
@@ -29,20 +32,20 @@ public class WorldTime : MonoBehaviour
     private void DecideRain()
     {
         // 20% cơ hội mưa
-        bool willRainToday = UnityEngine.Random.value > 0.2f; 
+        bool willRainToday = UnityEngine.Random.value > 0.2f;
 
         if (!willRainToday)
         {
             isRaining = false;
-            WeatherChange?.Invoke(this, false); 
+            WeatherChange?.Invoke(this, false);
             return;
         }
 
-        //Mưa 6- 8h tối
+        // Mưa từ 6 giờ sáng đến 8 giờ tối
         int rainStartHour = UnityEngine.Random.Range(6, 20);
 
         // Mưa kéo dài 10-120 phút
-        int rainDurationMinutes = UnityEngine.Random.Range(10, 120); 
+        int rainDurationMinutes = UnityEngine.Random.Range(10, 120);
         TimeSpan rainStartTime = new TimeSpan(rainStartHour, 0, 0);
 
         // Đặt thời gian mưa và phát sự kiện
@@ -80,6 +83,7 @@ public class WorldTime : MonoBehaviour
             gameTimeData.dayCount = dayCount;
 
             yield return new WaitForSeconds(_minuteLength);
+            yield return new WaitForSecondsRealtime(0.01f);
         }
     }
 }

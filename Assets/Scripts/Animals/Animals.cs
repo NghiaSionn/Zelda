@@ -52,11 +52,19 @@ public class Animals : MonoBehaviour
         if (health <= 0)
         {
             StartCoroutine(Hurt());
+            Exp();
             MakeLoot();
             this.gameObject.SetActive(false);
         }
     }
 
+    public int Exp()
+    {
+        PlayerMovement player = FindObjectOfType<PlayerMovement>();
+        int expToGive = thisLoot.GetExp();
+        player.AddExp(expToGive);
+        return expToGive;
+    }
     private IEnumerator Hurt()
     {
         anim.SetBool("hurt", true);

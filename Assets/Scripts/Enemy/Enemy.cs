@@ -77,15 +77,22 @@ public class Enemy : MonoBehaviour
             StartCoroutine(Hurt());
         }
         if (health <= 0)
-        {
+        {         
+            Exp();
             StartCoroutine(Hurt());
             MakeLoot();
             StartCoroutine(Dead());
-            this.gameObject.SetActive(false);
-            
+            this.gameObject.SetActive(false);         
         }
     }
 
+    public int Exp()
+    {
+        PlayerMovement player = FindObjectOfType<PlayerMovement>();
+        int expToGive = thisLoot.GetExp();
+        player.AddExp(expToGive);
+        return expToGive;
+    }
 
     private IEnumerator KnockCo(Rigidbody2D myRigibody, float knockTime)
     {

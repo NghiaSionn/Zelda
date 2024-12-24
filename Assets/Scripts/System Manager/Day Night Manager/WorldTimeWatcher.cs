@@ -18,16 +18,17 @@ public class WorldTimeWatcher : MonoBehaviour
 
     private void Awake()
     {
-        ValidateReferences();
         worldTime.WorldTimeChange += OnWorldTimeChange;
         worldTime.WeatherChange += OnWeatherChange;
+
+        GameObject weatherIconn = GameObject.Find("Weahter Icon");
+        weatherIcon = weatherIconn.GetComponent<Image>();
 
         UpdateWeatherIcon(GetCurrentTime());
     }
 
     private void OnDestroy()
     {
-        // Hủy đăng ký sự kiện
         worldTime.WorldTimeChange -= OnWorldTimeChange;
         worldTime.WeatherChange -= OnWeatherChange;
     }
@@ -56,16 +57,9 @@ public class WorldTimeWatcher : MonoBehaviour
 
     private TimeSpan GetCurrentTime()
     {
-        // Lấy thời gian hiện tại từ GameTimeData
+        
         return TimeSpan.Parse(worldTime.gameTimeData.currentTimeString);
     }
 
-    private void ValidateReferences()
-    {
-        // Đảm bảo các tham chiếu không bị thiếu
-        if (worldTime == null || weatherIcon == null || sunnyIcon == null || rainyIcon == null || nightSunnyIcon == null || nightRainyIcon == null)
-        {
-            Debug.LogError("Sprites chưa đc gán kiểm tra lại");
-        }
-    }
+
 }

@@ -1,8 +1,11 @@
-﻿using System;
+﻿using Language.Lua;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum PlayerState
 {
@@ -15,29 +18,36 @@ public enum PlayerState
 
 public class PlayerMovement : MonoBehaviour
 {
-    [Header("Movement")]
+    [Header("Di chuyển")]
     public float speed;
     private Rigidbody2D myRigibody;
     private Vector3 change;
     public PlayerState currentState;
 
-    [Header("Stamina")]
+    [Header("Thể lực")]
     public StaminaWheel staminaWheel; 
     public float runningSpeedMultiplier = 2f;
 
-    [Header("Heatlh")]
+    [Header("Máu")]
     public FloatValue currentHealth;
     public FloatValue maxHealth;
     public SignalSender playerHealthSignal;
 
-    [Header("Position")]
+    [Header("Kinh nghiệm")]
+    public FloatValue currentExp;
+    public FloatValue maxExp;
+    public Image expBar;
+    public TextMeshProUGUI levelText;
+    private int currentLevel = 1;
+
+    [Header("Vị trí")]
     public VectorValue startingPosition;
 
-    [Header("Inventory")]
+    [Header("Túi đồ")]
     public Inventory playerInventory;
-    public GameObject inventoryPanel;
+    
 
-    [Header("Item")]
+    [Header("Vật phẩm")]
     public SpriteRenderer receivedItemSprite;
 
 
@@ -57,7 +67,8 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("moveX", 0);
         animator.SetFloat("moveY", -1);
         transform.position = startingPosition.initialValue;
-        inventoryPanel.SetActive(false);
+
+        UpdateExpBar();
 
         currentHealth.RuntimeValue = currentHealth.initiaValue;
     }
@@ -104,19 +115,43 @@ public class PlayerMovement : MonoBehaviour
             UpdateAnimationAndMove();
         }
 
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            if(!isOpen)
-            {
-                OpenPanel();
-            }
-            else
-            {
-                ClosePanel();
-            }
-
-        }
+       
         
+    }
+
+
+    public void AddExp(int expToAdd)
+    {
+        currentExp.RuntimeValue += expToAdd;
+        Debug.Log($"Exp nhận đc: {expToAdd}. Tổng exp: {currentExp.RuntimeValue}");  
+
+        UpdateExpBar();  
+
+        if (currentExp.RuntimeValue >= maxExp.RuntimeValue)
+        {
+            LevelUp();
+        }
+    }
+
+    private void UpdateExpBar()
+    {
+        if (expBar != null)
+        {
+            expBar.fillAmount = (float)currentExp.RuntimeValue / maxExp.RuntimeValue;
+        }
+    }
+
+    private void LevelUp()
+    {
+        int currentNumber = 0;
+        currentExp.RuntimeValue -= maxExp.RuntimeValue;
+        maxExp.RuntimeValue += 50;
+
+        currentLevel++; 
+        levelText.text = currentLevel.ToString();
+
+        Debug.Log("Player leveled up! New maxExp: " + maxExp.RuntimeValue);
+        UpdateExpBar();
     }
 
     public Vector2 GetFacingDirection()
@@ -261,15 +296,5 @@ public class PlayerMovement : MonoBehaviour
         yield return null;
     }
 
-    private void OpenPanel()
-    {
-        isOpen = true;
-        inventoryPanel.SetActive(true);
-    }
-
-    private void ClosePanel()
-    {
-        isOpen = false;    
-        inventoryPanel.SetActive(false);
-    }
+    
 }

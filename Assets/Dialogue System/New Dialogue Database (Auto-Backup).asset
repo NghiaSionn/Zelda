@@ -397,7 +397,7 @@ MonoBehaviour:
     - title: Display Name
       value: "Gi\u1EBFt Th\u1ECF"
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: Trackable
       value: True
       type: 2
@@ -413,11 +413,11 @@ MonoBehaviour:
     - title: Entry 1 State
       value: active
       type: 0
-      typeString: 
+      typeString: CustomFieldType_QuestState
     - title: Entry 1
       value: '[var=Kill.NumKilled]/5 Killed'
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
   - id: 6
     fields:
     - title: Name
@@ -501,7 +501,7 @@ MonoBehaviour:
       type: 0
       typeString: 
     - title: Initial Value
-      value: false
+      value: False
       type: 2
       typeString: CustomFieldType_Boolean
     - title: Description
@@ -2658,8 +2658,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 40.816284}
-    canvasZoom: 0.49000058
+    canvasScrollPosition: {x: 87.71779, y: 68.422874}
+    canvasZoom: 0.55000055
   - id: 3
     fields:
     - title: Title
@@ -3291,7 +3291,7 @@ MonoBehaviour:
         destinationDialogueID: 9
         isConnector: 0
         priority: 2
-      conditionsString: 
+      conditionsString: CurrentQuestState("Kill Crab") == "active"
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -3355,7 +3355,13 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks: []
+      outgoingLinks:
+      - originConversationID: 3
+        originDialogueID: 8
+        destinationConversationID: 3
+        destinationDialogueID: 11
+        isConnector: 0
+        priority: 2
       conditionsString: Variable["Kill.NumKilled"] >= 5
       userScript: 
       onExecute:
@@ -3486,7 +3492,7 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: 
+      conditionsString: CurrentQuestState("Kill Crab") == "success"
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -3497,9 +3503,75 @@ MonoBehaviour:
         y: 134
         width: 160
         height: 30
+    - id: 11
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Pictures
+        value: '[]'
+        type: 3
+        typeString: CustomFieldType_Files
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 5
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: "C\u1EA3m \u01A1n b\u1EA1n r\u1EA5t nhi\u1EC1u, \u0111\xE2y l\xE0
+          ph\u1EA7n th\u01B0\u1EDFng c\u1EE7a b\u1EA1n"
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Parenthetical
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Audio Files
+        value: '[]'
+        type: 3
+        typeString: CustomFieldType_Files
+      - title: Video File
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 3
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: SetQuestState("Kill Crab", "success")
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 704
+        y: 268
+        width: 160
+        height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 47.36841, y: 0}
-    canvasZoom: 0.7600002
+    canvasScrollPosition: {x: 1.2406654, y: 0}
+    canvasZoom: 0.7000003
   syncInfo:
     syncActors: 0
     syncItems: 0

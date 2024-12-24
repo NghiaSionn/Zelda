@@ -1,6 +1,11 @@
-﻿using System.Collections;
+﻿using Language.Lua;
+using System;
+using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum PlayerState
 {
@@ -13,32 +18,48 @@ public enum PlayerState
 
 public class PlayerMovement : MonoBehaviour
 {
-    [Header("Movement")]
+    [Header("Di chuyển")]
     public float speed;
     private Rigidbody2D myRigibody;
     private Vector3 change;
     public PlayerState currentState;
 
-    [Header("Heatlh")]
+    [Header("Thể lực")]
+    public StaminaWheel staminaWheel; 
+    public float runningSpeedMultiplier = 2f;
+
+    [Header("Máu")]
     public FloatValue currentHealth;
+    public FloatValue maxHealth;
     public SignalSender playerHealthSignal;
 
-    [Header("Position")]
+    [Header("Kinh nghiệm")]
+    public FloatValue currentExp;
+    public FloatValue maxExp;
+    public Image expBar;
+    public TextMeshProUGUI levelText;
+    private int currentLevel = 1;
+
+    [Header("Vị trí")]
     public VectorValue startingPosition;
 
-    [Header("Inventory")]
+    [Header("Túi đồ")]
     public Inventory playerInventory;
+    
 
-    [Header("Item")]
+    [Header("Vật phẩm")]
     public SpriteRenderer receivedItemSprite;
 
 
     private Animator animator;
-    private bool isWalkingSoundPlaying = false;
-    //private bool isAttackingSoundPlaying = false;
+    public bool isWalkingSoundPlaying = false;
+    public bool isRunning = false;
+    public bool canRun = true;
+    private bool isOpen = false;
 
 
-    void Start()
+
+    void Awake()
     {
         animator = GetComponent<Animator>();
         myRigibody = GetComponent<Rigidbody2D>();
@@ -46,6 +67,10 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("moveX", 0);
         animator.SetFloat("moveY", -1);
         transform.position = startingPosition.initialValue;
+
+        UpdateExpBar();
+
+        currentHealth.RuntimeValue = currentHealth.initiaValue;
     }
 
     // Update is called once per frame
@@ -60,6 +85,25 @@ public class PlayerMovement : MonoBehaviour
         change.x = Input.GetAxisRaw("Horizontal");
         change.y = Input.GetAxisRaw("Vertical");
 
+        if (Input.GetKey(KeyCode.LeftShift) && canRun)
+        {
+            if (change != Vector3.zero)
+            {
+                isRunning = true;
+            }
+            
+            else
+            {
+                isRunning = false;
+            }
+        }
+        
+        else
+        {
+            isRunning = false;
+        }
+
+
 
         if (Input.GetButtonDown("attack") && currentState != PlayerState.attack
             && currentState != PlayerState.stagger)
@@ -70,6 +114,44 @@ public class PlayerMovement : MonoBehaviour
         {
             UpdateAnimationAndMove();
         }
+
+       
+        
+    }
+
+
+    public void AddExp(int expToAdd)
+    {
+        currentExp.RuntimeValue += expToAdd;
+        Debug.Log($"Exp nhận đc: {expToAdd}. Tổng exp: {currentExp.RuntimeValue}");  
+
+        UpdateExpBar();  
+
+        if (currentExp.RuntimeValue >= maxExp.RuntimeValue)
+        {
+            LevelUp();
+        }
+    }
+
+    private void UpdateExpBar()
+    {
+        if (expBar != null)
+        {
+            expBar.fillAmount = (float)currentExp.RuntimeValue / maxExp.RuntimeValue;
+        }
+    }
+
+    private void LevelUp()
+    {
+        int currentNumber = 0;
+        currentExp.RuntimeValue -= maxExp.RuntimeValue;
+        maxExp.RuntimeValue += 50;
+
+        currentLevel++; 
+        levelText.text = currentLevel.ToString();
+
+        Debug.Log("Player leveled up! New maxExp: " + maxExp.RuntimeValue);
+        UpdateExpBar();
     }
 
     public Vector2 GetFacingDirection()
@@ -78,12 +160,36 @@ public class PlayerMovement : MonoBehaviour
         return new Vector2(animator.GetFloat("moveX"), animator.GetFloat("moveY")).normalized;
     }
 
+    public void UpdateHealth(float healthAmount)
+    {
+            // Cập nhật giá trị RuntimeValue
+            currentHealth.RuntimeValue = Mathf.Clamp(currentHealth.RuntimeValue + healthAmount, 0, maxHealth.RuntimeValue);
+
+            playerHealthSignal?.Raise();
+
+            if (currentHealth.RuntimeValue <= 0)
+            {
+                Die();
+            }             
+    }
+
+    private void Die()
+    {
+        //Debug.Log("Người chơi đã chết!");
+        this.gameObject.SetActive(false);
+    }
+
+    public bool IsHealthFull()
+    {
+        return currentHealth.RuntimeValue >= maxHealth.RuntimeValue;
+    }
+
 
     private IEnumerator AttackCo()
     {
         animator.SetBool("attacking", true);
-        currentState = PlayerState.attack;             
-        SoundManager.Instance.PlaySound3D("sword", transform.position);        
+        currentState = PlayerState.attack;     
+        
         yield return null;
 
         animator.SetBool("attacking", false);
@@ -130,7 +236,7 @@ public class PlayerMovement : MonoBehaviour
 
             if (!isWalkingSoundPlaying)
             {
-                SoundManager.Instance.PlaySound2D("walk");
+                
                 isWalkingSoundPlaying = true;
             }
         }
@@ -140,7 +246,7 @@ public class PlayerMovement : MonoBehaviour
 
             if (isWalkingSoundPlaying)
             {
-                SoundManager.Instance.StopSound2D("walk");
+               
                 isWalkingSoundPlaying = false;
             }
         }
@@ -149,8 +255,10 @@ public class PlayerMovement : MonoBehaviour
     void MoveCharacter()
     {
         change.Normalize();
+        float currentSpeed = isRunning ? speed * runningSpeedMultiplier : speed;
+
         myRigibody.MovePosition(
-            transform.position + change * speed * Time.deltaTime);
+            transform.position + change * currentSpeed * Time.deltaTime);
     }
 
     public void Knock(float knockTime, float damage)
@@ -159,12 +267,14 @@ public class PlayerMovement : MonoBehaviour
         playerHealthSignal.Raise();
         if (currentHealth.RuntimeValue > 0)
         {
+            StartCoroutine(Hurt());
             StartCoroutine(KnockCo(knockTime));
         }
         else
         {
-            this.gameObject.SetActive(false);
+            Die();
         }
+
     }
 
     private IEnumerator KnockCo(float knockTime)
@@ -177,4 +287,14 @@ public class PlayerMovement : MonoBehaviour
             myRigibody.velocity = Vector2.zero;
         }
     }
+
+    private IEnumerator Hurt()
+    {
+        animator.SetBool("hurt", true);
+        yield return new WaitForSeconds(0.1f);
+        animator.SetBool("hurt", false);
+        yield return null;
+    }
+
+    
 }

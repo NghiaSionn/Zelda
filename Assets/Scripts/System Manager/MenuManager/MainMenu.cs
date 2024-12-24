@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Playables;
 
 public class MainMenu : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class MainMenu : MonoBehaviour
     public TMP_Text musicLabel;
     public TMP_Text sfxLabel;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,13 +32,15 @@ public class MainMenu : MonoBehaviour
         sfxSlider.onValueChanged.AddListener(delegate { UpdateSFXVolume(sfxSlider.value); });
     }
 
-    public void Play()
-    {
-        LevelManager.Instance.LoadScene("House 1", "CrossFade");
-        //SceneManager.LoadScene(1);
-        MusicManager.Instance.PlayMusic("Game");
-    }
 
+
+ 
+
+    public void StartGame()
+    {
+        LevelManager.Instance.LoadScene("BeginCutScene", "CrossFade");
+        //MusicManager.Instance.PlayMusic("Game");
+    }
     public void Options()
     {
 

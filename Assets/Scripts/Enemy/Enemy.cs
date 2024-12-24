@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -28,15 +28,22 @@ public class Enemy : MonoBehaviour
     [Header("Enemy")]
     public EnemyState currentState = EnemyState.idle;
     public EnemyType enemyType;
+
+    [Header("Heatlh")]
     public FloatValue maxHealth;
     public float health;
-    public string enemyName;
     public int baseAttack;
     public float moveSpeed;
+
+    private Animator anim;
+
+    [Header("Rớt đồ")]
+    public LootTable thisLoot;
 
     public void Awake()
     {
         health = maxHealth.initiaValue;
+        anim = GetComponent<Animator>();
     }
 
 
@@ -49,16 +56,43 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    private void MakeLoot()
+    {
+        if(thisLoot != null)
+        {
+            GameObject current = thisLoot.LootPowerup();
+
+            if (current != null)
+            {
+                Instantiate(current.gameObject,transform.position, Quaternion.identity);
+            }
+        }
+    }
 
     protected virtual void TakeDamage(float damage)
     {
         health -= damage;
-        if (health <= 0)
+        if(health > 0)
         {
-            this.gameObject.SetActive(false);
+            StartCoroutine(Hurt());
+        }
+        if (health <= 0)
+        {         
+            Exp();
+            StartCoroutine(Hurt());
+            MakeLoot();
+            StartCoroutine(Dead());
+            this.gameObject.SetActive(false);         
         }
     }
 
+    public int Exp()
+    {
+        PlayerMovement player = FindObjectOfType<PlayerMovement>();
+        int expToGive = thisLoot.GetExp();
+        player.AddExp(expToGive);
+        return expToGive;
+    }
 
     private IEnumerator KnockCo(Rigidbody2D myRigibody, float knockTime)
     {
@@ -72,5 +106,20 @@ public class Enemy : MonoBehaviour
                 myRigibody.velocity = Vector2.zero;
             }
         }
+    }
+
+    private IEnumerator Hurt()
+    {
+        anim.SetBool("hurt", true);
+        yield return new WaitForSeconds(0.1f);
+        anim.SetBool("hurt", false);
+        yield return null;
+    }
+
+    private IEnumerator Dead()
+    {
+        anim.SetBool("dead",true);
+        yield return new WaitForEndOfFrame();
+        this.gameObject.SetActive(false);
     }
 }

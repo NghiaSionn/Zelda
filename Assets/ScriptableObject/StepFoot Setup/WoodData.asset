@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d423f774da4454844a29c19a305bed32, type: 3}
+  m_Name: WoodData
+  m_EditorClassIdentifier: 
+  tiles:
+  - {fileID: 11400000, guid: a47dca91a50d48a40bc87fa1f848eca0, type: 2}
+  clip:
+  - {fileID: 8300000, guid: 3d877274fc3753a40a2164303e7c5465, type: 3}
+  - {fileID: 8300000, guid: 6169b7bdbe31d7d458fc3f22ee67406d, type: 3}
+  - {fileID: 8300000, guid: 44a68aecab45fcc43acd2d8d8a5d386c, type: 3}
+  - {fileID: 8300000, guid: 652a3bde187aa024a9f3da18aee7de5c, type: 3}
+  - {fileID: 8300000, guid: 88745f46f6e7ddc4ba081a2522a824aa, type: 3}
+  - {fileID: 8300000, guid: 8c726bb3287337e44bedb71171902de2, type: 3}
+  - {fileID: 8300000, guid: 5bb36362a41951347904c94d4178c521, type: 3}
+  - {fileID: 8300000, guid: d60358120262ddc4b8d822e6f70bcd71, type: 3}
+  - {fileID: 8300000, guid: f6909df31df0ef94d9351be4f779aea8, type: 3}
+  - {fileID: 8300000, guid: 9479627b94109aa4e9357b681c92a58e, type: 3}
+  - {fileID: 8300000, guid: 8b86bb2aea9e5464a915fc3069c8f57f, type: 3}
+  - {fileID: 8300000, guid: 90111df93ba8ef640a189c1a8e4fbef1, type: 3}
+  - {fileID: 8300000, guid: 8810eb77722972943b18daf6d193c9c3, type: 3}
+  - {fileID: 8300000, guid: 19465dfc97b113b42a78bb11dedfe72e, type: 3}
+  - {fileID: 8300000, guid: fcb2926c841176e4089951fe6b2f2b41, type: 3}
+  - {fileID: 8300000, guid: 9e7d4aadd89882544a43be516492d529, type: 3}
+  - {fileID: 8300000, guid: c0d4dfbb703172c439e0752d6b415334, type: 3}
+  - {fileID: 8300000, guid: fdf5df49e1f23284a9235dfc6bf85652, type: 3}
+  - {fileID: 8300000, guid: de6c3f275907e744891cd1231456547a, type: 3}
+  - {fileID: 8300000, guid: 97c09c4e537bcf046bc5da49f71f5047, type: 3}
+  - {fileID: 8300000, guid: 9dbd2075eb624cf448ee4461455fad51, type: 3}
+  floorType: 4

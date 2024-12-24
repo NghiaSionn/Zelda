@@ -23,7 +23,7 @@ public class Pot : MonoBehaviour
     public void Smash()
     {
         anim.SetBool("smash", true);
-        SoundManager.Instance.PlaySound2D("destroyobject");
+
         StartCoroutine(breakCo());
     }
 

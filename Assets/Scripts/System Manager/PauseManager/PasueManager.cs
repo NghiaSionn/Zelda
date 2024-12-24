@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DG.Tweening.Core.Easing;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,11 +18,42 @@ public class PasueManager : MonoBehaviour
     private Animator currentPanel;
     private Animator panelFadeIn;
 
+    private static PasueManager _instance;
+
+    public static PasueManager Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                Debug.LogError("PauseManager instance is null!");
+            }
+            return _instance;
+        }
+    }
+
+
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         panelFadeIn = effectTransition.GetComponent<Animator>();
         pauseMenu.SetActive(false);
+
+        //GameObject pauseUI = GameObject.Find("PauseBackGround");
+        //pauseMenu = pauseUI;
+
+        //GameObject panelEffect = GameObject.Find("Fade From Dark Panel");
+        //effectTransition = panelEffect;
+
+        if (_instance == null)
+        {
+            _instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject); 
+        }
     }
 
     // Update is called once per frame

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Coin : PowerUp
 {
+    public Item Item;
     public Inventory playerInventory;
 
     // Start is called before the first frame update

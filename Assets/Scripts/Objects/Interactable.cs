@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
+using static UnityEngine.Rendering.DebugUI.Table;
 
 public class Interactable : MonoBehaviour
 {
@@ -27,6 +29,8 @@ public class Interactable : MonoBehaviour
             playerInRange = true;
         }
     }
+
+   
 
     private void OnTriggerExit2D(Collider2D other)
     {

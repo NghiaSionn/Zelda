@@ -44,7 +44,7 @@ public class Projectile : MonoBehaviour
 
 
         if (other.gameObject.CompareTag("Interactive") || other.gameObject.CompareTag("Tree")
-            || other.gameObject.CompareTag("House") || other.gameObject.CompareTag("enemy"))
+            || other.gameObject.CompareTag("House") || other.gameObject.CompareTag("enemy") || other.gameObject.CompareTag("Animal"))
         {
             CameraShakeManager.instance.CameraShake(impulseSource);
             StartCoroutine(EffectSkill());

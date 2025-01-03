@@ -68,6 +68,8 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("moveY", -1);
         transform.position = startingPosition.initialValue;
 
+        
+
         UpdateExpBar();
 
         currentHealth.RuntimeValue = currentHealth.initiaValue;
@@ -295,6 +297,4 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("hurt", false);
         yield return null;
     }
-
-    
 }

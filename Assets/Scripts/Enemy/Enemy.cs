@@ -41,14 +41,12 @@ public class Enemy : MonoBehaviour
     public LootTable thisLoot;
 
     public GameObject enemyPrefab; 
-    private SpawnArea spawnArea;
+    public SpawnArea spawnArea;
 
     public void Awake()
     {
         health = maxHealth.initiaValue;
         anim = GetComponent<Animator>();
-
-        spawnArea = GetComponentInParent<SpawnArea>();
     }
 
 
@@ -85,16 +83,9 @@ public class Enemy : MonoBehaviour
         {
             Exp();
             MakeLoot();
-            
-            if (spawnArea != null)
-            {
-                spawnArea.EnemyDied(this.gameObject);
-                StartCoroutine(spawnArea.RespawnEnemy(this.gameObject));
-            }
-            else
-            {
-                this.gameObject.SetActive(false);
-            }
+            spawnArea.EnemyDied(this.gameObject);
+            //StartCoroutine(spawnArea.RespawnEnemy(this.gameObject));
+                                 
         }
     }
 

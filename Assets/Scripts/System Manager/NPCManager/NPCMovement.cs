@@ -76,10 +76,12 @@ public class NPCMovement : MonoBehaviour
             StartCoroutine(HideNPCAtNight());
 
         }
-        else if (currentHour >= 6 && gameObject.activeSelf == false)
+
+        if (currentHour >= 6) //&& gameObject.activeSelf == false)
         {
-            moveSpeed = 2.5f;
-            StartCoroutine(NPCAtDay());
+            
+            moveSpeed = 2.5f;        
+            //StartCoroutine(NPCAtDay());
             isMoving = true;
             isGoingHome = false;
         }

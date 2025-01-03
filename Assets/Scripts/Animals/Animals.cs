@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Animals : MonoBehaviour
 {
+    [Header("Trạng thái")]
+    public EnemyState currentState = EnemyState.idle;
+
     [Header("Heatlh")]
     public FloatValue maxHealth;
     public float health;
@@ -12,7 +15,7 @@ public class Animals : MonoBehaviour
     public LootTable thisLoot;
 
     private Animator anim;
-
+    public SpawnArea spawnArea;
     
     private void Awake()
     {
@@ -54,7 +57,7 @@ public class Animals : MonoBehaviour
             StartCoroutine(Hurt());
             Exp();
             MakeLoot();
-            this.gameObject.SetActive(false);
+            spawnArea.EnemyDied(this.gameObject);
         }
     }
 

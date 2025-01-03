@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb3897209235d344bb11e890a99338e4, type: 3}
+  m_Name: Mana Postion Big
+  m_EditorClassIdentifier: 
+  itemSprite: {fileID: 21300000, guid: dbad3a473aedbba41991bac6183d75b8, type: 3}
+  itemName: "B\xECnh Mana L\u1EDBn"
+  itemDescription: "H\u1ED3i 30 Mana"
+  quantity: 9
+  usable: 1
+  unique: 0
+  isKey: 0
+  thisEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  itemType: 4
+  itemUseType: 3
+  healAmount: 0
+  manaAmount: 15
+  priceItems: 60
+  quantityBuys: 10
+  maxQuantity: 10

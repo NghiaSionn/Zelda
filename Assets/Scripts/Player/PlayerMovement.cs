@@ -123,7 +123,7 @@ public class PlayerMovement : MonoBehaviour
     public void AddExp(int expToAdd)
     {
         currentExp.RuntimeValue += expToAdd;
-        Debug.Log($"Exp nhận đc: {expToAdd}. Tổng exp: {currentExp.RuntimeValue}");  
+        //Debug.Log($"Exp nhận đc: {expToAdd}. Tổng exp: {currentExp.RuntimeValue}");  
 
         UpdateExpBar();  
 

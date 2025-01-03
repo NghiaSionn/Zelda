@@ -17,7 +17,8 @@ public enum SoundType
     RAIN,
     NIGHT,
     BUTTON,
-    SELECTED
+    SELECTED,
+    BUY
 }
 
 [RequireComponent(typeof(AudioSource)), ExecuteInEditMode]

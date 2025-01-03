@@ -44,4 +44,9 @@ public class Item : ScriptableObject
     public int healAmount;
     public int manaAmount;
 
+    [Header("Vật phẩm để mua")]
+    //public bool itemBuys;
+    public int priceItems;
+    public int quantityBuys;
+    public int maxQuantity;
 }

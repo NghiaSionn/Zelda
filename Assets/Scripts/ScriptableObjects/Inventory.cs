@@ -16,6 +16,7 @@ public class Inventory : ScriptableObject
     public int fish;
 
     public event Action OnItemAdded;
+    public event Action OnCoinsChanged;
     public void AddItem(Item itemToAdd, int amount)
     {
         bool itemExists = false;
@@ -26,6 +27,12 @@ public class Inventory : ScriptableObject
                 item.quantity += amount;
                 itemExists = true;
                 break;
+            }
+
+            if (itemToAdd.itemType == Item.ItemType.Coin)
+            {
+                coins += amount;
+                OnCoinsChanged?.Invoke(); 
             }
         }
 
@@ -55,12 +62,19 @@ public class Inventory : ScriptableObject
 
         OnItemAdded?.Invoke();
     }
-
+    
     public void RemoveItem(Item itemToRemove)
     {
         if (items.Contains(itemToRemove))
         {
             items.Remove(itemToRemove);
         }
+    }
+
+    public void RemoveCoins(int amount)
+    {
+        coins -= amount;
+        if (coins < 0) coins = 0; 
+        OnCoinsChanged?.Invoke();
     }
 }

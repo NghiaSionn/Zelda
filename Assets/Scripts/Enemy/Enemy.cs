@@ -40,10 +40,15 @@ public class Enemy : MonoBehaviour
     [Header("Rớt đồ")]
     public LootTable thisLoot;
 
+    public GameObject enemyPrefab; 
+    private SpawnArea spawnArea;
+
     public void Awake()
     {
         health = maxHealth.initiaValue;
         anim = GetComponent<Animator>();
+
+        spawnArea = GetComponentInParent<SpawnArea>();
     }
 
 
@@ -72,17 +77,24 @@ public class Enemy : MonoBehaviour
     protected virtual void TakeDamage(float damage)
     {
         health -= damage;
-        if(health > 0)
+        if (health > 0)
         {
             StartCoroutine(Hurt());
         }
-        if (health <= 0)
-        {         
+        else
+        {
             Exp();
-            StartCoroutine(Hurt());
             MakeLoot();
-            StartCoroutine(Dead());
-            this.gameObject.SetActive(false);         
+            
+            if (spawnArea != null)
+            {
+                spawnArea.EnemyDied(this.gameObject);
+                StartCoroutine(spawnArea.RespawnEnemy(this.gameObject));
+            }
+            else
+            {
+                this.gameObject.SetActive(false);
+            }
         }
     }
 
@@ -116,10 +128,4 @@ public class Enemy : MonoBehaviour
         yield return null;
     }
 
-    private IEnumerator Dead()
-    {
-        anim.SetBool("dead",true);
-        yield return new WaitForEndOfFrame();
-        this.gameObject.SetActive(false);
-    }
 }

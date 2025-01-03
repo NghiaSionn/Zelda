@@ -116,6 +116,15 @@ public class StaminaWheel : MonoBehaviour
         }
     }
 
+    public void RestoreMana(int manaAmount)
+    {
+        mana += manaAmount;
+        mana = Mathf.Clamp(mana, 0f, maxMana);
+
+        UpdateManaUI();
+        ShowUI();
+    }
+
     private void UpdateManaUI()
     {
         manaSlider.value = mana / 2f;
@@ -123,12 +132,10 @@ public class StaminaWheel : MonoBehaviour
 
     private void ShowUI()
     {
-        // Hiển thị cả hai thanh Stamina và Mana
         staminaWheel.gameObject.SetActive(true);
         usageWheel.gameObject.SetActive(true);
         manaSlider.gameObject.SetActive(true);
 
-        // Nếu có coroutine ẩn, dừng lại để giữ UI hiển thị
         if (hideCoroutine != null)
         {
             StopCoroutine(hideCoroutine);
@@ -140,7 +147,7 @@ public class StaminaWheel : MonoBehaviour
     {
         yield return new WaitForSeconds(hideDelay);
 
-        // Ẩn cả hai thanh Stamina và Mana
+        
         staminaWheel.gameObject.SetActive(false);
         usageWheel.gameObject.SetActive(false);
         manaSlider.gameObject.SetActive(false);

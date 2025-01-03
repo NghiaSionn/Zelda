@@ -28,6 +28,8 @@ public class NPCMovement : MonoBehaviour
 
     private bool isResting = false;
     private bool isGoingHome = false;
+    private bool isPlayerInRange = false;
+    private SpriteRenderer spriteRenderer;
 
     public string npcId;
 
@@ -40,6 +42,7 @@ public class NPCMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
         LoadNPCState();
     }
@@ -77,11 +80,10 @@ public class NPCMovement : MonoBehaviour
 
         }
 
-        if (currentHour >= 6) //&& gameObject.activeSelf == false)
-        {
-            
+        if (currentHour >= 6 && gameObject.activeSelf == false)
+        {          
             moveSpeed = 2.5f;        
-            //StartCoroutine(NPCAtDay());
+            StartCoroutine(NPCAtDay());
             isMoving = true;
             isGoingHome = false;
         }
@@ -262,12 +264,36 @@ public class NPCMovement : MonoBehaviour
         }
     }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            isPlayerInRange = true;
+            isMoving = false; 
+            anim.SetBool("moving", false); 
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            isPlayerInRange = false;
+            if (!isResting)
+            {
+                isMoving = true; 
+                anim.SetBool("moving", true); 
+            }
+        }
+    }
+
     private IEnumerator HideNPCAtNight()
     {
         Debug.Log("NPC về nhà");
         isResting = true;
         anim.SetBool("moving", true);
 
+        // Move to the home waypoint
         while (currentWaypointIndex != waypoints.Length - 1)
         {
             MoveToWaypoint(waypoints.Length - 1);
@@ -277,20 +303,18 @@ public class NPCMovement : MonoBehaviour
         anim.SetBool("moving", false);
         isMoving = false;
         SaveNPCState();
-
-        gameObject.SetActive(false);
+        
+        spriteRenderer.enabled = false;
         isResting = false;
     }
 
     private IEnumerator NPCAtDay()
-    {
+    {       
+        spriteRenderer.enabled = true;       
         Debug.Log("NPC rời khỏi nhà");
         isResting = false;
         SaveNPCState();
-
-        gameObject.SetActive(true);
         transform.position = waypoints[currentWaypointIndex].position;
-
         anim.SetBool("moving", false);
         isMoving = true;
         isResting = true;

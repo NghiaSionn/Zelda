@@ -66,7 +66,7 @@ public class KnockBack : MonoBehaviour
                     if (animal != null)
                     {
                         CameraShakeManager.instance.CameraShake(impulseSource);
-                        //animal.currentState = EnemyState.stagger;
+                        animal.currentState = EnemyState.stagger;
                         animal.Knock(hit, knockTime, damage);
                     }
                 }

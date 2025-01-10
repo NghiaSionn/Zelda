@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 1734116387965863117}
   - component: {fileID: 6183815624047042033}
   - component: {fileID: 7206564321468194681}
-  - component: {fileID: 6957651280530571323}
   - component: {fileID: 2573961939703994687}
   m_Layer: 0
   m_Name: Female
@@ -228,24 +227,6 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &6957651280530571323
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1818640104917097399}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43e34793d22fcef469670293a108870f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 7206564321468194681}
-  roamTimeMin: 2
-  roamTimeMax: 5
-  areaSize: {x: 10, y: 2}
-  moveSpeed: 2.5
-  anim: {fileID: 0}
 --- !u!114 &2573961939703994687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,5 +251,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   moveSpeed: 3.5
+  npcCollider: {fileID: 0}
   currentWaypointIndex: 0
   targetWaypointIndex: 0
+  restTimeMin: 2
+  restTimeMax: 5
+  _worldTime: {fileID: 0}
+  npcId: 

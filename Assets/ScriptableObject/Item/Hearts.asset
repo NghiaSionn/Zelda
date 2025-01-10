@@ -15,6 +15,15 @@ MonoBehaviour:
   itemSprite: {fileID: 1118192474, guid: e21faaf6c05b6f6438a5f5d24eb8c4a9, type: 3}
   itemName: 
   itemDescription: "M\xE1u"
-  isKey: 0
   quantity: 0
-  itemType: 3
+  usable: 0
+  unique: 0
+  isKey: 0
+  thisEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  itemType: 0
+  itemUseType: 0
+  healAmount: 0
+  manaAmount: 0
+  priceItems: 0

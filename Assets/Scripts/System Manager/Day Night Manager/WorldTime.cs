@@ -15,24 +15,46 @@ public class WorldTime : MonoBehaviour
     private int dayCount = 1;
     private float _minuteLength => _dayLength / WorldTimeConstants.minuteInDays;
 
-    private bool isRaining = false;
-    private TimeSpan rainEndTime = TimeSpan.Zero;
+    private bool isRaining;
+    private TimeSpan rainEndTime;
 
-    
     public int CurrentGameHour => _currentTime.Hours;
 
     void Start()
     {
+        // Load trạng thái từ GameTimeData
         dayCount = gameTimeData.dayCount;
         _currentTime = TimeSpan.ParseExact(gameTimeData.currentTimeString, "hh\\:mm", null);
+        isRaining = gameTimeData.isRaining;
+        rainEndTime = TimeSpan.ParseExact(gameTimeData.rainEndTimeString, "hh\\:mm", null);
+
+        // Khôi phục trạng thái mưa nếu cần
+        if (isRaining && _currentTime >= rainEndTime)
+        {
+            isRaining = false;
+            WeatherChange?.Invoke(this, false);
+        }
+        else if (isRaining)
+        {
+            WeatherChange?.Invoke(this, true);
+        }
+        else
+        {
+            DecideRain();
+        }
+
         StartCoroutine(AddMinute());
-        DecideRain();
     }
 
     private void DecideRain()
     {
+        // Chỉ random mưa nếu mưa đã kết thúc
+        if (isRaining) return;
+
         // 20% cơ hội mưa
         bool willRainToday = UnityEngine.Random.value > 0.2f;
+
+        //bool willRainToday = true;
 
         if (!willRainToday)
         {
@@ -52,6 +74,10 @@ public class WorldTime : MonoBehaviour
         isRaining = true;
         rainEndTime = rainStartTime.Add(TimeSpan.FromMinutes(rainDurationMinutes));
         WeatherChange?.Invoke(this, true);
+
+        // Lưu trạng thái vào GameTimeData
+        gameTimeData.isRaining = isRaining;
+        gameTimeData.rainEndTimeString = rainEndTime.ToString(@"hh\:mm");
     }
 
     private IEnumerator AddMinute()
@@ -74,6 +100,9 @@ public class WorldTime : MonoBehaviour
             {
                 isRaining = false;
                 WeatherChange?.Invoke(this, false);
+
+                // Lưu trạng thái vào GameTimeData
+                gameTimeData.isRaining = isRaining;
             }
 
             WorldTimeChange?.Invoke(this, _currentTime);
@@ -83,7 +112,6 @@ public class WorldTime : MonoBehaviour
             gameTimeData.dayCount = dayCount;
 
             yield return new WaitForSeconds(_minuteLength);
-            yield return new WaitForSecondsRealtime(0.01f);
         }
     }
 }

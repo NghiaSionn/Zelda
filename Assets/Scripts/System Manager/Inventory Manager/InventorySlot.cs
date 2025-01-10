@@ -48,7 +48,7 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
             thisManager.SetUpDescriptionAndButton(thisItem.itemDescription,
                 thisItem.itemName, thisItem.usable, thisItem);
 
-            // Cập nhật vị trí của description panel
+            
             Vector3 mousePosition = Input.mousePosition;
             descriptionPanelRect = descriptionPanel.GetComponent<RectTransform>();
             descriptionPanelRect.position = mousePosition + new Vector3(150f, 150f, 0f);

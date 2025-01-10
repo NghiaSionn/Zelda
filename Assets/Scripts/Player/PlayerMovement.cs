@@ -68,6 +68,8 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("moveY", -1);
         transform.position = startingPosition.initialValue;
 
+        
+
         UpdateExpBar();
 
         currentHealth.RuntimeValue = currentHealth.initiaValue;
@@ -123,7 +125,7 @@ public class PlayerMovement : MonoBehaviour
     public void AddExp(int expToAdd)
     {
         currentExp.RuntimeValue += expToAdd;
-        Debug.Log($"Exp nhận đc: {expToAdd}. Tổng exp: {currentExp.RuntimeValue}");  
+        //Debug.Log($"Exp nhận đc: {expToAdd}. Tổng exp: {currentExp.RuntimeValue}");  
 
         UpdateExpBar();  
 
@@ -295,6 +297,4 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("hurt", false);
         yield return null;
     }
-
-    
 }

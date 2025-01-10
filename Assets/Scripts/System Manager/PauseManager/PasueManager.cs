@@ -75,14 +75,14 @@ public class PasueManager : MonoBehaviour
     private void PauseGame()
     {
         isPaused = true;
-        //ime.timeScale = 0;
+        Time.timeScale = 0;
         pauseMenu.SetActive(true);
     }
 
     public void ResumeGame()
     {
         isPaused = false;
-        //Time.timeScale = 1;
+        Time.timeScale = 1;
         pauseMenu.SetActive(false);
         
         

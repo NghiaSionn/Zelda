@@ -8,9 +8,14 @@ public class CoinTextManager : MonoBehaviour
     public Inventory playerInventory;
     public TextMeshProUGUI coinDisplay;
 
-    void Awake()
+    private void Start()
     {
+        playerInventory.OnCoinsChanged += UpdateCoinCount;
         UpdateCoinCount();
+    }
+
+    void Awake()
+    {      
         GameObject coinUI = GameObject.Find("Coin UI Text");
         coinDisplay = coinUI.GetComponent<TextMeshProUGUI>();
     }

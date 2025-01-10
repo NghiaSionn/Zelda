@@ -78,13 +78,11 @@ public class TreasureChest : Interactable
     }
 
     public void ChestIsOpen()
-    {
-       
-            
-            Debug.Log("Rương đã mở");
-            dialogBox.SetActive(false);
-            raiseItem.Raise();
-            playerInRange = false;                 
+    {           
+       Debug.Log("Rương đã mở");
+       dialogBox.SetActive(false);
+       raiseItem.Raise();
+       playerInRange = false;                 
         
     }
 

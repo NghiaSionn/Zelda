@@ -24,8 +24,10 @@ public class MainMenu : MonoBehaviour
     void Start()
     {
         LoadVolume();
-        MusicManager.Instance.PlayMusic("MainMenu");
-
+        if (MusicManager.Instance != null)
+        {
+            MusicManager.Instance.PlayMusic("MainMenu");
+        }
         // Thêm các listener để lưu giá trị khi slider thay đổi
         masterSlider.onValueChanged.AddListener(delegate { UpdateMasterVolume(masterSlider.value); });
         musicSlider.onValueChanged.AddListener(delegate { UpdateMusicVolume(musicSlider.value); });

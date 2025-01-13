@@ -13,7 +13,8 @@ public enum PlayerState
     attack,
     interact,
     stagger,
-    idle
+    idle,
+    dash
 }
 
 public class PlayerMovement : MonoBehaviour
@@ -23,6 +24,13 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D myRigibody;
     private Vector3 change;
     public PlayerState currentState;
+
+    [Header("Lướt")]
+    public float dashSpeed = 20f;
+    public float dashDuration = 0.2f;
+    public float dashCooldown = 1f;
+    private float dashCooldownTimer = 0f;
+    public GameObject dashEffectPrefab;
 
     [Header("Thể lực")]
     public StaminaWheel staminaWheel; 
@@ -54,7 +62,9 @@ public class PlayerMovement : MonoBehaviour
     private Animator animator;
     public bool isWalkingSoundPlaying = false;
     public bool isRunning = false;
+    public bool isDashing = false;
     public bool canRun = true;
+    public bool canDash = true;
     private bool isOpen = false;
 
 
@@ -93,34 +103,66 @@ public class PlayerMovement : MonoBehaviour
             {
                 isRunning = true;
             }
-            
+
             else
             {
                 isRunning = false;
             }
         }
-        
+
         else
         {
             isRunning = false;
         }
 
-
-
         if (Input.GetButtonDown("attack") && currentState != PlayerState.attack
-            && currentState != PlayerState.stagger)
+            && currentState != PlayerState.stagger && currentState != PlayerState.dash)
         {
             StartCoroutine(AttackCo());
+        }
+        else if (Input.GetButtonDown("dash") && currentState == PlayerState.walk && canDash && dashCooldownTimer <= 0f)
+        {
+            StartCoroutine(DashCo());
         }
         else if (currentState == PlayerState.walk || currentState == PlayerState.idle)
         {
             UpdateAnimationAndMove();
         }
 
-       
-        
+        if (dashCooldownTimer > 0f)
+        {
+            dashCooldownTimer -= Time.deltaTime;
+        }
     }
 
+    private IEnumerator DashCo()
+    {
+        currentState = PlayerState.dash;
+        isDashing = true;
+        dashCooldownTimer = dashCooldown;
+
+        Vector2 dashDirection = change.normalized;
+        myRigibody.velocity = dashDirection * dashSpeed;
+        InvokeRepeating("DashEffect", 0f, 0.05f);
+
+        yield return new WaitForSeconds(dashDuration);
+
+        CancelInvoke("DashEffect");
+        currentState = PlayerState.idle;
+        isDashing = false;
+        myRigibody.velocity = Vector2.zero;
+    }
+
+    private void DashEffect()
+    {
+        GameObject dash = Instantiate(dashEffectPrefab, transform.position, Quaternion.identity);
+        SpriteRenderer dashSprite = dash.GetComponent<SpriteRenderer>();
+        SpriteRenderer playerSprite = GetComponent<SpriteRenderer>();
+
+        dashSprite.sprite = playerSprite.sprite;
+        dashSprite.flipX = playerSprite.flipX;
+        dashSprite.flipY = playerSprite.flipY;
+    }
 
     public void AddExp(int expToAdd)
     {
@@ -236,6 +278,8 @@ public class PlayerMovement : MonoBehaviour
             animator.SetFloat("moveY", change.y);
             animator.SetBool("moving", true);
 
+            currentState = PlayerState.walk;
+
             if (!isWalkingSoundPlaying)
             {
                 
@@ -245,6 +289,9 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             animator.SetBool("moving", false);
+
+            currentState = PlayerState.idle;
+
 
             if (isWalkingSoundPlaying)
             {

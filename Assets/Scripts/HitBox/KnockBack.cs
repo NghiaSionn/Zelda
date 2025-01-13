@@ -141,12 +141,12 @@ public class KnockBack : MonoBehaviour
             }
         }
 
-        // Đánh tài nguyên
-        if (other.gameObject.CompareTag("Ores"))
-        {
-            other.GetComponent<Ore>().MineOre(1);
-            Debug.Log("Hit resource");
-        }
+        // // Đánh tài nguyên
+        // if (other.gameObject.CompareTag("Ores"))
+        // {
+        //     other.GetComponent<Ore>().MineOre(1);
+        //     Debug.Log("Hit resource");
+        // }
     }
 
 }

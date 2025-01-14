@@ -934,7 +934,7 @@ MonoBehaviour:
       type: 0
       typeString: 
     - title: Initial Value
-      value: false
+      value: False
       type: 2
       typeString: CustomFieldType_Boolean
     - title: Description
@@ -5191,7 +5191,7 @@ MonoBehaviour:
         destinationDialogueID: 4
         isConnector: 0
         priority: 2
-      conditionsString: 'CurrentQuestState("Kill Slime") == "unassigned" and '
+      conditionsString: CurrentQuestState("Kill Slime") == "unassigned"
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -6933,7 +6933,7 @@ MonoBehaviour:
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
-      conditionsString: 
+      conditionsString: CurrentQuestState("Kill Orge") == "unassigned"
       userScript: 
       onExecute:
         m_PersistentCalls:

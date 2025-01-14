@@ -10563,6 +10563,17 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &2006649233 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5592788129088423845, guid: 6fb95fe828b844a4daae0699c90014c0, type: 3}
+  m_PrefabInstance: {fileID: 589500301}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 727fc4eef9a3e1046a2a81adf842c450, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2028697719 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5311930109337492622, guid: 422531891d517844485fe1f687d08094, type: 3}
@@ -13294,7 +13305,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2006649233}
         m_TargetAssemblyTypeName: PasueManager, Assembly-CSharp
         m_MethodName: LoadMainMenu
         m_Mode: 1
@@ -21465,7 +21476,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2006649233}
         m_TargetAssemblyTypeName: PasueManager, Assembly-CSharp
         m_MethodName: RestartGame
         m_Mode: 1
@@ -23676,7 +23687,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2006649233}
         m_TargetAssemblyTypeName: PasueManager, Assembly-CSharp
         m_MethodName: QuitGame
         m_Mode: 1

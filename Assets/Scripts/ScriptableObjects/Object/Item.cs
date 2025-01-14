@@ -29,7 +29,7 @@ public class Item : ScriptableObject
 
     public void Use()
     {
-        Debug.Log("vật phẩm đã đc dùng");
+        Debug.Log($"{itemName} đã được sử dụng!");
         thisEvent.Invoke();
     }
 

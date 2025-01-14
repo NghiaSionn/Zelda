@@ -6,8 +6,6 @@ public class GameManager : MonoBehaviour
     
     public Canvas canvas;
     public AudioManager audioManager;
-    public InventoryPanel inventoryPanel;
-    public SelectedButtonPanel selectedButtonPanel;
 
 
 
@@ -41,10 +39,6 @@ public class GameManager : MonoBehaviour
             {
                 DontDestroyOnLoad(audioManager);
             }
-
-            DontDestroyOnLoad(inventoryPanel);
-            DontDestroyOnLoad(selectedButtonPanel);
-
 
         }
         else

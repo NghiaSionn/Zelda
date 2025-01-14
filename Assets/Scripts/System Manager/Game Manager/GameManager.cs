@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
     
     public Canvas canvas;
     public AudioManager audioManager;
-
+    public GameDataManager gameDataManager;
 
 
     private static GameManager _instance;
@@ -40,7 +40,10 @@ public class GameManager : MonoBehaviour
                 DontDestroyOnLoad(audioManager);
             }
 
-           
+           if(gameDataManager != null)
+           {
+                DontDestroyOnLoad(gameDataManager);
+            }
 
         }
         else

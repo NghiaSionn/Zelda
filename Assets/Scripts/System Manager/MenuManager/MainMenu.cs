@@ -36,12 +36,71 @@ public class MainMenu : MonoBehaviour
 
 
 
- 
+
 
     public void StartGame()
     {
+        // Tạo dữ liệu mặc định
+        GameData defaultData = new GameData
+        {
+            sceneName = "BeginCutScene", // Scene bắt đầu
+            numberOfKeys = 0,
+            coins = 0,
+            meats = 0,
+            logs = 0,
+            fish = 0,
+            dayCount = 1,
+            currentTimeString = "00:00",
+            isRaining = false,
+            rainEndTimeString = "",
+            items = new List<ItemData>()
+        };
+
+        // Ghi dữ liệu mặc định vào file
+        SaveLoadUtility.SaveToJSON(defaultData, "GameData.json");
+        Debug.Log("Game data reset to default.");
+
+        // Tải Scene bắt đầu
         LevelManager.Instance.LoadScene("BeginCutScene", "CrossFade");
-        //MusicManager.Instance.PlayMusic("Game");
+    }
+
+
+    public void LoadGame()
+    {
+        GameData gameData = SaveLoadUtility.LoadFromJSON<GameData>("GameData.json");
+        if (gameData == null)
+        {
+            Debug.LogWarning("No saved game found!");
+            return;
+        }
+
+        // Lấy tên Scene đã lưu trong dữ liệu
+        string savedScene = gameData.sceneName;
+
+        // Tải Scene đã lưu, sau đó khôi phục dữ liệu
+        StartCoroutine(LoadSavedScene(savedScene, gameData));
+    }
+
+    private IEnumerator LoadSavedScene(string sceneName, GameData gameData)
+    {
+        // Bắt đầu tải Scene
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
+
+        // Sau khi Scene tải xong, tìm `GameDataManager` trong Scene mới
+        GameDataManager gameDataManager = FindObjectOfType<GameDataManager>();
+        if (gameDataManager != null)
+        {
+            gameDataManager.LoadGame();
+            Debug.Log("Game loaded successfully!");
+        }
+        else
+        {
+            Debug.Log("GameDataManager not found in the loaded scene.");
+        }
     }
     public void Options()
     {
@@ -55,21 +114,21 @@ public class MainMenu : MonoBehaviour
 
     public void UpdateMasterVolume(float volume)
     {
-        masterLabel.text = Mathf.RoundToInt(volume + 80).ToString(); 
+        masterLabel.text = Mathf.RoundToInt(volume + 80).ToString();
         audioMixer.SetFloat("master", volume);
         PlayerPrefs.SetFloat("master", volume);
     }
 
     public void UpdateMusicVolume(float volume)
     {
-        musicLabel.text = Mathf.RoundToInt(volume + 80).ToString(); 
+        musicLabel.text = Mathf.RoundToInt(volume + 80).ToString();
         audioMixer.SetFloat("music", volume);
         PlayerPrefs.SetFloat("music", volume);
     }
 
     public void UpdateSFXVolume(float volume)
     {
-        sfxLabel.text = Mathf.RoundToInt(volume + 80).ToString(); 
+        sfxLabel.text = Mathf.RoundToInt(volume + 80).ToString();
         audioMixer.SetFloat("sfx", volume);
         PlayerPrefs.SetFloat("sfx", volume);
     }

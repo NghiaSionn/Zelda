@@ -17,6 +17,7 @@ public class PasueManager : MonoBehaviour
 
     private Animator currentPanel;
     private Animator panelFadeIn;
+    private GameDataManager gameDataManager;
 
     private static PasueManager _instance;
 
@@ -44,6 +45,8 @@ public class PasueManager : MonoBehaviour
 
         //GameObject panelEffect = GameObject.Find("Fade From Dark Panel");
         //effectTransition = panelEffect;
+
+        gameDataManager = FindAnyObjectByType<GameDataManager>();
 
         if (_instance == null)
         {
@@ -84,29 +87,26 @@ public class PasueManager : MonoBehaviour
         isPaused = false;
         Time.timeScale = 1;
         pauseMenu.SetActive(false);
-        
-        
     }
 
     public void LoadMainMenu()
     {
-        StartCoroutine(WaitLoadFadeIn("Menu", 2f));
-        ResumeGame();
-        
+        // StartCoroutine(WaitLoadFadeIn("Menu", 2f));
+        // ResumeGame();
+        SceneManager.LoadScene("Menu");
         //panelFadeIn.Play();
     }
 
     public void RestartGame()
     {
-        string sceneName = SceneManager.GetActiveScene().name;
-        StartCoroutine(WaitLoadFadeIn(sceneName, 2f));
+        gameDataManager.SaveGame();
         ResumeGame();
-        
     }
 
     public void QuitGame()
     {
         panelFadeIn.Play("Fade In");
+        gameDataManager.SaveGame();
         Application.Quit();
     }
 
@@ -115,5 +115,6 @@ public class PasueManager : MonoBehaviour
         panelFadeIn.Play("Fade In");
         yield return new WaitForSeconds(fadeDuration);
         SceneManager.LoadScene(sceneName);      
+        gameDataManager.LoadGame();
     }
 }

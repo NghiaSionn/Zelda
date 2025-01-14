@@ -25,7 +25,7 @@ public class GameData
 public class ItemData
 {
     public string itemName;
-    public string spriteName;
+    public string spriteBase64;
     public string itemDescription;
     public int quantity;
     public bool usable;

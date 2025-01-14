@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,19 +29,17 @@ public class GameDataManager : MonoBehaviour
 
     public void SaveGame()
     {
-        if (inventory == null || gameTimeData == null)
-        {
-            Debug.LogError("Inventory hoặc GameTimeData chưa được gán!");
-            return;
-        }
-
         List<ItemData> itemDataList = new List<ItemData>();
         foreach (Item item in inventory.items)
         {
+            string spriteBase64 = item.itemSprite != null
+                ? Convert.ToBase64String(item.itemSprite.texture.EncodeToPNG())
+                : string.Empty;
+
             ItemData itemData = new ItemData
             {
                 itemName = item.itemName,
-                spriteName = item.itemSprite != null ? item.itemSprite.name : string.Empty, // Lưu tên ảnh
+                spriteBase64 = spriteBase64,
                 itemDescription = item.itemDescription,
                 quantity = item.quantity,
                 usable = item.usable,
@@ -127,9 +126,12 @@ public class GameDataManager : MonoBehaviour
             Item newItem = ScriptableObject.CreateInstance<Item>();
             newItem.itemName = itemData.itemName;
 
-            if (!string.IsNullOrEmpty(itemData.spriteName))
+            if (!string.IsNullOrEmpty(itemData.spriteBase64))
             {
-                newItem.itemSprite = Resources.Load<Sprite>($"{itemData.spriteName}");
+                byte[] spriteBytes = Convert.FromBase64String(itemData.spriteBase64);
+                Texture2D texture = new Texture2D(2, 2);
+                texture.LoadImage(spriteBytes);
+                newItem.itemSprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.zero);
             }
 
             newItem.itemDescription = itemData.itemDescription;
@@ -155,6 +157,13 @@ public class GameDataManager : MonoBehaviour
 
         playerHealth.SetValue(loadedData.playerHealth);
         playerExp.SetValue(loadedData.playerExp);
+
+        // Đồng bộ với Inventory
+        InventoryManager inventoryManager = FindObjectOfType<InventoryManager>();
+        if (inventoryManager != null)
+        {
+            inventoryManager.UpdateInventoryUI();
+        }
 
         // Đồng bộ với WorldTime
         WorldTime worldTime = FindObjectOfType<WorldTime>();

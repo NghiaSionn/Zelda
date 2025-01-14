@@ -33,7 +33,7 @@ public class InventoryManager : MonoBehaviour
     {
         descriptionText.text = $"Coins: {playerInventory.coins}";
 
-       
+
         InventorySlot[] slots = inventoryPanel.GetComponentsInChildren<InventorySlot>();
         foreach (var slot in slots)
         {
@@ -44,19 +44,19 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    public void SetTextAndButton(string description, string name, bool buttonActive,int quanity)
+    public void SetTextAndButton(string description, string name, bool buttonActive, int quanity)
     {
         descriptionText.text = description;
         nameText.text = name;
 
-        
+
         if (quanity < 1)
         {
-            useButton.SetActive(false); 
+            useButton.SetActive(false);
         }
         else
         {
-            useButton.SetActive(buttonActive); 
+            useButton.SetActive(buttonActive);
         }
 
         descriptionText.text = $"Coins: {playerInventory.coins}";
@@ -65,7 +65,7 @@ public class InventoryManager : MonoBehaviour
 
     }
 
-    void MakeInventorySlots()
+    public void MakeInventorySlots()
     {
         if (playerInventory)
         {
@@ -97,14 +97,14 @@ public class InventoryManager : MonoBehaviour
 
     void Awake()
     {
-        
+
         descriptionPanel.SetActive(false);
         MakeInventorySlots();
-        SetTextAndButton("", "", false,0);
+        SetTextAndButton("", "", false, 0);
         playerInventory.OnItemAdded += UpdateInventoryUI;
     }
 
-    private void UpdateInventoryUI()
+    public void UpdateInventoryUI()
     {
         foreach (Transform child in inventoryPanel.transform)
         {
@@ -161,7 +161,7 @@ public class InventoryManager : MonoBehaviour
             }
         }
 
-       
+
         if (itemToUse.quantity < 1)
         {
             SetTextAndButton("", "", false, 0);
@@ -171,16 +171,16 @@ public class InventoryManager : MonoBehaviour
 
     private Item GetUsableItem()
     {
-        
+
         foreach (var item in playerInventory.items)
         {
-            if (item.quantity > 0) 
+            if (item.quantity > 0)
             {
-                
+
                 switch (item.itemUseType)
                 {
                     case Item.ItemUseType.Healing:
-                        if(FindObjectOfType<PlayerMovement>().IsHealthFull())
+                        if (FindObjectOfType<PlayerMovement>().IsHealthFull())
                         {
                             return null;
                         }
@@ -188,16 +188,16 @@ public class InventoryManager : MonoBehaviour
                         return item;
                     case Item.ItemUseType.Mana:
                         RestoreMana(item.manaAmount);
-                        return item; 
+                        return item;
                     case Item.ItemUseType.Buff:
-                        return item; 
+                        return item;
                     default:
                         continue;
                 }
             }
         }
 
-       
+
         return null;
     }
 
@@ -211,7 +211,7 @@ public class InventoryManager : MonoBehaviour
         if (!playerMovement.IsHealthFull())
         {
             playerMovement.UpdateHealth(healAmount);
-            
+
         }
     }
 
@@ -226,7 +226,7 @@ public class InventoryManager : MonoBehaviour
 
     private void ApplyBuff(Item item)
     {
-        
+
 
     }
 }

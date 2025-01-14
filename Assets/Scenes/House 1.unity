@@ -14348,7 +14348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c36f55acaa6d344ebf3e5b4ecbe854f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 20
   currentState: 0
   staminaWheel: {fileID: 990911065}
   runningSpeedMultiplier: 2
@@ -26829,6 +26829,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2204541258065631323, guid: aed952eb5ec49044690cc4a18ea1216d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2006649233}
     - target: {fileID: 2204541258065631323, guid: aed952eb5ec49044690cc4a18ea1216d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ResumeGame

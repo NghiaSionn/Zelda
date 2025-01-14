@@ -372,7 +372,8 @@ MonoBehaviour:
   baseAttack: 3
   moveSpeed: 1.5
   thisLoot: {fileID: 11400000, guid: 01f125d21e33c224192d72701438ee3e, type: 2}
-  enemyPrefab: {fileID: 0}
+  enemyPrefab: {fileID: 5742568118254073532}
+  spawnArea: {fileID: 0}
   myRigidbody: {fileID: 4961726508315774621}
   target: {fileID: 0}
   chaseRaidus: 3
@@ -522,7 +523,7 @@ MonoBehaviour:
   setAnotherQuestEntryState: 0
   anotherQuestEntryNumber: 1
   anotherQuestEntryState: 0
-  luaCode: Variable["Kill.NumKilled"] = Variable["Kill.NumKilled"] + 1
+  luaCode: Variable["Kill.NumKilled.Crab"] = Variable["Kill.NumKilled.Crab"] + 1
   sequence: 
   sequenceSpeaker: {fileID: 0}
   sequenceListener: {fileID: 0}

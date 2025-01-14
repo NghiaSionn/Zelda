@@ -46,9 +46,14 @@ public class SceneTransitions : MonoBehaviour
 
 
         AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(sceneToLoad);
+
+
+
         while (!asyncOperation.isDone)
         {
             yield return null;
         }
+
+
     }
 }

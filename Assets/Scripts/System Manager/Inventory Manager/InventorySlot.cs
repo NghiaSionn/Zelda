@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
+public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [Header("UI")]
     [SerializeField] public TextMeshProUGUI itemNumberText;
@@ -23,7 +23,7 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     void Start()
     {
-        selectedPanel.SetActive(false);
+        
     }
 
     public void Setup(Item newItem, InventoryManager newManager)
@@ -45,10 +45,9 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
             isPointerInside = true;
             descriptionPanel.SetActive(true);
 
-            thisManager.SetUpDescriptionAndButton(thisItem.itemDescription,
-                thisItem.itemName, thisItem.usable, thisItem);
+            //thisManager.SetUpDescriptionAndButton(thisItem.itemDescription,
+            //                   thisItem.itemName, thisItem.usable, thisItem);
 
-            
             Vector3 mousePosition = Input.mousePosition;
             descriptionPanelRect = descriptionPanel.GetComponent<RectTransform>();
             descriptionPanelRect.position = mousePosition + new Vector3(150f, 150f, 0f);
@@ -66,24 +65,12 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (eventData.button == PointerEventData.InputButton.Right)
+        Debug.Log($"Slots: {gameObject.name} clicked.");
+        if (thisItem != null)
         {
-            if (thisItem && selectedPanel != null)
-            {
-                selectedPanel.SetActive(true);
-
-                // Đặt vị trí của selectedPanel
-                Vector3 mousePosition = Input.mousePosition;
-                selectedPanelRect = selectedPanel.GetComponent<RectTransform>();
-                if (selectedPanelRect != null)
-                {
-                    selectedPanelRect.position = mousePosition + new Vector3(50f, 50f, 0f);                   
-                }
-                
-            }            
+            thisManager.SetSelectedSlot(gameObject);
         }
     }
-
 
     public void ClickedOn()
     {
@@ -91,6 +78,8 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         {
             thisManager.SetUpDescriptionAndButton(thisItem.itemDescription,
                 thisItem.itemName, thisItem.usable, thisItem);
+
+            thisManager.SetSelectedSlot(gameObject);
         }
     }
 }

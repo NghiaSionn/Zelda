@@ -13,6 +13,7 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI nameText;
     [SerializeField] private GameObject useButton;
 
+    private InventorySlot selectedSlot;
     public Item currentItem;
 
     private void Start()
@@ -44,6 +45,35 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
+
+    public void SetSelectedSlot(GameObject slotObject)
+    {
+        if (selectedSlot != null && selectedSlot.selectedPanel)
+        {
+            selectedSlot.selectedPanel.SetActive(false); 
+        }
+
+        selectedSlot = slotObject.GetComponent<InventorySlot>();
+
+        if (selectedSlot != null)
+        {
+            Debug.Log($"Selected slot: {selectedSlot.name}, Item: {selectedSlot.thisItem.itemName}");
+            if (selectedSlot.selectedPanel)
+            {
+                selectedSlot.selectedPanel.SetActive(true);
+            }
+
+            SetUpDescriptionAndButton(selectedSlot.thisItem.itemDescription,
+                              selectedSlot.thisItem.itemName, selectedSlot.thisItem.usable, selectedSlot.thisItem);
+        }
+        else
+        {
+            SetTextAndButton("", "", false, 0);
+        }
+    }
+
+
+
     public void SetTextAndButton(string description, string name, bool buttonActive,int quanity)
     {
         descriptionText.text = description;
@@ -60,7 +90,7 @@ public class InventoryManager : MonoBehaviour
         }
 
         descriptionText.text = $"Coins: {playerInventory.coins}";
-        nameText.text = ""; // Hoặc thông tin khác nếu cần
+        nameText.text = ""; 
         useButton.SetActive(false);
 
     }
@@ -83,7 +113,7 @@ public class InventoryManager : MonoBehaviour
                     newSlot.Setup(item, this);
                     newSlot.descriptionPanel = descriptionPanel;
 
-                    // Cập nhật số lượng coin nếu item là Coin
+                   
                     if (item.itemType == Item.ItemType.Coin)
                     {
                         newSlot.itemNumberText.text = playerInventory.coins.ToString();
@@ -97,7 +127,6 @@ public class InventoryManager : MonoBehaviour
 
     void Awake()
     {
-        
         descriptionPanel.SetActive(false);
         MakeInventorySlots();
         SetTextAndButton("", "", false,0);
@@ -130,38 +159,55 @@ public class InventoryManager : MonoBehaviour
         descriptionText.text = newDescriptionString;
         nameText.text = newNameTextString;
         useButton.SetActive(isButtonUsable);
+
+       
     }
 
     public void UseButtonPressed()
     {
-        if (playerInventory.items.Count == 0) return;
+        if (selectedSlot == null || selectedSlot.thisItem == null) return;
 
-        Item itemToUse = GetUsableItem();
-        if (itemToUse == null) return;
+        Item itemToUse = selectedSlot.thisItem;
 
-        itemToUse.Use();
-        itemToUse.quantity--;
+        
+        if (itemToUse.quantity <= 0) return;
 
-        // Cập nhật số lượng hiển thị trong UI
-        InventorySlot[] slots = inventoryPanel.GetComponentsInChildren<InventorySlot>();
-        foreach (var slot in slots)
+        
+        switch (itemToUse.itemUseType)
         {
-            if (slot.thisItem == itemToUse)
-            {
-                if (itemToUse.quantity > 0)
+            case Item.ItemUseType.Healing:
+                if (FindObjectOfType<PlayerMovement>().IsHealthFull())
                 {
-                    slot.itemNumberText.text = itemToUse.quantity.ToString();
+                    Debug.Log("Health đã đầy, không thể sử dụng vật phẩm này.");
+                    return;
                 }
-                else
-                {
-                    Destroy(slot.gameObject);
-                    playerInventory.RemoveItem(itemToUse);
-                }
+                HealPlayer(itemToUse.healAmount);
                 break;
-            }
+            case Item.ItemUseType.Mana:
+                RestoreMana(itemToUse.manaAmount);
+                break;
+            case Item.ItemUseType.Buff:
+                ApplyBuff(itemToUse);
+                break;
+            default:
+                Debug.Log("Vật phẩm này không thể sử dụng.");
+                return;
         }
 
-       
+        
+        itemToUse.quantity--;
+
+        if (itemToUse.quantity > 0)
+        {
+            selectedSlot.itemNumberText.text = itemToUse.quantity.ToString();
+        }
+        else
+        {
+            Destroy(selectedSlot.gameObject);
+            playerInventory.RemoveItem(itemToUse);
+        }
+
+        // Nếu hết số lượng, tắt mô tả và nút sử dụng
         if (itemToUse.quantity < 1)
         {
             SetTextAndButton("", "", false, 0);
@@ -169,37 +215,36 @@ public class InventoryManager : MonoBehaviour
     }
 
 
-    private Item GetUsableItem()
-    {
-        
-        foreach (var item in playerInventory.items)
-        {
-            if (item.quantity > 0) 
-            {
-                
-                switch (item.itemUseType)
-                {
-                    case Item.ItemUseType.Healing:
-                        if(FindObjectOfType<PlayerMovement>().IsHealthFull())
-                        {
-                            return null;
-                        }
-                        HealPlayer(item.healAmount);
-                        return item;
-                    case Item.ItemUseType.Mana:
-                        RestoreMana(item.manaAmount);
-                        return item; 
-                    case Item.ItemUseType.Buff:
-                        return item; 
-                    default:
-                        continue;
-                }
-            }
-        }
+
+    //private Item GetUsableItem()
+    //{      
+    //    foreach (var item in playerInventory.items)
+    //    {
+    //        if (item.quantity > 0) 
+    //        {              
+    //            switch (item.itemUseType)
+    //            {
+    //                case Item.ItemUseType.Healing:
+    //                    if(FindObjectOfType<PlayerMovement>().IsHealthFull())
+    //                    {
+    //                        return null;
+    //                    }
+    //                    HealPlayer(item.healAmount);
+    //                    return item;
+    //                case Item.ItemUseType.Mana:
+    //                    RestoreMana(item.manaAmount);
+    //                    return item; 
+    //                case Item.ItemUseType.Buff:
+    //                    return item; 
+    //                default:
+    //                    continue;
+    //            }
+    //        }
+    //    }
 
        
-        return null;
-    }
+    //    return null;
+    //}
 
 
     private void HealPlayer(int healAmount)

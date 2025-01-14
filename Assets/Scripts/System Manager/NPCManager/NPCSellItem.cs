@@ -44,5 +44,15 @@ public class NPCSellItem : Interactable
         playerInventory.SetActive(false);
     }
 
-  
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        
+        if (other.CompareTag("Player") && playerInRange)
+        {
+            context.Raise();
+            playerInRange = false;
+            CloseShop(); 
+        }
+    }
+
 }

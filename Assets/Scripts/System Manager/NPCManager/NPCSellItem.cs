@@ -8,10 +8,15 @@ public class NPCSellItem : Interactable
     public GameObject playerInventory;
     public bool isOpen;
 
+    private void Awake()
+    {
+        playerInventory.SetActive(false);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        playerInventory.SetActive(false);
+       
     }
 
     // Update is called once per frame

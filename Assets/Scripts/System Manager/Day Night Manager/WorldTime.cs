@@ -114,4 +114,25 @@ public class WorldTime : MonoBehaviour
             yield return new WaitForSeconds(_minuteLength);
         }
     }
+
+    public void SyncWithGameTimeData(GameTimeData data)
+    {
+        dayCount = data.dayCount;
+        _currentTime = TimeSpan.ParseExact(data.currentTimeString, "hh\\:mm", null);
+        isRaining = data.isRaining;
+        rainEndTime = TimeSpan.ParseExact(data.rainEndTimeString, "hh\\:mm", null);
+
+        if (isRaining && _currentTime >= rainEndTime)
+        {
+            isRaining = false;
+            WeatherChange?.Invoke(this, false);
+        }
+        else if (isRaining)
+        {
+            WeatherChange?.Invoke(this, true);
+        }
+
+        WorldDayChange?.Invoke(this, dayCount);
+        WorldTimeChange?.Invoke(this, _currentTime);
+    }
 }

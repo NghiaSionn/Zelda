@@ -82,7 +82,10 @@ public class PlayerMovement : MonoBehaviour
 
         UpdateExpBar();
 
-        currentHealth.RuntimeValue = currentHealth.initiaValue;
+        if (currentHealth.RuntimeValue <= 0)
+        {
+            currentHealth.RuntimeValue = currentHealth.initiaValue;
+        }
     }
 
     // Update is called once per frame
@@ -177,7 +180,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void UpdateExpBar()
+    public void UpdateExpBar()
     {
         if (expBar != null)
         {

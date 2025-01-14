@@ -7,8 +7,6 @@ using UnityEngine;
 public class FloatValue : ScriptableObject, ISerializationCallbackReceiver
 {
     public float initiaValue;
-
-    [HideInInspector] 
     public float RuntimeValue;
 
 
@@ -22,4 +20,16 @@ public class FloatValue : ScriptableObject, ISerializationCallbackReceiver
     {
 
     }   
+
+     // Trả về giá trị hiện tại
+    public float GetValue()
+    {
+        return RuntimeValue;
+    }
+
+    // Đặt giá trị từ dữ liệu đã lưu
+    public void SetValue(float value)
+    {
+        RuntimeValue = value;
+    }
 }

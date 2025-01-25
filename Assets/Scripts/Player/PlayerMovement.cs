@@ -13,7 +13,8 @@ public enum PlayerState
     attack,
     interact,
     stagger,
-    idle
+    idle,
+    dash
 }
 
 public class PlayerMovement : MonoBehaviour
@@ -40,6 +41,13 @@ public class PlayerMovement : MonoBehaviour
     public TextMeshProUGUI levelText;
     private int currentLevel = 1;
 
+    [Header("Lướt")]
+    public float dashSpeed = 20f;
+    public float dashDuration = 0.2f;
+    public float dashCooldown = 1f;
+    private float dashCooldownTimer = 0f;
+    public GameObject dashEffectPrefab;
+
     [Header("Vị trí")]
     public VectorValue startingPosition;
 
@@ -56,6 +64,8 @@ public class PlayerMovement : MonoBehaviour
     public bool isRunning = false;
     public bool canRun = true;
     private bool isOpen = false;
+    public bool isDashing = false;
+    public bool canDash = true;
 
 
 
@@ -67,11 +77,12 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("moveX", 0);
         animator.SetFloat("moveY", -1);
         transform.position = startingPosition.initialValue;
+      
+        UpdateExpBar();       
+    }
 
-        
-
-        UpdateExpBar();
-
+    private void Start()
+    {
         currentHealth.RuntimeValue = currentHealth.initiaValue;
     }
 
@@ -93,32 +104,67 @@ public class PlayerMovement : MonoBehaviour
             {
                 isRunning = true;
             }
-            
+
             else
             {
                 isRunning = false;
             }
         }
-        
+
         else
         {
             isRunning = false;
         }
 
-
-
         if (Input.GetButtonDown("attack") && currentState != PlayerState.attack
-            && currentState != PlayerState.stagger)
+            && currentState != PlayerState.stagger && currentState != PlayerState.dash)
         {
             StartCoroutine(AttackCo());
         }
+
+        else if (Input.GetButtonDown("dash") && currentState == PlayerState.walk && canDash && dashCooldownTimer <= 0f)
+        {
+            StartCoroutine(DashCo());
+        }
+
         else if (currentState == PlayerState.walk || currentState == PlayerState.idle)
         {
             UpdateAnimationAndMove();
         }
 
-       
-        
+        if (dashCooldownTimer > 0f)
+        {
+            dashCooldownTimer -= Time.deltaTime;
+        }
+    }
+
+    private IEnumerator DashCo()
+    {
+        currentState = PlayerState.dash;
+        isDashing = true;
+        dashCooldownTimer = dashCooldown;
+
+        Vector2 dashDirection = change.normalized;
+        myRigibody.velocity = dashDirection * dashSpeed;
+        InvokeRepeating("DashEffect", 0f, 0.05f);
+
+        yield return new WaitForSeconds(dashDuration);
+
+        CancelInvoke("DashEffect");
+        currentState = PlayerState.idle;
+        isDashing = false;
+        myRigibody.velocity = Vector2.zero;
+    }
+
+    private void DashEffect()
+    {
+        GameObject dash = Instantiate(dashEffectPrefab, transform.position, Quaternion.identity);
+        SpriteRenderer dashSprite = dash.GetComponent<SpriteRenderer>();
+        SpriteRenderer playerSprite = GetComponent<SpriteRenderer>();
+
+        dashSprite.sprite = playerSprite.sprite;
+        dashSprite.flipX = playerSprite.flipX;
+        dashSprite.flipY = playerSprite.flipY;
     }
 
 
@@ -135,7 +181,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void UpdateExpBar()
+    public void UpdateExpBar()
     {
         if (expBar != null)
         {
@@ -224,7 +270,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
             
-    }   
+    }
 
 
     void UpdateAnimationAndMove()
@@ -236,9 +282,11 @@ public class PlayerMovement : MonoBehaviour
             animator.SetFloat("moveY", change.y);
             animator.SetBool("moving", true);
 
+            currentState = PlayerState.walk;
+
             if (!isWalkingSoundPlaying)
             {
-                
+
                 isWalkingSoundPlaying = true;
             }
         }
@@ -246,9 +294,12 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetBool("moving", false);
 
+            currentState = PlayerState.idle;
+
+
             if (isWalkingSoundPlaying)
             {
-               
+
                 isWalkingSoundPlaying = false;
             }
         }

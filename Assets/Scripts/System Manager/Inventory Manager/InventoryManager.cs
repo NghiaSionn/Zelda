@@ -133,7 +133,7 @@ public class InventoryManager : MonoBehaviour
         playerInventory.OnItemAdded += UpdateInventoryUI;
     }
 
-    private void UpdateInventoryUI()
+    public void UpdateInventoryUI()
     {
         foreach (Transform child in inventoryPanel.transform)
         {

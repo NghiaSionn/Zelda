@@ -13,6 +13,8 @@ public class PasueManager : MonoBehaviour
     [Header("Hiệu ứng FadeIn/Out")]
     public GameObject effectTransition;
 
+    private GameDataManager gameDataManager;
+
     public bool isPaused = false;
 
     private Animator currentPanel;
@@ -38,6 +40,8 @@ public class PasueManager : MonoBehaviour
     {
         panelFadeIn = effectTransition.GetComponent<Animator>();
         pauseMenu.SetActive(false);
+
+        gameDataManager = FindAnyObjectByType<GameDataManager>();
 
         //GameObject pauseUI = GameObject.Find("PauseBackGround");
         //pauseMenu = pauseUI;
@@ -96,18 +100,17 @@ public class PasueManager : MonoBehaviour
         //panelFadeIn.Play();
     }
 
-    public void RestartGame()
+    public void SaveGame()
     {
-        string sceneName = SceneManager.GetActiveScene().name;
-        StartCoroutine(WaitLoadFadeIn(sceneName, 2f));
-        ResumeGame();
-        
+        gameDataManager.SaveGame();
     }
 
     public void QuitGame()
     {
         panelFadeIn.Play("Fade In");
+        gameDataManager.SaveGame();
         Application.Quit();
+        
     }
 
     private IEnumerator WaitLoadFadeIn(string sceneName, float fadeDuration)

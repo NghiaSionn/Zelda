@@ -1,8 +1,9 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class MovementTest : MonoBehaviour
 {
-    public float moveSpeed = 5f;
+    public float moveSpeed = 2f;
+    public float runSpeed = 4f;
     public Animator animator;
 
     private Rigidbody2D rb;
@@ -14,27 +15,36 @@ public class MovementTest : MonoBehaviour
 
     void Update()
     {
-        // Nh?n input di chuy?n
+        // Nhận input di chuyển
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
 
-        // T�nh to�n vector di chuy?n
+        // Tính toán vector di chuyển
         Vector2 movement = new Vector2(moveX, moveY).normalized;
 
-        // Di chuy?n nh�n v?t
-        rb.velocity = movement * moveSpeed;
+        // Kiểm tra nút Shift để chạy
+        bool isRunning = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
 
-        // C?p nh?t Animator
-        UpdateAnimator(movement);
+        // Chọn tốc độ di chuyển dựa trên trạng thái chạy
+        float currentSpeed = isRunning ? runSpeed : moveSpeed;
+
+        // Di chuyển nhân vật
+        rb.velocity = movement * currentSpeed;
+
+        // Cập nhật Animator
+        UpdateAnimator(movement, isRunning);
     }
 
-    void UpdateAnimator(Vector2 movement)
+    void UpdateAnimator(Vector2 movement, bool isRunning)
     {
-        // Ki?m tra xem nh�n v?t c� �ang di chuy?n hay kh�ng
+        // Kiểm tra xem nhân vật có đang di chuyển hay không
         bool isMoving = movement.magnitude > 0;
         animator.SetBool("moving", isMoving);
 
-        // X�c �?nh h�?ng di chuy?n
+        // Kiểm tra xem nhân vật có đang chạy hay không
+        animator.SetBool("running", isRunning);
+
+        // Xác định hướng di chuyển
         if (isMoving)
         {
             animator.SetFloat("moveX", movement.x);

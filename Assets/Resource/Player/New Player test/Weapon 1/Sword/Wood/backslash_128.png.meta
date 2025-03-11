@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 35
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -108,7 +108,1099 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: backslash_128_0
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 417
+        width: 34
+        height: 46
+      alignment: 9
+      pivot: {x: 0.35, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5df2910133d71b4bac7f057e3bc0120
+      internalID: -329875564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backslash_128_1
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 418
+        width: 52
+        height: 49
+      alignment: 9
+      pivot: {x: 0.23, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8c5c5d3e681de14c8ae91d07e6a6b0d
+      internalID: -367680893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backslash_128_2
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 418
+        width: 66
+        height: 48
+      alignment: 9
+      pivot: {x: 0.35, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44bc01e0109104f48b8b56a722384186
+      internalID: 1473464983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backslash_128_3
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 418
+        width: 67
+        height: 47
+      alignment: 9
+      pivot: {x: 0.35, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70e84408f6ff2ba4396cd2e107b16242
+      internalID: 1849044155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backslash_128_4
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 418
+        width: 40
+        height: 47
+      alignment: 9
+      pivot: {x: 0.65, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 533a3b5560d1ab842965204f0fa89414
+      internalID: 409512309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backslash_128_5
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 418
+        width: 32
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38d10ddaea9af1d479a1718b8da25977
+      internalID: -1894984798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backslash_128_6
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 418
+        width: 31
+        height: 49
+      alignment: 9
+      pivot: {x: 0.43, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ef073329fb3f9145b93ba157cfb56eb
+      internalID: -943642768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backslash_128_7
+      rect:
+        serializedVersion: 2
+        x: 941
+        y: 418
+        width: 27
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98fc46232f1ed8a458a2e11f4c1d69e7
+      internalID: 213772418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backslash_128_8
+      rect:
+        serializedVersion: 2
+        x: 1056
+        y: 418
+        width: 41
+        height: 48
+      alignment: 9
+      pivot: {x: 0.66, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4281461cb127bd94abe7b4d726b4de7d
+      internalID: -1986209401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backslash_128_9
+      rect:
+        serializedVersion: 2
+        x: 1185
+        y: 418
+        width: 60
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9b5518f13e4e2441b5dd545e0c17bdd
+      internalID: -676804991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backslash_128_10
+      rect:
+        serializedVersion: 2
+        x: 1326
+        y: 418
+        width: 68
+        height: 49
+      alignment: 9
+      pivot: {x: 0.31, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6022fb6c8beaf344af5ceb99695425b
+      internalID: 1162279523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backslash_128_11
+      rect:
+        serializedVersion: 2
+        x: 1463
+        y: 418
+        width: 59
+        height: 49
+      alignment: 9
+      pivot: {x: 0.19, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2e1efda005e631488443a6569c51dd1
+      internalID: -1518374827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backslash_128_12
+      rect:
+        serializedVersion: 2
+        x: 1591
+        y: 418
+        width: 59
+        height: 49
+      alignment: 9
+      pivot: {x: 0.19, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9ab542227acc9e45903f45b9c3e5ffa
+      internalID: 878962932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backslash_128_13
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 290
+        width: 55
+        height: 51
+      alignment: 9
+      pivot: {x: 0.26, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22d43a03742ac334ab116401d01a41b0
+      internalID: -1680530678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backslash_128_14
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 290
+        width: 60
+        height: 49
+      alignment: 9
+      pivot: {x: 0.19, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 910710704b22aa44ab346963fdc111ad
+      internalID: -576389756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backslash_128_15
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 290
+        width: 63
+        height: 48
+      alignment: 9
+      pivot: {x: 0.68, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1ffbe0c58dd45a4bb79ab2c49539f8e
+      internalID: -1458992139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backslash_128_16
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 290
+        width: 68
+        height: 48
+      alignment: 9
+      pivot: {x: 0.59, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6575313d5c9587643a57d33a36272988
+      internalID: -1658927953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backslash_128_17
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 290
+        width: 49
+        height: 48
+      alignment: 9
+      pivot: {x: 0.44, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47ffb85c2ece053459a0e328e3df1bfc
+      internalID: -1122640479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backslash_128_18
+      rect:
+        serializedVersion: 2
+        x: 683
+        y: 290
+        width: 37
+        height: 48
+      alignment: 9
+      pivot: {x: 0.28, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88cbc87debb6e17488c45365cfc661ec
+      internalID: 928747810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backslash_128_19
+      rect:
+        serializedVersion: 2
+        x: 808
+        y: 290
+        width: 37
+        height: 49
+      alignment: 9
+      pivot: {x: 0.44, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72cacc5bcb075cf419ae600004a47214
+      internalID: -674117694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backslash_128_20
+      rect:
+        serializedVersion: 2
+        x: 941
+        y: 290
+        width: 38
+        height: 48
+      alignment: 9
+      pivot: {x: 0.29, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d799dacc5f0dc304a9a0a677e23ad675
+      internalID: -1957582272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backslash_128_21
+      rect:
+        serializedVersion: 2
+        x: 1065
+        y: 290
+        width: 42
+        height: 48
+      alignment: 9
+      pivot: {x: 0.45, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 683eac9896d6d494faca4ef51786a7cf
+      internalID: 1740415797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backslash_128_22
+      rect:
+        serializedVersion: 2
+        x: 1165
+        y: 290
+        width: 65
+        height: 50
+      alignment: 9
+      pivot: {x: 0.76, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebeb37e6ade8f1e43808b43cdc89d3d6
+      internalID: 1824426958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backslash_128_23
+      rect:
+        serializedVersion: 2
+        x: 1308
+        y: 288
+        width: 69
+        height: 53
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bf2d14381ab085428e06fb0899f37dd
+      internalID: 1397764181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backslash_128_24
+      rect:
+        serializedVersion: 2
+        x: 1460
+        y: 287
+        width: 45
+        height: 54
+      alignment: 9
+      pivot: {x: 0.28, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28b6c5cfcb66ead498cc7703db040910
+      internalID: 515717894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backslash_128_25
+      rect:
+        serializedVersion: 2
+        x: 1588
+        y: 290
+        width: 45
+        height: 51
+      alignment: 9
+      pivot: {x: 0.32, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 706d1b397378db7458fdcb6113caf7c1
+      internalID: -322268524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backslash_128_26
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 161
+        width: 29
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 638ff8b4ace73454d823e5f1676ffdea
+      internalID: -21178717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backslash_128_27
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 161
+        width: 50
+        height: 54
+      alignment: 9
+      pivot: {x: 0.74, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fba99a1e83d7af4eb55dca8e94ae43f
+      internalID: 1372186418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backslash_128_28
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 161
+        width: 69
+        height: 49
+      alignment: 9
+      pivot: {x: 0.57, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21f71e9692063124992f23008a95e521
+      internalID: 1424563790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backslash_128_29
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 161
+        width: 41
+        height: 49
+      alignment: 9
+      pivot: {x: 0.29, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 335822b713a9b314ca29fcc520035e77
+      internalID: 49908824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backslash_128_30
+      rect:
+        serializedVersion: 2
+        x: 569
+        y: 161
+        width: 42
+        height: 49
+      alignment: 9
+      pivot: {x: 0.29, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9eecfb42fa2988044ac89f045d91bc47
+      internalID: -884991029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backslash_128_32
+      rect:
+        serializedVersion: 2
+        x: 697
+        y: 161
+        width: 24
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca891284866eabe47a0de6806bd896fa
+      internalID: 1639675953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backslash_128_33
+      rect:
+        serializedVersion: 2
+        x: 817
+        y: 161
+        width: 29
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a323361d49eab584bbeff50e617568f2
+      internalID: 1594972935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backslash_128_34
+      rect:
+        serializedVersion: 2
+        x: 955
+        y: 161
+        width: 22
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 683c5274d097fcc48a4b23420264d1c5
+      internalID: -1899477981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backslash_128_35
+      rect:
+        serializedVersion: 2
+        x: 1080
+        y: 161
+        width: 43
+        height: 49
+      alignment: 9
+      pivot: {x: 0.27, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4e182d82fb4d2140a86c8410e153973
+      internalID: -344751714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backslash_128_36
+      rect:
+        serializedVersion: 2
+        x: 1173
+        y: 157
+        width: 78
+        height: 55
+      alignment: 9
+      pivot: {x: 0.54, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30955dfb1857b4541a1338944e1c9171
+      internalID: -1257601945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backslash_128_37
+      rect:
+        serializedVersion: 2
+        x: 1296
+        y: 158
+        width: 58
+        height: 55
+      alignment: 9
+      pivot: {x: 0.77, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f372a113804a334fadd9d998ab30eb2
+      internalID: -703522536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backslash_128_38
+      rect:
+        serializedVersion: 2
+        x: 1424
+        y: 161
+        width: 58
+        height: 52
+      alignment: 9
+      pivot: {x: 0.78, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e412bf47544e90e4b97f3c426788637a
+      internalID: 1265445866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backslash_128_39
+      rect:
+        serializedVersion: 2
+        x: 1553
+        y: 161
+        width: 57
+        height: 52
+      alignment: 9
+      pivot: {x: 0.78, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: deeea90c1e338e04b97478708a0935a2
+      internalID: -1596297313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backslash_128_40
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 34
+        width: 55
+        height: 51
+      alignment: 9
+      pivot: {x: 0.72, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c9ef5d25aeaf614d9c4529795c5b410
+      internalID: 1431209981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backslash_128_41
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 34
+        width: 60
+        height: 49
+      alignment: 9
+      pivot: {x: 0.79, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ec0e063ed621c940b8b18ee596c1c6c
+      internalID: -2080331893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backslash_128_42
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 34
+        width: 63
+        height: 48
+      alignment: 9
+      pivot: {x: 0.3, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39a3757a72072be41a5eb75ee5fd53c6
+      internalID: 1921746595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backslash_128_43
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 34
+        width: 68
+        height: 48
+      alignment: 9
+      pivot: {x: 0.38, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e6d55820cc03704bb569a94327b55b7
+      internalID: 1401134998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backslash_128_44
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 34
+        width: 49
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b97b3aed6b73a94b93f1b70b7b011f3
+      internalID: 1791842698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backslash_128_45
+      rect:
+        serializedVersion: 2
+        x: 688
+        y: 34
+        width: 37
+        height: 48
+      alignment: 9
+      pivot: {x: 0.73, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 713b1f5ff953358408e70f2065ebf0d1
+      internalID: 579337858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backslash_128_46
+      rect:
+        serializedVersion: 2
+        x: 819
+        y: 34
+        width: 37
+        height: 49
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 177960d2e2efa854aacbc1287e0ddcbd
+      internalID: -612602018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backslash_128_47
+      rect:
+        serializedVersion: 2
+        x: 941
+        y: 34
+        width: 38
+        height: 48
+      alignment: 9
+      pivot: {x: 0.72, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 647a0c088fa50ae4983dcc1cba8ffe8f
+      internalID: -956605408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backslash_128_48
+      rect:
+        serializedVersion: 2
+        x: 1069
+        y: 34
+        width: 42
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d46a4fad7db3d10469577d8f7f9c6e56
+      internalID: -931936633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backslash_128_49
+      rect:
+        serializedVersion: 2
+        x: 1203
+        y: 34
+        width: 65
+        height: 50
+      alignment: 9
+      pivot: {x: 0.21, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d694af368c5fdbb43bd55527b4df271b
+      internalID: -162784851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backslash_128_50
+      rect:
+        serializedVersion: 2
+        x: 1311
+        y: 32
+        width: 69
+        height: 53
+      alignment: 9
+      pivot: {x: 0.47, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd2273487c56e544b9bc128b205d2651
+      internalID: 1550642790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backslash_128_51
+      rect:
+        serializedVersion: 2
+        x: 1439
+        y: 31
+        width: 45
+        height: 54
+      alignment: 9
+      pivot: {x: 0.69, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b97ac66970dcc8a47a8abb2fc005a340
+      internalID: 1179963359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backslash_128_52
+      rect:
+        serializedVersion: 2
+        x: 1567
+        y: 34
+        width: 45
+        height: 51
+      alignment: 9
+      pivot: {x: 0.69, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffc5bbaa2db9249409ceb38d527de675
+      internalID: -1545358148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +1211,60 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      backslash_128_0: -329875564
+      backslash_128_1: -367680893
+      backslash_128_10: 1162279523
+      backslash_128_11: -1518374827
+      backslash_128_12: 878962932
+      backslash_128_13: -1680530678
+      backslash_128_14: -576389756
+      backslash_128_15: -1458992139
+      backslash_128_16: -1658927953
+      backslash_128_17: -1122640479
+      backslash_128_18: 928747810
+      backslash_128_19: -674117694
+      backslash_128_2: 1473464983
+      backslash_128_20: -1957582272
+      backslash_128_21: 1740415797
+      backslash_128_22: 1824426958
+      backslash_128_23: 1397764181
+      backslash_128_24: 515717894
+      backslash_128_25: -322268524
+      backslash_128_26: -21178717
+      backslash_128_27: 1372186418
+      backslash_128_28: 1424563790
+      backslash_128_29: 49908824
+      backslash_128_3: 1849044155
+      backslash_128_30: -884991029
+      backslash_128_31: -303539580
+      backslash_128_32: 1639675953
+      backslash_128_33: 1594972935
+      backslash_128_34: -1899477981
+      backslash_128_35: -344751714
+      backslash_128_36: -1257601945
+      backslash_128_37: -703522536
+      backslash_128_38: 1265445866
+      backslash_128_39: -1596297313
+      backslash_128_4: 409512309
+      backslash_128_40: 1431209981
+      backslash_128_41: -2080331893
+      backslash_128_42: 1921746595
+      backslash_128_43: 1401134998
+      backslash_128_44: 1791842698
+      backslash_128_45: 579337858
+      backslash_128_46: -612602018
+      backslash_128_47: -956605408
+      backslash_128_48: -931936633
+      backslash_128_49: -162784851
+      backslash_128_5: -1894984798
+      backslash_128_50: 1550642790
+      backslash_128_51: 1179963359
+      backslash_128_52: -1545358148
+      backslash_128_6: -943642768
+      backslash_128_7: 213772418
+      backslash_128_8: -1986209401
+      backslash_128_9: -676804991
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

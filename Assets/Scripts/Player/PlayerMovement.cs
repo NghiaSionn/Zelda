@@ -445,7 +445,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            isSwordEquipped = true;
+            isSwordEquipped = !isSwordEquipped;
+            animator.SetBool("isSwordEquipped", isSwordEquipped);
         }
 
         if (Input.GetMouseButtonDown(0) && isSwordEquipped)

@@ -15,6 +15,7 @@ public class InventoryManager : MonoBehaviour
 
     private InventorySlot selectedSlot;
     public Item currentItem;
+    public int maxSize = 32;
 
     private void Start()
     {
@@ -101,11 +102,12 @@ public class InventoryManager : MonoBehaviour
         {
             foreach (Item item in playerInventory.items)
             {
-                GameObject temp = Instantiate(blankInventorySlot, inventoryPanel.transform.position, Quaternion.identity);
+                if (inventoryPanel.transform.childCount >= maxSize)
+                    break;
 
+                GameObject temp = Instantiate(blankInventorySlot, inventoryPanel.transform.position, Quaternion.identity);
                 temp.transform.SetParent(inventoryPanel.transform);
                 temp.GetComponent<RectTransform>().localScale = Vector3.one;
-
                 InventorySlot newSlot = temp.GetComponent<InventorySlot>();
 
                 if (newSlot)
@@ -113,7 +115,6 @@ public class InventoryManager : MonoBehaviour
                     newSlot.Setup(item, this);
                     newSlot.descriptionPanel = descriptionPanel;
 
-                   
                     if (item.itemType == Item.ItemType.Coin)
                     {
                         newSlot.itemNumberText.text = playerInventory.coins.ToString();

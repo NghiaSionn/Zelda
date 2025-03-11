@@ -44,22 +44,22 @@ public class WorldTimeWatcher : MonoBehaviour
             animatorClock.Play("Rainning");
         }
 
-        if (currentTime.Hours >= 4 && currentTime.Hours < 6)
+        if (currentTime.Hours >= 4 && currentTime.Hours < 6 && !isRaining)
         {
             animatorClock.Play("Dawn");
         }
 
-        else if (currentTime.Hours >= 6 && currentTime.Hours < 17)
+        else if (currentTime.Hours >= 6 && currentTime.Hours < 17 && !isRaining)
         {
             animatorClock.Play("Day");
         }
 
-        else if (currentTime.Hours >= 17 && currentTime.Hours < 18)
+        else if (currentTime.Hours >= 17 && currentTime.Hours < 18 && !isRaining)
         {
             animatorClock.Play("Noon");
         }
 
-        else
+        else if(!isRaining)
         {
             animatorClock.Play("Night");
         }

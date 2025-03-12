@@ -12,9 +12,6 @@ public class BossManagerUI : MonoBehaviour
     [Header("Tên Boss")]
     public TextMeshProUGUI bossNameText;
 
-    [Header("Hình ảnh")]
-    public Image bossImage;
-
     [Header("Data")]
     public EnemyInfor bossInfo; 
 
@@ -38,7 +35,6 @@ public class BossManagerUI : MonoBehaviour
         if (bossInfo != null)
         {
             bossNameText.text = bossInfo.name; 
-            bossImage.sprite = bossInfo.image; 
         }
     }
 }

@@ -19,8 +19,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 681
     y: -190
-    width: 698
-    height: 2118
+    width: 710
+    height: 2425
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1097,7 +1097,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614589}
   - {fileID: 8926484042661614593}
   - {fileID: 8926484042661614682}
-  m_UIPosition: {x: 942, y: 1323}
+  m_UIPosition: {x: 967, y: 1630}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
@@ -2325,7 +2325,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.TSphere, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"transform":{"position":{"x":-0.07999992370605469,"y":-0.15924596786499024,"z":0.0},"angles":{"x":0.0,"y":0.0,"z":0.0},"scale":{"x":1.0,"y":1.0,"z":1.0}},"radius":1.0}'
+      m_SerializableObject: '{"transform":{"position":{"x":-0.07999992370605469,"y":-0.15924596786499024,"z":0.0},"angles":{"x":0.0,"y":0.0,"z":0.0},"scale":{"x":0.30000001192092898,"y":0.30000001192092898,"z":0.30000001192092898}},"radius":1.0}'
     m_Space: 1
   m_Property:
     name: sphere
@@ -2389,7 +2389,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614649}
   - {fileID: 8926484042661614650}
   m_UIPosition: {x: 0, y: 0}
-  m_UICollapsed: 1
+  m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_MasterSlot: {fileID: 8926484042661614645}
   m_MasterData:
@@ -2525,7 +2525,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614653}
   - {fileID: 8926484042661614654}
   m_UIPosition: {x: 0, y: 0}
-  m_UICollapsed: 1
+  m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_MasterSlot: {fileID: 8926484042661614645}
   m_MasterData:
@@ -2660,7 +2660,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614657}
   - {fileID: 8926484042661614658}
   m_UIPosition: {x: 0, y: 0}
-  m_UICollapsed: 1
+  m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_MasterSlot: {fileID: 8926484042661614645}
   m_MasterData:

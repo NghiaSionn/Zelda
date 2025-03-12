@@ -1,24 +1,59 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class FogManager : MonoBehaviour
 {
     [Header("Khu vực sương mù")]
-    public GameObject[] fogArea;
+    [SerializeField] private VisualEffect fogArea;
 
-    // Start is called before the first frame update
+    [Header("Cấu hình sương mù")]
+    [SerializeField] private int startFogHour = 20;  
+    [SerializeField] private int endFogHour = 5;     
+    [SerializeField] private float fogChance = 0.25f; 
+
+    private WorldTime worldTime;
+    private bool isFogActive = false;
+
     void Start()
     {
-        for(int i = 0; i < fogArea.Length; i++)
+        worldTime = FindAnyObjectByType<WorldTime>();
+        fogArea.Stop();
+
+        if (worldTime != null)
         {
-            fogArea[i].SetActive(false);
+            worldTime.WorldTimeChange += OnWorldTimeChange;
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDestroy()
     {
-        
+        if (worldTime != null)
+        {
+            worldTime.WorldTimeChange -= OnWorldTimeChange;
+        }
+    }
+
+    private void OnWorldTimeChange(object sender, TimeSpan currentTime)
+    {
+        int hour = currentTime.Hours;
+
+        // Kiểm tra xem có nằm trong khoảng giờ sương mù không
+        bool isNightTime = (hour >= startFogHour || hour < endFogHour);
+
+        if (isNightTime)
+        {
+            // Nếu chưa kích hoạt sương mù và Random.value nhỏ hơn fogChance thì bật
+            if (!isFogActive && UnityEngine.Random.value < fogChance)
+            {
+                fogArea.Play();
+                isFogActive = true;
+            }
+        }
+        else
+        {
+            fogArea.Stop();
+            isFogActive = false;
+        }
     }
 }

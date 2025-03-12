@@ -160,8 +160,14 @@ public class InventoryManager : MonoBehaviour
         descriptionText.text = newDescriptionString;
         nameText.text = newNameTextString;
         useButton.SetActive(isButtonUsable);
+     
+    }
 
-       
+    public void SetUpDescriptionAndButton2(string newDescriptionString, string newNameTextString, Item newItem)
+    {
+        currentItem = newItem;
+        descriptionText.text = newDescriptionString;
+        nameText.text = newNameTextString;
     }
 
     public void UseButtonPressed()

@@ -45,14 +45,16 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
             isPointerInside = true;
             descriptionPanel.SetActive(true);
 
-            //thisManager.SetUpDescriptionAndButton(thisItem.itemDescription,
-            //                   thisItem.itemName, thisItem.usable, thisItem);
+            // Gọi hàm cập nhật thông tin vật phẩm ngay khi di chuột vào
+            thisManager.SetUpDescriptionAndButton2(thisItem.itemDescription,
+                thisItem.itemName, thisItem);
 
             Vector3 mousePosition = Input.mousePosition;
             descriptionPanelRect = descriptionPanel.GetComponent<RectTransform>();
-            descriptionPanelRect.position = mousePosition + new Vector3(150f, 150f, 0f);
+            descriptionPanelRect.position = mousePosition + new Vector3(400f, 0f, 0f);
         }
     }
+
 
     public void OnPointerExit(PointerEventData eventData)
     {

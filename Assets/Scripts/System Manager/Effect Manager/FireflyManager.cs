@@ -6,7 +6,7 @@ public class FireflyManager : MonoBehaviour
     [SerializeField] private WorldTime worldTime;
 
     [Header("Khu vực đom đóm")]
-    [SerializeField] private GameObject[] fireflyAreas; 
+    [SerializeField] private ParticleSystem[] fireflyAreas; 
 
     [Header("Thời gian xuất hiện")]
     [SerializeField] private float turnOnTime = 18f;
@@ -49,7 +49,7 @@ public class FireflyManager : MonoBehaviour
         {
             if (area != null)
             {
-                area.SetActive(true); 
+                area.Play();
             }
         }
     }
@@ -60,7 +60,7 @@ public class FireflyManager : MonoBehaviour
         {
             if (area != null)
             {
-                area.SetActive(false); 
+                area.Stop();
             }
         }
     }

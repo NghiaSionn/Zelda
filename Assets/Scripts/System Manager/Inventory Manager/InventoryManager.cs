@@ -100,16 +100,31 @@ public class InventoryManager : MonoBehaviour
     {
         if (playerInventory)
         {
-            foreach (Item item in playerInventory.items)
+            // Xóa toàn bộ slot hiện tại trước khi tạo mới
+            foreach (Transform child in inventoryPanel.transform)
             {
-                if (inventoryPanel.transform.childCount >= maxSize)
-                    break;
+                Destroy(child.gameObject);
+            }
 
+            // Tạo 32 slot trống trước
+            List<InventorySlot> slots = new List<InventorySlot>();
+
+            for (int i = 0; i < maxSize; i++)
+            {
                 GameObject temp = Instantiate(blankInventorySlot, inventoryPanel.transform.position, Quaternion.identity);
                 temp.transform.SetParent(inventoryPanel.transform);
                 temp.GetComponent<RectTransform>().localScale = Vector3.one;
                 InventorySlot newSlot = temp.GetComponent<InventorySlot>();
+                slots.Add(newSlot);
+            }
 
+            // Điền vật phẩm vào các slot trống
+            int index = 0;
+            foreach (Item item in playerInventory.items)
+            {
+                if (index >= maxSize) break;
+
+                InventorySlot newSlot = slots[index];
                 if (newSlot)
                 {
                     newSlot.Setup(item, this);
@@ -120,10 +135,10 @@ public class InventoryManager : MonoBehaviour
                         newSlot.itemNumberText.text = playerInventory.coins.ToString();
                     }
                 }
+                index++;
             }
         }
     }
-
 
 
     void Awake()

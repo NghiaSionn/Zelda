@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5195366422685848551}
   m_Layer: 0
   m_Name: FishingZone (1)
-  m_TagString: Untagged
+  m_TagString: Hook
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,4 +99,6 @@ MonoBehaviour:
   fishingLootData: {fileID: 11400000, guid: 9da30059259c50346965df979036e157, type: 2}
   lootUIManager: {fileID: 0}
   playerMovement: {fileID: 0}
+  fishingLineController: {fileID: 0}
+  fishingAudioSource: {fileID: 0}
   isFishing: 0

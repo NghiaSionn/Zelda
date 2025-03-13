@@ -16,8 +16,9 @@ public class FishingZone : Interactable
     public LootUIManager lootUIManager;
 
     public PlayerMovement playerMovement;
-    private FishingLineController fishingLineController;
+    public FishingLineController fishingLineController;
 
+    public AudioSource fishingAudioSource;
     public bool isFishing;
     private bool canFish = false;
 
@@ -47,17 +48,27 @@ public class FishingZone : Interactable
         isFishing = true;
         playerMovement.enabled = false;
         playerAnimator.SetTrigger("startfishing");
+
+        yield return new WaitForSeconds(0.5f);
+        // Lấy hướng di chuyển từ PlayerMovement
+        Vector2 facingDirection = playerMovement.GetFacingDirection();
+
+        // Kích hoạt dây câu
         fishingLineController.ActiveLine();
 
-        // Random thời gian chờ từ 5 - 20 giây
+        // Vẽ dây câu theo hướng di chuyển của Player
+        fishingLineController.DrawFishingLine(facingDirection.x, facingDirection.y);
+
         float waitTime = Random.Range(5f, 20f);
         yield return new WaitForSeconds(waitTime);
 
         fishingMiniGame.SetActive(true);
         fishMinigame.ResetGame();
+        fishingAudioSource.Play();
 
         yield return new WaitUntil(() => fishMinigame.IsComplete);
 
+        fishingAudioSource.Stop();
         fishingMiniGame.SetActive(false);
 
         if (fishMinigame.IsWin)
@@ -67,6 +78,21 @@ public class FishingZone : Interactable
 
         StartCoroutine(EndFishing());
     }
+
+
+
+    IEnumerator EndFishing()
+    {
+        playerMovement.enabled = true;
+        isFishing = false;
+        playerAnimator.SetTrigger("endfishing");
+
+        // Ẩn dây câu
+        fishingLineController.DisableLine();
+
+        yield return null;
+    }
+
 
     private void GenerateLoot()
     {
@@ -90,12 +116,5 @@ public class FishingZone : Interactable
         lootUIManager.DisplayLoot(selectedLoot);
     }
 
-    IEnumerator EndFishing()
-    {
-        playerMovement.enabled = true;
-        isFishing = false;
-        playerAnimator.SetTrigger("endfishing");
-        fishingLineController.DisableLine();
-        yield return null;
-    }
+  
 }

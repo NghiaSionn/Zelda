@@ -18,7 +18,9 @@ public enum SoundType
     NIGHT,
     BUTTON,
     SELECTED,
-    BUY
+    BUY,
+    STARTFISH,
+    ENDFISH
 }
 
 [RequireComponent(typeof(AudioSource)), ExecuteInEditMode]

@@ -15,14 +15,12 @@ public class EquippedSlot : MonoBehaviour, IDropHandler
         numberItem.enabled = false;
     }
 
-
     public void OnDrop(PointerEventData eventData)
     {
         InventorySlot draggedSlot = eventData.pointerDrag?.GetComponent<InventorySlot>();
 
-        if (draggedSlot?.thisItem == null) return; // Kiểm tra null an toàn
+        if (draggedSlot?.thisItem == null) return;
 
-        // Gán item vào slot và đồng bộ số lượng từ InventorySlot
         SetItem(draggedSlot.thisItem, draggedSlot.itemNumberText.text);
     }
 
@@ -30,13 +28,19 @@ public class EquippedSlot : MonoBehaviour, IDropHandler
     {
         equippedItem = newItem;
 
-        // Hiển thị hình ảnh vật phẩm
         slotImage.sprite = equippedItem.itemSprite;
         slotImage.color = Color.white;
         slotImage.enabled = true;
 
-        // Đảm bảo đồng bộ số lượng với InventorySlot
         numberItem.enabled = true;
         numberItem.text = itemCount;
+    }
+
+    public void UpdateEquippedSlot()
+    {
+        if (equippedItem != null)
+        {
+            numberItem.text = equippedItem.quantity.ToString();
+        }
     }
 }

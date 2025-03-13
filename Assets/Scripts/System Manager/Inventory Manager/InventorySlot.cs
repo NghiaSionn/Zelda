@@ -7,7 +7,7 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 {
     [Header("UI")]
     [SerializeField] public TextMeshProUGUI itemNumberText;
-    [SerializeField] private Image itemImage;
+    [SerializeField] public Image itemImage;
 
     [Header("Thông số vật phẩm")]
     public Item thisItem;
@@ -20,13 +20,13 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     private RectTransform selectedPanelRect;
 
     public bool isPointerInside = false;
-
     private Transform parentAfterDrag;
 
-    void Start() 
+    public int index;
+
+    void Start()
     {
-        //itemImage.enabled = false;
-        //itemNumberText.enabled = false;
+
     }
 
     public void Setup(Item newItem, InventoryManager newManager)
@@ -34,13 +34,18 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         thisItem = newItem;
         thisManager = newManager;
 
-        if (thisItem)
+        if (thisItem != null)
         {
             itemImage.enabled = true;
             itemImage.sprite = thisItem.itemSprite;
 
             itemNumberText.enabled = true;
             itemNumberText.text = thisItem.quantity.ToString();
+        }
+        else
+        {
+            itemImage.enabled = false;
+            itemNumberText.enabled = false;
         }
     }
 
@@ -85,19 +90,17 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         }
     }
 
-    // Bắt đầu kéo
     public void OnBeginDrag(PointerEventData eventData)
     {
         if (thisItem != null)
         {
-            parentAfterDrag = transform.parent; // Lưu vị trí cha trước khi kéo
-            transform.SetParent(transform.root); // Đưa lên cấp cao nhất để không bị giới hạn
-            transform.SetAsLastSibling(); // Đảm bảo hiển thị trên top
-            GetComponent<CanvasGroup>().blocksRaycasts = false; // Cho phép raycast đi qua
+            parentAfterDrag = transform.parent;
+            transform.SetParent(transform.root);
+            transform.SetAsLastSibling();
+            GetComponent<CanvasGroup>().blocksRaycasts = false;
         }
     }
 
-    // Trong quá trình kéo
     public void OnDrag(PointerEventData eventData)
     {
         if (thisItem != null)
@@ -106,10 +109,16 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         }
     }
 
-    // Khi thả vật phẩm
     public void OnEndDrag(PointerEventData eventData)
     {
-        transform.SetParent(parentAfterDrag); // Đưa về vị trí ban đầu nếu không kéo vào ô hợp lệ
+        transform.SetParent(parentAfterDrag);
         GetComponent<CanvasGroup>().blocksRaycasts = true;
+    }
+
+    public void RemoveItem()
+    {
+        thisItem = null;
+        itemImage.enabled = false;
+        itemNumberText.enabled = false;
     }
 }

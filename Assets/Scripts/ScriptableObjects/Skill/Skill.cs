@@ -9,14 +9,14 @@ public class Skill : ScriptableObject
     [Header("Tên kỹ năng")]
     public string skillName;
 
+    [Header("Sử dụng Animator trước khi tung skill?")]
+    public bool useAnimator;
+
     [Header("Nút kỹ năng")]
     public KeyCode skillKey;
 
     [Header("Thể loại kỹ năng")]
     public SkillType skillType;
-
-    [Header("Sát thương")]
-    public int damage;
 
     [Header("Thời gian hồi")]
     public float cooldown;

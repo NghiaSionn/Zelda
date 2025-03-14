@@ -278,7 +278,9 @@ public class PlayerMovement : MonoBehaviour
 
     private IEnumerator Hurt()
     {
-        animator.SetTrigger("hurt");
+        animator.SetBool("hurt",true);
+        yield return new WaitForSeconds(0.5f);
+        animator.SetBool("hurt", false);
         yield return null;
     }
 

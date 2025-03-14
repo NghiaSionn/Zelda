@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: Slash
   m_EditorClassIdentifier: 
   skillName: "Ki\u1EBFm Kh\xED"
+  useAnimator: 1
   skillKey: 120
   skillType: 0
   damage: 1
   cooldown: 5
   manaCost: 10
-  khoangCach: 2
+  khoangCach: 1
   skillPrefab: {fileID: 2672679333443526924, guid: a90968b9bc3fac440addf9e229031244, type: 3}
   soundEffect: {fileID: 0}

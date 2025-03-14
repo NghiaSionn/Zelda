@@ -11,18 +11,47 @@ public class CombatManager : MonoBehaviour
     [Header("Quản lý Mana")]
     public StaminaWheel manaManager;
 
+    public Animator animator;
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
+
     void Update()
     {
-        if (Input.GetKeyDown(skillManager.skills[0].skillKey))
+        for (int i = 0; i < skillManager.skills.Length; i++)
         {
-            Skill skill = skillManager.skills[0];
+            Skill skill = skillManager.skills[i];
 
-            // Kiểm tra đủ mana trước khi sử dụng kỹ năng
-            if (manaManager.UseMana(skill.manaCost))
+            if (Input.GetKeyDown(skill.skillKey))
             {
-                skill.ActivateSkill(gameObject);
+                if (manaManager.UseMana(skill.manaCost))
+                {
+                    if (skill.useAnimator)
+                    {                      
+                        GetComponent<Animator>().SetTrigger("attack2");
+                        StartCoroutine(ActivateSkillWithDelay(skill));
+                    }
+                    else
+                    {
+                        skill.ActivateSkill(gameObject);
+                    }
+                }
             }
         }
     }
+
+    IEnumerator ActivateSkillWithDelay(Skill skill)
+    {
+        yield return new WaitForSeconds(0.2f);
+        
+
+        // Sau khi animation kết thúc, tung skill
+        skill.ActivateSkill(gameObject);
+        yield return null;
+    }
+
+
 }
 

@@ -3,15 +3,17 @@
 public class FishingLineController : MonoBehaviour
 {
     public Transform[] rodTips; // Các đầu cần câu (Up, Down, Left, Right)
-    public Transform[] hooks;   // Các vị trí lưỡi câu
+    public Transform[] hooks;   
+    public GameObject fishingFloat;
     public int currentDirection = 0; // Hướng cần câu (0: Up, 1: Down, 2: Left, 3: Right)
 
     public LineRenderer lineRenderer;
-    public Transform player; // Thêm vị trí Player để tính toán khoảng cách với hook
+    public Transform player; 
 
     void Start()
     {
         lineRenderer = GetComponentInChildren<LineRenderer>();
+        
 
         // Tìm tất cả các hook trong game
         GameObject[] hookObjects = GameObject.FindGameObjectsWithTag("Hook");
@@ -28,7 +30,7 @@ public class FishingLineController : MonoBehaviour
 
     public void DrawFishingLine(float moveX, float moveY)
     {
-        if (hooks.Length == 0 || lineRenderer == null) return;
+        if (hooks.Length == 0 || lineRenderer == null || fishingFloat == null) return;
 
         // Xác định hướng cần câu dựa trên moveX và moveY
         if (moveY > 0) currentDirection = 0; // Up
@@ -45,6 +47,9 @@ public class FishingLineController : MonoBehaviour
         // Vẽ dây câu
         lineRenderer.SetPosition(0, currentRodTip.position);
         lineRenderer.SetPosition(1, targetHook.position);
+
+        fishingFloat.transform.position = targetHook.position;
+
     }
 
 
@@ -79,6 +84,7 @@ public class FishingLineController : MonoBehaviour
         if (lineRenderer != null)
         {
             lineRenderer.gameObject.SetActive(true);
+            fishingFloat.SetActive(true);
             lineRenderer.positionCount = 2;
         }
     }
@@ -86,8 +92,9 @@ public class FishingLineController : MonoBehaviour
     public void DisableLine()
     {
         if (lineRenderer != null)
-        {
+        {           
             lineRenderer.gameObject.SetActive(false);
+            fishingFloat.SetActive(false);
         }
     }
 }

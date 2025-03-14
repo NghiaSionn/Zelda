@@ -5,10 +5,14 @@ public class FishingLineController : MonoBehaviour
     public Transform[] rodTips; // Các đầu cần câu (Up, Down, Left, Right)
     public Transform[] hooks;   
     public GameObject fishingFloat;
-    public int currentDirection = 0; // Hướng cần câu (0: Up, 1: Down, 2: Left, 3: Right)
 
     public LineRenderer lineRenderer;
-    public Transform player; 
+    public Transform player;
+    public ParticleSystem effect;
+
+    public int currentDirection = 0; // Hướng cần câu (0: Up, 1: Down, 2: Left, 3: Right)
+
+    
 
     void Start()
     {
@@ -49,6 +53,7 @@ public class FishingLineController : MonoBehaviour
         lineRenderer.SetPosition(1, targetHook.position);
 
         fishingFloat.transform.position = targetHook.position;
+        effect.gameObject.transform.position = targetHook.position;
 
     }
 
@@ -86,6 +91,8 @@ public class FishingLineController : MonoBehaviour
             lineRenderer.gameObject.SetActive(true);
             fishingFloat.SetActive(true);
             lineRenderer.positionCount = 2;
+            effect.Play();
+            effect.gameObject.SetActive(true);
         }
     }
 
@@ -95,6 +102,8 @@ public class FishingLineController : MonoBehaviour
         {           
             lineRenderer.gameObject.SetActive(false);
             fishingFloat.SetActive(false);
+            effect.Stop();
+            effect.gameObject.SetActive(false);
         }
     }
 }

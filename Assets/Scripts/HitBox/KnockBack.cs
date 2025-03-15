@@ -78,7 +78,6 @@ public class KnockBack : MonoBehaviour
                     if (player != null && player.currentState != PlayerState.stagger)
                     {
                         CameraShakeManager.instance.CameraShake(impulseSource);
-                        player.currentState = PlayerState.stagger;
                         player.Knock(knockTime, damage);
                     }
                 }
@@ -134,7 +133,6 @@ public class KnockBack : MonoBehaviour
                     if (player != null && player.currentState != PlayerState.stagger)
                     {
                         CameraShakeManager.instance.CameraShake(impulseSource);
-                        player.currentState = PlayerState.stagger;
                         player.Knock(knockTime, damage);
                     }
                 }

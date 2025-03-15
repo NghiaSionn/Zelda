@@ -2698,9 +2698,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  runSpeedMultiplier: 2
+  dustEffect: {fileID: 0}
+  fogEffect: {fileID: 0}
   currentState: 0
+  dashForce: 1
+  animator: {fileID: 0}
   staminaWheel: {fileID: 0}
-  runningSpeedMultiplier: 2
   currentHealth: {fileID: 11400000, guid: 3d71eb3e956c358418bc54923b11d112, type: 2}
   maxHealth: {fileID: 11400000, guid: 930f7d312dd7524498eac6ee52e00372, type: 2}
   playerHealthSignal: {fileID: 11400000, guid: 987497245c3f53c46bb0db6bbcdec1ea, type: 2}
@@ -2708,11 +2712,15 @@ MonoBehaviour:
   maxExp: {fileID: 11400000, guid: c9fc2475adf7fa2469ce4df2366369bc, type: 2}
   expBar: {fileID: 0}
   levelText: {fileID: 0}
+  dashSpeed: 20
+  dashDuration: 0.2
+  dashCooldown: 1
+  dashEffectPrefab: {fileID: 0}
   startingPosition: {fileID: 11400000, guid: cba479c34ffbc8244a3751f160802f6c, type: 2}
-  playerInventory: {fileID: 11400000, guid: c8fff1b9deb4c6d4da86362e68b520a4, type: 2}
-  receivedItemSprite: {fileID: 2139007353712680496, guid: ef68db40d4b2b3a4cac365dbadad155c, type: 3}
   isWalkingSoundPlaying: 0
   isRunning: 0
+  isDashing: 0
+  canDash: 1
   canRun: 1
 --- !u!95 &2824830946106686257
 Animator:
@@ -2836,6 +2844,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillManager: {fileID: 11400000, guid: 93c7f2f02746fef49906c978a70aef5f, type: 2}
   manaManager: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!114 &8118401764873341418
 MonoBehaviour:
   m_ObjectHideFlags: 0

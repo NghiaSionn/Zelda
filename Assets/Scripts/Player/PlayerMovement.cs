@@ -66,6 +66,7 @@ public class PlayerMovement : MonoBehaviour
     public bool isDashing = false;
     public bool canDash = true;
     public bool canRun = true;
+    private bool isHurt = false;
 
     void Awake()
     {
@@ -253,28 +254,62 @@ public class PlayerMovement : MonoBehaviour
     {
         currentHealth.RuntimeValue -= damage;
         playerHealthSignal.Raise();
+
         if (currentHealth.RuntimeValue > 0)
         {
-            StartCoroutine(Hurt());
-            StartCoroutine(KnockCo(knockTime));
+            if (currentState != PlayerState.stagger) 
+            {
+                StartCoroutine(KnockCo(knockTime));
+            }
         }
         else
         {
             Die();
         }
-
     }
+
 
     private IEnumerator KnockCo(float knockTime)
     {
-        if (myRigidbody != null)
-        {
-            yield return new WaitForSeconds(knockTime);
-            myRigidbody.velocity = Vector2.zero;
-            currentState = PlayerState.idle;
-            myRigidbody.velocity = Vector2.zero;
-        }
+        if (isHurt) yield break; 
+        isHurt = true;
+        currentState = PlayerState.stagger;
+
+        //// Lưu màu gốc
+        Color originalColor = GetComponent<SpriteRenderer>().color;
+
+        //// Tắt animator để đổi màu đỏ
+        animator.enabled = false;
+
+        //// Đổi màu đỏ khi bị đánh
+        GetComponent<SpriteRenderer>().color = Color.red;
+
+        // Gọi animation Hurt
+        animator.SetTrigger("hurt");
+
+        // Đẩy lùi
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        Vector2 direction = (transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition)).normalized;
+        rb.AddForce(direction * 5f, ForceMode2D.Impulse);
+
+        yield return new WaitForSeconds(0.1f); // Thời gian giữ màu đỏ
+
+        // Trả lại màu gốc
+       GetComponent<SpriteRenderer>().color = originalColor;
+
+        
+        animator.enabled = true;
+
+        yield return new WaitForSeconds(knockTime); // Thời gian knockback hoạt động
+
+        rb.velocity = Vector2.zero;
+        currentState = PlayerState.walk;
+
+        yield return new WaitForSeconds(0.5f); // Thời gian chờ trước khi nhận sát thương tiếp theo
+
+        isHurt = false; // Cho phép nhận sát thương lần tiếp theo
     }
+
 
     private IEnumerator Hurt()
     {

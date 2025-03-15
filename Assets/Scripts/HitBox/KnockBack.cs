@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Burst.CompilerServices;
 using UnityEngine;
+using DG.Tweening; 
 
 public class KnockBack : MonoBehaviour
 {
@@ -17,7 +18,6 @@ public class KnockBack : MonoBehaviour
     {
         impulseSource = GetComponent<CinemachineImpulseSource>();
     }
-
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -34,9 +34,10 @@ public class KnockBack : MonoBehaviour
 
             if (hit != null)
             {
-                Vector2 difference = hit.transform.position - transform.position;
+                Vector2 difference = (other.transform.position - transform.position).normalized * thrust;
                 difference = difference.normalized * thrust;
-                hit.AddForce(difference, ForceMode2D.Impulse);
+                hit.DOMove(hit.transform.position + new Vector3(difference.x, difference.y, 0), knockTime);
+               
 
                 if (other.gameObject.CompareTag("enemy"))
                 {
@@ -48,7 +49,6 @@ public class KnockBack : MonoBehaviour
                         enemy.Knock(hit, knockTime, damage);
                     }
 
-                    // Xử lý Boss
                     var boss = other.GetComponent<Boss>();
                     if (boss != null)
                     {
@@ -56,11 +56,9 @@ public class KnockBack : MonoBehaviour
                         boss.currentState = EnemyState.stagger;
                         boss.Knock(hit, knockTime, damage);
                     }
-
-                    
                 }
 
-                if(other.gameObject.CompareTag("Animal"))
+                if (other.gameObject.CompareTag("Animal"))
                 {
                     var animal = other.GetComponent<Animals>();
                     if (animal != null)
@@ -78,7 +76,7 @@ public class KnockBack : MonoBehaviour
                     if (player != null && player.currentState != PlayerState.stagger)
                     {
                         CameraShakeManager.instance.CameraShake(impulseSource);
-                        player.Knock(knockTime, damage);
+                        player.Knock(knockTime,damage, difference.normalized * thrust);
                     }
                 }
             }
@@ -93,16 +91,15 @@ public class KnockBack : MonoBehaviour
             Rigidbody2D hit = other.GetComponent<Rigidbody2D>();
             if (hit != null)
             {
-                Vector2 difference = hit.transform.position - transform.position;
+                Vector2 difference = (other.transform.position - transform.position).normalized * thrust;
                 difference = difference.normalized * thrust;
-                hit.AddForce(difference, ForceMode2D.Impulse);
+                hit.DOMove(hit.transform.position + new Vector3(difference.x, difference.y, 0), knockTime);
 
                 if (other.gameObject.CompareTag("enemy") && other.isTrigger)
                 {
                     var enemy = other.GetComponent<Enemy>();
                     if (enemy != null)
                     {
-                       
                         enemy.currentState = EnemyState.stagger;
                         enemy.Knock(hit, knockTime, damage);
                     }
@@ -111,18 +108,16 @@ public class KnockBack : MonoBehaviour
                     var boss = other.GetComponent<Boss>();
                     if (boss != null)
                     {
-                        
                         boss.currentState = EnemyState.stagger;
                         boss.Knock(hit, knockTime, damage);
-                    }                  
+                    }
                 }
 
-                if(other.gameObject.CompareTag("Animal"))
+                if (other.gameObject.CompareTag("Animal"))
                 {
                     var animal = other.GetComponent<Animals>();
                     if (animal != null)
                     {
-                        //animal.currentState = EnemyState.stagger;
                         animal.Knock(hit, knockTime, damage);
                     }
                 }
@@ -133,7 +128,7 @@ public class KnockBack : MonoBehaviour
                     if (player != null && player.currentState != PlayerState.stagger)
                     {
                         CameraShakeManager.instance.CameraShake(impulseSource);
-                        player.Knock(knockTime, damage);
+                        player.Knock(knockTime, damage, difference.normalized * thrust);
                     }
                 }
             }
@@ -146,5 +141,4 @@ public class KnockBack : MonoBehaviour
             Debug.Log("Hit resource");
         }
     }
-
 }

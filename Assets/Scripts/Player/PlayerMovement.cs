@@ -250,16 +250,16 @@ public class PlayerMovement : MonoBehaviour
         levelText.text = currentLevel.ToString();
     }
 
-    public void Knock(float knockTime, float damage)
+    public void Knock(float knockTime, float damage, Vector2 direction)
     {
         currentHealth.RuntimeValue -= damage;
         playerHealthSignal.Raise();
 
         if (currentHealth.RuntimeValue > 0)
         {
-            if (currentState != PlayerState.stagger) 
+            if (currentState != PlayerState.stagger)
             {
-                StartCoroutine(KnockCo(knockTime));
+                StartCoroutine(KnockCo(knockTime, direction));
             }
         }
         else
@@ -268,46 +268,31 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-
-    private IEnumerator KnockCo(float knockTime)
+    private IEnumerator KnockCo(float knockTime, Vector2 direction)
     {
-        if (isHurt) yield break; 
+        if (isHurt) yield break;
         isHurt = true;
         currentState = PlayerState.stagger;
 
-        //// Lưu màu gốc
         Color originalColor = GetComponent<SpriteRenderer>().color;
-
-        //// Tắt animator để đổi màu đỏ
         animator.enabled = false;
-
-        //// Đổi màu đỏ khi bị đánh
         GetComponent<SpriteRenderer>().color = Color.red;
-
-        // Gọi animation Hurt
         animator.SetTrigger("hurt");
 
-        // Đẩy lùi
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        Vector2 direction = (transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition)).normalized;
-        rb.AddForce(direction * 5f, ForceMode2D.Impulse);
+        rb.AddForce(direction.normalized * 5f, ForceMode2D.Impulse);
+        Debug.Log(direction);
 
-        yield return new WaitForSeconds(0.1f); // Thời gian giữ màu đỏ
-
-        // Trả lại màu gốc
-       GetComponent<SpriteRenderer>().color = originalColor;
-
-        
+        yield return new WaitForSeconds(0.1f);
+        GetComponent<SpriteRenderer>().color = originalColor;
         animator.enabled = true;
 
-        yield return new WaitForSeconds(knockTime); // Thời gian knockback hoạt động
-
+        yield return new WaitForSeconds(knockTime);
         rb.velocity = Vector2.zero;
         currentState = PlayerState.walk;
 
-        yield return new WaitForSeconds(0.5f); // Thời gian chờ trước khi nhận sát thương tiếp theo
-
-        isHurt = false; // Cho phép nhận sát thương lần tiếp theo
+        yield return new WaitForSeconds(0.5f);
+        isHurt = false;
     }
 
 

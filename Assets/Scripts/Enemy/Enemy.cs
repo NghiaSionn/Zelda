@@ -83,10 +83,25 @@ public class Enemy : MonoBehaviour
         {
             Exp();
             MakeLoot();
-            spawnArea.EnemyDied(this.gameObject);
+            //spawnArea.EnemyDied(this.gameObject);
+            StartCoroutine(DeadAnim());
             //StartCoroutine(spawnArea.RespawnEnemy(this.gameObject));
                                  
         }
+    }
+
+    IEnumerator DeadAnim()
+    {
+        anim.SetTrigger("dead");
+
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        if (rb != null)
+        {
+            rb.velocity = Vector2.zero;
+        }
+
+        yield return new WaitForSeconds(0.5f);
+        spawnArea.EnemyDied(this.gameObject);
     }
 
     public int Exp()

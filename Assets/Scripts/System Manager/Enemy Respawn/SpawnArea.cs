@@ -29,6 +29,9 @@ public class SpawnArea : MonoBehaviour
     public void EnemyDied(GameObject enemy)
     {
         Enemy enemyScript = enemy.GetComponent<Enemy>();
+
+        Animator enemyAni = enemy.GetComponent<Animator>();
+
         Animals animalsScript = enemy.GetComponent<Animals>();
         Boss bossScript = enemy.GetComponent<Boss>();
 

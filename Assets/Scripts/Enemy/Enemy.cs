@@ -43,8 +43,10 @@ public class Enemy : MonoBehaviour
     public GameObject enemyPrefab; 
     public SpawnArea spawnArea;
 
+
     public void Awake()
     {
+        
         health = maxHealth.initiaValue;
         anim = GetComponent<Animator>();
     }
@@ -77,6 +79,7 @@ public class Enemy : MonoBehaviour
         health -= damage;
         if (health > 0)
         {
+           
             StartCoroutine(Hurt());
         }
         else
@@ -92,7 +95,9 @@ public class Enemy : MonoBehaviour
 
     IEnumerator DeadAnim()
     {
-        anim.SetTrigger("dead");
+        EnemyAudioManager audioManager = GetComponent<EnemyAudioManager>();
+        anim.SetBool("dead", true);
+        audioManager.PlayDeathSound();
 
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         if (rb != null)
@@ -102,6 +107,7 @@ public class Enemy : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
         spawnArea.EnemyDied(this.gameObject);
+        anim.SetBool("dead", false);
     }
 
     public int Exp()
@@ -128,7 +134,10 @@ public class Enemy : MonoBehaviour
 
     private IEnumerator Hurt()
     {
-        anim.SetBool("hurt", true);
+        EnemyAudioManager audioManager = GetComponent<EnemyAudioManager>();
+        audioManager.PlayHurtSound();
+
+        anim.SetBool("hurt", true);      
         yield return new WaitForSeconds(0.1f);
         anim.SetBool("hurt", false);
         yield return null;

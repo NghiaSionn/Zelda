@@ -60,7 +60,9 @@ public class MeleeEnemy : Log
 
     public IEnumerator AttackCo()
     {
+        EnemyAudioManager enemyAudioManager = GetComponent<EnemyAudioManager>();
         currentState = EnemyState.attack;
+        enemyAudioManager.PlayAttackSound();
         anim.SetBool("attack", true);
         yield return new WaitForSeconds(1f);
         currentState = EnemyState.walk;

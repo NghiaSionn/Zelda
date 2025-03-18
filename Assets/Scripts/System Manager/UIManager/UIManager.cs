@@ -26,6 +26,9 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         CloseAllPanels();
+        Debug.Log(inventoryPanel.activeSelf);
+        Debug.Log(profilePanel.activeSelf);
+        Debug.Log(skillPanel.activeSelf);
     }
 
     private void Update()
@@ -52,18 +55,16 @@ public class UIManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.U))
         {
-            if (profilePanel.activeSelf)
+            if (!pausePanel.activeSelf)
             {
-                Debug.Log("hồ sơ nhận vật");
                 ToggleProfilePanel();
             }
         }
 
         if (Input.GetKeyDown(KeyCode.O))
         {
-            if (skillPanel.activeSelf)
+            if (!pausePanel.activeSelf)
             {
-                Debug.Log("kỹ năng nhân vật");
                 ToggleSkillPanel();
             }
         }

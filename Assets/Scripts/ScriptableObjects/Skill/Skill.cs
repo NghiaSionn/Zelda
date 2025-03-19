@@ -9,8 +9,8 @@ public class Skill : ScriptableObject
     [Header("Tên kỹ năng")]
     public string skillName;
 
-    [Header("Sử dụng Animator trước khi tung skill?")]
-    public bool useAnimator;
+    [Header("Sử dụng Animator trước khi tung skill nhưng cầm vũ khí")]
+    public bool useAnimatorWithWeapon;
 
     [Header("Nút kỹ năng")]
     public KeyCode skillKey;

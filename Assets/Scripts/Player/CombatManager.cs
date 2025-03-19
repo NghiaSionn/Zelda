@@ -28,14 +28,15 @@ public class CombatManager : MonoBehaviour
             {
                 if (manaManager.UseMana(skill.manaCost))
                 {
-                    if (skill.useAnimator)
+                    if (skill.useAnimatorWithWeapon)
                     {                      
                         GetComponent<Animator>().SetTrigger("attack2");
                         StartCoroutine(ActivateSkillWithDelay(skill));
                     }
                     else
                     {
-                        skill.ActivateSkill(gameObject);
+                        StartCoroutine(StartSpellCast(skill));
+                        //skill.ActivateSkill(gameObject);
                     }
                 }
             }
@@ -45,13 +46,16 @@ public class CombatManager : MonoBehaviour
     IEnumerator ActivateSkillWithDelay(Skill skill)
     {
         yield return new WaitForSeconds(0.2f);
-        
-
         // Sau khi animation kết thúc, tung skill
         skill.ActivateSkill(gameObject);
         yield return null;
     }
 
+    IEnumerator StartSpellCast(Skill skill)
+    {
+        GetComponent<Animator>().SetBool("startspell", true);
+        yield return null;
+    }
 
 }
 

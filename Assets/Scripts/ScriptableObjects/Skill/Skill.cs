@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Rendering;
+﻿using UnityEngine;
 
 [CreateAssetMenu]
 public class Skill : ScriptableObject
@@ -29,25 +26,35 @@ public class Skill : ScriptableObject
 
     [Header("Kỹ năng")]
     public GameObject skillPrefab;
+
+    [Header("Hiệu ứng vận chiêu")]
+    public GameObject chargingEffectPrefab; 
+
     private Animator skillAnim;
 
     [Header("Âm Thanh")]
     public AudioClip soundEffect;
+
+    [Header("Hiệu ứng vận chiêu - Tùy chỉnh vị trí theo hướng")]
+    public Vector2 effectOffsetUp = new Vector2(0f, 1.2f);
+    public Vector2 effectOffsetDown = new Vector2(0f, -1f);
+    public Vector2 effectOffsetLeft = new Vector2(-1.2f, 0f);
+    public Vector2 effectOffsetRight = new Vector2(1.2f, 0f);
 
 
     public void ActivateSkill(GameObject user)
     {
         skillAnim = skillPrefab.GetComponent<Animator>();
 
-        // Tính toán vị trí mới cho prefab
+        // Lấy hướng từ PlayerMovement
         Vector2 direction = user.GetComponent<PlayerMovement>().GetFacingDirection();
-        Vector3 viTriMoi = user.transform.position + (Vector3)(direction * khoangCach);
+        Vector3 spawnPosition = user.transform.position + (Vector3)(direction * khoangCach);
 
-        GameObject projectile = Instantiate(skillPrefab, viTriMoi, Quaternion.identity);
-
+        // Tạo kỹ năng
+        GameObject projectile = Instantiate(skillPrefab, spawnPosition, Quaternion.identity);
         projectile.GetComponent<Projectile>().SetDirection(direction);
 
-        // Xoay projectile thủ công
+        // Xoay skill theo hướng bắn
         float angle = 0f;
         if (direction == Vector2.up) angle = -180f;
         else if (direction == Vector2.down) angle = 0f;
@@ -55,16 +62,22 @@ public class Skill : ScriptableObject
         else if (direction == Vector2.right) angle = 90f;
 
         projectile.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-
-        //Debug.Log($"Hướng bắn: {direction}, Góc quay: {angle}, Rotation: {projectile.transform.rotation}, transform.right: {projectile.transform.right}");
     }
+
+    public Vector2 GetEffectOffset(Vector2 direction)
+    {
+        if (direction == Vector2.up) return effectOffsetUp;
+        if (direction == Vector2.down) return effectOffsetDown;
+        if (direction == Vector2.left) return effectOffsetLeft;
+        if (direction == Vector2.right) return effectOffsetRight;
+        return Vector2.zero;
+    }
+
 }
 
-
-
-public enum SkillType 
+public enum SkillType
 {
-    Attack, 
-    Defense, 
-    Support 
+    Attack,
+    Defense,
+    Support
 }

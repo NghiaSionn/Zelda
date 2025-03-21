@@ -53,6 +53,7 @@ public class SpawnArea : MonoBehaviour
             if (bossScript != null)
             {
                 bossScript.currentState = EnemyState.death;
+                bossScript.isDeath = true;
 
             }
 
@@ -88,6 +89,7 @@ public class SpawnArea : MonoBehaviour
         {
             bossScript.currentState = EnemyState.idle;
             bossScript.health = bossScript.maxHealth.initiaValue;
+            bossScript.isDeath = false;
         }
 
         enemy.SetActive(true); 

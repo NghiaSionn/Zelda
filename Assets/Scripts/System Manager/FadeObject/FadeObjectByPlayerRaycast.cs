@@ -1,58 +1,61 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class FadeObjectByPlayerRaycast: MonoBehaviour
+public class FadeObjectByPlayerRaycast : MonoBehaviour
 {
-    public Transform cameraTransform;  
-    public LayerMask obstacleLayer;    
-    public float fadeAmount = 0.5f;    
-    private Dictionary<SpriteRenderer, Color> fadedObjects = new Dictionary<SpriteRenderer, Color>();
+    public Transform cameraTransform;  // Camera chính
+    public Transform player;           // Player
+    public LayerMask obstacleLayer;    // Layer chứa vật thể cản tầm nhìn
+    public float extraDistance = 5f;   // Khoảng cách raycast vượt qua player để kiểm tra phía sau
 
     void Update()
     {
-        // Tính hướng từ camera đến player
-        Vector2 direction = transform.position - cameraTransform.position;
+        Vector2 playerPosition = player.position;
+        Vector2 direction = playerPosition - (Vector2)cameraTransform.position;
+        float distanceToPlayer = direction.magnitude;
 
-        // Raycast từ camera đến player
-        RaycastHit2D[] hits = Physics2D.RaycastAll(cameraTransform.position, direction.normalized, direction.magnitude, obstacleLayer);
+        // Raycast từ camera, vượt qua player để kiểm tra phía sau
+        RaycastHit2D[] hits = Physics2D.RaycastAll(
+            cameraTransform.position,
+            direction.normalized,
+            distanceToPlayer + extraDistance, // Kéo dài raycast qua player
+            obstacleLayer
+        );
 
-        HashSet<SpriteRenderer> currentHits = new HashSet<SpriteRenderer>();
+        bool playerCoversObject = false;
 
         foreach (RaycastHit2D hit in hits)
         {
-            SpriteRenderer sr = hit.collider.GetComponent<SpriteRenderer>();
-            if (sr != null && !fadedObjects.ContainsKey(sr))
+            if (hit.collider != null && hit.collider.transform != player)
             {
-                fadedObjects[sr] = sr.color;
-                SetFade(sr, fadeAmount);
-            }
-            currentHits.Add(sr);
-        }
-
-        // Khôi phục các vật thể không còn bị chắn
-        List<SpriteRenderer> toRestore = new List<SpriteRenderer>();
-        foreach (var item in fadedObjects)
-        {
-            if (!currentHits.Contains(item.Key))
-            {
-                SetFade(item.Key, item.Value.a);
-                toRestore.Add(item.Key);
+                // Kiểm tra nếu vật thể nằm phía sau player
+                float hitDistance = Vector2.Distance(cameraTransform.position, hit.point);
+                if (hitDistance > distanceToPlayer) // Vật thể ở xa hơn player
+                {
+                    playerCoversObject = true;
+                    Debug.Log("Player che khuất vật thể: " + hit.collider.gameObject.name);
+                }
             }
         }
 
-        // Xóa vật thể đã khôi phục khỏi danh sách
-        foreach (var sr in toRestore)
-        {
-            fadedObjects.Remove(sr);
-        }
+        // Vẽ Debug Raycast
+        Debug.DrawRay(cameraTransform.position, direction.normalized * (distanceToPlayer + extraDistance),
+            playerCoversObject ? Color.red : Color.green);
 
-        Debug.DrawRay(cameraTransform.position, direction, Color.red); // Debug ray
+        // Vẽ hình tròn tại vị trí Player
+        DrawDebugCircle(playerPosition, 0.3f, Color.blue);
     }
 
-    void SetFade(SpriteRenderer sr, float alpha)
+    void DrawDebugCircle(Vector2 center, float radius, Color color, int segments = 20)
     {
-        Color color = sr.color;
-        color.a = alpha;
-        sr.color = color;
+        float angleStep = 360f / segments;
+        Vector2 prevPoint = center + new Vector2(radius, 0);
+
+        for (int i = 1; i <= segments; i++)
+        {
+            float angle = angleStep * i * Mathf.Deg2Rad;
+            Vector2 newPoint = center + new Vector2(Mathf.Cos(angle) * radius, Mathf.Sin(angle) * radius);
+            Debug.DrawLine(prevPoint, newPoint, color);
+            prevPoint = newPoint;
+        }
     }
 }

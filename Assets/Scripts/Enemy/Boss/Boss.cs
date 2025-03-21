@@ -25,6 +25,7 @@ public class Boss : MonoBehaviour
     public GameObject bossUI;
 
     public SpawnArea spawnArea;
+    public bool isDeath = false;
 
     public void Awake()
     {
@@ -72,8 +73,7 @@ public class Boss : MonoBehaviour
             StartCoroutine(Hurt());
             Exp();
             StartCoroutine(UIBoss());
-            MakeLoot();
-            
+            MakeLoot();          
             spawnArea.EnemyDied(this.gameObject);
            
         }

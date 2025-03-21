@@ -15,17 +15,26 @@ public class BossManagerUI : MonoBehaviour
     [Header("Data")]
     public EnemyInfor bossInfo; 
 
+    public Animator animator;
+    public Boss boss;
+
     void Start()
     {
-        bossUI.SetActive(false); 
+        boss = FindAnyObjectByType<Boss>();
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            bossUI.SetActive(true);
-            UpdateBossUI();
+            if (!boss.isDeath)
+            {
+                StartCoroutine(Start_Panel());
+            }
+            else
+            {
+                StartCoroutine(End_Panel());
+            }                    
         }
     }
 
@@ -36,5 +45,17 @@ public class BossManagerUI : MonoBehaviour
         {
             bossNameText.text = bossInfo.name; 
         }
+    }
+
+    IEnumerator Start_Panel()
+    {
+        animator.Play("start_panel");
+        UpdateBossUI();
+        yield return null;
+    }
+    IEnumerator End_Panel()
+    {
+        animator.Play("end_panel");
+        yield return null;
     }
 }

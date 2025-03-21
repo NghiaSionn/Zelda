@@ -11,7 +11,7 @@ public class CombatManager : MonoBehaviour
     [Header("Quản lý Mana")]
     public StaminaWheel manaManager;
 
-    public Animator animator;
+    private Animator animator;
 
     private void Start()
     {
@@ -36,7 +36,7 @@ public class CombatManager : MonoBehaviour
                     else
                     {
                         StartCoroutine(StartSpellCast(skill));
-                        //skill.ActivateSkill(gameObject);
+
                     }
                 }
             }
@@ -52,10 +52,16 @@ public class CombatManager : MonoBehaviour
     }
 
     IEnumerator StartSpellCast(Skill skill)
-    {
-        GetComponent<Animator>().SetBool("startspell", true);
-        yield return null;
+    {       
+        animator.Play("Start_Spell");
+         
+        yield return new WaitUntil(() => Input.GetKeyUp(skill.skillKey));
+        animator.Play("End_Spell");
+        skill.ActivateSkill(gameObject);
+        yield return new WaitForSeconds(0.5f);
+        animator.Play("Idle");
     }
+
 
 }
 

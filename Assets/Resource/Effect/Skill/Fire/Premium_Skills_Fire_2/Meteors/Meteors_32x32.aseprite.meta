@@ -1,0 +1,752 @@
+fileFormatVersion: 2
+guid: 4321b9f771ed9e141abfb2627c7898f9
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: Meteors_32x32_Frame_0
+    originalName: 
+    pivot: {x: 0.5263158, y: -0.36842105}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 87
+      y: 33
+      width: 19
+      height: 19
+    spriteID: 8a3976bc621f0f141a975e6f3847f93d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 81, y: 26}
+  - name: Meteors_32x32_Frame_1
+    originalName: 
+    pivot: {x: 0.55, y: -0.35}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 33
+      width: 20
+      height: 20
+    spriteID: ce71061e5c7c30f4c979ba896187a455
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: -1, y: 26}
+  - name: Meteors_32x32_Frame_2
+    originalName: 
+    pivot: {x: 0.5714286, y: -0.33333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 34
+      y: 4
+      width: 21
+      height: 21
+    spriteID: ef2ad21733eda7b4e95bdc39040f14a0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 30, y: -3}
+  - name: Meteors_32x32_Frame_3
+    originalName: 
+    pivot: {x: 0.5909091, y: -0.33333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 22
+      height: 21
+    spriteID: a00f7dc2cc6cf434dabbf2755fae4e69
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1, y: -3}
+  - name: Meteors_32x32_Frame_4
+    originalName: 
+    pivot: {x: 0.5263158, y: -0.33333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 61
+      width: 19
+      height: 21
+    spriteID: ce8a28c764ad6ae40afddd03fe6032c0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: -2, y: 54}
+  - name: Meteors_32x32_Frame_5
+    originalName: 
+    pivot: {x: 0.55, y: -0.33333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 63
+      y: 4
+      width: 20
+      height: 21
+    spriteID: e7a374a91f0d00440ab2b8d6840e9614
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 58, y: -3}
+  - name: Meteors_32x32_Frame_6
+    originalName: 
+    pivot: {x: 0.6, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 111
+      y: 74
+      width: 5
+      height: 3
+    spriteID: 0f71c7df8f8b8a544acaab49c9b23e02
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 111, y: 74}
+  - name: Meteors_32x32_Frame_7
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 58
+      y: 109
+      width: 16
+      height: 6
+    spriteID: 9f6821b3789f26343bfaa05eaf839f9c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 58, y: 109}
+  - name: Meteors_32x32_Frame_8
+    originalName: 
+    pivot: {x: 0.54545456, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 69
+      y: 90
+      width: 22
+      height: 10
+    spriteID: 6226fab98617afe4aa0e7c61d5c0c093
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 69, y: 90}
+  - name: Meteors_32x32_Frame_9
+    originalName: 
+    pivot: {x: 0.56, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 90
+      width: 25
+      height: 11
+    spriteID: 82dbad3a79b637447b1cd4f4c6c51ace
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 90}
+  - name: Meteors_32x32_Frame_10
+    originalName: 
+    pivot: {x: 0.5416667, y: -0.1}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 37
+      y: 90
+      width: 24
+      height: 10
+    spriteID: 53adc2e91ab420a4eb782dd23b118a1a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 37, y: 90}
+  - name: Meteors_32x32_Frame_11
+    originalName: 
+    pivot: {x: 0.47368422, y: -0.3888889}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 57
+      y: 61
+      width: 19
+      height: 18
+    spriteID: 6dbf120ba2d05d045b1b0868547ab87c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 50, y: 54}
+  - name: Meteors_32x32_Frame_12
+    originalName: 
+    pivot: {x: 0.5263158, y: -0.35}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 32
+      y: 33
+      width: 19
+      height: 20
+    spriteID: 3a34b3ce2804409478502322e7144aee
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 26, y: 26}
+  - name: Meteors_32x32_Frame_13
+    originalName: 
+    pivot: {x: 0.55, y: -0.33333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 91
+      y: 4
+      width: 20
+      height: 21
+    spriteID: 4dad0e8fc6fa132488a367b9dc79f920
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 86, y: -3}
+  - name: Meteors_32x32_Frame_14
+    originalName: 
+    pivot: {x: 0.55, y: -0.36842105}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 59
+      y: 33
+      width: 20
+      height: 19
+    spriteID: f72367c5b8fd00642946e6b1cf561b45
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 54, y: 26}
+  - name: Meteors_32x32_Frame_15
+    originalName: 
+    pivot: {x: 0.5, y: -0.35}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 31
+      y: 61
+      width: 18
+      height: 20
+    spriteID: ed60c20554744cb489b2baed307a46fc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 24, y: 54}
+  - name: Meteors_32x32_Frame_16
+    originalName: 
+    pivot: {x: 0.5263158, y: -0.4117647}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 84
+      y: 61
+      width: 19
+      height: 17
+    spriteID: 6d132111442c03a4abd622c09f257d41
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 78, y: 54}
+  - name: Meteors_32x32_Frame_17
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 114
+      y: 33
+      width: 6
+      height: 2
+    spriteID: fd4531573c5343e4b8bfa9f0246f3f41
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 114, y: 33}
+  - name: Meteors_32x32_Frame_18
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 111
+      y: 61
+      width: 12
+      height: 5
+    spriteID: b6ecf0a7b6a99b74eb46823862aadc53
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 111, y: 61}
+  - name: Meteors_32x32_Frame_19
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 99
+      y: 90
+      width: 20
+      height: 9
+    spriteID: 386334eadc12e6b4eae8eb71d17bc327
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 99, y: 90}
+  - name: Meteors_32x32_Frame_20
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 109
+      width: 20
+      height: 9
+    spriteID: 35551aafb1a218948b1f418237124880
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 109}
+  - name: Meteors_32x32_Frame_21
+    originalName: 
+    pivot: {x: 0.5, y: -0.11111111}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 32
+      y: 109
+      width: 18
+      height: 9
+    spriteID: 5334d9f00d371624ab70807db488d651
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 32, y: 109}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: 2109061550
+    name: Meteors_32x32
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Meteors_32x32_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      spriteId: 8a3976bc621f0f141a975e6f3847f93d
+    - name: Meteors_32x32_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      spriteId: ce71061e5c7c30f4c979ba896187a455
+    - name: Meteors_32x32_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      spriteId: ef2ad21733eda7b4e95bdc39040f14a0
+    - name: Meteors_32x32_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      spriteId: a00f7dc2cc6cf434dabbf2755fae4e69
+    - name: Meteors_32x32_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      spriteId: ce8a28c764ad6ae40afddd03fe6032c0
+    - name: Meteors_32x32_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      spriteId: e7a374a91f0d00440ab2b8d6840e9614
+    - name: Meteors_32x32_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 13
+        y: 0
+        width: 5
+        height: 3
+      spriteId: 0f71c7df8f8b8a544acaab49c9b23e02
+    - name: Meteors_32x32_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 8
+        y: 0
+        width: 16
+        height: 6
+      spriteId: 9f6821b3789f26343bfaa05eaf839f9c
+    - name: Meteors_32x32_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 4
+        y: 0
+        width: 22
+        height: 10
+      spriteId: 6226fab98617afe4aa0e7c61d5c0c093
+    - name: Meteors_32x32_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 2
+        y: 0
+        width: 25
+        height: 11
+      spriteId: 82dbad3a79b637447b1cd4f4c6c51ace
+    - name: Meteors_32x32_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 3
+        y: 1
+        width: 24
+        height: 10
+      spriteId: 53adc2e91ab420a4eb782dd23b118a1a
+    - name: Meteors_32x32_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      spriteId: 6dbf120ba2d05d045b1b0868547ab87c
+    - name: Meteors_32x32_Frame_12
+      frameIndex: 12
+      cellRect:
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      spriteId: 3a34b3ce2804409478502322e7144aee
+    - name: Meteors_32x32_Frame_13
+      frameIndex: 13
+      cellRect:
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      spriteId: 4dad0e8fc6fa132488a367b9dc79f920
+    - name: Meteors_32x32_Frame_14
+      frameIndex: 14
+      cellRect:
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      spriteId: f72367c5b8fd00642946e6b1cf561b45
+    - name: Meteors_32x32_Frame_15
+      frameIndex: 15
+      cellRect:
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      spriteId: ed60c20554744cb489b2baed307a46fc
+    - name: Meteors_32x32_Frame_16
+      frameIndex: 16
+      cellRect:
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      spriteId: 6d132111442c03a4abd622c09f257d41
+    - name: Meteors_32x32_Frame_17
+      frameIndex: 17
+      cellRect:
+        x: 13
+        y: 0
+        width: 6
+        height: 2
+      spriteId: fd4531573c5343e4b8bfa9f0246f3f41
+    - name: Meteors_32x32_Frame_18
+      frameIndex: 18
+      cellRect:
+        x: 10
+        y: 0
+        width: 12
+        height: 5
+      spriteId: b6ecf0a7b6a99b74eb46823862aadc53
+    - name: Meteors_32x32_Frame_19
+      frameIndex: 19
+      cellRect:
+        x: 6
+        y: 0
+        width: 20
+        height: 9
+      spriteId: 386334eadc12e6b4eae8eb71d17bc327
+    - name: Meteors_32x32_Frame_20
+      frameIndex: 20
+      cellRect:
+        x: 6
+        y: 0
+        width: 20
+        height: 9
+      spriteId: 35551aafb1a218948b1f418237124880
+    - name: Meteors_32x32_Frame_21
+      frameIndex: 21
+      cellRect:
+        x: 7
+        y: 1
+        width: 18
+        height: 9
+      spriteId: 5334d9f00d371624ab70807db488d651
+    linkedCells: []
+    parentIndex: -1
+  platformSettings: []
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 32, y: 32}

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 891877573301b3d4dbfa905628178090, type: 3}
   m_Name: FireBall
   m_EditorClassIdentifier: 
-  skillName: FireBall
+  skillName: "C\u1EA7u L\u1EEDa"
   useAnimatorWithWeapon: 0
   skillKey: 122
   skillType: 0
@@ -26,3 +26,7 @@ MonoBehaviour:
   effectOffsetDown: {x: 0, y: -0.14}
   effectOffsetLeft: {x: -0.19, y: -0.22}
   effectOffsetRight: {x: 0.19, y: -0.22}
+  up: -180
+  down: 0
+  right: 90
+  left: -90

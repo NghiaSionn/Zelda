@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CombatManager : MonoBehaviour
@@ -51,7 +52,9 @@ public class CombatManager : MonoBehaviour
     {
         yield return new WaitForSeconds(0.2f);
         skill.ActivateSkill(gameObject);
-        yield return null;
+        yield return new WaitForSeconds(5f);
+        //skill.DisableSkill(gameObject);
+        
     }
 
     IEnumerator StartSpellCast(Skill skill)

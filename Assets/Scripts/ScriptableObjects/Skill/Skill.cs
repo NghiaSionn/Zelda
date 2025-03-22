@@ -42,6 +42,13 @@ public class Skill : ScriptableObject
     public Vector2 effectOffsetRight = new Vector2(1.2f, 0f);
 
 
+    [Header("Skill - Tùy chỉnh vị trí theo hướng")]
+    public float up = -180f;
+    public float down = 0f;
+    public float right = 90f;
+    public float left = -90f;
+
+
     public void ActivateSkill(GameObject user)
     {
         skillAnim = skillPrefab.GetComponent<Animator>();
@@ -56,12 +63,20 @@ public class Skill : ScriptableObject
 
         // Xoay skill theo hướng bắn
         float angle = 0f;
-        if (direction == Vector2.up) angle = -180f;
-        else if (direction == Vector2.down) angle = 0f;
-        else if (direction == Vector2.left) angle = -90f;
-        else if (direction == Vector2.right) angle = 90f;
+        if (direction == Vector2.up) angle = up;
+        else if (direction == Vector2.down) angle = down;
+        else if (direction == Vector2.left) angle = left;
+        else if (direction == Vector2.right) angle = right;
 
         projectile.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+    }
+
+    public void DisableSkill(GameObject skill)
+    {
+        if(skill != null)
+        {
+            skill.gameObject.SetActive(false);
+        }
     }
 
     public Vector2 GetEffectOffset(Vector2 direction)

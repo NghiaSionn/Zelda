@@ -16,11 +16,14 @@ MonoBehaviour:
   useAnimatorWithWeapon: 0
   skillKey: 122
   skillType: 0
+  skillForm: 1
   cooldown: 5
   manaCost: 25
+  duration: 1
   khoangCach: 0.5
   skillPrefab: {fileID: 4540065265425789162, guid: e590d1f137ac41148808f122339d4e8e, type: 3}
   chargingEffectPrefab: {fileID: 5987979031781958406, guid: 11f3e400e41f99640acbe31cb68ee2e9, type: 3}
+  impactEffectPrefab: {fileID: 0}
   soundEffect: {fileID: 0}
   effectOffsetUp: {x: 0, y: 0.5}
   effectOffsetDown: {x: 0, y: -0.14}

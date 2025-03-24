@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class CombatManager : MonoBehaviour
@@ -15,8 +14,7 @@ public class CombatManager : MonoBehaviour
     public Transform skillEffectPoint;
 
     private Animator animator;
-    private GameObject currentChargingEffect; 
-    private Skill currentSkill; 
+    private GameObject currentChargingEffect;
 
     private void Start()
     {
@@ -28,7 +26,6 @@ public class CombatManager : MonoBehaviour
         for (int i = 0; i < skillManager.skills.Length; i++)
         {
             Skill skill = skillManager.skills[i];
-
 
             if (Input.GetKeyDown(skill.skillKey))
             {
@@ -44,16 +41,14 @@ public class CombatManager : MonoBehaviour
                         StartCoroutine(StartSpellCast(skill));
                     }
                 }
-            }           
+            }
         }
     }
 
     IEnumerator ActivateSkillWithDelay(Skill skill)
     {
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.2f); // Chờ animation "attack2" hoàn thành
         skill.ActivateSkill(gameObject);
-        yield return new WaitForSeconds(5f);
-        //skill.DisableSkill(gameObject);
         
     }
 
@@ -72,7 +67,6 @@ public class CombatManager : MonoBehaviour
         animator.Play("Idle");
     }
 
-
     void StartChargingEffect(Skill skill)
     {
         if (skill.chargingEffectPrefab != null && currentChargingEffect == null)
@@ -90,8 +84,6 @@ public class CombatManager : MonoBehaviour
             currentChargingEffect = Instantiate(skill.chargingEffectPrefab, skillEffectPoint.position, Quaternion.identity, skillEffectPoint);
         }
     }
-
-
 
     void StopChargingEffect()
     {

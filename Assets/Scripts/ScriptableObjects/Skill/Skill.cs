@@ -15,6 +15,10 @@ public class Skill : ScriptableObject
     [Header("Thể loại kỹ năng")]
     public SkillType skillType;
 
+    [Header("Dạng kỹ năng")]
+    public SkillForm skillForm;
+
+
     [Header("Thời gian hồi")]
     public float cooldown;
 
@@ -94,5 +98,13 @@ public enum SkillType
 {
     Attack,
     Defense,
+    Support
+}
+
+public enum SkillForm
+{
+    Another,
+    StraightLine,
+    Point,
     Support
 }

@@ -118,11 +118,26 @@ public class StaminaWheel : MonoBehaviour
         }
     }
 
-    public bool UseMana(int manaCost)
+    // Kiểm tra xem mana có đủ để bắt đầu vận chiêu không
+    public bool CanStartSkill(float manaCost)
     {
         if (mana >= manaCost)
         {
-            mana -= manaCost;
+            return true;
+        }
+        else
+        {
+            Debug.Log("Không đủ mana để bắt đầu vận chiêu!");
+            return false;
+        }
+    }
+
+    // Trừ mana dần dần
+    public bool ConsumeMana(float manaAmount)
+    {
+        if (mana >= manaAmount)
+        {
+            mana -= manaAmount;
             UpdateManaUI();
             ShowUI();
             return true;
@@ -150,12 +165,10 @@ public class StaminaWheel : MonoBehaviour
 
     private void ShowUI()
     {
-        // Hiển thị cả hai thanh Stamina và Mana
         staminaWheel.gameObject.SetActive(true);
         usageWheel.gameObject.SetActive(true);
         manaSlider.gameObject.SetActive(true);
 
-        // Nếu có coroutine ẩn, dừng lại để giữ UI hiển thị
         if (hideCoroutine != null)
         {
             StopCoroutine(hideCoroutine);
@@ -167,7 +180,6 @@ public class StaminaWheel : MonoBehaviour
     {
         yield return new WaitForSeconds(hideDelay);
 
-        // Ẩn cả hai thanh Stamina và Mana
         staminaWheel.gameObject.SetActive(false);
         usageWheel.gameObject.SetActive(false);
         manaSlider.gameObject.SetActive(false);

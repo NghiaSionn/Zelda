@@ -21,11 +21,14 @@ public class Skill : ScriptableObject
     [Header("Thời gian hồi")]
     public float cooldown;
 
+    [Header("Thời gian vận chiêu")]
+    public float castTime = 2f;
+
     [Header("Năng lượng")]
     public int manaCost;
 
     [Header("Thời gian tồn tại của kỹ năng")]
-    public float duration = 5f; // Thời gian tồn tại tối đa của skillPrefab
+    public float duration = 5f;
 
     [Header("Khoảng cách (dùng cho StraightLine)")]
     public float khoangCach = 1f;
@@ -37,20 +40,20 @@ public class Skill : ScriptableObject
     public GameObject chargingEffectPrefab;
 
     [Header("Hiệu ứng va chạm (dùng EffectPool)")]
-    public GameObject impactEffectPrefab; // Hiệu ứng khi kỹ năng va chạm (nếu có)
+    public GameObject impactEffectPrefab;
 
     private Animator skillAnim;
 
-    [Header("Âm Thanh")]
+    [Header("Âm Thanh gồng chiêu")]
     public AudioClip soundEffect;
 
-    [Header("Hiệu ứng vận chiêu - Tùy chỉnh vị trí theo hướng (dùng cho StraightLine)")]
+    [Header("Hiệu ứng vận chiêu - Tùy chỉnh vị trí theo hướng")]
     public Vector2 effectOffsetUp = new Vector2(0f, 1.2f);
     public Vector2 effectOffsetDown = new Vector2(0f, -1f);
     public Vector2 effectOffsetLeft = new Vector2(-1.2f, 0f);
     public Vector2 effectOffsetRight = new Vector2(1.2f, 0f);
 
-    [Header("Skill - Tùy chỉnh góc xoay theo hướng (dùng cho StraightLine)")]
+    [Header("Skill - Tùy chỉnh góc xoay theo hướng")]
     public float up = -180f;
     public float down = 0f;
     public float right = 90f;
@@ -62,7 +65,6 @@ public class Skill : ScriptableObject
         Vector2 direction = Vector2.zero;
         float angle = 0f;
 
-        // Xử lý vị trí và hướng dựa trên SkillForm
         switch (skillForm)
         {
             case SkillForm.StraightLine:
@@ -75,13 +77,14 @@ public class Skill : ScriptableObject
                 else if (direction == Vector2.down) angle = down;
                 else if (direction == Vector2.left) angle = left;
                 else if (direction == Vector2.right) angle = right;
+                GetEffectOffset(direction);
                 break;
 
             case SkillForm.Point:
                 // Lấy vị trí con chuột trên màn hình
                 Vector3 mousePosition = Input.mousePosition;
                 spawnPosition = Camera.main.ScreenToWorldPoint(mousePosition);
-                spawnPosition.z = 0f; // Đảm bảo z = 0 trong 2D
+                spawnPosition.z = 0f; 
 
                 // Tính hướng từ nhân vật đến vị trí con chuột
                 direction = (spawnPosition - user.transform.position).normalized;
@@ -90,8 +93,7 @@ public class Skill : ScriptableObject
                 else if (direction == Vector2.left) angle = left;
                 else if (direction == Vector2.right) angle = right;
 
-                // Xoay skill theo hướng con chuột
-                //angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+                GetEffectOffset(direction);
                 break;
 
             case SkillForm.Support:
@@ -133,11 +135,6 @@ public class Skill : ScriptableObject
             projectile.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
 
-        // Phát âm thanh (nếu có)
-        if (soundEffect != null)
-        {
-            AudioSource.PlayClipAtPoint(soundEffect, user.transform.position);
-        }
     }
 
     public void DisableSkill(GameObject skill)

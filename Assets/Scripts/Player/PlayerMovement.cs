@@ -68,6 +68,9 @@ public class PlayerMovement : MonoBehaviour
     public bool canRun = true;
     private bool isHurt = false;
 
+    // Biến để theo dõi trạng thái vận chiêu
+    private bool isCasting = false;
+
     void Awake()
     {
         animator = GetComponent<Animator>();
@@ -75,13 +78,16 @@ public class PlayerMovement : MonoBehaviour
         currentState = PlayerState.walk;
         transform.position = startingPosition.initialValue;
         UpdateExpBar();
-        
     }
 
     void Update()
     {
-        if (currentState == PlayerState.interact)
+        // Nếu đang vận chiêu, không cho phép di chuyển
+        if (isCasting || currentState == PlayerState.interact)
+        {
+            myRigidbody.velocity = Vector2.zero; // Ngăn di chuyển
             return;
+        }
 
         change = Vector3.zero;
         change.x = Input.GetAxisRaw("Horizontal");
@@ -94,9 +100,10 @@ public class PlayerMovement : MonoBehaviour
             lastMoveDirection = change.normalized;
         }
 
-        isRunning = Input.GetKey(KeyCode.LeftShift);
+        isRunning = Input.GetKey(KeyCode.LeftShift) && canRun;
         dustEffect.SetActive(isRunning);
 
+        // Chỉ cập nhật vận tốc nếu không đang vận chiêu
         float currentSpeed = isRunning ? speed * runSpeedMultiplier : speed;
         myRigidbody.velocity = change * currentSpeed;
 
@@ -129,8 +136,6 @@ public class PlayerMovement : MonoBehaviour
         {
             dashCooldownTimer -= Time.deltaTime;
         }
-
-        
     }
 
     void UpdateAnimator(Vector2 movement, bool isRunning)
@@ -231,9 +236,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void UpdateHealth(float healthAmount)
     {
-        //Cập nhật giá trị RuntimeValue
         currentHealth.RuntimeValue = Mathf.Clamp(currentHealth.RuntimeValue + healthAmount, 0, maxHealth.RuntimeValue);
-
         playerHealthSignal?.Raise();
 
         if (currentHealth.RuntimeValue <= 0)
@@ -295,10 +298,9 @@ public class PlayerMovement : MonoBehaviour
         isHurt = false;
     }
 
-
     private IEnumerator Hurt()
     {
-        animator.SetBool("hurt",true);
+        animator.SetBool("hurt", true);
         yield return new WaitForSeconds(0.5f);
         animator.SetBool("hurt", false);
         yield return null;
@@ -312,7 +314,6 @@ public class PlayerMovement : MonoBehaviour
 
     public Vector2 GetFacingDirection()
     {
-
         return new Vector2(animator.GetFloat("moveX"), animator.GetFloat("moveY")).normalized;
     }
 
@@ -321,4 +322,9 @@ public class PlayerMovement : MonoBehaviour
         return currentHealth.RuntimeValue >= maxHealth.RuntimeValue;
     }
 
+    // Hàm để CombatManager cập nhật trạng thái vận chiêu
+    public void SetCasting(bool casting)
+    {
+        isCasting = casting;
+    }
 }

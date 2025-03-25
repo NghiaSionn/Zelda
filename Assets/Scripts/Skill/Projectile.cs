@@ -12,8 +12,11 @@ public class Projectile : MonoBehaviour
     private Vector2 direction;
     private Animator animator;
     private bool shouldMove = true; // Kiểm tra xem projectile có cần di chuyển không
-    private GameObject impactEffectPrefab; // Hiệu ứng va chạm
-    private float duration; // Thời gian tồn tại tối đa
+    private GameObject impactEffectPrefab; 
+    private float duration; 
+
+    public AudioClip explode;
+    private AudioSource audioSource;
 
     private CinemachineImpulseSource impulseSource;
 
@@ -46,6 +49,7 @@ public class Projectile : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         impulseSource = GetComponent<CinemachineImpulseSource>();
+        audioSource = GetComponentInChildren<AudioSource>();
     }
 
     void Start()
@@ -56,7 +60,6 @@ public class Projectile : MonoBehaviour
 
     void Update()
     {
-        // Chỉ di chuyển nếu shouldMove là true
         if (shouldMove)
         {
             rb.velocity = direction * speed;
@@ -88,30 +91,30 @@ public class Projectile : MonoBehaviour
     {
         animator.Play("Target");
 
-        // Tạo hiệu ứng va chạm (nếu có)
+        
         if (impactEffectPrefab != null)
         {
             GameObject effect = EffectPool.Instance.GetEffect(impactEffectPrefab, null);
             effect.transform.position = transform.position;
 
-            // Nếu effect có animation, phát animation
+            
             Animator effectAnim = effect.GetComponent<Animator>();
             if (effectAnim != null)
             {
-                effectAnim.Play("idle"); // Thay "idle" bằng tên state của animation
+                effectAnim.Play("idle"); 
             }
 
-            // Trả effect về pool sau khi animation kết thúc
+            
             StartCoroutine(ReturnEffectAfterDelay(effect, impactEffectPrefab, effectAnim));
         }
 
         yield return new WaitForSeconds(0.5f);
-        gameObject.SetActive(false); // Ẩn kỹ năng sau khi va chạm
+        gameObject.SetActive(false); 
     }
 
     private IEnumerator ReturnEffectAfterDelay(GameObject effect, GameObject effectPrefab, Animator effectAnim)
     {
-        // Nếu effect có Animator, chờ animation hoàn thành
+        
         if (effectAnim != null)
         {
             AnimatorStateInfo stateInfo = effectAnim.GetCurrentAnimatorStateInfo(0);
@@ -120,7 +123,7 @@ public class Projectile : MonoBehaviour
         }
         else
         {
-            yield return new WaitForSeconds(1f); // Thời gian mặc định nếu không có Animator
+            yield return new WaitForSeconds(1f); 
         }
 
         // Trả effect về pool
@@ -136,5 +139,14 @@ public class Projectile : MonoBehaviour
     public void CameraShake()
     {
         CameraShakeManager.instance.CameraShake(impulseSource);
+    }
+
+    public void SFX()
+    {
+        if (audioSource != null && explode != null)
+        {
+            audioSource.clip = explode;
+            audioSource.Play();
+        }
     }
 }

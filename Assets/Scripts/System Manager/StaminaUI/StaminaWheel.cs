@@ -30,7 +30,6 @@ public class StaminaWheel : MonoBehaviour
 
     void Awake()
     {
-        // Thiết lập giá trị ban đầu
         stamina = maxStamina;
         mana = maxMana;
 
@@ -49,10 +48,9 @@ public class StaminaWheel : MonoBehaviour
         isRunning = player.GetComponent<PlayerMovement>().isRunning;
         isDashing = player.GetComponent<PlayerMovement>().isDashing;
 
-        // Xử lý logic Dash
         if (isDashing && !staminaDepleted && !hasDashed)
         {
-            if (stamina >= 10) // Lượng stamina cần để thực hiện dash
+            if (stamina >= 10)
             {
                 stamina -= 10;
                 hasDashed = true;
@@ -63,7 +61,6 @@ public class StaminaWheel : MonoBehaviour
             hasDashed = false;
         }
 
-        // Xử lý logic Run
         if (isRunning && !staminaDepleted)
         {
             if (stamina > 0)
@@ -72,7 +69,6 @@ public class StaminaWheel : MonoBehaviour
             }
         }
 
-        // Xử lý logic Stamina
         if (stamina <= 0)
         {
             stamina = 0;
@@ -81,13 +77,11 @@ public class StaminaWheel : MonoBehaviour
             player.GetComponent<PlayerMovement>().canRun = false;
         }
 
-        // Phục hồi stamina
         if (stamina < maxStamina)
         {
             stamina += 15 * Time.deltaTime;
         }
 
-        // Kiểm tra nếu Stamina đã đầy
         if (stamina >= maxStamina && staminaDepleted)
         {
             staminaDepleted = false;
@@ -95,30 +89,26 @@ public class StaminaWheel : MonoBehaviour
             player.GetComponent<PlayerMovement>().canDash = true;
         }
 
-        // Cập nhật UI Stamina
         staminaWheel.value = stamina / maxStamina;
         usageWheel.value = stamina / maxStamina + 0.05f;
 
-        // Xử lý logic Mana
         if (mana < maxMana)
         {
             mana += 1 * Time.deltaTime;
             UpdateManaUI();
         }
 
-        // Hiển thị UI khi sử dụng năng lượng
         if (isRunning || isDashing || mana < maxMana)
         {
             ShowUI();
         }
-        // Ẩn UI nếu cả Stamina và Mana đầy
+
         if (stamina >= maxStamina && mana >= maxMana && hideCoroutine == null)
         {
             hideCoroutine = StartCoroutine(HideUIAfterDelay());
         }
     }
 
-    // Kiểm tra xem mana có đủ để bắt đầu vận chiêu không
     public bool CanStartSkill(float manaCost)
     {
         if (mana >= manaCost)
@@ -132,7 +122,6 @@ public class StaminaWheel : MonoBehaviour
         }
     }
 
-    // Trừ mana dần dần
     public bool ConsumeMana(float manaAmount)
     {
         if (mana >= manaAmount)
@@ -153,7 +142,6 @@ public class StaminaWheel : MonoBehaviour
     {
         mana += manaAmount;
         mana = Mathf.Clamp(mana, 0f, maxMana);
-
         UpdateManaUI();
         ShowUI();
     }

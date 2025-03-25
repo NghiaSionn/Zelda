@@ -42,6 +42,10 @@ public class Skill : ScriptableObject
     [Header("Hiệu ứng va chạm (dùng EffectPool)")]
     public GameObject impactEffectPrefab;
 
+    [Header("Scale của kỹ năng")]
+    public float minScale = 0.5f; // Scale tối thiểu
+    public float maxScale = 1f;   // Scale tối đa
+
     private Animator skillAnim;
 
     [Header("Âm Thanh gồng chiêu")]
@@ -59,7 +63,8 @@ public class Skill : ScriptableObject
     public float right = 90f;
     public float left = -90f;
 
-    public void ActivateSkill(GameObject user)
+    // Thêm tham số scale để điều chỉnh kích thước kỹ năng
+    public void ActivateSkill(GameObject user, float scale = 1f)
     {
         Vector3 spawnPosition = Vector3.zero;
         Vector2 direction = Vector2.zero;
@@ -68,11 +73,9 @@ public class Skill : ScriptableObject
         switch (skillForm)
         {
             case SkillForm.StraightLine:
-                // Lấy hướng từ PlayerMovement
                 direction = user.GetComponent<PlayerMovement>().GetFacingDirection();
                 spawnPosition = user.transform.position + (Vector3)(direction * khoangCach);
 
-                // Xoay skill theo hướng bắn
                 if (direction == Vector2.up) angle = up;
                 else if (direction == Vector2.down) angle = down;
                 else if (direction == Vector2.left) angle = left;
@@ -81,12 +84,10 @@ public class Skill : ScriptableObject
                 break;
 
             case SkillForm.Point:
-                // Lấy vị trí con chuột trên màn hình
                 Vector3 mousePosition = Input.mousePosition;
                 spawnPosition = Camera.main.ScreenToWorldPoint(mousePosition);
-                spawnPosition.z = 0f; 
+                spawnPosition.z = 0f;
 
-                // Tính hướng từ nhân vật đến vị trí con chuột
                 direction = (spawnPosition - user.transform.position).normalized;
                 if (direction == Vector2.up) angle = up;
                 else if (direction == Vector2.down) angle = down;
@@ -97,33 +98,31 @@ public class Skill : ScriptableObject
                 break;
 
             case SkillForm.Support:
-                // Đặt vị trí kỹ năng ngay tại nhân vật
                 spawnPosition = user.transform.position;
-                direction = Vector2.zero; // Không cần hướng
-                angle = 0f; // Không cần xoay
+                direction = Vector2.zero;
+                angle = 0f;
                 break;
 
             case SkillForm.Another:
-                // Để trống hoặc thêm logic cho dạng kỹ năng khác nếu cần
                 spawnPosition = user.transform.position;
                 direction = Vector2.zero;
                 angle = 0f;
                 break;
         }
 
-        // Tạo kỹ năng
         if (skillPrefab != null)
         {
             skillAnim = skillPrefab.GetComponent<Animator>();
             GameObject projectile = Instantiate(skillPrefab, spawnPosition, Quaternion.identity);
 
-            // Gán hướng cho projectile (nếu cần)
+            // Áp dụng scale cho kỹ năng
+            projectile.transform.localScale = Vector3.one * scale;
+
             if (skillForm == SkillForm.StraightLine || skillForm == SkillForm.Point)
             {
                 projectile.GetComponent<Projectile>().SetDirection(direction);
             }
 
-            // Gán impactEffectPrefab và duration cho projectile (nếu có)
             Projectile projectileScript = projectile.GetComponent<Projectile>();
             if (impactEffectPrefab != null)
             {
@@ -131,10 +130,8 @@ public class Skill : ScriptableObject
             }
             projectileScript.SetDuration(duration);
 
-            // Xoay skill
             projectile.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
-
     }
 
     public void DisableSkill(GameObject skill)

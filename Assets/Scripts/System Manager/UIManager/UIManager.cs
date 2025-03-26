@@ -9,13 +9,14 @@ public class UIManager : MonoBehaviour
     public GameObject shopPanel;
     public GameObject profilePanel;
     public GameObject skillPanel;
+    public GameObject mapPanel;
 
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // Để UIManager tồn tại giữa các scene
+            DontDestroyOnLoad(gameObject); 
         }
         else
         {
@@ -66,6 +67,14 @@ public class UIManager : MonoBehaviour
             if (!pausePanel.activeSelf)
             {
                 ToggleSkillPanel();
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            if (!pausePanel.activeSelf)
+            {
+                ToggleMapPanel();
             }
         }
 
@@ -126,6 +135,7 @@ public class UIManager : MonoBehaviour
         shopPanel.SetActive(false);
         skillPanel.SetActive(false);
         profilePanel.SetActive(false);
+        mapPanel.SetActive(false);
     }
 
     public void ToggleProfilePanel()
@@ -151,6 +161,19 @@ public class UIManager : MonoBehaviour
         {
             CloseAllPanels();
             skillPanel.SetActive(true);
+        }
+    }
+
+    public void ToggleMapPanel()
+    {
+        if (mapPanel.activeSelf)
+        {
+            CloseAllPanels();
+        }
+        else
+        {
+            CloseAllPanels();
+            mapPanel.SetActive(true);
         }
     }
 

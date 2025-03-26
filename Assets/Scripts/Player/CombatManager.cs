@@ -123,11 +123,11 @@ public class CombatManager : MonoBehaviour
         animator.Play("End_Spell");
         chargingAudioSource.Stop();
 
-        if (manaConsumed >= manaCost) // Chỉ kích hoạt kỹ năng nếu trừ đủ mana
+        if (manaConsumed >= manaCost) 
         {
             // Tính scale dựa trên thời gian giữ phím
             float scale = Mathf.Lerp(skill.minScale, skill.maxScale, holdTime / skill.castTime);
-            scale = Mathf.Clamp(scale, skill.minScale, skill.maxScale); // Đảm bảo scale nằm trong khoảng minScale và maxScale
+            scale = Mathf.Clamp(scale, skill.minScale, skill.maxScale); 
 
             Debug.Log($"{skill.skillName} được kích hoạt với scale: {scale}");
             skill.ActivateSkill(gameObject, scale);
@@ -138,13 +138,13 @@ public class CombatManager : MonoBehaviour
             float scale = Mathf.Lerp(skill.minScale, skill.maxScale, holdTime / skill.castTime);
             scale = Mathf.Clamp(scale, skill.minScale, skill.maxScale);
             skill.ActivateSkill(gameObject, scale);
-            Debug.Log("Vận chiêu bị hủy do không đủ mana!");
+            ApplyCooldown(skill);
         }
+
 
         StopChargingEffect();
         yield return new WaitForSeconds(0.5f);
         animator.Play("Idle");
-
         playerMovement.SetCasting(false);
     }
 

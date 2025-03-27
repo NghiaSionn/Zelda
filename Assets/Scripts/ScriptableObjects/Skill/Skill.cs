@@ -94,6 +94,7 @@ public class Skill : ScriptableObject
                 else if (direction == Vector2.left) angle = left;
                 else if (direction == Vector2.right) angle = right;
 
+
                 GetEffectOffset(direction);
                 break;
 

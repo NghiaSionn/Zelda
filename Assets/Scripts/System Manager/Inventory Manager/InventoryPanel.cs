@@ -56,5 +56,12 @@ public class InventoryPanel : MonoBehaviour
     {
         isOpen = true;
         inventoryPanel.SetActive(true);
+
+        InventoryManager inventoryManager = FindObjectOfType<InventoryManager>();
+       
+        if (inventoryManager != null)
+        {
+            inventoryManager.UpdateInventoryUI();
+        }
     }
 }

@@ -18,7 +18,9 @@ public class StaminaWheel : MonoBehaviour
     public Slider manaSlider;
 
     private bool isRunning = false;
+    private bool isDashing = false;
     private bool staminaDepleted = false;
+    private bool hasDashed = false;
     private GameObject player;
 
     [Header("Cài đặt thời gian ẩn")]
@@ -28,7 +30,6 @@ public class StaminaWheel : MonoBehaviour
 
     void Awake()
     {
-        // Thiết lập giá trị ban đầu
         stamina = maxStamina;
         mana = maxMana;
 
@@ -44,67 +45,88 @@ public class StaminaWheel : MonoBehaviour
 
     void Update()
     {
-        
         isRunning = player.GetComponent<PlayerMovement>().isRunning;
+        isDashing = player.GetComponent<PlayerMovement>().isDashing;
 
-        // Xử lý logic Stamina
+        if (isDashing && !staminaDepleted && !hasDashed)
+        {
+            if (stamina >= 10)
+            {
+                stamina -= 10;
+                hasDashed = true;
+            }
+        }
+        else if (!isDashing)
+        {
+            hasDashed = false;
+        }
+
         if (isRunning && !staminaDepleted)
         {
             if (stamina > 0)
             {
                 stamina -= 20 * Time.deltaTime;
             }
-
-            if (stamina <= 0)
-            {
-                stamina = 0;
-                staminaDepleted = true; 
-                player.GetComponent<PlayerMovement>().canRun = false; 
-            }
         }
-        else
+
+        if (stamina <= 0)
         {
-            if (stamina < maxStamina)
-            {
-                stamina += 15 * Time.deltaTime; 
-            }
-
-            if (stamina >= maxStamina && staminaDepleted)
-            {
-                staminaDepleted = false; 
-                player.GetComponent<PlayerMovement>().canRun = true;
-            }
+            stamina = 0;
+            staminaDepleted = true;
+            player.GetComponent<PlayerMovement>().canDash = false;
+            player.GetComponent<PlayerMovement>().canRun = false;
         }
 
-        // Cập nhật UI Stamina
+        if (stamina < maxStamina)
+        {
+            stamina += 15 * Time.deltaTime;
+        }
+
+        if (stamina >= maxStamina && staminaDepleted)
+        {
+            staminaDepleted = false;
+            player.GetComponent<PlayerMovement>().canRun = true;
+            player.GetComponent<PlayerMovement>().canDash = true;
+        }
+
         staminaWheel.value = stamina / maxStamina;
         usageWheel.value = stamina / maxStamina + 0.05f;
 
-        // Xử lý logic Mana 
         if (mana < maxMana)
         {
-            mana += 1 * Time.deltaTime; 
+            mana += 1 * Time.deltaTime;
             UpdateManaUI();
         }
 
-        // Hiển thị cả hai thanh khi sử dụng năng lượng
-        if (isRunning || mana < maxMana)
+        if (isRunning || isDashing || mana < maxMana)
         {
             ShowUI();
         }
 
-        // Ẩn thanh nếu cả Stamina và Mana đầy
         if (stamina >= maxStamina && mana >= maxMana && hideCoroutine == null)
         {
             hideCoroutine = StartCoroutine(HideUIAfterDelay());
         }
     }
 
-    public bool UseMana(int manaCost)
+    public bool CanStartSkill(float manaCost)
     {
         if (mana >= manaCost)
         {
-            mana -= manaCost;
+            return true;
+        }
+        else
+        {
+            Debug.Log("Không đủ mana để bắt đầu vận chiêu!");
+            return false;
+        }
+    }
+
+    public bool ConsumeMana(float manaAmount)
+    {
+        if (mana >= manaAmount)
+        {
+            mana -= manaAmount;
             UpdateManaUI();
             ShowUI();
             return true;
@@ -120,7 +142,6 @@ public class StaminaWheel : MonoBehaviour
     {
         mana += manaAmount;
         mana = Mathf.Clamp(mana, 0f, maxMana);
-
         UpdateManaUI();
         ShowUI();
     }
@@ -147,7 +168,6 @@ public class StaminaWheel : MonoBehaviour
     {
         yield return new WaitForSeconds(hideDelay);
 
-        
         staminaWheel.gameObject.SetActive(false);
         usageWheel.gameObject.SetActive(false);
         manaSlider.gameObject.SetActive(false);

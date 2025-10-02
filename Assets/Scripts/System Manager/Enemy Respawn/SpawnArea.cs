@@ -29,6 +29,9 @@ public class SpawnArea : MonoBehaviour
     public void EnemyDied(GameObject enemy)
     {
         Enemy enemyScript = enemy.GetComponent<Enemy>();
+
+        Animator enemyAni = enemy.GetComponent<Animator>();
+
         Animals animalsScript = enemy.GetComponent<Animals>();
         Boss bossScript = enemy.GetComponent<Boss>();
 
@@ -50,6 +53,7 @@ public class SpawnArea : MonoBehaviour
             if (bossScript != null)
             {
                 bossScript.currentState = EnemyState.death;
+                bossScript.isDeath = true;
 
             }
 
@@ -85,6 +89,7 @@ public class SpawnArea : MonoBehaviour
         {
             bossScript.currentState = EnemyState.idle;
             bossScript.health = bossScript.maxHealth.initiaValue;
+            bossScript.isDeath = false;
         }
 
         enemy.SetActive(true); 

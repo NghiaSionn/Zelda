@@ -76,12 +76,15 @@ public class FishingMiniGame : MonoBehaviour
 
     private void Resize()
     {
-        Bounds b = hookSpriteRenderer.bounds;
-        float ySize = b.size.y;
-        Vector3 ls = hook.localScale;
-        float distance = Vector3.Distance(topPivot.position,bottomPivot.position);
-        ls.y = (distance / ySize * hookSize);
-        hook.localScale = ls;
+        if(hookSpriteRenderer != null)
+        {
+            Bounds b = hookSpriteRenderer.bounds;
+            float ySize = b.size.y;
+            Vector3 ls = hook.localScale;
+            float distance = Vector3.Distance(topPivot.position, bottomPivot.position);
+            ls.y = (distance / ySize * hookSize);
+            hook.localScale = ls;
+        }             
     }
 
     // Update is called once per frame

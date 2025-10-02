@@ -5,25 +5,18 @@ using UnityEngine.UI;
 public class WorldTimeWatcher : MonoBehaviour
 {
     [Header("Các đối tượng quản lý")]
-    [SerializeField] private WorldTime worldTime; 
-    [SerializeField] private Image weatherIcon; 
+    [SerializeField] private WorldTime worldTime;
+    [SerializeField] private GameObject weatherClock;
 
-    [Header("Icon thời tiết")]
-    [SerializeField] private Sprite sunnyIcon;
-    [SerializeField] private Sprite rainyIcon;
-    [SerializeField] private Sprite nightSunnyIcon;
-    [SerializeField] private Sprite nightRainyIcon;
-
+    public Animator animatorClock;
     private bool isRaining = false;
 
     private void Awake()
     {
         worldTime.WorldTimeChange += OnWorldTimeChange;
         worldTime.WeatherChange += OnWeatherChange;
-
-        GameObject weatherIconn = GameObject.Find("Weahter Icon");
-        weatherIcon = weatherIconn.GetComponent<Image>();
-
+        animatorClock = weatherClock.GetComponent<Animator>();  
+            
         UpdateWeatherIcon(GetCurrentTime());
     }
 
@@ -46,13 +39,30 @@ public class WorldTimeWatcher : MonoBehaviour
 
     private void UpdateWeatherIcon(TimeSpan currentTime)
     {
-        // Xác định thời gian ban ngày hoặc ban đêm
-        bool isNight = currentTime.Hours >= 18 || currentTime.Hours < 6;
+        if (isRaining)
+        {
+            animatorClock.Play("Rainning");
+        }
 
-        // Gán sprite phù hợp
-        weatherIcon.sprite = isRaining
-            ? (isNight ? nightRainyIcon : rainyIcon)
-            : (isNight ? nightSunnyIcon : sunnyIcon);
+        if (currentTime.Hours >= 4 && currentTime.Hours < 6 && !isRaining)
+        {
+            animatorClock.Play("Dawn");
+        }
+
+        else if (currentTime.Hours >= 6 && currentTime.Hours < 17 && !isRaining)
+        {
+            animatorClock.Play("Day");
+        }
+
+        else if (currentTime.Hours >= 17 && currentTime.Hours < 18 && !isRaining)
+        {
+            animatorClock.Play("Noon");
+        }
+
+        else if(!isRaining)
+        {
+            animatorClock.Play("Night");
+        }
     }
 
     private TimeSpan GetCurrentTime()

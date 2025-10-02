@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 891877573301b3d4dbfa905628178090, type: 3}
+  m_Name: Slash
+  m_EditorClassIdentifier: 
+  skillName: "B\xE1n Nguy\u1EC7t"
+  useAnimatorWithWeapon: 1
+  skillKey: 114
+  skillType: 0
+  skillForm: 1
+  cooldown: 5
+  manaCost: 10
+  khoangCach: 1
+  skillPrefab: {fileID: 913552188984040659, guid: 0211fdc3bcf6a94449d08aa014eee8da, type: 3}
+  chargingEffectPrefab: {fileID: 0}
+  impactEffectPrefab: {fileID: 0}
+  soundEffect: {fileID: 0}
+  effectOffsetUp: {x: 0, y: 1.2}
+  effectOffsetDown: {x: 0, y: -1}
+  effectOffsetLeft: {x: -1.2, y: 0}
+  effectOffsetRight: {x: 1.2, y: 0}
+  up: -90
+  down: 90
+  right: -180
+  left: 0

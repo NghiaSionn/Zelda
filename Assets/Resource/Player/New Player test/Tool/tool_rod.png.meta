@@ -1,0 +1,1284 @@
+fileFormatVersion: 2
+guid: 896d6171d522ffc488681268ad3f2c23
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 35
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: tool_rod_0
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 418
+        width: 30
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff27acb1e3ec4844d9c1ba2aeaae09d2
+      internalID: -2015799606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tool_rod_1
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 416
+        width: 26
+        height: 49
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cc7bcde11707724192db978c245edbd
+      internalID: -336083359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tool_rod_2
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 416
+        width: 32
+        height: 63
+      alignment: 9
+      pivot: {x: 0.35, y: 0.43}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41665a60c6423ec4ab72efe9a162a326
+      internalID: 2072392272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tool_rod_3
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 416
+        width: 39
+        height: 58
+      alignment: 9
+      pivot: {x: 0.63, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e275ed70aca880e4b8b28eafa9f177be
+      internalID: -1655405023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tool_rod_4
+      rect:
+        serializedVersion: 2
+        x: 566
+        y: 416
+        width: 28
+        height: 59
+      alignment: 9
+      pivot: {x: 0.38, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 805596e62d3890840812334be10af053
+      internalID: 1521332820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tool_rod_5
+      rect:
+        serializedVersion: 2
+        x: 694
+        y: 416
+        width: 56
+        height: 57
+      alignment: 9
+      pivot: {x: 0.19, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8374ed8c0ddee5459fbd2dc8ee669b7
+      internalID: -1795419274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tool_rod_6
+      rect:
+        serializedVersion: 2
+        x: 823
+        y: 416
+        width: 56
+        height: 52
+      alignment: 9
+      pivot: {x: 0.17, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66ffbd4bf5c64e94cb504dddf69c4a3e
+      internalID: 1956427874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tool_rod_7
+      rect:
+        serializedVersion: 2
+        x: 950
+        y: 416
+        width: 56
+        height: 54
+      alignment: 9
+      pivot: {x: 0.18, y: 0.47}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c5dae5ed6395744d84c74f39986ee74
+      internalID: 443834501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tool_rod_8
+      rect:
+        serializedVersion: 2
+        x: 1078
+        y: 416
+        width: 56
+        height: 54
+      alignment: 9
+      pivot: {x: 0.2, y: 0.47}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28b9116bebdd16f4ba5343c2b8da7ff3
+      internalID: 636162168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tool_rod_9
+      rect:
+        serializedVersion: 2
+        x: 1206
+        y: 416
+        width: 56
+        height: 56
+      alignment: 9
+      pivot: {x: 0.21, y: 0.46}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f5aecf9925e08949b1018597dfe88c6
+      internalID: -285947466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tool_rod_10
+      rect:
+        serializedVersion: 2
+        x: 1334
+        y: 416
+        width: 52
+        height: 62
+      alignment: 9
+      pivot: {x: 0.2, y: 0.43}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b8b17907545a744fa6bf68127deb044
+      internalID: 1941248731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tool_rod_11
+      rect:
+        serializedVersion: 2
+        x: 1450
+        y: 416
+        width: 36
+        height: 69
+      alignment: 9
+      pivot: {x: 0.62, y: 0.39}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a223e347d4b8cc4a95a6362eb1cb94e
+      internalID: -513288706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tool_rod_12
+      rect:
+        serializedVersion: 2
+        x: 1582
+        y: 416
+        width: 30
+        height: 65
+      alignment: 9
+      pivot: {x: 0.59, y: 0.41}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c982398915cc9d346987dda334db84e4
+      internalID: -268792192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tool_rod_13
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 290
+        width: 23
+        height: 50
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c228c4959022cbc40897d9c929f26168
+      internalID: 1638654703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tool_rod_14
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 290
+        width: 25
+        height: 50
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aac3fb0c9b6d5374397b978669e7da25
+      internalID: 1515458634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tool_rod_15
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 290
+        width: 62
+        height: 50
+      alignment: 9
+      pivot: {x: 0.73, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e333a6c0d89c124fadaf58f3fce4151
+      internalID: 1911177690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tool_rod_16
+      rect:
+        serializedVersion: 2
+        x: 437
+        y: 290
+        width: 66
+        height: 50
+      alignment: 9
+      pivot: {x: 0.14, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fac9f5e0769e9c6448a1e8a915f1ab37
+      internalID: -1326781023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tool_rod_17
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 290
+        width: 46
+        height: 50
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49e0c0eb167d6aa47b7d3bc23d6b6846
+      internalID: 1544947277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tool_rod_18
+      rect:
+        serializedVersion: 2
+        x: 641
+        y: 290
+        width: 73
+        height: 50
+      alignment: 9
+      pivot: {x: 0.8, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c68ef2f8d26bcc4e81fff2d9b869de6
+      internalID: -1366848798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tool_rod_19
+      rect:
+        serializedVersion: 2
+        x: 771
+        y: 290
+        width: 71
+        height: 50
+      alignment: 9
+      pivot: {x: 0.8, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dad5d869d6d06fa4eb4d12cece020c97
+      internalID: -466381938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tool_rod_20
+      rect:
+        serializedVersion: 2
+        x: 899
+        y: 290
+        width: 71
+        height: 50
+      alignment: 9
+      pivot: {x: 0.82, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 448ea482df31d0a43a6343855789d390
+      internalID: 250559403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tool_rod_21
+      rect:
+        serializedVersion: 2
+        x: 1027
+        y: 290
+        width: 71
+        height: 50
+      alignment: 9
+      pivot: {x: 0.8, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 133256dbe8210514e84521439cbb8207
+      internalID: 354927948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tool_rod_22
+      rect:
+        serializedVersion: 2
+        x: 1154
+        y: 290
+        width: 72
+        height: 50
+      alignment: 9
+      pivot: {x: 0.8, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce2d871207e571a45a7b71a5beaa75f5
+      internalID: 438216974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tool_rod_23
+      rect:
+        serializedVersion: 2
+        x: 1282
+        y: 290
+        width: 72
+        height: 50
+      alignment: 9
+      pivot: {x: 0.81, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec26981cf86ce614dbd38322932fd351
+      internalID: 591847809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tool_rod_24
+      rect:
+        serializedVersion: 2
+        x: 1422
+        y: 290
+        width: 73
+        height: 54
+      alignment: 9
+      pivot: {x: 0.64, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1ed8a6fe38077549bab26e5691de19c
+      internalID: -1241769262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tool_rod_25
+      rect:
+        serializedVersion: 2
+        x: 1580
+        y: 290
+        width: 50
+        height: 52
+      alignment: 9
+      pivot: {x: 0.35, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3106e7d310d502408ceb8dafa164ef1
+      internalID: -1334522059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tool_rod_26
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 162
+        width: 30
+        height: 50
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46065b4cb1906f9458b921966e88869c
+      internalID: -643764760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tool_rod_27
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 163
+        width: 24
+        height: 49
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a65bc9dd4f71a9b4ea70f32cad8ef50f
+      internalID: -122444886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tool_rod_28
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 163
+        width: 22
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe66f93d11c0dfb4fb9b6a010d5818b1
+      internalID: -945133471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tool_rod_29
+      rect:
+        serializedVersion: 2
+        x: 413
+        y: 163
+        width: 46
+        height: 54
+      alignment: 9
+      pivot: {x: 0.72, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79e8e7d418851f94eb3712f02224ff1a
+      internalID: 2093278542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tool_rod_30
+      rect:
+        serializedVersion: 2
+        x: 554
+        y: 163
+        width: 33
+        height: 59
+      alignment: 9
+      pivot: {x: 0.62, y: 0.4}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a298d0a10a426a640b43b0ad3f5ecc7a
+      internalID: -707986991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tool_rod_31
+      rect:
+        serializedVersion: 2
+        x: 693
+        y: 163
+        width: 41
+        height: 48
+      alignment: 9
+      pivot: {x: 0.25, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccaea005716a16c4d80ef15e8d5630a7
+      internalID: -994374398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tool_rod_32
+      rect:
+        serializedVersion: 2
+        x: 821
+        y: 163
+        width: 40
+        height: 48
+      alignment: 9
+      pivot: {x: 0.27, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6177d0afd37e56b4fad041aa4f0959bd
+      internalID: -1600993220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tool_rod_33
+      rect:
+        serializedVersion: 2
+        x: 949
+        y: 163
+        width: 40
+        height: 48
+      alignment: 9
+      pivot: {x: 0.27, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ead1cf981182086488884bac4a9af12d
+      internalID: 2036768467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tool_rod_34
+      rect:
+        serializedVersion: 2
+        x: 1077
+        y: 163
+        width: 40
+        height: 48
+      alignment: 9
+      pivot: {x: 0.25, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f6bd180308d4814f81d15825f9068b8
+      internalID: -1754610773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tool_rod_35
+      rect:
+        serializedVersion: 2
+        x: 1205
+        y: 163
+        width: 40
+        height: 48
+      alignment: 9
+      pivot: {x: 0.25, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3a6084a8ccd0c24bb52b53ebf0b134c
+      internalID: 1742808597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tool_rod_36
+      rect:
+        serializedVersion: 2
+        x: 1333
+        y: 163
+        width: 33
+        height: 50
+      alignment: 9
+      pivot: {x: 0.34, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 022a64c3ef6df2241b3f2b76eb2765e6
+      internalID: -1881026763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tool_rod_37
+      rect:
+        serializedVersion: 2
+        x: 1454
+        y: 163
+        width: 37
+        height: 55
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 954136795d8865242a9ab9840e7c39e8
+      internalID: -225020566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tool_rod_38
+      rect:
+        serializedVersion: 2
+        x: 1581
+        y: 163
+        width: 30
+        height: 54
+      alignment: 9
+      pivot: {x: 0.61, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 141dbc2f08fb22f48ae196371aecac7d
+      internalID: -860185364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tool_rod_39
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 34
+        width: 23
+        height: 50
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 530f8e0ef7c044d4a97619cb909f9248
+      internalID: -1007639179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tool_rod_40
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 34
+        width: 25
+        height: 50
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ab0458507bc048419fe77b4ff2defed
+      internalID: -245390961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tool_rod_41
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 34
+        width: 62
+        height: 50
+      alignment: 9
+      pivot: {x: 0.25, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d9da1a83a2b0564a898ab21ec4d7f9a
+      internalID: 619394010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tool_rod_42
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 34
+        width: 66
+        height: 50
+      alignment: 9
+      pivot: {x: 0.84, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5afcff9dfe3b5a542bf2cec8a85f8d22
+      internalID: 285469374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tool_rod_43
+      rect:
+        serializedVersion: 2
+        x: 557
+        y: 34
+        width: 46
+        height: 50
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acf11724a54d71a4cb6737a8e1984a7f
+      internalID: 28603050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tool_rod_44
+      rect:
+        serializedVersion: 2
+        x: 694
+        y: 34
+        width: 73
+        height: 50
+      alignment: 9
+      pivot: {x: 0.19, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 276625d29a11fc74b903f6c1a633048d
+      internalID: -1306405882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tool_rod_45
+      rect:
+        serializedVersion: 2
+        x: 822
+        y: 34
+        width: 71
+        height: 50
+      alignment: 9
+      pivot: {x: 0.2, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79b3af034d488a045b48c5e45961421e
+      internalID: -182217317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tool_rod_46
+      rect:
+        serializedVersion: 2
+        x: 950
+        y: 34
+        width: 71
+        height: 50
+      alignment: 9
+      pivot: {x: 0.21, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a062369ca7b2a5847a7e88634a5180dc
+      internalID: -520400105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tool_rod_47
+      rect:
+        serializedVersion: 2
+        x: 1078
+        y: 34
+        width: 71
+        height: 50
+      alignment: 9
+      pivot: {x: 0.22, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31289ae8de228c244a408c73f8157860
+      internalID: -471227279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tool_rod_48
+      rect:
+        serializedVersion: 2
+        x: 1206
+        y: 34
+        width: 72
+        height: 50
+      alignment: 9
+      pivot: {x: 0.19, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc28eb79c36497e469ba250572942c10
+      internalID: -208965415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tool_rod_49
+      rect:
+        serializedVersion: 2
+        x: 1334
+        y: 34
+        width: 72
+        height: 50
+      alignment: 9
+      pivot: {x: 0.2, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 026f63fc7b863b44d8d2f8b3153bee1e
+      internalID: 1110803135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tool_rod_50
+      rect:
+        serializedVersion: 2
+        x: 1449
+        y: 34
+        width: 73
+        height: 54
+      alignment: 9
+      pivot: {x: 0.34, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be5ff6223414a5e4c9f7cd44292eb505
+      internalID: -23782990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tool_rod_51
+      rect:
+        serializedVersion: 2
+        x: 1570
+        y: 34
+        width: 50
+        height: 52
+      alignment: 9
+      pivot: {x: 0.65, y: 0.53}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7abda49df864e7d4ba35711f925c7e10
+      internalID: 1793939114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      tool_rod_0: -2015799606
+      tool_rod_1: -336083359
+      tool_rod_10: 1941248731
+      tool_rod_11: -513288706
+      tool_rod_12: -268792192
+      tool_rod_13: 1638654703
+      tool_rod_14: 1515458634
+      tool_rod_15: 1911177690
+      tool_rod_16: -1326781023
+      tool_rod_17: 1544947277
+      tool_rod_18: -1366848798
+      tool_rod_19: -466381938
+      tool_rod_2: 2072392272
+      tool_rod_20: 250559403
+      tool_rod_21: 354927948
+      tool_rod_22: 438216974
+      tool_rod_23: 591847809
+      tool_rod_24: -1241769262
+      tool_rod_25: -1334522059
+      tool_rod_26: -643764760
+      tool_rod_27: -122444886
+      tool_rod_28: -945133471
+      tool_rod_29: 2093278542
+      tool_rod_3: -1655405023
+      tool_rod_30: -707986991
+      tool_rod_31: -994374398
+      tool_rod_32: -1600993220
+      tool_rod_33: 2036768467
+      tool_rod_34: -1754610773
+      tool_rod_35: 1742808597
+      tool_rod_36: -1881026763
+      tool_rod_37: -225020566
+      tool_rod_38: -860185364
+      tool_rod_39: -1007639179
+      tool_rod_4: 1521332820
+      tool_rod_40: -245390961
+      tool_rod_41: 619394010
+      tool_rod_42: 285469374
+      tool_rod_43: 28603050
+      tool_rod_44: -1306405882
+      tool_rod_45: -182217317
+      tool_rod_46: -520400105
+      tool_rod_47: -471227279
+      tool_rod_48: -208965415
+      tool_rod_49: 1110803135
+      tool_rod_5: -1795419274
+      tool_rod_50: -23782990
+      tool_rod_51: 1793939114
+      tool_rod_6: 1956427874
+      tool_rod_7: 443834501
+      tool_rod_8: 636162168
+      tool_rod_9: -285947466
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

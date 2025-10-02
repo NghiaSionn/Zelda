@@ -15,6 +15,7 @@ public class InventoryManager : MonoBehaviour
 
     private InventorySlot selectedSlot;
     public Item currentItem;
+    public int maxSize = 32;
 
     private void Start()
     {
@@ -34,7 +35,7 @@ public class InventoryManager : MonoBehaviour
     {
         descriptionText.text = $"Coins: {playerInventory.coins}";
 
-       
+
         InventorySlot[] slots = inventoryPanel.GetComponentsInChildren<InventorySlot>();
         foreach (var slot in slots)
         {
@@ -50,7 +51,7 @@ public class InventoryManager : MonoBehaviour
     {
         if (selectedSlot != null && selectedSlot.selectedPanel)
         {
-            selectedSlot.selectedPanel.SetActive(false); 
+            selectedSlot.selectedPanel.SetActive(false);
         }
 
         selectedSlot = slotObject.GetComponent<InventorySlot>();
@@ -74,23 +75,23 @@ public class InventoryManager : MonoBehaviour
 
 
 
-    public void SetTextAndButton(string description, string name, bool buttonActive,int quanity)
+    public void SetTextAndButton(string description, string name, bool buttonActive, int quanity)
     {
         descriptionText.text = description;
         nameText.text = name;
 
-        
+
         if (quanity < 1)
         {
-            useButton.SetActive(false); 
+            useButton.SetActive(false);
         }
         else
         {
-            useButton.SetActive(buttonActive); 
+            useButton.SetActive(buttonActive);
         }
 
         descriptionText.text = $"Coins: {playerInventory.coins}";
-        nameText.text = ""; 
+        nameText.text = "";
         useButton.SetActive(false);
 
     }
@@ -99,26 +100,43 @@ public class InventoryManager : MonoBehaviour
     {
         if (playerInventory)
         {
-            foreach (Item item in playerInventory.items)
+            foreach (Transform child in inventoryPanel.transform)
+            {
+                Destroy(child.gameObject);
+            }
+
+            List<InventorySlot> slots = new List<InventorySlot>();
+
+            for (int i = 0; i < maxSize; i++)
             {
                 GameObject temp = Instantiate(blankInventorySlot, inventoryPanel.transform.position, Quaternion.identity);
-
                 temp.transform.SetParent(inventoryPanel.transform);
                 temp.GetComponent<RectTransform>().localScale = Vector3.one;
-
                 InventorySlot newSlot = temp.GetComponent<InventorySlot>();
+                newSlot.index = i;
+                slots.Add(newSlot);
 
+                // Đặt slot rỗng nếu chưa có item
+                newSlot.Setup(null, this);
+            }
+
+            int index = 0;
+            foreach (Item item in playerInventory.items)
+            {
+                if (index >= maxSize) break;
+
+                InventorySlot newSlot = slots[index];
                 if (newSlot)
                 {
                     newSlot.Setup(item, this);
                     newSlot.descriptionPanel = descriptionPanel;
 
-                   
                     if (item.itemType == Item.ItemType.Coin)
                     {
                         newSlot.itemNumberText.text = playerInventory.coins.ToString();
                     }
                 }
+                index++;
             }
         }
     }
@@ -129,11 +147,11 @@ public class InventoryManager : MonoBehaviour
     {
         descriptionPanel.SetActive(false);
         MakeInventorySlots();
-        SetTextAndButton("", "", false,0);
+        SetTextAndButton("", "", false, 0);
         playerInventory.OnItemAdded += UpdateInventoryUI;
     }
 
-    private void UpdateInventoryUI()
+    public void UpdateInventoryUI()
     {
         foreach (Transform child in inventoryPanel.transform)
         {
@@ -160,7 +178,13 @@ public class InventoryManager : MonoBehaviour
         nameText.text = newNameTextString;
         useButton.SetActive(isButtonUsable);
 
-       
+    }
+
+    public void SetUpDescriptionAndButton2(string newDescriptionString, string newNameTextString, Item newItem)
+    {
+        currentItem = newItem;
+        descriptionText.text = newDescriptionString;
+        nameText.text = newNameTextString;
     }
 
     public void UseButtonPressed()
@@ -169,10 +193,10 @@ public class InventoryManager : MonoBehaviour
 
         Item itemToUse = selectedSlot.thisItem;
 
-        
+
         if (itemToUse.quantity <= 0) return;
 
-        
+
         switch (itemToUse.itemUseType)
         {
             case Item.ItemUseType.Healing:
@@ -194,7 +218,7 @@ public class InventoryManager : MonoBehaviour
                 return;
         }
 
-        
+
         itemToUse.quantity--;
 
         if (itemToUse.quantity > 0)
@@ -214,39 +238,6 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-
-
-    //private Item GetUsableItem()
-    //{      
-    //    foreach (var item in playerInventory.items)
-    //    {
-    //        if (item.quantity > 0) 
-    //        {              
-    //            switch (item.itemUseType)
-    //            {
-    //                case Item.ItemUseType.Healing:
-    //                    if(FindObjectOfType<PlayerMovement>().IsHealthFull())
-    //                    {
-    //                        return null;
-    //                    }
-    //                    HealPlayer(item.healAmount);
-    //                    return item;
-    //                case Item.ItemUseType.Mana:
-    //                    RestoreMana(item.manaAmount);
-    //                    return item; 
-    //                case Item.ItemUseType.Buff:
-    //                    return item; 
-    //                default:
-    //                    continue;
-    //            }
-    //        }
-    //    }
-
-       
-    //    return null;
-    //}
-
-
     private void HealPlayer(int healAmount)
     {
         var playerMovement = FindObjectOfType<PlayerMovement>();
@@ -256,7 +247,7 @@ public class InventoryManager : MonoBehaviour
         if (!playerMovement.IsHealthFull())
         {
             playerMovement.UpdateHealth(healAmount);
-            
+
         }
     }
 
@@ -271,7 +262,7 @@ public class InventoryManager : MonoBehaviour
 
     private void ApplyBuff(Item item)
     {
-        
+
 
     }
 }

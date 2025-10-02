@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using PixelCrushers.DialogueSystem.UnityGUI;
+using UnityEngine;
 
 public class FireflyManager : MonoBehaviour
 {
@@ -49,7 +50,7 @@ public class FireflyManager : MonoBehaviour
         {
             if (area != null)
             {
-                area.SetActive(true); 
+                area.SetActive(true);
             }
         }
     }
@@ -60,7 +61,7 @@ public class FireflyManager : MonoBehaviour
         {
             if (area != null)
             {
-                area.SetActive(false); 
+                area.SetActive(false);
             }
         }
     }

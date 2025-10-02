@@ -12,12 +12,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 891877573301b3d4dbfa905628178090, type: 3}
   m_Name: FireBall
   m_EditorClassIdentifier: 
-  skillName: FireBall
+  skillName: "C\u1EA7u L\u1EEDa"
+  useAnimatorWithWeapon: 0
   skillKey: 122
   skillType: 0
-  damage: 2
+  skillForm: 1
   cooldown: 5
+  castTime: 2
   manaCost: 25
+  duration: 1
   khoangCach: 0.5
   skillPrefab: {fileID: 4540065265425789162, guid: e590d1f137ac41148808f122339d4e8e, type: 3}
-  soundEffect: {fileID: 0}
+  chargingEffectPrefab: {fileID: 5987979031781958406, guid: 11f3e400e41f99640acbe31cb68ee2e9, type: 3}
+  impactEffectPrefab: {fileID: 0}
+  minScale: 0.5
+  maxScale: 1
+  soundEffect: {fileID: 8300000, guid: eeecaf805eaaf654084e9f5d61ab83fc, type: 3}
+  effectOffsetUp: {x: 0, y: 0.5}
+  effectOffsetDown: {x: 0, y: -0.14}
+  effectOffsetLeft: {x: -0.19, y: -0.22}
+  effectOffsetRight: {x: 0.19, y: -0.22}
+  up: -180
+  down: 0
+  right: 90
+  left: -90

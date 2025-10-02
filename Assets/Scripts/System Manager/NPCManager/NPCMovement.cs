@@ -203,8 +203,6 @@ public class NPCMovement : MonoBehaviour
         PlayerPrefs.SetFloat(GetPrefKey(NPC_POSITION_Y_KEY), transform.position.y);
         PlayerPrefs.SetInt(GetPrefKey(NPC_WAYPOINT_INDEX_KEY), currentWaypointIndex);
         PlayerPrefs.Save();
-
-        Debug.Log("NPC State Saved!");
     }
 
     private void LoadNPCState()

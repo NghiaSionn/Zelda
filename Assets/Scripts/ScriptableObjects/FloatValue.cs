@@ -21,5 +21,9 @@ public class FloatValue : ScriptableObject, ISerializationCallbackReceiver
     public void OnBeforeSerialize()
     {
 
-    }   
+    }
+    public void SetValue(float value)
+    {
+        RuntimeValue = value;
+    }
 }

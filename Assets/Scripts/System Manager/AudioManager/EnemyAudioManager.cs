@@ -3,25 +3,25 @@ using UnityEngine;
 
 public class EnemyAudioManager : MonoBehaviour
 {
-    public AudioClip[] idleSounds;       // Âm thanh khi quái đứng yên
-    public AudioClip[] attackSounds;     // Âm thanh khi tấn công
-    public AudioClip[] hurtSounds;       // Âm thanh khi bị đánh
-    public AudioClip deathSound;         // Âm thanh khi chết
+    public AudioClip[] idleSounds;       
+    public AudioClip[] attackSounds;     
+    public AudioClip[] hurtSounds;       
+    public AudioClip deathSound;         
 
     private AudioSource audioSource;
     private Transform player;
-    private Enemy enemyScript;           // Thêm biến quản lý quái
+    private Enemy enemyScript;           
 
-    public float idleSoundInterval = 5f; // Khoảng thời gian giữa các âm thanh idle
-    public float maxHearingDistance = 10f; // Khoảng cách tối đa nghe thấy âm thanh
+    public float idleSoundInterval = 5f; 
+    public float maxHearingDistance = 10f; 
 
     private void Awake()
     {
         audioSource = GetComponentInChildren<AudioSource>();
-        audioSource.spatialBlend = 1f; // Kích hoạt 3D Sound
+        audioSource.spatialBlend = 1f; 
         audioSource.playOnAwake = false;
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        enemyScript = GetComponent<Enemy>(); // Lấy script enemy
+        enemyScript = GetComponent<Enemy>(); 
     }
 
     private void Start()

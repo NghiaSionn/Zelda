@@ -135,7 +135,7 @@ public class BirdBehavior : MonoBehaviour
 
         //Debug.Log($"🕊️ Bird flew away after {flyTime:F1}s | speed: {flySpeed:F1}");
 
-        Destroy(gameObject, 20f);
+        Destroy(gameObject, 30f);
     }
 
     void OnBecameInvisible()

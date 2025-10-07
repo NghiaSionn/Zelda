@@ -10,23 +10,36 @@ public class BirdBehavior : MonoBehaviour
     public float roamTimeMax = 4f;
 
     [Header("Cấu hình bay lên trời")]
-    public float flyTime = 25f;
-    public float flySpeed = 5f;
-    public float flyAngle = 45f; 
+    public float flyTime;
+    public float flySpeed;
+    public float flyAngle = 45f;
+
+    [Header("Cấu hình ăn")]
+    public float eatDurationMin = 2f; // thời gian ăn tối thiểu
+    public float eatDurationMax = 4f; // thời gian ăn tối đa
+    public float eatChance = 0.5f;    // 50% cơ hội ăn
 
     private Rigidbody2D rb;
     private Animator anim;
     private BoxCollider2D boxCollider;
+    private BirdAudioManager birdAudioManager;
+
     private Vector2 targetPosition;
     public bool isFlying = false;
     private bool isAtDestination = false;
+    private bool isEating = false;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
+        birdAudioManager = GetComponent<BirdAudioManager>();
         rb.freezeRotation = true;
+
+        // Random thời gian và tốc độ bay
+        flyTime = Random.Range(10f, 30f);
+        flySpeed = Random.Range(8f, 15f);
 
         StartCoroutine(MoveRandomly());
         StartCoroutine(HandleFlying());
@@ -34,10 +47,9 @@ public class BirdBehavior : MonoBehaviour
 
     void Update()
     {
-        if (isFlying) return;
+        if (isFlying || isEating) return; 
 
         Vector2 direction = (targetPosition - (Vector2)transform.position).normalized;
-
         if (Vector2.Distance(transform.position, targetPosition) > 0.1f)
         {
             rb.velocity = direction * moveSpeed;
@@ -62,13 +74,44 @@ public class BirdBehavior : MonoBehaviour
             );
 
             targetPosition = (Vector2)transform.position + randomPosition;
-
             isAtDestination = false;
-            float waitTime = Random.Range(roamTimeMin, roamTimeMax);
+
+            
             yield return new WaitUntil(() => isAtDestination);
-            yield return new WaitForSeconds(waitTime);
+
+            
+            yield return StartCoroutine(HandleEating());
+
+            
+            if (!isFlying)
+            {
+                float waitTime = Random.Range(roamTimeMin, roamTimeMax);
+                yield return new WaitForSeconds(waitTime);
+            }
         }
     }
+
+    IEnumerator HandleEating()
+    {
+        if (Random.value < eatChance && !isFlying)
+        {
+            isEating = true;
+            anim.SetTrigger("eating");
+
+            
+            rb.velocity = Vector2.zero;
+            float originalGravity = rb.gravityScale;
+            rb.gravityScale = 0f; 
+
+            float eatDuration = Random.Range(eatDurationMin, eatDurationMax);
+            yield return new WaitForSeconds(eatDuration);
+
+            rb.gravityScale = originalGravity;
+            isEating = false;
+            anim.SetBool("moving", false);
+        }
+    }
+
 
     IEnumerator HandleFlying()
     {
@@ -80,20 +123,19 @@ public class BirdBehavior : MonoBehaviour
         rb.gravityScale = 0f;
         rb.freezeRotation = true;
 
-        
-        bool facingRight = Mathf.Approximately(transform.eulerAngles.y, 0f);
+        birdAudioManager?.PlayFlyingSound();
 
-        // Tính vector hướng bay (chéo lên theo hướng mặt)
+        bool facingRight = Mathf.Approximately(transform.eulerAngles.y, 0f);
         float angle = flyAngle * Mathf.Deg2Rad;
         Vector2 flyDir = facingRight
-            ? new Vector2(Mathf.Sin(angle), Mathf.Cos(angle))   // Bay chéo phải
-            : new Vector2(-Mathf.Sin(angle), Mathf.Cos(angle)); // Bay chéo trái
+            ? new Vector2(Mathf.Sin(angle), Mathf.Cos(angle))
+            : new Vector2(-Mathf.Sin(angle), Mathf.Cos(angle));
 
-        
         rb.velocity = flyDir * flySpeed;
 
-        // Tự hủy sau 10s
-        Destroy(gameObject, 10f);
+        //Debug.Log($"🕊️ Bird flew away after {flyTime:F1}s | speed: {flySpeed:F1}");
+
+        Destroy(gameObject, 20f);
     }
 
     void OnBecameInvisible()

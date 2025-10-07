@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 1015693270523694849}
   m_Layer: 0
   m_Name: Bird
-  m_TagString: Untagged
+  m_TagString: Animal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -201,7 +201,7 @@ MonoBehaviour:
   areaSize: {x: 5, y: 3}
   roamTimeMin: 2
   roamTimeMax: 4
-  flyTime: 20
+  flyTime: 10
   flySpeed: 8
   flyAngle: 45
   isFlying: 0
@@ -243,7 +243,7 @@ MonoBehaviour:
   flyingSounds:
   - {fileID: 8300000, guid: 1e2f114b632e30648ae7070328122342, type: 3}
   - {fileID: 8300000, guid: 1291889e775db4b4ea767f7a18785e67, type: 3}
-  idleSoundInterval: 5
+  idleSoundInterval: 6
 --- !u!1 &4855929540874315589
 GameObject:
   m_ObjectHideFlags: 0
@@ -380,10 +380,10 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
+  MinDistance: 10
+  MaxDistance: 20
   Pan2D: 0
-  rolloffMode: 2
+  rolloffMode: 0
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0

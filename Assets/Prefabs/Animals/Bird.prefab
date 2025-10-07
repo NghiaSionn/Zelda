@@ -128,7 +128,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -176,7 +176,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.8125, y: 0.75}
+    oldSize: {x: 0.8125, y: 0.8125}
     newSize: {x: 0.8125, y: 0.75}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -198,12 +198,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1.5
-  areaSize: {x: 5, y: 3}
+  areaSize: {x: 3, y: 2}
   roamTimeMin: 2
   roamTimeMax: 4
+  jumpHeight: 0.5
+  jumpDuration: 0.5
   flyTime: 10
   flySpeed: 8
   flyAngle: 45
+  eatDurationMin: 2
+  eatDurationMax: 3
+  eatChance: 0.5
   isFlying: 0
 --- !u!114 &3864958795346715669
 MonoBehaviour:

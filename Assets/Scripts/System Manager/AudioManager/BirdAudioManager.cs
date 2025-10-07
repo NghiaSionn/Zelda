@@ -32,7 +32,7 @@ public class BirdAudioManager : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(PlayIdleOrFlyingLoop());
+        //StartCoroutine(PlayIdleOrFlyingLoop());
     }
 
     public void PlayTakeOffSound()
@@ -40,22 +40,22 @@ public class BirdAudioManager : MonoBehaviour
         PlayRandomSound(takeOffSounds);
     }
 
-    private IEnumerator PlayIdleOrFlyingLoop()
-    {
-        while (true)
-        {
-            if (!isFlying)
-            {
+    //private IEnumerator PlayIdleOrFlyingLoop()
+    //{
+    //    while (true)
+    //    {
+    //        if (!isFlying)
+    //        {
                 
-                PlayRandomSound(idleSounds);
-            }
-            else
-            {
-                Debug.Log("Chim đang bay, phát âm thanh bay");
-                PlayRandomSound(flyingSounds);
-            }
-        }
-    }
+    //            PlayRandomSound(idleSounds);
+    //        }
+    //        else
+    //        {
+    //            Debug.Log("Chim đang bay, phát âm thanh bay");
+    //            PlayRandomSound(flyingSounds);
+    //        }
+    //    }
+    //}
 
 
     private void PlayRandomSound(AudioClip[] clips)

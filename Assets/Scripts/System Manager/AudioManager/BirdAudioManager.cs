@@ -44,7 +44,7 @@ public class BirdAudioManager : MonoBehaviour
 
     private void PlayRandomSound(AudioClip[] clips)
     {
-        if (clips == null || clips.Length == 0 || audioSource.isPlaying) return;
+        if (clips == null || clips.Length == 0) return;
         int index = Random.Range(0, clips.Length);
         if (audioSource != null && clips[index] != null)
         {

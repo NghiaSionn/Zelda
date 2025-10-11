@@ -4,21 +4,21 @@ using UnityEngine;
 public class BirdBehavior : MonoBehaviour
 {
     [Header("Cấu hình di chuyển mặt đất")]
-    public float moveSpeed = 1.5f; 
-    public Vector2 areaSize = new Vector2(5f, 3f); 
+    public float moveSpeed = 1.5f;
+    public Vector2 areaSize = new Vector2(5f, 3f);
     public float roamTimeMin = 2f;
     public float roamTimeMax = 4f;
     [Header("Cấu hình nhảy")]
-    public float jumpHeight = 2f; 
-    public float jumpDuration = 0.5f; 
+    public float jumpHeight = 2f;
+    public float jumpDuration = 0.5f;
     [Header("Cấu hình bay lên trời")]
-    public float flyTime;
-    public float flySpeed;
+    private float flyTime;
+    private float flySpeed;
     public float flyAngle = 45f;
     [Header("Cấu hình ăn")]
-    public float eatDurationMin = 1f; 
-    public float eatDurationMax = 2f; 
-    public float eatChance = 0.2f; 
+    private float eatDurationMin = 1f;
+    private float eatDurationMax = 2f;
+    private float eatChance = 0.2f;
     private Rigidbody2D rb;
     private Animator anim;
     private BoxCollider2D boxCollider;
@@ -27,9 +27,7 @@ public class BirdBehavior : MonoBehaviour
     public bool isFlying = false;
     private bool isAtDestination = false;
     private bool isEating = false;
-    private bool isJumping = false; // Trạng thái nhảy
-
-    private SortingLayer layer;
+    private Vector2 lastDirection; // Lưu hướng cuối cùng cho idle
 
     void Start()
     {
@@ -38,29 +36,36 @@ public class BirdBehavior : MonoBehaviour
         boxCollider = GetComponent<BoxCollider2D>();
         birdAudioManager = GetComponent<BirdAudioManager>();
         rb.freezeRotation = true;
-        // Random thời gian và tốc độ bay
-        flyTime = Random.Range(10f, 30f);
+        flyTime = Random.Range(10f, 50f);
         flySpeed = Random.Range(8f, 15f);
+        lastDirection = Vector2.right; // Hướng mặc định
         StartCoroutine(MoveRandomly());
         StartCoroutine(HandleFlying());
     }
 
     void Update()
     {
-        if (isFlying || isEating || isJumping) return;
+        if (isFlying || isEating)
+        {
+            if (isAtDestination || isEating)
+            {
+                ChangeAnim(lastDirection); // Cập nhật hướng khi idle hoặc ăn
+            }
+            return;
+        }
+
         Vector2 direction = (targetPosition - (Vector2)transform.position).normalized;
         float distance = Vector2.Distance(transform.position, targetPosition);
         if (distance > 0.1f)
         {
-            // Không cần set velocity trực tiếp, để coroutine xử lý
-            anim.SetBool("moving", true);
-            ChangeAnim(direction);
+            // Đang di chuyển, để coroutine xử lý
         }
         else
         {
             rb.velocity = Vector2.zero;
             anim.SetBool("moving", false);
             isAtDestination = true;
+            ChangeAnim(lastDirection); // Cập nhật hướng khi idle
         }
     }
 
@@ -74,8 +79,7 @@ public class BirdBehavior : MonoBehaviour
             );
             targetPosition = (Vector2)transform.position + randomPosition;
             isAtDestination = false;
-            // Thực hiện nhảy đến vị trí
-            yield return StartCoroutine(JumpToTarget(targetPosition));
+            yield return StartCoroutine(MoveToTarget(targetPosition));
             yield return StartCoroutine(HandleEating());
             if (!isFlying)
             {
@@ -85,34 +89,29 @@ public class BirdBehavior : MonoBehaviour
         }
     }
 
-    IEnumerator JumpToTarget(Vector2 target)
+    IEnumerator MoveToTarget(Vector2 target)
     {
-        isJumping = true;
+        anim.SetBool("moving", true);
         Vector2 startPosition = transform.position;
         float elapsedTime = 0f;
-        // Tính toán lực nhảy
-        float distanceX = target.x - startPosition.x;
-        float jumpVelocityY = (2f * jumpHeight) / jumpDuration; 
-        float moveVelocityX = distanceX / jumpDuration; 
+        Vector2 initialDirection = (target - startPosition).normalized; 
         while (elapsedTime < jumpDuration)
         {
             elapsedTime += Time.deltaTime;
             float t = elapsedTime / jumpDuration;
-            
             float xProgress = Mathf.Clamp01(t);
-            float yOffset = jumpHeight * (4f * xProgress * (1f - xProgress)); 
+            float yOffset = jumpHeight * (4f * xProgress * (1f - xProgress));
             Vector2 newPosition = Vector2.Lerp(startPosition, target, t);
             newPosition.y += yOffset;
             rb.MovePosition(newPosition);
-            
-            Vector2 direction = (target - (Vector2)transform.position).normalized;
-            ChangeAnim(direction);
+            ChangeAnim(initialDirection); 
             yield return null;
         }
-        rb.MovePosition(target); 
-        isJumping = false;
+        rb.MovePosition(target);
         isAtDestination = true;
-        anim.SetTrigger("idle"); 
+        anim.SetBool("moving", false);
+        ChangeAnim(initialDirection); 
+        lastDirection = initialDirection; 
     }
 
     IEnumerator HandleEating()
@@ -120,17 +119,16 @@ public class BirdBehavior : MonoBehaviour
         if (Random.value < eatChance && !isFlying)
         {
             isEating = true;
-            anim.SetBool("eating", true); 
-
+            anim.SetBool("eating", true);
             rb.velocity = Vector2.zero;
             float originalGravity = rb.gravityScale;
             rb.gravityScale = 0f;
             float eatDuration = Random.Range(eatDurationMin, eatDurationMax);
             yield return new WaitForSeconds(eatDuration);
-            anim.SetBool("eating", false); 
+            anim.SetBool("eating", false);
             rb.gravityScale = originalGravity;
             isEating = false;
-            anim.SetBool("moving", false);
+            ChangeAnim(lastDirection); // Cập nhật hướng khi idle sau ăn
         }
     }
 
@@ -139,11 +137,10 @@ public class BirdBehavior : MonoBehaviour
         yield return new WaitForSeconds(flyTime);
         boxCollider.enabled = false;
         isFlying = true;
-        anim.SetTrigger("flying");
+        anim.SetBool("flying",true);
         rb.gravityScale = 0f;
         rb.freezeRotation = true;
         birdAudioManager?.PlayFlyingSound();
-        
         bool facingRight = Mathf.Approximately(transform.eulerAngles.y, 0f);
         float angle = flyAngle * Mathf.Deg2Rad;
         Vector2 flyDir = facingRight
@@ -151,7 +148,8 @@ public class BirdBehavior : MonoBehaviour
             : new Vector2(-Mathf.Sin(angle), Mathf.Cos(angle));
         rb.velocity = flyDir * flySpeed;
         Debug.Log($"🕊️ Bird flew away after {flyTime:F1}s | speed: {flySpeed:F1}");
-        Destroy(gameObject, 30f);
+        Destroy(gameObject, 25f);
+        
     }
 
     void OnBecameInvisible()
@@ -164,14 +162,21 @@ public class BirdBehavior : MonoBehaviour
     {
         anim.SetFloat("moveX", setVector.x);
         anim.SetFloat("moveY", setVector.y);
+        lastDirection = setVector; // Lưu hướng cuối cùng
     }
 
     private void ChangeAnim(Vector2 direction)
     {
-        if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
+        float absX = Mathf.Abs(direction.x);
+        float absY = Mathf.Abs(direction.y);
+        if (absX > absY || Mathf.Approximately(absX, absY))
+        {
             SetAnimFloat(direction.x > 0 ? Vector2.right : Vector2.left);
+        }
         else
+        {
             SetAnimFloat(direction.y > 0 ? Vector2.up : Vector2.down);
+        }
     }
 
     private void OnDrawGizmosSelected()

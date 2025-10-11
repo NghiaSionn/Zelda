@@ -34,7 +34,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.2646353, y: -0.12564373, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5137284441521171156}
   - {fileID: 5287449234840562562}
@@ -203,12 +203,7 @@ MonoBehaviour:
   roamTimeMax: 4
   jumpHeight: 0.5
   jumpDuration: 0.5
-  flyTime: 10
-  flySpeed: 8
   flyAngle: 45
-  eatDurationMin: 2
-  eatDurationMax: 3
-  eatChance: 0.5
   isFlying: 0
 --- !u!114 &3864958795346715669
 MonoBehaviour:
@@ -275,7 +270,7 @@ Transform:
   m_GameObject: {fileID: 4855929540874315589}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.05, y: -0.36, z: 0}
+  m_LocalPosition: {x: -0.034, y: -0.394, z: 0}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -386,7 +381,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 10
-  MaxDistance: 20
+  MaxDistance: 50
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0

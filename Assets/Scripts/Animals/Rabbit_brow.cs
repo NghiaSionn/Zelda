@@ -32,10 +32,12 @@ public class Rabbit_brow : MonoBehaviour
 
     void Update()
     {
+        // Nếu đang nhảy thì không xử lý idle
         if (isJumping) return;
 
+        // Khi đã tới đích, set anim idle
         float distance = Vector2.Distance(transform.position, targetPosition);
-        if (distance <= 0.1f && !isAtDestination)
+        if (distance <= 0.05f && !isAtDestination)
         {
             isAtDestination = true;
             anim.SetBool("moving", false);
@@ -47,7 +49,7 @@ public class Rabbit_brow : MonoBehaviour
     {
         while (true)
         {
-            // Random điểm trong phạm vi di chuyển
+            // Random điểm trong vùng di chuyển
             Vector2 randomOffset = new Vector2(
                 Random.Range(-areaSize.x / 2f, areaSize.x / 2f),
                 Random.Range(-areaSize.y / 2f, areaSize.y / 2f)
@@ -55,9 +57,10 @@ public class Rabbit_brow : MonoBehaviour
             targetPosition = (Vector2)transform.position + randomOffset;
             isAtDestination = false;
 
+            // Nhảy đến vị trí mới
             yield return StartCoroutine(JumpToTarget(targetPosition));
 
-            // Đợi 1 lúc rồi đi tiếp
+            // Chờ một khoảng thời gian ngẫu nhiên trước khi di chuyển tiếp
             float waitTime = Random.Range(roamTimeMin, roamTimeMax);
             yield return new WaitForSeconds(waitTime);
         }
@@ -71,42 +74,49 @@ public class Rabbit_brow : MonoBehaviour
         Vector2 startPosition = transform.position;
         float elapsedTime = 0f;
 
+        // Tính hướng di chuyển trước khi nhảy
+        Vector2 direction = (target - startPosition).normalized;
+        ChangeAnim(direction);
+
         while (elapsedTime < jumpDuration)
         {
             elapsedTime += Time.deltaTime;
             float t = elapsedTime / jumpDuration;
 
-            // Đường cong nhảy parabol
+            // Đường cong parabol
             float xProgress = Mathf.Clamp01(t);
             float yOffset = jumpHeight * (4f * xProgress * (1f - xProgress));
 
             Vector2 newPosition = Vector2.Lerp(startPosition, target, t);
             newPosition.y += yOffset;
 
-            // Hướng di chuyển chính xác (dựa theo newPosition)
-            Vector2 direction = (newPosition - (Vector2)transform.position).normalized;
-            if (direction.sqrMagnitude > 0.01f)
-                ChangeAnim(direction);
-
             rb.MovePosition(newPosition);
             yield return null;
         }
 
+        // Đảm bảo cập nhật chính xác khi kết thúc
         rb.MovePosition(target);
-        anim.SetBool("moving", false);
         isJumping = false;
         isAtDestination = true;
+        anim.SetBool("moving", false);
+        ChangeAnim(direction);
+        lastDirection = direction;
     }
 
     private void SetAnimFloat(Vector2 setVector)
     {
         anim.SetFloat("moveX", setVector.x);
         anim.SetFloat("moveY", setVector.y);
-        lastDirection = setVector; // Lưu hướng cuối
+        lastDirection = setVector;
     }
 
     private void ChangeAnim(Vector2 direction)
     {
+        if (direction == Vector2.zero)
+        {
+            direction = lastDirection;
+        }
+
         float absX = Mathf.Abs(direction.x);
         float absY = Mathf.Abs(direction.y);
 
@@ -118,7 +128,7 @@ public class Rabbit_brow : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.color = new Color(0f, 0.8f, 1f, 0.3f);
+        Gizmos.color = new Color(1f, 0.6f, 0f, 0.3f);
         Gizmos.DrawWireCube(transform.position, new Vector3(areaSize.x, areaSize.y, 0));
     }
 }

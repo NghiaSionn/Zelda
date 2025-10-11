@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3053787853641712188}
   - component: {fileID: 5316280753497391830}
   - component: {fileID: 1002379691375001319}
-  - component: {fileID: 7037918664450159308}
+  - component: {fileID: 866613012909981184}
   - component: {fileID: 9320163574281531}
   - component: {fileID: 2615412306587970381}
   m_Layer: 0
@@ -183,7 +183,7 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &7037918664450159308
+--- !u!114 &866613012909981184
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -192,15 +192,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 5618484468028202978}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43e34793d22fcef469670293a108870f, type: 3}
+  m_Script: {fileID: 11500000, guid: 3beccb3c386d8af4eab0c7ec20c65980, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 1002379691375001319}
-  roamTimeMin: 5
-  roamTimeMax: 10
-  areaSize: {x: 6, y: 2}
-  moveSpeed: 2.5
-  anim: {fileID: 3053787853641712188}
+  moveSpeed: 1.5
+  areaSize: {x: 5, y: 2}
+  roamTimeMin: 2
+  roamTimeMax: 4
+  jumpHeight: 0.5
+  jumpDuration: 0.6
 --- !u!114 &9320163574281531
 MonoBehaviour:
   m_ObjectHideFlags: 0

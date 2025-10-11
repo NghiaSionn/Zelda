@@ -152,17 +152,11 @@ public class BirdBehavior : MonoBehaviour
         
     }
 
-    void OnBecameInvisible()
-    {
-        if (isFlying)
-            Destroy(gameObject);
-    }
-
     private void SetAnimFloat(Vector2 setVector)
     {
         anim.SetFloat("moveX", setVector.x);
         anim.SetFloat("moveY", setVector.y);
-        lastDirection = setVector; // Lưu hướng cuối cùng
+        lastDirection = setVector; 
     }
 
     private void ChangeAnim(Vector2 direction)

@@ -169,7 +169,10 @@ public class SpawnArea : MonoBehaviour
 
             if (!Physics2D.OverlapCircle(spawnPosition, 0.5f, obstacleLayer))
             {
-                GameObject newEnemy = Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity);
+                GameObject newEnemy = Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity, transform);
+
+                float randomScale = Random.Range(0.5f, 1f);
+                newEnemy.transform.localScale = new Vector3(randomScale, randomScale, 1f);
 
                 // ✅ Gán Physics Layer nếu được chỉ định
                 if (!string.IsNullOrEmpty(physicsLayer))

@@ -16,11 +16,13 @@ public class Log : Enemy
 
     public Transform homePosition;
     public Animator anim;
+   
 
 
     private new void Awake()
     {
         target = GameObject.FindWithTag("Player").transform;
+        
     }
 
     void Start()

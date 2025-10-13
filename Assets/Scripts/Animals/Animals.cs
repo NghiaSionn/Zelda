@@ -13,7 +13,6 @@ public class Animals : MonoBehaviour
     public LootTable thisLoot;
     private Animator anim;
     private BoxCollider2D boxCollider;
-    public SpawnArea spawnArea;
 
     private void Awake()
     {
@@ -58,7 +57,6 @@ public class Animals : MonoBehaviour
             StartCoroutine(Hurt());
             Exp();
             MakeLoot();
-            spawnArea.EnemyDied(this.gameObject);
         }
     }
 

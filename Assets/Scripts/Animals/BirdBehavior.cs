@@ -27,18 +27,20 @@ public class BirdBehavior : MonoBehaviour
     public bool isFlying = false;
     private bool isAtDestination = false;
     private bool isEating = false;
-    private Vector2 lastDirection; // Lưu hướng cuối cùng cho idle
+    private Vector2 lastDirection;
+    private SpriteRenderer spriteRenderer;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
         birdAudioManager = GetComponent<BirdAudioManager>();
         rb.freezeRotation = true;
         flyTime = Random.Range(10f, 50f);
         flySpeed = Random.Range(8f, 15f);
-        lastDirection = Vector2.right; // Hướng mặc định
+        lastDirection = Vector2.right; 
         StartCoroutine(MoveRandomly());
         StartCoroutine(HandleFlying());
     }
@@ -49,7 +51,7 @@ public class BirdBehavior : MonoBehaviour
         {
             if (isAtDestination || isEating)
             {
-                ChangeAnim(lastDirection); // Cập nhật hướng khi idle hoặc ăn
+                ChangeAnim(lastDirection); 
             }
             return;
         }
@@ -65,7 +67,7 @@ public class BirdBehavior : MonoBehaviour
             rb.velocity = Vector2.zero;
             anim.SetBool("moving", false);
             isAtDestination = true;
-            ChangeAnim(lastDirection); // Cập nhật hướng khi idle
+            ChangeAnim(lastDirection); 
         }
     }
 
@@ -128,7 +130,7 @@ public class BirdBehavior : MonoBehaviour
             anim.SetBool("eating", false);
             rb.gravityScale = originalGravity;
             isEating = false;
-            ChangeAnim(lastDirection); // Cập nhật hướng khi idle sau ăn
+            ChangeAnim(lastDirection); 
         }
     }
 
@@ -138,6 +140,7 @@ public class BirdBehavior : MonoBehaviour
         boxCollider.enabled = false;
         isFlying = true;
         anim.SetBool("flying",true);
+        spriteRenderer.sortingLayerName = "Item";
         rb.gravityScale = 0f;
         rb.freezeRotation = true;
         birdAudioManager?.PlayFlyingSound();
@@ -147,10 +150,71 @@ public class BirdBehavior : MonoBehaviour
             ? new Vector2(Mathf.Sin(angle), Mathf.Cos(angle))
             : new Vector2(-Mathf.Sin(angle), Mathf.Cos(angle));
         rb.velocity = flyDir * flySpeed;
-        Debug.Log($"🕊️ Bird flew away after {flyTime:F1}s | speed: {flySpeed:F1}");
-        Destroy(gameObject, 25f);
+        Destroy(gameObject, 15f);
         
     }
+
+    IEnumerator FlyInFromSky()
+    {
+        // 🔹 Ngăn chim hoạt động trong lúc đang bay xuống
+        isFlying = true;
+        isEating = false;
+        anim.SetBool("flying", true);
+
+        spriteRenderer.sortingLayerName = "Item";
+
+        if (boxCollider != null)
+            boxCollider.enabled = false;
+
+        // 🔹 Vị trí bắt đầu (cao trên màn hình)
+        Vector2 startPos = (Vector2)transform.position + new Vector2(
+            Random.Range(-2f, 2f),   // lệch trái/phải một chút
+            Random.Range(6f, 10f)    // cao hơn mặt đất
+        );
+
+        transform.position = startPos;
+
+        // 🔹 Chọn hướng bay ngẫu nhiên (trái hoặc phải)
+        bool flyFromLeft = Random.value > 0.5f;
+        Vector2 targetPos = (Vector2)transform.position + new Vector2(
+            flyFromLeft ? Random.Range(2f, 5f) : Random.Range(-2f, -5f),
+            Random.Range(-8f, -10f)
+        );
+
+        // 🔹 Tốc độ và thời gian hạ cánh
+        float descendTime = Random.Range(1.5f, 2.5f);
+        float elapsed = 0f;
+
+        // 🔹 Bay dần xuống
+        while (elapsed < descendTime)
+        {
+            elapsed += Time.deltaTime;
+            float t = elapsed / descendTime;
+            transform.position = Vector2.Lerp(startPos, targetPos, t);
+
+            // Tùy chọn: nghiêng cánh khi bay
+            ChangeAnim(flyFromLeft ? Vector2.right : Vector2.left);
+
+            yield return null;
+        }
+
+        
+        transform.position = targetPos;
+        birdAudioManager?.PlayTakeOffSound();
+        anim.SetBool("flying", false);
+        isFlying = false;
+
+        if (spriteRenderer != null)
+            spriteRenderer.sortingLayerName = "Player"; 
+
+        if (boxCollider != null)
+            boxCollider.enabled = true;
+
+        
+        StartCoroutine(MoveRandomly());
+        StartCoroutine(HandleFlying());
+    }
+
 
     private void SetAnimFloat(Vector2 setVector)
     {

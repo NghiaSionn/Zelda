@@ -18,11 +18,15 @@ public class Log : Enemy
     public Animator anim;
 
 
-    // Start is called before the first frame update
+    private new void Awake()
+    {
+        target = GameObject.FindWithTag("Player").transform;
+    }
+
     void Start()
     {
         currentState = EnemyState.idle;
-        target = GameObject.FindWithTag("Player").transform;
+        
         anim = GetComponent<Animator>();
         myRigidbody = GetComponent<Rigidbody2D>();
         anim.SetBool("wakeUp", true);

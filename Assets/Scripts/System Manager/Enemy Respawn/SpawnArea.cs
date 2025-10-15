@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 [System.Serializable]
 public struct SpawnData
@@ -17,16 +18,12 @@ public class SpawnArea : MonoBehaviour
     public List<SpawnData> spawnDataList;
     public int maxEnemyCount = 5;
 
-    [Header("Cấu hình layer kiểm tra")]
-    public LayerMask obstacleLayer;
-
-    [Header("Physics Layer (tùy chọn)")]
-    public string physicsLayer;
+    [Header("Cấu hình Tilemap")]
+    public Tilemap spawnTilemap; // Tilemap nền để spawn (ví dụ: Tilemap Background)
 
     private int enemyCount = 0;
     private HashSet<GameObject> countedEnemies = new HashSet<GameObject>();
     private BoxCollider2D boxCollider;
-
 
     private void Start()
     {
@@ -77,14 +74,11 @@ public class SpawnArea : MonoBehaviour
             return;
         }
 
-        // Kiểm tra layer vật lý hợp lệ
-        if (!string.IsNullOrEmpty(physicsLayer))
+        // Kiểm tra Tilemap
+        if (spawnTilemap == null)
         {
-            int layerIndex = LayerMask.NameToLayer(physicsLayer);
-            if (layerIndex < 0)
-            {
-                Debug.LogWarning($"⚠️ Physics Layer '{physicsLayer}' KHÔNG tồn tại trong Project Settings > Tags and Layers!");
-            }
+            Debug.LogError("spawnTilemap chưa được gán! Vui lòng kéo Tilemap nền vào Inspector.");
+            return;
         }
 
         StartCoroutine(InitialSpawn());
@@ -158,31 +152,29 @@ public class SpawnArea : MonoBehaviour
     {
         GameObject prefabToSpawn = spawnDataList[prefabIndex].prefab;
         int attempt = 0;
+        const int maxAttempts = 50; // Giới hạn số lần thử để tránh vô hạn
 
-        while (true)
+        while (attempt < maxAttempts)
         {
             Vector2 colliderSize = boxCollider.size;
-            Vector2 spawnPosition = (Vector2)transform.position + new Vector2(
+            Vector2 spawnPoint = (Vector2)transform.position + new Vector2(
                 Random.Range(-colliderSize.x / 2f, colliderSize.x / 2f),
                 Random.Range(-colliderSize.y / 2f, colliderSize.y / 2f)
             );
 
-            if (!Physics2D.OverlapCircle(spawnPosition, 0.5f, obstacleLayer))
+            // Chuyển đổi tọa độ world sang cell position trong Tilemap
+            Vector3Int cellPosition = spawnTilemap.WorldToCell(spawnPoint);
+            Vector3 worldPosition = spawnTilemap.GetCellCenterWorld(cellPosition);
+
+            // Kiểm tra ô tile tại vị trí đó
+            TileBase tile = spawnTilemap.GetTile(cellPosition);
+            if (tile != null) // Nếu ô tile tồn tại trong Tilemap
             {
-                GameObject newEnemy = Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity, transform);
+                GameObject newEnemy = Instantiate(prefabToSpawn, worldPosition , Quaternion.identity, transform);
 
-                float randomScale = Random.Range(0.5f, 1f);
-                newEnemy.transform.localScale = new Vector3(randomScale, randomScale, 1f);
 
-                // ✅ Gán Physics Layer nếu được chỉ định
-                if (!string.IsNullOrEmpty(physicsLayer))
-                {
-                    int layerIndex = LayerMask.NameToLayer(physicsLayer);
-                    if (layerIndex >= 0)
-                        newEnemy.layer = layerIndex;
-                    else
-                        Debug.LogWarning($"⚠️ Không tìm thấy Physics Layer '{physicsLayer}' cho {newEnemy.name}");
-                }
+                //float randomScale = Random.Range(0.5f, 1f);
+                //newEnemy.transform.localScale = new Vector3(randomScale, randomScale, 1f);
 
                 // Khởi tạo trạng thái
                 Enemy enemyScript = newEnemy.GetComponent<Enemy>();
@@ -209,13 +201,19 @@ public class SpawnArea : MonoBehaviour
                 countedEnemies.Add(newEnemy);
                 enemyCount++;
 
-                Debug.Log($"✅ Spawned {prefabToSpawn.name} at {spawnPosition}, Layer: {physicsLayer}, Count: {enemyCount}, Attempts: {attempt + 1}");
+                Debug.Log($"✅ Spawned {prefabToSpawn.name} at {worldPosition}, Tilemap: {spawnTilemap.name}, Count: {enemyCount}, Attempts: {attempt + 1}");
                 yield break;
+            }
+            else
+            {
+                Debug.LogWarning($"Vị trí {worldPosition} không thuộc Tilemap {spawnTilemap.name}, thử lại (Attempt: {attempt + 1})");
             }
 
             attempt++;
             yield return null;
         }
+
+        Debug.LogError($"Không thể spawn {prefabToSpawn.name} sau {maxAttempts} lần thử!");
     }
 
     private IEnumerator RespawnEnemy(int prefabIndex)

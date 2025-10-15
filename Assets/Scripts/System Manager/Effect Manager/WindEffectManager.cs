@@ -5,19 +5,19 @@ using UnityEngine;
 public class WindEffectManager : MonoBehaviour
 {
     [Header("Cấu hình hiệu ứng gió")]
-    public List<ParticleSystem> windEffects; // Danh sách các ParticleSystem cho hiệu ứng gió
+    public List<ParticleSystem> windEffects; 
     [Range(0f, 100f)]
-    public float effectSpawnChance = 50f; // Phần trăm xuất hiện random cho tất cả hiệu ứng gió
-    public float effectDurationMin = 10f; // Thời gian tồn tại tối thiểu của hiệu ứng
-    public float effectDurationMax = 20f; // Thời gian tồn tại tối đa của hiệu ứng
-    public float fadeDuration = 2f; // Thời gian fade in/out âm thanh
-    public float checkInterval = 1f; // Khoảng thời gian kiểm tra để bật hiệu ứng (giây)
+    public float effectSpawnChance = 50f; 
+    public float effectDurationMin = 10f; 
+    public float effectDurationMax = 20f; 
+    public float fadeDuration = 2f; 
+    public float checkInterval = 1f; 
 
     [Header("Âm thanh hiệu ứng")]
-    public AudioSource audioSource; // AudioSource để phát âm thanh gió
-    public AudioClip windSound; // Âm thanh cho hiệu ứng gió
+    public AudioSource audioSource; 
+    public AudioClip windSound; 
 
-    private bool isActive = false; // Trạng thái hiệu ứng đang bật hay tắt
+    private bool isActive = false; 
 
     private void Start()
     {

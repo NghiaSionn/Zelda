@@ -43,12 +43,15 @@ public class Enemy : MonoBehaviour
     public GameObject enemyPrefab; 
     public SpawnArea spawnArea;
 
-
-    public void Awake()
+    private void OnEnable()
     {
-        
         health = maxHealth.initiaValue;
         anim = GetComponent<Animator>();
+
+        if (spawnArea == null)
+        {
+            spawnArea = GetComponentInParent<SpawnArea>();
+        }
     }
 
 

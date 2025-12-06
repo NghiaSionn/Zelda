@@ -7,10 +7,6 @@ public class MeleeEnemy : Log
     public Test_Rigidbody2D testRigidbody2D;  
 
     
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()

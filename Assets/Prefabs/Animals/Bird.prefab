@@ -205,6 +205,7 @@ MonoBehaviour:
   jumpDuration: 0.5
   flyAngle: 45
   isFlying: 0
+  spawnFromSky: 1
 --- !u!114 &3864958795346715669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,6 +222,7 @@ MonoBehaviour:
   maxHealth: {fileID: 11400000, guid: f0180459f6b8f8c43a4c61dd8de4a72f, type: 2}
   health: 0
   thisLoot: {fileID: 11400000, guid: cc11a6ebf59c52541bcb83edda5628a7, type: 2}
+  spawnArea: {fileID: 0}
 --- !u!114 &1015693270523694849
 MonoBehaviour:
   m_ObjectHideFlags: 0

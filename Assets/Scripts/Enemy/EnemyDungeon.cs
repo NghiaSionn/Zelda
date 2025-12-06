@@ -13,7 +13,7 @@ public class EnemyDungeon : Enemy
 
     void Start()
     {
-        base.Awake();
+        
         enemyAI = GetComponent<EnemyAI>();
         enemyDrop = GetComponent<EnemyDrop>();
         healthBar = GetComponentInChildren<HealthBar>();

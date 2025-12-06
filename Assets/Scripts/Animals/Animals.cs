@@ -14,6 +14,8 @@ public class Animals : MonoBehaviour
     private Animator anim;
     private BoxCollider2D boxCollider;
 
+    public SpawnArea spawnArea;
+
     private void Awake()
     {
         health = maxHealth.initiaValue;

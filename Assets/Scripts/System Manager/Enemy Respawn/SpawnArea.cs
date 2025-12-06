@@ -9,7 +9,9 @@ public struct SpawnData
     public GameObject prefab;
     [Range(0f, 100f)]
     public float spawnChance;
-    public float respawnTime;
+    public Vector2 respawnRange;
+    [Header("Scale Random (Min–Max)")]
+    public Vector2 scaleRange;
 }
 
 public class SpawnArea : MonoBehaviour
@@ -19,7 +21,7 @@ public class SpawnArea : MonoBehaviour
     public int maxEnemyCount = 5;
 
     [Header("Cấu hình Tilemap")]
-    public Tilemap spawnTilemap; // Tilemap nền để spawn (ví dụ: Tilemap Background)
+    public List<Tilemap> spawnTilemaps;
 
     private int enemyCount = 0;
     private HashSet<GameObject> countedEnemies = new HashSet<GameObject>();
@@ -39,7 +41,6 @@ public class SpawnArea : MonoBehaviour
             boxCollider.isTrigger = true;
         }
 
-        // Kiểm tra danh sách spawnDataList
         if (spawnDataList == null || spawnDataList.Count == 0)
         {
             Debug.LogError($"spawnDataList {(spawnDataList == null ? "là null" : "trống")}!");
@@ -55,11 +56,7 @@ public class SpawnArea : MonoBehaviour
                 Debug.LogError($"Prefab tại spawnDataList[{i}] là null!");
                 return;
             }
-            if (data.respawnTime < 0f)
-            {
-                Debug.LogError($"Thời gian respawn của {data.prefab.name} phải >= 0!");
-                return;
-            }
+
             if (data.spawnChance < 0f || data.spawnChance > 100f)
             {
                 Debug.LogError($"Tỷ lệ spawn của {data.prefab.name} phải từ 0 đến 100%!");
@@ -74,10 +71,9 @@ public class SpawnArea : MonoBehaviour
             return;
         }
 
-        // Kiểm tra Tilemap
-        if (spawnTilemap == null)
+        if (spawnTilemaps == null || spawnTilemaps.Count == 0)
         {
-            Debug.LogError("spawnTilemap chưa được gán! Vui lòng kéo Tilemap nền vào Inspector.");
+            Debug.LogError("spawnTilemaps rỗng! Hãy kéo ít nhất 1 Tilemap vào.");
             return;
         }
 
@@ -86,12 +82,14 @@ public class SpawnArea : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        // ✅ Chỉ đếm enemy từ bên ngoài vào (không spawn từ area này)
         if ((collision.gameObject.CompareTag("enemy") || collision.gameObject.CompareTag("Animal"))
-            && !countedEnemies.Contains(collision.gameObject))
+            && !countedEnemies.Contains(collision.gameObject)
+            && collision.transform.parent != transform)
         {
             countedEnemies.Add(collision.gameObject);
             enemyCount++;
-            Debug.Log($"Enemy {collision.gameObject.name} entered area, count: {enemyCount}");
+            //Debug.Log($"🚪 Enemy {collision.gameObject.name} vào area từ ngoài, count: {enemyCount}");
         }
     }
 
@@ -102,41 +100,44 @@ public class SpawnArea : MonoBehaviour
         {
             countedEnemies.Remove(collision.gameObject);
             enemyCount--;
-            Debug.Log($"Enemy {collision.gameObject.name} left area, count: {enemyCount}");
+            //Debug.Log($"🚪 Enemy {collision.gameObject.name} rời area, count: {enemyCount}");
         }
     }
 
     public void EnemyDied(GameObject enemy)
     {
-        if (countedEnemies.Contains(enemy))
+        if (enemy == null)
         {
-            Enemy enemyScript = enemy.GetComponent<Enemy>();
-            Animals animalsScript = enemy.GetComponent<Animals>();
-            Boss bossScript = enemy.GetComponent<Boss>();
-
-            if (enemyScript != null)
-                enemyScript.currentState = EnemyState.death;
-            if (animalsScript != null)
-                animalsScript.currentState = EnemyState.death;
-            if (bossScript != null)
-            {
-                bossScript.currentState = EnemyState.death;
-                bossScript.isDeath = true;
-            }
-
-            int prefabIndex = GetPrefabIndex(enemy);
-            countedEnemies.Remove(enemy);
-            enemyCount--;
-
-            Destroy(enemy);
-
-            if (enemyCount < maxEnemyCount && prefabIndex >= 0)
-            {
-                StartCoroutine(RespawnEnemy(prefabIndex));
-            }
-
-            Debug.Log($"Enemy {enemy?.name} died, count: {enemyCount}");
+            Debug.LogWarning("⚠️ EnemyDied: enemy là null!");
+            return;
         }
+
+        Debug.Log($"💀 EnemyDied được gọi cho: {enemy.name}");
+
+        // ✅ Lấy prefab index TRƯỚC KHI remove
+        int prefabIndex = GetPrefabIndex(enemy);
+
+        // ✅ Remove khỏi tracking
+        bool wasTracked = countedEnemies.Remove(enemy);
+        if (wasTracked)
+        {
+            enemyCount--;
+            Debug.Log($"✅ Đã remove {enemy.name}, còn lại: {enemyCount}/{maxEnemyCount}");
+        }
+        else
+        {
+            Debug.LogWarning($"⚠️ {enemy.name} không trong countedEnemies!");
+            // Vẫn giảm count để tránh mất slot
+            enemyCount = Mathf.Max(0, enemyCount - 1);
+        }
+
+        // ✅ Respawn nếu có slot trống
+        if (enemyCount < maxEnemyCount && prefabIndex >= 0)
+        {
+            Debug.Log($"🔄 Bắt đầu respawn enemy type {prefabIndex}");
+            StartCoroutine(RespawnEnemy(prefabIndex));
+        }
+
     }
 
     private IEnumerator InitialSpawn()
@@ -152,7 +153,7 @@ public class SpawnArea : MonoBehaviour
     {
         GameObject prefabToSpawn = spawnDataList[prefabIndex].prefab;
         int attempt = 0;
-        const int maxAttempts = 50; // Giới hạn số lần thử để tránh vô hạn
+        const int maxAttempts = 50;
 
         while (attempt < maxAttempts)
         {
@@ -162,67 +163,51 @@ public class SpawnArea : MonoBehaviour
                 Random.Range(-colliderSize.y / 2f, colliderSize.y / 2f)
             );
 
-            // Chuyển đổi tọa độ world sang cell position trong Tilemap
-            Vector3Int cellPosition = spawnTilemap.WorldToCell(spawnPoint);
-            Vector3 worldPosition = spawnTilemap.GetCellCenterWorld(cellPosition);
+            Tilemap chosenTilemap = spawnTilemaps[Random.Range(0, spawnTilemaps.Count)];
+            Vector3Int cellPosition = chosenTilemap.WorldToCell(spawnPoint);
+            Vector3 worldPosition = chosenTilemap.GetCellCenterWorld(cellPosition);
+            TileBase tile = chosenTilemap.GetTile(cellPosition);
 
-            // Kiểm tra ô tile tại vị trí đó
-            TileBase tile = spawnTilemap.GetTile(cellPosition);
-            if (tile != null) // Nếu ô tile tồn tại trong Tilemap
+            if (tile != null)
             {
-                GameObject newEnemy = Instantiate(prefabToSpawn, worldPosition , Quaternion.identity, transform);
+                GameObject newEnemy = Instantiate(prefabToSpawn, worldPosition, Quaternion.identity, transform);
 
+                // Random scale
+                float minScale = spawnDataList[prefabIndex].scaleRange.x;
+                float maxScale = spawnDataList[prefabIndex].scaleRange.y;
+                float randomScale = Random.Range(minScale, maxScale);
+                newEnemy.transform.localScale = new Vector3(randomScale, randomScale, 1f);
 
-                //float randomScale = Random.Range(0.5f, 1f);
-                //newEnemy.transform.localScale = new Vector3(randomScale, randomScale, 1f);
-
-                // Khởi tạo trạng thái
-                Enemy enemyScript = newEnemy.GetComponent<Enemy>();
-                Animals animalsScript = newEnemy.GetComponent<Animals>();
-                Boss bossScript = newEnemy.GetComponent<Boss>();
-
-                if (enemyScript != null)
-                {
-                    enemyScript.currentState = EnemyState.idle;
-                    enemyScript.health = enemyScript.maxHealth.initiaValue;
-                }
-                if (animalsScript != null)
-                {
-                    animalsScript.currentState = EnemyState.idle;
-                    animalsScript.health = animalsScript.maxHealth.initiaValue;
-                }
-                if (bossScript != null)
-                {
-                    bossScript.currentState = EnemyState.idle;
-                    bossScript.health = bossScript.maxHealth.initiaValue;
-                    bossScript.isDeath = false;
-                }
-
+                // ✅ QUAN TRỌNG: Add vào tracking NGAY
                 countedEnemies.Add(newEnemy);
                 enemyCount++;
 
-                Debug.Log($"✅ Spawned {prefabToSpawn.name} at {worldPosition}, Tilemap: {spawnTilemap.name}, Count: {enemyCount}, Attempts: {attempt + 1}");
+                Debug.Log($"✨ Spawn {newEnemy.name} tại {worldPosition}, total: {enemyCount}/{maxEnemyCount}");
+
                 yield break;
-            }
-            else
-            {
-                Debug.LogWarning($"Vị trí {worldPosition} không thuộc Tilemap {spawnTilemap.name}, thử lại (Attempt: {attempt + 1})");
             }
 
             attempt++;
             yield return null;
         }
 
-        Debug.LogError($"Không thể spawn {prefabToSpawn.name} sau {maxAttempts} lần thử!");
+        Debug.LogError($"❌ Không thể spawn enemy sau {maxAttempts} lần thử!");
     }
 
-    private IEnumerator RespawnEnemy(int prefabIndex)
+    public IEnumerator RespawnEnemy(int prefabIndex)
     {
         if (enemyCount >= maxEnemyCount)
+        {
+            Debug.Log($"⏸️ Không respawn vì đã đủ {enemyCount}/{maxEnemyCount}");
             yield break;
+        }
 
-        float respawnTime = spawnDataList[prefabIndex].respawnTime;
+        Vector2 respawnRange = spawnDataList[prefabIndex].respawnRange;
+        float respawnTime = Random.Range(respawnRange.x, respawnRange.y);
+
+        Debug.Log($"⏳ Chờ {respawnTime:F1}s để respawn...");
         yield return new WaitForSeconds(respawnTime);
+
         yield return StartCoroutine(SpawnEnemy(prefabIndex));
     }
 
@@ -241,13 +226,19 @@ public class SpawnArea : MonoBehaviour
         return spawnDataList.Count - 1;
     }
 
-    private int GetPrefabIndex(GameObject enemy)
+    public int GetPrefabIndex(GameObject enemy)
     {
+        string enemyName = enemy.name.Replace("(Clone)", "").Trim();
         for (int i = 0; i < spawnDataList.Count; i++)
         {
-            if (enemy.name.Contains(spawnDataList[i].prefab.name))
+            string prefabName = spawnDataList[i].prefab.name.Replace("(Clone)", "").Trim();
+            if (enemyName.Contains(prefabName))
+            {
+                Debug.Log($"🔍 Tìm thấy prefab index {i} cho {enemy.name}");
                 return i;
+            }
         }
+        Debug.LogError($"❌ Không tìm thấy prefab index cho {enemy.name}");
         return -1;
     }
 }

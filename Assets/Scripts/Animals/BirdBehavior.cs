@@ -30,6 +30,9 @@ public class BirdBehavior : MonoBehaviour
     private Vector2 lastDirection;
     private SpriteRenderer spriteRenderer;
 
+    [Header("Cấu hình spawn")]
+    public bool spawnFromSky = true;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -40,9 +43,17 @@ public class BirdBehavior : MonoBehaviour
         rb.freezeRotation = true;
         flyTime = Random.Range(10f, 50f);
         flySpeed = Random.Range(8f, 15f);
-        lastDirection = Vector2.right; 
-        StartCoroutine(MoveRandomly());
-        StartCoroutine(HandleFlying());
+        lastDirection = Vector2.right;
+
+        if (spawnFromSky)
+        {
+            StartCoroutine(FlyInFromSky());
+        }
+        else
+        {
+            StartCoroutine(MoveRandomly());
+            StartCoroutine(HandleFlying());
+        }
     }
 
     void Update()
@@ -156,61 +167,57 @@ public class BirdBehavior : MonoBehaviour
 
     IEnumerator FlyInFromSky()
     {
-        // 🔹 Ngăn chim hoạt động trong lúc đang bay xuống
         isFlying = true;
         isEating = false;
         anim.SetBool("flying", true);
-
         spriteRenderer.sortingLayerName = "Item";
 
         if (boxCollider != null)
             boxCollider.enabled = false;
 
-        // 🔹 Vị trí bắt đầu (cao trên màn hình)
-        Vector2 startPos = (Vector2)transform.position + new Vector2(
-            Random.Range(-2f, 2f),   // lệch trái/phải một chút
-            Random.Range(6f, 10f)    // cao hơn mặt đất
-        );
+        // 🔹 Lưu vị trí spawn gốc (từ SpawnArea)
+        Vector2 groundPos = transform.position;
 
+        // 🔹 Đặt chim lên cao trước
+        Vector2 startPos = groundPos + new Vector2(
+            Random.Range(-3f, 3f),   // lệch ngang
+            Random.Range(8f, 12f)    // bay cao
+        );
         transform.position = startPos;
 
-        // 🔹 Chọn hướng bay ngẫu nhiên (trái hoặc phải)
-        bool flyFromLeft = Random.value > 0.5f;
-        Vector2 targetPos = (Vector2)transform.position + new Vector2(
-            flyFromLeft ? Random.Range(2f, 5f) : Random.Range(-2f, -5f),
-            Random.Range(-8f, -10f)
+        // 🔹 Mục tiêu: hạ xuống gần vị trí spawn ban đầu
+        Vector2 targetPos = groundPos + new Vector2(
+            Random.Range(-1f, 1f),
+            0f  // Hạ cánh đúng độ cao spawn
         );
 
-        // 🔹 Tốc độ và thời gian hạ cánh
-        float descendTime = Random.Range(1.5f, 2.5f);
+        float descendTime = Random.Range(2f, 3f);
         float elapsed = 0f;
 
-        // 🔹 Bay dần xuống
         while (elapsed < descendTime)
         {
             elapsed += Time.deltaTime;
             float t = elapsed / descendTime;
             transform.position = Vector2.Lerp(startPos, targetPos, t);
 
-            // Tùy chọn: nghiêng cánh khi bay
-            ChangeAnim(flyFromLeft ? Vector2.right : Vector2.left);
+            // Hướng bay dựa trên hướng di chuyển
+            Vector2 flyDirection = (targetPos - startPos).normalized;
+            ChangeAnim(flyDirection);
 
             yield return null;
         }
 
-        
         transform.position = targetPos;
         birdAudioManager?.PlayTakeOffSound();
         anim.SetBool("flying", false);
         isFlying = false;
 
         if (spriteRenderer != null)
-            spriteRenderer.sortingLayerName = "Player"; 
+            spriteRenderer.sortingLayerName = "Player";
 
         if (boxCollider != null)
             boxCollider.enabled = true;
 
-        
         StartCoroutine(MoveRandomly());
         StartCoroutine(HandleFlying());
     }

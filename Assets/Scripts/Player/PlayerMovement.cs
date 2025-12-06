@@ -284,7 +284,6 @@ public class PlayerMovement : MonoBehaviour
 
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         rb.AddForce(direction.normalized * 5f, ForceMode2D.Impulse);
-        Debug.Log(direction);
 
         yield return new WaitForSeconds(0.1f);
         GetComponent<SpriteRenderer>().color = originalColor;

@@ -265,4 +265,17 @@ public class InventoryManager : MonoBehaviour
 
 
     }
+    public bool SwapItems(int slotIndexA, int slotIndexB)
+    {
+        if (playerInventory == null) return false;
+        if (slotIndexA < 0 || slotIndexA >= playerInventory.items.Count) return false;
+        if (slotIndexB < 0 || slotIndexB >= playerInventory.items.Count) return false;
+
+        Item temp = playerInventory.items[slotIndexA];
+        playerInventory.items[slotIndexA] = playerInventory.items[slotIndexB];
+        playerInventory.items[slotIndexB] = temp;
+
+        UpdateInventoryUI();
+        return true;
+    }
 }

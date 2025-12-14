@@ -59,6 +59,11 @@ public class Animals : MonoBehaviour
             StartCoroutine(Hurt());
             Exp();
             MakeLoot();
+            if (spawnArea != null)
+            {
+                spawnArea.EnemyDied(this.gameObject);
+            }
+            Destroy(this.gameObject, 0.2f);
         }
     }
 

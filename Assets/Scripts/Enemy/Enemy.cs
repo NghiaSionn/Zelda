@@ -109,8 +109,12 @@ public class Enemy : MonoBehaviour
         }
 
         yield return new WaitForSeconds(0.5f);
-        spawnArea.EnemyDied(this.gameObject);
+        if (spawnArea != null)
+        {
+            spawnArea.EnemyDied(this.gameObject);
+        }
         anim.SetBool("dead", false);
+        Destroy(this.gameObject);
     }
 
     public int Exp()

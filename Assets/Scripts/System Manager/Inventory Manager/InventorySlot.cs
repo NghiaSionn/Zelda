@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler
 {
     [Header("UI")]
     [SerializeField] public TextMeshProUGUI itemNumberText;
@@ -90,10 +90,13 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         }
     }
 
+    private int originalSiblingIndex;
+
     public void OnBeginDrag(PointerEventData eventData)
     {
         if (thisItem != null)
         {
+            originalSiblingIndex = transform.GetSiblingIndex();
             parentAfterDrag = transform.parent;
             transform.SetParent(transform.root);
             transform.SetAsLastSibling();
@@ -111,8 +114,29 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        transform.SetParent(parentAfterDrag);
-        GetComponent<CanvasGroup>().blocksRaycasts = true;
+        if (thisItem != null)
+        {
+            transform.SetParent(parentAfterDrag);
+            transform.SetSiblingIndex(originalSiblingIndex);
+            GetComponent<CanvasGroup>().blocksRaycasts = true;
+        }
+    }
+
+    public void OnDrop(PointerEventData eventData)
+    {
+        if (eventData.pointerDrag != null)
+        {
+            InventorySlot otherSlot = eventData.pointerDrag.GetComponent<InventorySlot>();
+            if (otherSlot != null && otherSlot != this && otherSlot.thisManager == thisManager)
+            {
+                // Perform swap
+                if (thisManager.SwapItems(otherSlot.index, this.index))
+                {
+                    // Fix duplication: Destroy the old dragged object because SwapItems rebuilds the UI
+                    Destroy(eventData.pointerDrag);
+                }
+            }
+        }
     }
 
     public void RemoveItem()

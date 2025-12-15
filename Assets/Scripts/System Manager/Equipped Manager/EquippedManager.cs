@@ -82,11 +82,92 @@ public class EquippedManager : MonoBehaviour
         }
     }
 
+    public Inventory playerInventory;
+
     public void EquipItem(int slotIndex, Item newItem, string itemCount)
     {
         if (slotIndex < 0 || slotIndex >= equippedSlots.Length) return;
 
         equippedSlots[slotIndex].SetItem(newItem, itemCount);
+    }
+
+    public void EquipItemFromInventory(InventorySlot invSlot, int equipSlotIndex)
+    {
+        if (invSlot == null || invSlot.thisItem == null) return;
+        if (equipSlotIndex < 0 || equipSlotIndex >= equippedSlots.Length) return;
+
+        // Fallback: Nếu playerInventory chưa được gán, thử lấy từ InventoryManager của slot
+        if (playerInventory == null && invSlot.thisManager != null)
+        {
+            playerInventory = invSlot.thisManager.playerInventory;
+        }
+
+        // Nếu vẫn null thì không thể xử lý
+        if (playerInventory == null) 
+        {
+             Debug.LogWarning("PlayerInventory is null in EquippedManager!");
+             return;
+        }
+
+        Item itemToEquip = invSlot.thisItem; // Item đang được kéo vào
+        Item currentEquippedItem = equippedSlots[equipSlotIndex].equippedItem; // Item đang có trong slot (nếu có)
+        
+        // Nếu đã có item trong slot equipment, trả nó về kho
+        if (currentEquippedItem != null)
+        {            
+            playerInventory.AddItem(currentEquippedItem, currentEquippedItem.quantity);
+        }
+
+        // Đặt item mới vào Equipment Slot
+        equippedSlots[equipSlotIndex].SetItem(itemToEquip, itemToEquip.quantity.ToString());
+
+        // Xóa item khỏi Inventory
+        playerInventory.RemoveItem(itemToEquip);
+        
+        // Cập nhật UI Inventory
+        InventoryManager invManager = invSlot.thisManager;
+        if (invManager != null)
+        {
+            invManager.UpdateInventoryUI();
+        }
+    }
+
+    public void UnEquipItem(int slotIndex)
+    {
+        if (slotIndex < 0 || slotIndex >= equippedSlots.Length) return;
+
+        Item itemToUnEquip = equippedSlots[slotIndex].equippedItem;
+        if (itemToUnEquip != null)
+        {
+             // Thêm lại vào Inventory
+             playerInventory.AddItem(itemToUnEquip, itemToUnEquip.quantity);
+             
+             // Xóa khỏi slot Equipment
+             equippedSlots[slotIndex].SetItem(null, ""); // SetItem cần handle null logic để ẩn ảnh
+             equippedSlots[slotIndex].UpdateEquippedSlot(); // Helper để cập nhật UI nếu cần
+             
+             // Update UI Inventory
+             FindObjectOfType<InventoryManager>().UpdateInventoryUI();
+        }
+    }
+
+    public void SwapEquipSlots(int indexA, int indexB)
+    {
+        if (indexA < 0 || indexA >= equippedSlots.Length) return;
+        if (indexB < 0 || indexB >= equippedSlots.Length) return;
+
+        Item itemA = equippedSlots[indexA].equippedItem;
+        string countA = equippedSlots[indexA].numberItem.text;
+
+        Item itemB = equippedSlots[indexB].equippedItem;
+        string countB = equippedSlots[indexB].numberItem.text;
+
+        // Swap visual and data
+        if (itemA != null) equippedSlots[indexB].SetItem(itemA, countA);
+        else equippedSlots[indexB].SetItem(null, "");
+
+        if (itemB != null) equippedSlots[indexA].SetItem(itemB, countB);
+        else equippedSlots[indexA].SetItem(null, "");
     }
 
 }

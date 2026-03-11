@@ -26,7 +26,7 @@ public class Projectile1 : MonoBehaviour
             if (isBound)
             {
                 Vector2 normal = ((Vector2)transform.position - other.ClosestPoint(transform.position)).normalized;
-                rb.velocity = Vector2.Reflect(rb.velocity, normal);
+                rb.linearVelocity = Vector2.Reflect(rb.linearVelocity, normal);
             }
             else
             {
@@ -47,7 +47,7 @@ public class Projectile1 : MonoBehaviour
 
     private IEnumerator DestroyProjectile()
     {
-        rb.velocity = Vector2.zero;
+        rb.linearVelocity = Vector2.zero;
         animator.SetTrigger("Destroy");
 
         yield return new WaitForSeconds(0.25f);

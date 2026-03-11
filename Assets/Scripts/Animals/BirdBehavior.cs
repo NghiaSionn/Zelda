@@ -75,7 +75,7 @@ public class BirdBehavior : MonoBehaviour
         }
         else
         {
-            rb.velocity = Vector2.zero;
+            rb.linearVelocity = Vector2.zero;
             anim.SetBool("moving", false);
             isAtDestination = true;
             ChangeAnim(lastDirection); 
@@ -133,7 +133,7 @@ public class BirdBehavior : MonoBehaviour
         {
             isEating = true;
             anim.SetBool("eating", true);
-            rb.velocity = Vector2.zero;
+            rb.linearVelocity = Vector2.zero;
             float originalGravity = rb.gravityScale;
             rb.gravityScale = 0f;
             float eatDuration = Random.Range(eatDurationMin, eatDurationMax);
@@ -160,7 +160,7 @@ public class BirdBehavior : MonoBehaviour
         Vector2 flyDir = facingRight
             ? new Vector2(Mathf.Sin(angle), Mathf.Cos(angle))
             : new Vector2(-Mathf.Sin(angle), Mathf.Cos(angle));
-        rb.velocity = flyDir * flySpeed;
+        rb.linearVelocity = flyDir * flySpeed;
         Destroy(gameObject, 15f);
         
     }

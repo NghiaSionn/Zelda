@@ -37,7 +37,7 @@ public class Test_Rigidbody2D : MonoBehaviour
         else
         {
             // Di chuyển bình thường
-            rb.velocity = direction * moveSpeed;
+            rb.linearVelocity = direction * moveSpeed;
             anim.SetBool("moving", true);
             changeAnim(direction);
         }
@@ -45,13 +45,13 @@ public class Test_Rigidbody2D : MonoBehaviour
         // Di chuyển nhân vật
         if (Vector2.Distance(transform.position, targetPosition) > 0.1f)
         {
-            rb.velocity = direction * moveSpeed;
+            rb.linearVelocity = direction * moveSpeed;
             anim.SetBool("moving", true);
             changeAnim(direction);
         }
         else
         {
-            rb.velocity = Vector2.zero;
+            rb.linearVelocity = Vector2.zero;
             anim.SetBool("moving", false);
             isAtDestination = true;
         }

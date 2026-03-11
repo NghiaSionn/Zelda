@@ -8,6 +8,7 @@ ScriptedImporter:
   assetBundleName: 
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  importerVersion: 2
   textureImporterSettings:
     alphaSource: 1
     mipMapMode: 0
@@ -77,11 +78,14 @@ ScriptedImporter:
     defaultPivotSpace: 0
     defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
     spritePadding: 0
     generateModelPrefab: 1
     generateAnimationClips: 1
     addSortingGroup: 1
     addShadowCasters: 0
+    generateIndividualEvents: 1
+    generateSpriteAtlas: 1
   asepriteImporterSettings:
     fileImportMode: 1
     importHiddenLayers: 0
@@ -89,11 +93,14 @@ ScriptedImporter:
     defaultPivotSpace: 0
     defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
     spritePadding: 0
     generateModelPrefab: 1
     generateAnimationClips: 1
     addSortingGroup: 1
     addShadowCasters: 0
+    generateIndividualEvents: 1
+    generateSpriteAtlas: 1
   importFileNodeState: 1
   platformSettingsDirtyTick: 0
   textureAssetName: 
@@ -103,6 +110,7 @@ ScriptedImporter:
     pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 0
@@ -124,6 +132,7 @@ ScriptedImporter:
     pivot: {x: 9, y: -2.2}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 245
@@ -144,6 +153,7 @@ ScriptedImporter:
     pivot: {x: 5, y: -1.1111112}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 239
@@ -164,6 +174,7 @@ ScriptedImporter:
     pivot: {x: 2.0454545, y: -0.61538464}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 49
@@ -184,6 +195,7 @@ ScriptedImporter:
     pivot: {x: 0.9375, y: -0.31578946}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 188
@@ -204,6 +216,7 @@ ScriptedImporter:
     pivot: {x: 0.64285713, y: -0.33333334}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 80
@@ -224,6 +237,7 @@ ScriptedImporter:
     pivot: {x: 0.625, y: -0.33333334}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 86
@@ -244,6 +258,7 @@ ScriptedImporter:
     pivot: {x: 0.625, y: -0.2631579}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 166
@@ -264,6 +279,7 @@ ScriptedImporter:
     pivot: {x: 0.6081081, y: -0.33333334}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -284,6 +300,7 @@ ScriptedImporter:
     pivot: {x: 0.6164383, y: -0.375}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 158
@@ -304,6 +321,7 @@ ScriptedImporter:
     pivot: {x: 0.63380283, y: -0.33333334}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 166
@@ -324,6 +342,7 @@ ScriptedImporter:
     pivot: {x: 0.6029412, y: -0.2631579}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -344,6 +363,7 @@ ScriptedImporter:
     pivot: {x: 0.53521127, y: -0.1904762}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 87
@@ -364,6 +384,7 @@ ScriptedImporter:
     pivot: {x: 0.50666666, y: -0.18181819}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -384,6 +405,7 @@ ScriptedImporter:
     pivot: {x: 0.45238099, y: -0.125}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -404,6 +426,7 @@ ScriptedImporter:
     pivot: {x: 0.45238099, y: -0.125}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 96
@@ -424,6 +447,7 @@ ScriptedImporter:
     pivot: {x: -0.108108155, y: -0.17391305}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -440,136 +464,158 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 4, y: 119}
   spriteSheetImportData: []
+  tileSetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -1330851068
+    uuid:
+      value0: 1197507604
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 1197507604
     name: Incendiary
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Incendiary_Frame_0
+    - name: Frame_0
       frameIndex: 0
+      additiveSortOrder: 0
       cellRect:
         x: 3
         y: 11
         width: 5
         height: 5
       spriteId: aa187404634fc424ea88da49e8d32a30
-    - name: Incendiary_Frame_1
+    - name: Frame_1
       frameIndex: 1
+      additiveSortOrder: 0
       cellRect:
         x: 3
         y: 10
         width: 9
         height: 9
       spriteId: 440f7afddbb0899479411d5791d1e4ec
-    - name: Incendiary_Frame_2
+    - name: Frame_2
       frameIndex: 2
+      additiveSortOrder: 0
       cellRect:
         x: 3
         y: 8
         width: 22
         height: 13
       spriteId: d9bd54c1b4b8a694abcc39965e08d9e1
-    - name: Incendiary_Frame_3
+    - name: Frame_3
       frameIndex: 3
+      additiveSortOrder: 0
       cellRect:
         x: 3
         y: 6
         width: 48
         height: 19
       spriteId: 37658b087c5bb5f469c96d509c5fbfb0
-    - name: Incendiary_Frame_4
+    - name: Frame_4
       frameIndex: 4
+      additiveSortOrder: 0
       cellRect:
         x: 3
         y: 6
         width: 70
         height: 18
       spriteId: 1f0fe91abe77c56448f4c11abc7f86ce
-    - name: Incendiary_Frame_5
+    - name: Frame_5
       frameIndex: 5
+      additiveSortOrder: 0
       cellRect:
         x: 3
         y: 6
         width: 72
         height: 18
       spriteId: 4ca0a6ac33291c043a8ca0690f3e29c9
-    - name: Incendiary_Frame_6
+    - name: Frame_6
       frameIndex: 6
+      additiveSortOrder: 0
       cellRect:
         x: 3
         y: 5
         width: 72
         height: 19
       spriteId: 18f2ab9fa7a434e4bb648e2f294ea6d4
-    - name: Incendiary_Frame_7
+    - name: Frame_7
       frameIndex: 7
+      additiveSortOrder: 0
       cellRect:
         x: 3
         y: 6
         width: 74
         height: 18
       spriteId: 5ca9305b2942fdd4aa670f72fcd91845
-    - name: Incendiary_Frame_8
+    - name: Frame_8
       frameIndex: 8
+      additiveSortOrder: 0
       cellRect:
         x: 3
         y: 6
         width: 73
         height: 16
       spriteId: d78e020dab2e901498f92b74cef242aa
-    - name: Incendiary_Frame_9
+    - name: Frame_9
       frameIndex: 9
+      additiveSortOrder: 0
       cellRect:
         x: 3
         y: 6
         width: 71
         height: 18
       spriteId: 25abdd99fe4785b4598d48e06bf683fc
-    - name: Incendiary_Frame_10
+    - name: Frame_10
       frameIndex: 10
+      additiveSortOrder: 0
       cellRect:
         x: 7
         y: 5
         width: 68
         height: 19
       spriteId: 397301513a77c3f4fab92e1748ac0561
-    - name: Incendiary_Frame_11
+    - name: Frame_11
       frameIndex: 11
+      additiveSortOrder: 0
       cellRect:
         x: 10
         y: 4
         width: 71
         height: 21
       spriteId: e439001e73c637d4da711eff09719698
-    - name: Incendiary_Frame_12
+    - name: Frame_12
       frameIndex: 12
+      additiveSortOrder: 0
       cellRect:
         x: 10
         y: 4
         width: 75
         height: 22
       spriteId: 5ae60a487e3cf544f95cafae94283397
-    - name: Incendiary_Frame_13
+    - name: Frame_13
       frameIndex: 13
+      additiveSortOrder: 0
       cellRect:
         x: 10
         y: 3
         width: 84
         height: 24
       spriteId: 6184055018e364d40933b7f8052b93cb
-    - name: Incendiary_Frame_14
+    - name: Frame_14
       frameIndex: 14
+      additiveSortOrder: 0
       cellRect:
         x: 10
         y: 3
         width: 84
         height: 24
       spriteId: 3a7c5a3b4ef694d4da3ecd049820d2f5
-    - name: Incendiary_Frame_15
+    - name: Frame_15
       frameIndex: 15
+      additiveSortOrder: 0
       cellRect:
         x: 52
         y: 4
@@ -577,8 +623,13 @@ ScriptedImporter:
         height: 23
       spriteId: 8014ca3bfc6266a4181001569dd39146
     linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
     parentIndex: -1
+  tileSets: []
   platformSettings: []
+  generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 96, y: 32}
+  previousTextureSize: {x: 256, y: 256}

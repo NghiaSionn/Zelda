@@ -40,7 +40,7 @@ public class MovementTest : MonoBehaviour
             float currentSpeed = isRunning ? runSpeed : moveSpeed;
 
             // Di chuyển nhân vật
-            rb.velocity = movement * currentSpeed;
+            rb.linearVelocity = movement * currentSpeed;
 
             // Cập nhật Animator
             UpdateAnimator(movement, isRunning);
@@ -123,12 +123,12 @@ public class MovementTest : MonoBehaviour
 
         while (elapsedTime < dashDuration)
         {
-            rb.velocity = lastMoveDirection * dashForce;
+            rb.linearVelocity = lastMoveDirection * dashForce;
             elapsedTime += Time.deltaTime;
             yield return null;
         }
 
-        rb.velocity = Vector2.zero; 
+        rb.linearVelocity = Vector2.zero; 
     }
 
 

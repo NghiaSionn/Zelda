@@ -206,7 +206,7 @@ public class EnemyAI : MonoBehaviour
         Vector2 shootDirection = (player.position - transform.position).normalized;
         GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
         Rigidbody2D projectileRb = projectile.GetComponent<Rigidbody2D>();
-        projectileRb.velocity = shootDirection * projectile.GetComponent<Projectile>().speed;
+        projectileRb.linearVelocity = shootDirection * projectile.GetComponent<Projectile>().speed;
 
         yield return null;
 
@@ -217,7 +217,7 @@ public class EnemyAI : MonoBehaviour
     {
         if (enemy.currentState == EnemyState.idle || enemy.currentState == EnemyState.attack || enemy.currentState == EnemyState.death)
         {
-            rb.velocity = Vector2.zero;
+            rb.linearVelocity = Vector2.zero;
             return;
         }
 
@@ -226,7 +226,7 @@ public class EnemyAI : MonoBehaviour
             rb.MovePosition(rb.position + direction * enemy.moveSpeed * Time.fixedDeltaTime);
         }
         else{
-            rb.velocity = Vector2.zero;
+            rb.linearVelocity = Vector2.zero;
         }
     }
 

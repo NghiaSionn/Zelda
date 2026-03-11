@@ -8,6 +8,7 @@ ScriptedImporter:
   assetBundleName: 
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  importerVersion: 2
   textureImporterSettings:
     alphaSource: 1
     mipMapMode: 0
@@ -77,11 +78,14 @@ ScriptedImporter:
     defaultPivotSpace: 0
     defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
     spritePadding: 0
     generateModelPrefab: 1
     generateAnimationClips: 1
     addSortingGroup: 1
     addShadowCasters: 0
+    generateIndividualEvents: 1
+    generateSpriteAtlas: 1
   asepriteImporterSettings:
     fileImportMode: 1
     importHiddenLayers: 0
@@ -89,11 +93,14 @@ ScriptedImporter:
     defaultPivotSpace: 0
     defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
     spritePadding: 0
     generateModelPrefab: 1
     generateAnimationClips: 1
     addSortingGroup: 1
     addShadowCasters: 0
+    generateIndividualEvents: 1
+    generateSpriteAtlas: 1
   importFileNodeState: 1
   platformSettingsDirtyTick: 0
   textureAssetName: 
@@ -103,6 +110,7 @@ ScriptedImporter:
     pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 0
@@ -124,6 +132,7 @@ ScriptedImporter:
     pivot: {x: 0.33333334, y: -0.083333336}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 74
@@ -144,6 +153,7 @@ ScriptedImporter:
     pivot: {x: 0.45454547, y: -0.083333336}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 50
@@ -164,6 +174,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: -0.07692308}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 50
@@ -184,6 +195,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: -0.071428575}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 27
@@ -204,6 +216,7 @@ ScriptedImporter:
     pivot: {x: 0.45454547, y: -0.1}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 74
@@ -224,6 +237,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: -0.1}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 74
@@ -244,6 +258,7 @@ ScriptedImporter:
     pivot: {x: 0.25, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 117
@@ -264,6 +279,7 @@ ScriptedImporter:
     pivot: {x: 0.375, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 116
@@ -284,6 +300,7 @@ ScriptedImporter:
     pivot: {x: 0.42857146, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 94
@@ -304,6 +321,7 @@ ScriptedImporter:
     pivot: {x: 0.4615385, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 94
@@ -324,6 +342,7 @@ ScriptedImporter:
     pivot: {x: 0.42857146, y: -0.16666667}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 94
@@ -344,6 +363,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 50
@@ -364,6 +384,7 @@ ScriptedImporter:
     pivot: {x: 0.4666667, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -384,6 +405,7 @@ ScriptedImporter:
     pivot: {x: 0.4666667, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -404,6 +426,7 @@ ScriptedImporter:
     pivot: {x: 0.53333336, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -424,6 +447,7 @@ ScriptedImporter:
     pivot: {x: 0.53333336, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -444,6 +468,7 @@ ScriptedImporter:
     pivot: {x: 0.53333336, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -464,6 +489,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 117
@@ -484,6 +510,7 @@ ScriptedImporter:
     pivot: {x: 0.4166667, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 74
@@ -504,6 +531,7 @@ ScriptedImporter:
     pivot: {x: 0.53333336, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 94
@@ -524,6 +552,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 94
@@ -544,6 +573,7 @@ ScriptedImporter:
     pivot: {x: 0.4615385, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 94
@@ -564,6 +594,7 @@ ScriptedImporter:
     pivot: {x: 0.4615385, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 27
@@ -584,6 +615,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 27
@@ -604,6 +636,7 @@ ScriptedImporter:
     pivot: {x: 0.53333336, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 27
@@ -624,6 +657,7 @@ ScriptedImporter:
     pivot: {x: 0.4166667, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 27
@@ -644,6 +678,7 @@ ScriptedImporter:
     pivot: {x: 0.33333334, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 50
@@ -664,6 +699,7 @@ ScriptedImporter:
     pivot: {x: 0.36363637, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 50
@@ -684,6 +720,7 @@ ScriptedImporter:
     pivot: {x: 1, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 116
@@ -704,6 +741,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 94
@@ -724,6 +762,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: -0.125}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 50
@@ -744,6 +783,7 @@ ScriptedImporter:
     pivot: {x: 0.4666667, y: -0.2857143}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 94
@@ -764,6 +804,7 @@ ScriptedImporter:
     pivot: {x: 0.4666667, y: -0.8}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 27
@@ -780,272 +821,311 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 27, y: 119}
   spriteSheetImportData: []
+  tileSetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 867762498
+    uuid:
+      value0: 1603332298
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 1603332298
     name: Meteors_16x16
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Meteors_16x16_Frame_0
+    - name: Frame_0
       frameIndex: 0
+      additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
         width: 16
         height: 16
       spriteId: 10e6347b5548395428a7044399d3d1af
-    - name: Meteors_16x16_Frame_1
+    - name: Frame_1
       frameIndex: 1
+      additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
         width: 16
         height: 16
       spriteId: 1d0a2dbe3d9cc6b42b39c21f9adbffaf
-    - name: Meteors_16x16_Frame_2
+    - name: Frame_2
       frameIndex: 2
+      additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
         width: 16
         height: 16
       spriteId: af302d1a03a6b16438d48a4331114053
-    - name: Meteors_16x16_Frame_3
+    - name: Frame_3
       frameIndex: 3
+      additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
         width: 16
         height: 16
       spriteId: 057b9cf75083c9740aafd456bec74df1
-    - name: Meteors_16x16_Frame_4
+    - name: Frame_4
       frameIndex: 4
+      additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
         width: 16
         height: 16
       spriteId: 61deafa72875f044b9089bd0ccb3aa0b
-    - name: Meteors_16x16_Frame_5
+    - name: Frame_5
       frameIndex: 5
+      additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
         width: 16
         height: 16
       spriteId: 1011a4e5ee6f494448f44ab21124cf13
-    - name: Meteors_16x16_Frame_6
+    - name: Frame_6
       frameIndex: 6
+      additiveSortOrder: 0
       cellRect:
         x: 7
         y: 0
         width: 4
         height: 2
       spriteId: f4d477e446c8f44499f654595f3ddba1
-    - name: Meteors_16x16_Frame_7
+    - name: Frame_7
       frameIndex: 7
+      additiveSortOrder: 0
       cellRect:
         x: 5
         y: 0
         width: 8
         height: 4
       spriteId: 6c9e06b5450dd584fb8e141fa887efaa
-    - name: Meteors_16x16_Frame_8
+    - name: Frame_8
       frameIndex: 8
+      additiveSortOrder: 0
       cellRect:
         x: 2
         y: 0
         width: 14
         height: 7
       spriteId: 055f21ccfb1bf304d8cb58e1792869ad
-    - name: Meteors_16x16_Frame_9
+    - name: Frame_9
       frameIndex: 9
+      additiveSortOrder: 0
       cellRect:
         x: 2
         y: 0
         width: 13
         height: 6
       spriteId: 0d5c97a2ec59488469caecc1b69541b6
-    - name: Meteors_16x16_Frame_10
+    - name: Frame_10
       frameIndex: 10
+      additiveSortOrder: 0
       cellRect:
         x: 2
         y: 1
         width: 14
         height: 6
       spriteId: 41db9efc2b819464a8a1d195517f15fc
-    - name: Meteors_16x16_Frame_11
+    - name: Frame_11
       frameIndex: 11
+      additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
         width: 16
         height: 16
       spriteId: 6440e7e09cb29544997fd9e3c7ab9247
-    - name: Meteors_16x16_Frame_12
+    - name: Frame_12
       frameIndex: 12
+      additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
         width: 16
         height: 16
       spriteId: 5bb32b737e2c341439290d3d7b4b14d1
-    - name: Meteors_16x16_Frame_13
+    - name: Frame_13
       frameIndex: 13
+      additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
         width: 16
         height: 16
       spriteId: af34708fcddfd9a4b8cd92ed255b357c
-    - name: Meteors_16x16_Frame_14
+    - name: Frame_14
       frameIndex: 14
+      additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
         width: 16
         height: 16
       spriteId: f2a3d7cb16b3cfe428c9690602c0b52e
-    - name: Meteors_16x16_Frame_15
+    - name: Frame_15
       frameIndex: 15
+      additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
         width: 16
         height: 16
       spriteId: f1653b0dd842ce045a27cbf4cc992d67
-    - name: Meteors_16x16_Frame_16
+    - name: Frame_16
       frameIndex: 16
+      additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
         width: 16
         height: 16
       spriteId: 67f5b3316f2c6d64ebc48d50891573a6
-    - name: Meteors_16x16_Frame_17
+    - name: Frame_17
       frameIndex: 17
+      additiveSortOrder: 0
       cellRect:
         x: 6
         y: 0
         width: 4
         height: 2
       spriteId: e703d2d7eae093742931122108c79e8f
-    - name: Meteors_16x16_Frame_18
+    - name: Frame_18
       frameIndex: 18
+      additiveSortOrder: 0
       cellRect:
         x: 3
         y: 0
         width: 12
         height: 4
       spriteId: b3af095680ed0d246b810ca66f1bd820
-    - name: Meteors_16x16_Frame_19
+    - name: Frame_19
       frameIndex: 19
+      additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
         width: 15
         height: 7
       spriteId: 9d99b0b484501664384eab5f7ac5e9ac
-    - name: Meteors_16x16_Frame_20
+    - name: Frame_20
       frameIndex: 20
+      additiveSortOrder: 0
       cellRect:
         x: 1
         y: 0
         width: 14
         height: 7
       spriteId: 367846a93319a704e892a2d6e6c486c0
-    - name: Meteors_16x16_Frame_21
+    - name: Frame_21
       frameIndex: 21
+      additiveSortOrder: 0
       cellRect:
         x: 2
         y: 0
         width: 13
         height: 8
       spriteId: 9c76f565a6d20ca468dcb4eb3ee69367
-    - name: Meteors_16x16_Frame_22
+    - name: Frame_22
       frameIndex: 22
+      additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
         width: 16
         height: 16
       spriteId: 848a1092c455a10489817174a4e3bac4
-    - name: Meteors_16x16_Frame_23
+    - name: Frame_23
       frameIndex: 23
+      additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
         width: 16
         height: 16
       spriteId: a55e75e147da3e54fbb79a27695895f5
-    - name: Meteors_16x16_Frame_24
+    - name: Frame_24
       frameIndex: 24
+      additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
         width: 16
         height: 16
       spriteId: 56e047b96b4012d4a87a52331fe85ba1
-    - name: Meteors_16x16_Frame_25
+    - name: Frame_25
       frameIndex: 25
+      additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
         width: 16
         height: 16
       spriteId: 009e684e2daec644591c1c11ec02e844
-    - name: Meteors_16x16_Frame_26
+    - name: Frame_26
       frameIndex: 26
+      additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
         width: 16
         height: 16
       spriteId: ee57b84003dfffc499caa160b1a55506
-    - name: Meteors_16x16_Frame_27
+    - name: Frame_27
       frameIndex: 27
+      additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
         width: 16
         height: 16
       spriteId: ca059573a93563f429e231bddaebf200
-    - name: Meteors_16x16_Frame_28
+    - name: Frame_28
       frameIndex: 28
+      additiveSortOrder: 0
       cellRect:
         x: 3
         y: 0
         width: 5
         height: 2
       spriteId: 7aaebea5ad1cdc44189a73060b9de190
-    - name: Meteors_16x16_Frame_29
+    - name: Frame_29
       frameIndex: 29
+      additiveSortOrder: 0
       cellRect:
         x: 1
         y: 0
         width: 14
         height: 6
       spriteId: 690a4252a723b674c9ca863da38f93f0
-    - name: Meteors_16x16_Frame_30
+    - name: Frame_30
       frameIndex: 30
+      additiveSortOrder: 0
       cellRect:
         x: 0
         y: 1
         width: 16
         height: 8
       spriteId: f575dfd3e1342504398d7c99bc9301c6
-    - name: Meteors_16x16_Frame_31
+    - name: Frame_31
       frameIndex: 31
+      additiveSortOrder: 0
       cellRect:
         x: 1
         y: 2
         width: 15
         height: 7
       spriteId: c41d653f46cf1d84499f4f12ddf31b56
-    - name: Meteors_16x16_Frame_32
+    - name: Frame_32
       frameIndex: 32
+      additiveSortOrder: 0
       cellRect:
         x: 1
         y: 4
@@ -1053,8 +1133,13 @@ ScriptedImporter:
         height: 5
       spriteId: 314942949db77fb4684ff1a6ff67530e
     linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
     parentIndex: -1
+  tileSets: []
   platformSettings: []
+  generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 16, y: 16}
+  previousTextureSize: {x: 128, y: 128}

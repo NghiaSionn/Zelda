@@ -8,6 +8,7 @@ ScriptedImporter:
   assetBundleName: 
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  importerVersion: 2
   textureImporterSettings:
     alphaSource: 1
     mipMapMode: 0
@@ -77,11 +78,14 @@ ScriptedImporter:
     defaultPivotSpace: 0
     defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
     spritePadding: 0
     generateModelPrefab: 1
     generateAnimationClips: 1
     addSortingGroup: 1
     addShadowCasters: 0
+    generateIndividualEvents: 1
+    generateSpriteAtlas: 1
   asepriteImporterSettings:
     fileImportMode: 1
     importHiddenLayers: 0
@@ -89,11 +93,14 @@ ScriptedImporter:
     defaultPivotSpace: 0
     defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
     spritePadding: 0
     generateModelPrefab: 1
     generateAnimationClips: 1
     addSortingGroup: 1
     addShadowCasters: 0
+    generateIndividualEvents: 1
+    generateSpriteAtlas: 1
   importFileNodeState: 1
   platformSettingsDirtyTick: 0
   textureAssetName: 
@@ -103,6 +110,7 @@ ScriptedImporter:
     pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 0
@@ -124,6 +132,7 @@ ScriptedImporter:
     pivot: {x: 0.5633803, y: -0.6082474}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 262
@@ -144,6 +153,7 @@ ScriptedImporter:
     pivot: {x: 0.6233766, y: -0.6082474}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 152
@@ -164,6 +174,7 @@ ScriptedImporter:
     pivot: {x: 0.35999998, y: -0.6020408}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 152
@@ -184,6 +195,7 @@ ScriptedImporter:
     pivot: {x: 0.5810811, y: -0.7468354}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 381
@@ -204,6 +216,7 @@ ScriptedImporter:
     pivot: {x: 0.59999996, y: -0.71951216}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 262
@@ -224,6 +237,7 @@ ScriptedImporter:
     pivot: {x: 0.59459454, y: -0.7108433}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 381
@@ -244,6 +258,7 @@ ScriptedImporter:
     pivot: {x: 0.5833334, y: -0.70238096}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 381
@@ -264,6 +279,7 @@ ScriptedImporter:
     pivot: {x: 0.57746476, y: -0.68604654}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 381
@@ -284,6 +300,7 @@ ScriptedImporter:
     pivot: {x: 0.57746476, y: -0.67045456}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 262
@@ -304,6 +321,7 @@ ScriptedImporter:
     pivot: {x: 0.5633803, y: -0.6629213}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 262
@@ -324,6 +342,7 @@ ScriptedImporter:
     pivot: {x: 0.7129629, y: -0.80821913}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 262
@@ -344,6 +363,7 @@ ScriptedImporter:
     pivot: {x: 0.6868687, y: -0.77631575}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 152
@@ -364,6 +384,7 @@ ScriptedImporter:
     pivot: {x: 0.72380954, y: -0.80821913}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 262
@@ -384,6 +405,7 @@ ScriptedImporter:
     pivot: {x: 0.6936937, y: -0.80821913}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 262
@@ -404,6 +426,7 @@ ScriptedImporter:
     pivot: {x: 0.68, y: -0.77631575}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 152
@@ -424,6 +447,7 @@ ScriptedImporter:
     pivot: {x: 0.72380954, y: -0.80821913}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 262
@@ -444,6 +468,7 @@ ScriptedImporter:
     pivot: {x: 0.65, y: -0.6145833}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 152
@@ -464,6 +489,7 @@ ScriptedImporter:
     pivot: {x: 0.6627907, y: -0.57843137}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 152
@@ -484,6 +510,7 @@ ScriptedImporter:
     pivot: {x: 0.67777777, y: -0.5412844}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 152
@@ -504,6 +531,7 @@ ScriptedImporter:
     pivot: {x: 0.4160584, y: -0.54716986}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -524,6 +552,7 @@ ScriptedImporter:
     pivot: {x: 0.41481486, y: -0.53271025}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -544,6 +573,7 @@ ScriptedImporter:
     pivot: {x: 0.43089432, y: -0.5462963}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -564,6 +594,7 @@ ScriptedImporter:
     pivot: {x: 0.6202531, y: -0.7375}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 262
@@ -584,6 +615,7 @@ ScriptedImporter:
     pivot: {x: 0.6395349, y: -0.70238096}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 262
@@ -604,6 +636,7 @@ ScriptedImporter:
     pivot: {x: 0.65168536, y: -0.67045456}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 152
@@ -624,6 +657,7 @@ ScriptedImporter:
     pivot: {x: 0.50862074, y: -0.2566372}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -644,6 +678,7 @@ ScriptedImporter:
     pivot: {x: 0.48739493, y: -0.1965812}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -664,6 +699,7 @@ ScriptedImporter:
     pivot: {x: 0.39215687, y: -0.26999998}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 152
@@ -684,6 +720,7 @@ ScriptedImporter:
     pivot: {x: 0.30769235, y: -0.78666663}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 262
@@ -704,6 +741,7 @@ ScriptedImporter:
     pivot: {x: 0.32978725, y: -0.4835165}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -724,6 +762,7 @@ ScriptedImporter:
     pivot: {x: 0.34065938, y: -0.43617022}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 152
@@ -744,6 +783,7 @@ ScriptedImporter:
     pivot: {x: 0.5928571, y: -0.44339624}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -764,6 +804,7 @@ ScriptedImporter:
     pivot: {x: 0.6058394, y: -0.4857143}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -784,6 +825,7 @@ ScriptedImporter:
     pivot: {x: 0.69827586, y: -0.63440853}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -800,280 +842,320 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 4, y: 822}
   spriteSheetImportData: []
+  tileSetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 1587906091
+    uuid:
+      value0: 3747220631
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: -547746665
     name: Torch_Blue
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Torch_Blue_Frame_0
+    - name: Frame_0
       frameIndex: 0
+      additiveSortOrder: 0
       cellRect:
         x: 56
         y: 59
         width: 71
         height: 97
       spriteId: c6d803219be0bb2499b48b21fcd733d7
-    - name: Torch_Blue_Frame_1
+    - name: Frame_1
       frameIndex: 1
+      additiveSortOrder: 0
       cellRect:
         x: 48
         y: 59
         width: 77
         height: 97
       spriteId: a5ab1a4a6c1a85d418275445e9b6b507
-    - name: Torch_Blue_Frame_2
+    - name: Frame_2
       frameIndex: 2
+      additiveSortOrder: 0
       cellRect:
         x: 69
         y: 59
         width: 75
         height: 98
       spriteId: 11d619d36f0268143ab2cb3120014c34
-    - name: Torch_Blue_Frame_3
+    - name: Frame_3
       frameIndex: 3
+      additiveSortOrder: 0
       cellRect:
         x: 53
         y: 59
         width: 74
         height: 79
       spriteId: 02de5a22c4ea9df4f9287a8b0e158899
-    - name: Torch_Blue_Frame_4
+    - name: Frame_4
       frameIndex: 4
+      additiveSortOrder: 0
       cellRect:
         x: 51
         y: 59
         width: 75
         height: 82
       spriteId: 2fba54be111d88c4c998d8a4f3152d1c
-    - name: Torch_Blue_Frame_5
+    - name: Frame_5
       frameIndex: 5
+      additiveSortOrder: 0
       cellRect:
         x: 52
         y: 59
         width: 74
         height: 83
       spriteId: a0fcc8a467857f54f8d0c523e76a33d6
-    - name: Torch_Blue_Frame_6
+    - name: Frame_6
       frameIndex: 6
+      additiveSortOrder: 0
       cellRect:
         x: 54
         y: 59
         width: 72
         height: 84
       spriteId: d84fe8d300b2fee4f8b494af500fcc92
-    - name: Torch_Blue_Frame_7
+    - name: Frame_7
       frameIndex: 7
+      additiveSortOrder: 0
       cellRect:
         x: 55
         y: 59
         width: 71
         height: 86
       spriteId: 62cdbb4a0e518c84789d27a12f12b1f7
-    - name: Torch_Blue_Frame_8
+    - name: Frame_8
       frameIndex: 8
+      additiveSortOrder: 0
       cellRect:
         x: 55
         y: 59
         width: 71
         height: 88
       spriteId: b22a704fb69f6dd46ac1cc50f7f9c717
-    - name: Torch_Blue_Frame_9
+    - name: Frame_9
       frameIndex: 9
+      additiveSortOrder: 0
       cellRect:
         x: 56
         y: 59
         width: 71
         height: 89
       spriteId: 823e62920fcdd9640ad8dbdf7b992432
-    - name: Torch_Blue_Frame_10
+    - name: Frame_10
       frameIndex: 10
+      additiveSortOrder: 0
       cellRect:
         x: 19
         y: 59
         width: 108
         height: 73
       spriteId: 6c923e0b988beae489ce547c0b0b004e
-    - name: Torch_Blue_Frame_11
+    - name: Frame_11
       frameIndex: 11
+      additiveSortOrder: 0
       cellRect:
         x: 28
         y: 59
         width: 99
         height: 76
       spriteId: 099ee03023658644ab923a324fa79fe7
-    - name: Torch_Blue_Frame_12
+    - name: Frame_12
       frameIndex: 12
+      additiveSortOrder: 0
       cellRect:
         x: 20
         y: 59
         width: 105
         height: 73
       spriteId: 4b721c837217bda45afa38280bf30906
-    - name: Torch_Blue_Frame_13
+    - name: Frame_13
       frameIndex: 13
+      additiveSortOrder: 0
       cellRect:
         x: 19
         y: 59
         width: 111
         height: 73
       spriteId: 8aeb610d68226524ea6558a2fa92f4ec
-    - name: Torch_Blue_Frame_14
+    - name: Frame_14
       frameIndex: 14
+      additiveSortOrder: 0
       cellRect:
         x: 28
         y: 59
         width: 100
         height: 76
       spriteId: b81a7bd7a9e1a1446b1f0e7866c82bb1
-    - name: Torch_Blue_Frame_15
+    - name: Frame_15
       frameIndex: 15
+      additiveSortOrder: 0
       cellRect:
         x: 20
         y: 59
         width: 105
         height: 73
       spriteId: 923bb28df7177bf4ab1715c5a30b20e7
-    - name: Torch_Blue_Frame_16
+    - name: Frame_16
       frameIndex: 16
+      additiveSortOrder: 0
       cellRect:
         x: 44
         y: 59
         width: 80
         height: 96
       spriteId: 1191fe9c79d980743b4e45651fb115b1
-    - name: Torch_Blue_Frame_17
+    - name: Frame_17
       frameIndex: 17
+      additiveSortOrder: 0
       cellRect:
         x: 39
         y: 59
         width: 86
         height: 102
       spriteId: a106188f6ed83704db310b753f1ea2ea
-    - name: Torch_Blue_Frame_18
+    - name: Frame_18
       frameIndex: 18
+      additiveSortOrder: 0
       cellRect:
         x: 35
         y: 59
         width: 90
         height: 109
       spriteId: 025039eddc1cf5c49bde8a3c929e74fb
-    - name: Torch_Blue_Frame_19
+    - name: Frame_19
       frameIndex: 19
+      additiveSortOrder: 0
       cellRect:
         x: 39
         y: 58
         width: 137
         height: 106
       spriteId: 8d0a4c11781e53d4fac7d7472706bb53
-    - name: Torch_Blue_Frame_20
+    - name: Frame_20
       frameIndex: 20
+      additiveSortOrder: 0
       cellRect:
         x: 40
         y: 57
         width: 135
         height: 107
       spriteId: ec3f6d4db52210d4386d58a89bf4cced
-    - name: Torch_Blue_Frame_21
+    - name: Frame_21
       frameIndex: 21
+      additiveSortOrder: 0
       cellRect:
         x: 43
         y: 59
         width: 123
         height: 108
       spriteId: 6871dc54d3a49dd498a832bac3384eb8
-    - name: Torch_Blue_Frame_22
+    - name: Frame_22
       frameIndex: 22
+      additiveSortOrder: 0
       cellRect:
         x: 47
         y: 59
         width: 79
         height: 80
       spriteId: efe8e044026873f4eb0fdd5cddd638fd
-    - name: Torch_Blue_Frame_23
+    - name: Frame_23
       frameIndex: 23
+      additiveSortOrder: 0
       cellRect:
         x: 41
         y: 59
         width: 86
         height: 84
       spriteId: 02f3cb9d0fe01aa4ba60ef2f655ba35a
-    - name: Torch_Blue_Frame_24
+    - name: Frame_24
       frameIndex: 24
+      additiveSortOrder: 0
       cellRect:
         x: 38
         y: 59
         width: 89
         height: 88
       spriteId: 56a72e18c3ac07d4e98ab8df21bf4b01
-    - name: Torch_Blue_Frame_25
+    - name: Frame_25
       frameIndex: 25
+      additiveSortOrder: 0
       cellRect:
         x: 37
         y: 29
         width: 116
         height: 113
       spriteId: 6ceec05a751327544bca72f62c508d6c
-    - name: Torch_Blue_Frame_26
+    - name: Frame_26
       frameIndex: 26
+      additiveSortOrder: 0
       cellRect:
         x: 38
         y: 23
         width: 119
         height: 117
       spriteId: 6c2094aab68fba245ad86403e4c60f8c
-    - name: Torch_Blue_Frame_27
+    - name: Frame_27
       frameIndex: 27
+      additiveSortOrder: 0
       cellRect:
         x: 56
         y: 27
         width: 102
         height: 100
       spriteId: a814bd852818b3142a45373455292836
-    - name: Torch_Blue_Frame_28
+    - name: Frame_28
       frameIndex: 28
+      additiveSortOrder: 0
       cellRect:
         x: 68
         y: 59
         width: 91
         height: 75
       spriteId: c9e65ebf74dbf6c4582475b6fdafc56b
-    - name: Torch_Blue_Frame_29
+    - name: Frame_29
       frameIndex: 29
+      additiveSortOrder: 0
       cellRect:
         x: 65
         y: 44
         width: 94
         height: 91
       spriteId: 6d0662b02e7674d4a899b7f8dbfc7d87
-    - name: Torch_Blue_Frame_30
+    - name: Frame_30
       frameIndex: 30
+      additiveSortOrder: 0
       cellRect:
         x: 65
         y: 41
         width: 91
         height: 94
       spriteId: 2f3d48c8ea1e61241bd276f329e839c0
-    - name: Torch_Blue_Frame_31
+    - name: Frame_31
       frameIndex: 31
+      additiveSortOrder: 0
       cellRect:
         x: 13
         y: 47
         width: 140
         height: 106
       spriteId: 4edaa0f60501e3b47a056015cb4c039d
-    - name: Torch_Blue_Frame_32
+    - name: Frame_32
       frameIndex: 32
+      additiveSortOrder: 0
       cellRect:
         x: 13
         y: 51
         width: 137
         height: 105
       spriteId: d458762a55b1f9140ad7b19c3c847e9b
-    - name: Torch_Blue_Frame_33
+    - name: Frame_33
       frameIndex: 33
+      additiveSortOrder: 0
       cellRect:
         x: 15
         y: 59
@@ -1081,8 +1163,13 @@ ScriptedImporter:
         height: 93
       spriteId: 96b2201209d782e4b866b49a36418b66
     linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
     parentIndex: -1
+  tileSets: []
   platformSettings: []
+  generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 192, y: 192}
+  previousTextureSize: {x: 512, y: 1024}

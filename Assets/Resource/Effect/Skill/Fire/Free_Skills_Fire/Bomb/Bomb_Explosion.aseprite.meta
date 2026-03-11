@@ -8,6 +8,7 @@ ScriptedImporter:
   assetBundleName: 
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  importerVersion: 2
   textureImporterSettings:
     alphaSource: 1
     mipMapMode: 0
@@ -77,11 +78,14 @@ ScriptedImporter:
     defaultPivotSpace: 0
     defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
     spritePadding: 0
     generateModelPrefab: 1
     generateAnimationClips: 1
     addSortingGroup: 1
     addShadowCasters: 0
+    generateIndividualEvents: 1
+    generateSpriteAtlas: 1
   asepriteImporterSettings:
     fileImportMode: 1
     importHiddenLayers: 0
@@ -89,11 +93,14 @@ ScriptedImporter:
     defaultPivotSpace: 0
     defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
     spritePadding: 0
     generateModelPrefab: 1
     generateAnimationClips: 1
     addSortingGroup: 1
     addShadowCasters: 0
+    generateIndividualEvents: 1
+    generateSpriteAtlas: 1
   importFileNodeState: 1
   platformSettingsDirtyTick: 0
   textureAssetName: 
@@ -103,6 +110,7 @@ ScriptedImporter:
     pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 0
@@ -124,6 +132,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: -1.625}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 86
@@ -144,6 +153,7 @@ ScriptedImporter:
     pivot: {x: 0.50000006, y: -1.7333335}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 104
@@ -164,6 +174,7 @@ ScriptedImporter:
     pivot: {x: 0.5333334, y: -1.7333335}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 79
@@ -184,6 +195,7 @@ ScriptedImporter:
     pivot: {x: 0.5294118, y: -1.7333335}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 79
@@ -204,6 +216,7 @@ ScriptedImporter:
     pivot: {x: 0.41666675, y: -2.0769231}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 112
@@ -224,6 +237,7 @@ ScriptedImporter:
     pivot: {x: 0.44444436, y: -3.2222223}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 86
@@ -244,6 +258,7 @@ ScriptedImporter:
     pivot: {x: 0.50000024, y: -7.5}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 103
@@ -264,6 +279,7 @@ ScriptedImporter:
     pivot: {x: 0.38461545, y: -1.7142857}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 102
@@ -284,6 +300,7 @@ ScriptedImporter:
     pivot: {x: 0.43999997, y: -0.09090909}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -304,6 +321,7 @@ ScriptedImporter:
     pivot: {x: 0.47142857, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -324,6 +342,7 @@ ScriptedImporter:
     pivot: {x: 0.5068493, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -344,6 +363,7 @@ ScriptedImporter:
     pivot: {x: 0.49999997, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -364,6 +384,7 @@ ScriptedImporter:
     pivot: {x: 0.50746274, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -380,112 +401,131 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 4, y: 213}
   spriteSheetImportData: []
+  tileSetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 631534254
+    uuid:
+      value0: 3257976550
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: -1036990746
     name: Bomb_Explosion
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Bomb_Explosion_Frame_0
+    - name: Frame_0
       frameIndex: 0
+      additiveSortOrder: 0
       cellRect:
         x: 39
         y: 26
         width: 18
         height: 16
       spriteId: 0ec0b5b0b5c69934c941b528b2e5086b
-    - name: Bomb_Explosion_Frame_1
+    - name: Frame_1
       frameIndex: 1
+      additiveSortOrder: 0
       cellRect:
         x: 40
         y: 26
         width: 16
         height: 15
       spriteId: 1d20d2faa820a9c4c801a6d617d259db
-    - name: Bomb_Explosion_Frame_2
+    - name: Frame_2
       frameIndex: 2
+      additiveSortOrder: 0
       cellRect:
         x: 40
         y: 26
         width: 15
         height: 15
       spriteId: 9e766055ed820e340aaf860204698237
-    - name: Bomb_Explosion_Frame_3
+    - name: Frame_3
       frameIndex: 3
+      additiveSortOrder: 0
       cellRect:
         x: 39
         y: 26
         width: 17
         height: 15
       spriteId: 175ffe5a7e5941549a733e023f99dc8c
-    - name: Bomb_Explosion_Frame_4
+    - name: Frame_4
       frameIndex: 4
+      additiveSortOrder: 0
       cellRect:
         x: 43
         y: 27
         width: 12
         height: 13
       spriteId: ac7ca71834e87bc4691211b458e92577
-    - name: Bomb_Explosion_Frame_5
+    - name: Frame_5
       frameIndex: 5
+      additiveSortOrder: 0
       cellRect:
         x: 44
         y: 29
         width: 9
         height: 9
       spriteId: 906decc997bfaa94eb583cc84e124461
-    - name: Bomb_Explosion_Frame_6
+    - name: Frame_6
       frameIndex: 6
+      additiveSortOrder: 0
       cellRect:
         x: 46
         y: 30
         width: 4
         height: 4
       spriteId: 04eaa0847616ab145833640b56c864af
-    - name: Bomb_Explosion_Frame_7
+    - name: Frame_7
       frameIndex: 7
+      additiveSortOrder: 0
       cellRect:
         x: 43
         y: 24
         width: 13
         height: 14
       spriteId: 4d6991fe9bf116f4b981ce400e505f20
-    - name: Bomb_Explosion_Frame_8
+    - name: Frame_8
       frameIndex: 8
+      additiveSortOrder: 0
       cellRect:
         x: 26
         y: 4
         width: 50
         height: 44
       spriteId: dd5ca88cb9d82464e8182a13a7dce175
-    - name: Bomb_Explosion_Frame_9
+    - name: Frame_9
       frameIndex: 9
+      additiveSortOrder: 0
       cellRect:
         x: 15
         y: 0
         width: 70
         height: 48
       spriteId: df17f6b4587f20c42b09f69f22783b67
-    - name: Bomb_Explosion_Frame_10
+    - name: Frame_10
       frameIndex: 10
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 0
         width: 73
         height: 48
       spriteId: da80880cc25a11345986604aba05b40e
-    - name: Bomb_Explosion_Frame_11
+    - name: Frame_11
       frameIndex: 11
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 0
         width: 74
         height: 37
       spriteId: e1d8fb5eb0d0ff14589c7f166f8648f7
-    - name: Bomb_Explosion_Frame_12
+    - name: Frame_12
       frameIndex: 12
+      additiveSortOrder: 0
       cellRect:
         x: 14
         y: 0
@@ -493,8 +533,13 @@ ScriptedImporter:
         height: 27
       spriteId: 1f3e747c683ccb843a0879473dbec16e
     linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
     parentIndex: -1
+  tileSets: []
   platformSettings: []
+  generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 96, y: 48}
+  previousTextureSize: {x: 128, y: 256}

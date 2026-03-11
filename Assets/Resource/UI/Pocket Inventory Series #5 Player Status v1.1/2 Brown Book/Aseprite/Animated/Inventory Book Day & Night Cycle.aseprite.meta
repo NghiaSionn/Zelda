@@ -8,6 +8,7 @@ ScriptedImporter:
   assetBundleName: 
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  importerVersion: 2
   textureImporterSettings:
     alphaSource: 1
     mipMapMode: 0
@@ -77,11 +78,14 @@ ScriptedImporter:
     defaultPivotSpace: 0
     defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
     spritePadding: 0
     generateModelPrefab: 1
     generateAnimationClips: 1
     addSortingGroup: 1
     addShadowCasters: 0
+    generateIndividualEvents: 1
+    generateSpriteAtlas: 1
   asepriteImporterSettings:
     fileImportMode: 1
     importHiddenLayers: 0
@@ -89,11 +93,14 @@ ScriptedImporter:
     defaultPivotSpace: 0
     defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
     spritePadding: 0
     generateModelPrefab: 1
     generateAnimationClips: 1
     addSortingGroup: 1
     addShadowCasters: 0
+    generateIndividualEvents: 1
+    generateSpriteAtlas: 1
   importFileNodeState: 1
   platformSettingsDirtyTick: 0
   textureAssetName: 
@@ -103,6 +110,7 @@ ScriptedImporter:
     pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 0
@@ -124,6 +132,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -144,6 +153,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -164,6 +174,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -184,6 +195,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -204,6 +216,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -224,6 +237,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -244,6 +258,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -264,6 +279,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -284,6 +300,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -304,6 +321,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -324,6 +342,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -344,6 +363,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -364,6 +384,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 87
@@ -384,6 +405,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 87
@@ -404,6 +426,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 87
@@ -424,6 +447,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 87
@@ -444,6 +468,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 87
@@ -464,6 +489,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 87
@@ -484,6 +510,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 87
@@ -504,6 +531,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 87
@@ -524,6 +552,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 87
@@ -544,6 +573,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 87
@@ -564,6 +594,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 87
@@ -584,6 +615,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 87
@@ -604,6 +636,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 170
@@ -624,6 +657,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 170
@@ -644,6 +678,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 170
@@ -664,6 +699,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 170
@@ -684,6 +720,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 170
@@ -704,6 +741,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 170
@@ -724,6 +762,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 170
@@ -744,6 +783,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 170
@@ -764,6 +804,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 170
@@ -784,6 +825,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 170
@@ -804,6 +846,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 170
@@ -824,6 +867,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 170
@@ -844,6 +888,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 253
@@ -864,6 +909,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 253
@@ -884,6 +930,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 253
@@ -904,6 +951,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 253
@@ -924,6 +972,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 253
@@ -944,6 +993,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 253
@@ -964,6 +1014,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 253
@@ -984,6 +1035,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 253
@@ -1004,6 +1056,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 253
@@ -1024,6 +1077,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 253
@@ -1044,6 +1098,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 253
@@ -1064,6 +1119,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 253
@@ -1084,6 +1140,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 336
@@ -1104,6 +1161,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 336
@@ -1124,6 +1182,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 336
@@ -1144,6 +1203,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 336
@@ -1164,6 +1224,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 336
@@ -1184,6 +1245,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 336
@@ -1204,6 +1266,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 336
@@ -1224,6 +1287,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 336
@@ -1244,6 +1308,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 336
@@ -1264,6 +1329,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 336
@@ -1284,6 +1350,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 336
@@ -1304,6 +1371,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 336
@@ -1324,6 +1392,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 419
@@ -1344,6 +1413,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 419
@@ -1364,6 +1434,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 419
@@ -1384,6 +1455,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 419
@@ -1404,6 +1476,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 419
@@ -1424,6 +1497,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 419
@@ -1444,6 +1518,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 419
@@ -1464,6 +1539,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 419
@@ -1484,6 +1560,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 419
@@ -1504,6 +1581,7 @@ ScriptedImporter:
     pivot: {x: 0.4933333, y: -0.12}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 419
@@ -1520,568 +1598,644 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 419, y: 751}
   spriteSheetImportData: []
+  tileSetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -386655327
+    uuid:
+      value0: 150485861
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 150485861
     name: Inventory Book Day & Night Cycle
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Inventory Book Day & Night Cycle_Frame_0
+    - name: Frame_0
       frameIndex: 0
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: e0329e851a3b2e149b22a6203312e15d
-    - name: Inventory Book Day & Night Cycle_Frame_11
+    - name: Frame_11
       frameIndex: 11
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: 3b29c30e5db4e7e428c223b4bdbb3ec8
-    - name: Inventory Book Day & Night Cycle_Frame_22
+    - name: Frame_22
       frameIndex: 22
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: c4cb3949fd42acd49b8ec1fa2dc94524
-    - name: Inventory Book Day & Night Cycle_Frame_33
+    - name: Frame_33
       frameIndex: 33
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: 34c4b21b67ae8dc49be19da9ea175e8c
-    - name: Inventory Book Day & Night Cycle_Frame_44
+    - name: Frame_44
       frameIndex: 44
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: 03b470fb42f48574686d306d17a526e1
-    - name: Inventory Book Day & Night Cycle_Frame_55
+    - name: Frame_55
       frameIndex: 55
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: 4d0abab35bf7e7240b94641a99ab653e
-    - name: Inventory Book Day & Night Cycle_Frame_66
+    - name: Frame_66
       frameIndex: 66
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: 6ee8e0c9767561649816953805e8ebc1
-    - name: Inventory Book Day & Night Cycle_Frame_1
+    - name: Frame_1
       frameIndex: 1
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: ef23ae6ab99f835478abfef0610caf67
-    - name: Inventory Book Day & Night Cycle_Frame_2
+    - name: Frame_2
       frameIndex: 2
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: 678ece0136dc4294792b6bcda2c4452d
-    - name: Inventory Book Day & Night Cycle_Frame_3
+    - name: Frame_3
       frameIndex: 3
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: b8e88bd1cd8cba74f97976095ed28254
-    - name: Inventory Book Day & Night Cycle_Frame_4
+    - name: Frame_4
       frameIndex: 4
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: 59b15a51b23c5e043a467ba3a2fdb3ba
-    - name: Inventory Book Day & Night Cycle_Frame_5
+    - name: Frame_5
       frameIndex: 5
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: 1a6daf708eb2ed24b92e5614082023bc
-    - name: Inventory Book Day & Night Cycle_Frame_6
+    - name: Frame_6
       frameIndex: 6
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: 6eb89a1166043314aa535e32407dda4b
-    - name: Inventory Book Day & Night Cycle_Frame_7
+    - name: Frame_7
       frameIndex: 7
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: 7492aefa8e0b9544085a1612a56dae2f
-    - name: Inventory Book Day & Night Cycle_Frame_8
+    - name: Frame_8
       frameIndex: 8
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: 0b42bf5ed48c8f84686d43e4257bf7a2
-    - name: Inventory Book Day & Night Cycle_Frame_9
+    - name: Frame_9
       frameIndex: 9
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: 100b949720599424f93e88e406a311d1
-    - name: Inventory Book Day & Night Cycle_Frame_12
+    - name: Frame_12
       frameIndex: 12
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: f9088f76e667eb649896585f83e5d184
-    - name: Inventory Book Day & Night Cycle_Frame_13
+    - name: Frame_13
       frameIndex: 13
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: bae30a5c52ebf364397b7f56a2a683e3
-    - name: Inventory Book Day & Night Cycle_Frame_14
+    - name: Frame_14
       frameIndex: 14
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: ef7150d8ecd35604aa727ab5baa73a9d
-    - name: Inventory Book Day & Night Cycle_Frame_15
+    - name: Frame_15
       frameIndex: 15
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: 86c56043fd0c83e4bb33b72083a1aa22
-    - name: Inventory Book Day & Night Cycle_Frame_16
+    - name: Frame_16
       frameIndex: 16
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: 5baf9d213c3b8d841880bf327b8f458e
-    - name: Inventory Book Day & Night Cycle_Frame_17
+    - name: Frame_17
       frameIndex: 17
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: cd13358065499bb49865a5d063b360bd
-    - name: Inventory Book Day & Night Cycle_Frame_18
+    - name: Frame_18
       frameIndex: 18
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: 12809f18500a6c441b80de21c43fdebf
-    - name: Inventory Book Day & Night Cycle_Frame_19
+    - name: Frame_19
       frameIndex: 19
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: 6847c1a620d8b634aa065799fb80c9fd
-    - name: Inventory Book Day & Night Cycle_Frame_20
+    - name: Frame_20
       frameIndex: 20
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: cc9aa161927238947a1b5ce509b9a123
-    - name: Inventory Book Day & Night Cycle_Frame_23
+    - name: Frame_23
       frameIndex: 23
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: f562f18812572e148a8691c0ee2c661d
-    - name: Inventory Book Day & Night Cycle_Frame_24
+    - name: Frame_24
       frameIndex: 24
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: 24ca25e99d03bc5409c30e9a92f4e50c
-    - name: Inventory Book Day & Night Cycle_Frame_25
+    - name: Frame_25
       frameIndex: 25
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: 128f3470ad11a2943a2d50c58cde76e2
-    - name: Inventory Book Day & Night Cycle_Frame_26
+    - name: Frame_26
       frameIndex: 26
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: af15ac459800ebb4ab81e4d1e90134e9
-    - name: Inventory Book Day & Night Cycle_Frame_27
+    - name: Frame_27
       frameIndex: 27
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: 5f459b479d5f4e8489151bdae9b7d07a
-    - name: Inventory Book Day & Night Cycle_Frame_28
+    - name: Frame_28
       frameIndex: 28
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: 78447483fd15e8c42bd0a7458eb8e153
-    - name: Inventory Book Day & Night Cycle_Frame_29
+    - name: Frame_29
       frameIndex: 29
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: cb3a9140c0284854d9a66cbd9dbf269e
-    - name: Inventory Book Day & Night Cycle_Frame_30
+    - name: Frame_30
       frameIndex: 30
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: b884e7b9f5d7bb64badc444105a0c109
-    - name: Inventory Book Day & Night Cycle_Frame_31
+    - name: Frame_31
       frameIndex: 31
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: 8701c2070afa86744bac67065b938f88
-    - name: Inventory Book Day & Night Cycle_Frame_34
+    - name: Frame_34
       frameIndex: 34
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: 07da5065857b47e4c8d9bd9d5cd73675
-    - name: Inventory Book Day & Night Cycle_Frame_35
+    - name: Frame_35
       frameIndex: 35
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: 31b751c060b4d0f4a8e615ac2bf5121e
-    - name: Inventory Book Day & Night Cycle_Frame_36
+    - name: Frame_36
       frameIndex: 36
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: 169f4f14518ef8b40b5a7f93d3886135
-    - name: Inventory Book Day & Night Cycle_Frame_37
+    - name: Frame_37
       frameIndex: 37
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: 21bea5bc47e773a439ab539506185c3b
-    - name: Inventory Book Day & Night Cycle_Frame_38
+    - name: Frame_38
       frameIndex: 38
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: 051395af9f48ce246b8e503a4e6b1e68
-    - name: Inventory Book Day & Night Cycle_Frame_39
+    - name: Frame_39
       frameIndex: 39
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: 34bcf8c2bf0ca264ca784e5a9c5b2f3b
-    - name: Inventory Book Day & Night Cycle_Frame_40
+    - name: Frame_40
       frameIndex: 40
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: ae0231e234654774f9c6da7621d7dbb5
-    - name: Inventory Book Day & Night Cycle_Frame_41
+    - name: Frame_41
       frameIndex: 41
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: 10f6571a2369bfc4d99208953346fbec
-    - name: Inventory Book Day & Night Cycle_Frame_42
+    - name: Frame_42
       frameIndex: 42
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: 59958c6d31da0df42a47dc210ac66e0a
-    - name: Inventory Book Day & Night Cycle_Frame_45
+    - name: Frame_45
       frameIndex: 45
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: 7e62d1e4858512947b382404984b66ae
-    - name: Inventory Book Day & Night Cycle_Frame_46
+    - name: Frame_46
       frameIndex: 46
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: e4f66722f9d69bd4f8edc6f0e42fd43d
-    - name: Inventory Book Day & Night Cycle_Frame_47
+    - name: Frame_47
       frameIndex: 47
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: 37fe89f34fa173947846cede5a1a085e
-    - name: Inventory Book Day & Night Cycle_Frame_48
+    - name: Frame_48
       frameIndex: 48
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: c8f49bdc7fa60054d84dc3379ff7297a
-    - name: Inventory Book Day & Night Cycle_Frame_49
+    - name: Frame_49
       frameIndex: 49
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: dc6578a873a444e448bf94269873641e
-    - name: Inventory Book Day & Night Cycle_Frame_50
+    - name: Frame_50
       frameIndex: 50
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: 8cbef899794e2974489afe04f4ba1c6a
-    - name: Inventory Book Day & Night Cycle_Frame_51
+    - name: Frame_51
       frameIndex: 51
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: ee8e6edeaed351148a0306a13ee41684
-    - name: Inventory Book Day & Night Cycle_Frame_52
+    - name: Frame_52
       frameIndex: 52
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: 46ae1cbf99e4f1349b16a5720d851085
-    - name: Inventory Book Day & Night Cycle_Frame_53
+    - name: Frame_53
       frameIndex: 53
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: e139856cd1c8dd24b869a5ea18d9602c
-    - name: Inventory Book Day & Night Cycle_Frame_56
+    - name: Frame_56
       frameIndex: 56
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: fdcf94afdfe9c324e82e5b11b599be2f
-    - name: Inventory Book Day & Night Cycle_Frame_57
+    - name: Frame_57
       frameIndex: 57
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: 3ed83eaeb9729f24b99faf8b4dc6de91
-    - name: Inventory Book Day & Night Cycle_Frame_58
+    - name: Frame_58
       frameIndex: 58
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: 6ef70971aff35e34bb376c719521299b
-    - name: Inventory Book Day & Night Cycle_Frame_59
+    - name: Frame_59
       frameIndex: 59
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: 3ea872915fec0ae4397a31105cc12d39
-    - name: Inventory Book Day & Night Cycle_Frame_60
+    - name: Frame_60
       frameIndex: 60
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: 35bd3a772a4ba824aba864486c00aa19
-    - name: Inventory Book Day & Night Cycle_Frame_61
+    - name: Frame_61
       frameIndex: 61
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: 85ade94cd7935d843aa4b139573c9ba4
-    - name: Inventory Book Day & Night Cycle_Frame_62
+    - name: Frame_62
       frameIndex: 62
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: 9f14e28a51addde47919df1cbe308694
-    - name: Inventory Book Day & Night Cycle_Frame_63
+    - name: Frame_63
       frameIndex: 63
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: 029115dcb623ea242b01e3e3874d3e8e
-    - name: Inventory Book Day & Night Cycle_Frame_64
+    - name: Frame_64
       frameIndex: 64
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: 6decc1b73e546384e9841ef10105a944
-    - name: Inventory Book Day & Night Cycle_Frame_67
+    - name: Frame_67
       frameIndex: 67
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: 52a3154f857f05f4f8a236738759cc56
-    - name: Inventory Book Day & Night Cycle_Frame_68
+    - name: Frame_68
       frameIndex: 68
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: 2ee81c7554f97484b84500887dbedfa9
-    - name: Inventory Book Day & Night Cycle_Frame_69
+    - name: Frame_69
       frameIndex: 69
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: 63bb4338b83b7f34aac076c140d916fb
-    - name: Inventory Book Day & Night Cycle_Frame_70
+    - name: Frame_70
       frameIndex: 70
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: c184f2f178ac1474fb3e0081dbb546b2
-    - name: Inventory Book Day & Night Cycle_Frame_71
+    - name: Frame_71
       frameIndex: 71
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: 407643004982a7c4fb728b80978dc03f
-    - name: Inventory Book Day & Night Cycle_Frame_72
+    - name: Frame_72
       frameIndex: 72
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: 047f2ee0773e6544496eb12c5ec3ee28
-    - name: Inventory Book Day & Night Cycle_Frame_73
+    - name: Frame_73
       frameIndex: 73
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: 7b1ed56be413fda4080786ba5e2f9615
-    - name: Inventory Book Day & Night Cycle_Frame_74
+    - name: Frame_74
       frameIndex: 74
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
         width: 75
         height: 75
       spriteId: 246e8d9b3924f77409c447d8c83a14db
-    - name: Inventory Book Day & Night Cycle_Frame_75
+    - name: Frame_75
       frameIndex: 75
+      additiveSortOrder: 0
       cellRect:
         x: 11
         y: 9
@@ -2089,8 +2243,13 @@ ScriptedImporter:
         height: 75
       spriteId: 4af8de698b4ce7c45b75fee872440b15
     linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
     parentIndex: -1
+  tileSets: []
   platformSettings: []
+  generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 96, y: 96}
+  previousTextureSize: {x: 512, y: 1024}

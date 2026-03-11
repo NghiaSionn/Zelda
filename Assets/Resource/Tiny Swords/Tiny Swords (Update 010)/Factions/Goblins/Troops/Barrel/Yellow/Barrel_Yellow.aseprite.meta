@@ -8,6 +8,7 @@ ScriptedImporter:
   assetBundleName: 
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  importerVersion: 2
   textureImporterSettings:
     alphaSource: 1
     mipMapMode: 0
@@ -77,11 +78,14 @@ ScriptedImporter:
     defaultPivotSpace: 0
     defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
     spritePadding: 0
     generateModelPrefab: 1
     generateAnimationClips: 1
     addSortingGroup: 1
     addShadowCasters: 0
+    generateIndividualEvents: 1
+    generateSpriteAtlas: 1
   asepriteImporterSettings:
     fileImportMode: 1
     importHiddenLayers: 0
@@ -89,11 +93,14 @@ ScriptedImporter:
     defaultPivotSpace: 0
     defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
     spritePadding: 0
     generateModelPrefab: 1
     generateAnimationClips: 1
     addSortingGroup: 1
     addShadowCasters: 0
+    generateIndividualEvents: 1
+    generateSpriteAtlas: 1
   importFileNodeState: 1
   platformSettingsDirtyTick: 0
   textureAssetName: 
@@ -103,6 +110,7 @@ ScriptedImporter:
     pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 0
@@ -124,6 +132,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: -0.41428572}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 181
@@ -144,6 +153,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: -0.41428572}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 181
@@ -164,6 +174,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: -0.4677419}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 243
@@ -184,6 +195,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: -0.29761904}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 181
@@ -204,6 +216,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: -0.26881722}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -224,6 +237,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: -0.3880597}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 181
@@ -244,6 +258,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: -0.32500002}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 62
@@ -264,6 +279,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: -0.313253}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -284,6 +300,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: -0.313253}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -304,6 +321,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: -0.3880597}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 181
@@ -324,6 +342,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: -0.28089887}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -344,6 +363,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: -0.2631579}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 62
@@ -364,6 +384,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: -0.4677419}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 243
@@ -384,6 +405,7 @@ ScriptedImporter:
     pivot: {x: 0.51111114, y: -0.38157895}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 243
@@ -404,6 +426,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: -0.41428572}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 243
@@ -424,6 +447,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: -0.3880597}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 181
@@ -444,6 +468,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: -0.29761904}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -464,6 +489,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: -0.29069766}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 62
@@ -484,6 +510,7 @@ ScriptedImporter:
     pivot: {x: 0.50877196, y: -0.3866667}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 62
@@ -504,6 +531,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: -0.36708862}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 127
@@ -524,6 +552,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: -0.36708862}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 62
@@ -540,176 +569,203 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 62, y: 372}
   spriteSheetImportData: []
+  tileSetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -1235602051
+    uuid:
+      value0: 2896261041
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: -1398706255
     name: Barrel_Yellow
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Barrel_Yellow_Frame_0
+    - name: Frame_0
       frameIndex: 0
+      additiveSortOrder: 0
       cellRect:
         x: 39
         y: 29
         width: 50
         height: 70
       spriteId: 3ff6b6cb4cb74eb448de041917c138e9
-    - name: Barrel_Yellow_Frame_1
+    - name: Frame_1
       frameIndex: 1
+      additiveSortOrder: 0
       cellRect:
         x: 39
         y: 29
         width: 50
         height: 70
       spriteId: 0cd356ba8dfe73849809d25bbff7289f
-    - name: Barrel_Yellow_Frame_2
+    - name: Frame_2
       frameIndex: 2
+      additiveSortOrder: 0
       cellRect:
         x: 35
         y: 29
         width: 58
         height: 62
       spriteId: 0f513e649fd370e469dd43e57eba3df8
-    - name: Barrel_Yellow_Frame_3
+    - name: Frame_3
       frameIndex: 3
+      additiveSortOrder: 0
       cellRect:
         x: 43
         y: 25
         width: 42
         height: 84
       spriteId: 2bc5c70626c46344eacb9711145699ca
-    - name: Barrel_Yellow_Frame_4
+    - name: Frame_4
       frameIndex: 4
+      additiveSortOrder: 0
       cellRect:
         x: 39
         y: 25
         width: 50
         height: 93
       spriteId: 9faacf1ccba17ba4c8ca8198a3d06450
-    - name: Barrel_Yellow_Frame_5
+    - name: Frame_5
       frameIndex: 5
+      additiveSortOrder: 0
       cellRect:
         x: 37
         y: 26
         width: 54
         height: 67
       spriteId: e4da6ca13d719084e97c545de471f98a
-    - name: Barrel_Yellow_Frame_6
+    - name: Frame_6
       frameIndex: 6
+      additiveSortOrder: 0
       cellRect:
         x: 39
         y: 26
         width: 50
         height: 80
       spriteId: caa1dd27b9b8e484d91460d3a099d7f4
-    - name: Barrel_Yellow_Frame_7
+    - name: Frame_7
       frameIndex: 7
+      additiveSortOrder: 0
       cellRect:
         x: 39
         y: 26
         width: 50
         height: 83
       spriteId: a64b4edd6dc00e34fa8573bf077b0589
-    - name: Barrel_Yellow_Frame_8
+    - name: Frame_8
       frameIndex: 8
+      additiveSortOrder: 0
       cellRect:
         x: 39
         y: 26
         width: 50
         height: 83
       spriteId: 199f10d407fde0942860e6b9f8a4a833
-    - name: Barrel_Yellow_Frame_9
+    - name: Frame_9
       frameIndex: 9
+      additiveSortOrder: 0
       cellRect:
         x: 37
         y: 26
         width: 54
         height: 67
       spriteId: 0eb7c32b51fc32c48a2dd2f9f3be0253
-    - name: Barrel_Yellow_Frame_10
+    - name: Frame_10
       frameIndex: 10
+      additiveSortOrder: 0
       cellRect:
         x: 39
         y: 25
         width: 50
         height: 89
       spriteId: f055f4e418dacd6488818a1c61c14088
-    - name: Barrel_Yellow_Frame_11
+    - name: Frame_11
       frameIndex: 11
+      additiveSortOrder: 0
       cellRect:
         x: 43
         y: 25
         width: 42
         height: 95
       spriteId: 5338749c63e4aa347add90b1878a8fbb
-    - name: Barrel_Yellow_Frame_12
+    - name: Frame_12
       frameIndex: 12
+      additiveSortOrder: 0
       cellRect:
         x: 35
         y: 29
         width: 58
         height: 62
       spriteId: 85f725a440647f84dad1eef66d786ae2
-    - name: Barrel_Yellow_Frame_13
+    - name: Frame_13
       frameIndex: 13
+      additiveSortOrder: 0
       cellRect:
         x: 41
         y: 29
         width: 45
         height: 76
       spriteId: 19c9f5fc6cc61964eba7f2ea51bfdcc4
-    - name: Barrel_Yellow_Frame_14
+    - name: Frame_14
       frameIndex: 14
+      additiveSortOrder: 0
       cellRect:
         x: 39
         y: 29
         width: 50
         height: 70
       spriteId: 659f6a17f64a770448714f099783946d
-    - name: Barrel_Yellow_Frame_15
+    - name: Frame_15
       frameIndex: 15
+      additiveSortOrder: 0
       cellRect:
         x: 37
         y: 26
         width: 54
         height: 67
       spriteId: 89b68d10c963ac14b9ad54e5bc33204d
-    - name: Barrel_Yellow_Frame_16
+    - name: Frame_16
       frameIndex: 16
+      additiveSortOrder: 0
       cellRect:
         x: 39
         y: 25
         width: 50
         height: 84
       spriteId: 0e13892386a5040498818e20c1703f0b
-    - name: Barrel_Yellow_Frame_17
+    - name: Frame_17
       frameIndex: 17
+      additiveSortOrder: 0
       cellRect:
         x: 40
         y: 25
         width: 48
         height: 86
       spriteId: 34133eb56cada7648a940f7079fcb288
-    - name: Barrel_Yellow_Frame_18
+    - name: Frame_18
       frameIndex: 18
+      additiveSortOrder: 0
       cellRect:
         x: 35
         y: 29
         width: 57
         height: 75
       spriteId: 9d9d2ee3a48f68a459c8faac23728226
-    - name: Barrel_Yellow_Frame_19
+    - name: Frame_19
       frameIndex: 19
+      additiveSortOrder: 0
       cellRect:
         x: 41
         y: 29
         width: 46
         height: 79
       spriteId: 0fce3b3216fd0ad4eb80d73a02394f17
-    - name: Barrel_Yellow_Frame_20
+    - name: Frame_20
       frameIndex: 20
+      additiveSortOrder: 0
       cellRect:
         x: 39
         y: 29
@@ -717,8 +773,13 @@ ScriptedImporter:
         height: 79
       spriteId: 99530a5ea95c3f74691cc3ef1c3c28f8
     linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
     parentIndex: -1
+  tileSets: []
   platformSettings: []
+  generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 128, y: 128}
+  previousTextureSize: {x: 512, y: 512}

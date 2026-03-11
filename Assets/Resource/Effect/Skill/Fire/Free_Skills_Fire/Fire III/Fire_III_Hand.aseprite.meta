@@ -28,6 +28,7 @@ ScriptedImporter:
   assetBundleName: 
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  importerVersion: 2
   textureImporterSettings:
     alphaSource: 1
     mipMapMode: 0
@@ -97,11 +98,14 @@ ScriptedImporter:
     defaultPivotSpace: 0
     defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
     spritePadding: 0
     generateModelPrefab: 1
     generateAnimationClips: 1
     addSortingGroup: 1
     addShadowCasters: 0
+    generateIndividualEvents: 1
+    generateSpriteAtlas: 1
   asepriteImporterSettings:
     fileImportMode: 1
     importHiddenLayers: 0
@@ -109,11 +113,14 @@ ScriptedImporter:
     defaultPivotSpace: 0
     defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
     spritePadding: 0
     generateModelPrefab: 1
     generateAnimationClips: 1
     addSortingGroup: 1
     addShadowCasters: 0
+    generateIndividualEvents: 1
+    generateSpriteAtlas: 1
   importFileNodeState: 1
   platformSettingsDirtyTick: 638785900180612340
   textureAssetName: 
@@ -123,6 +130,7 @@ ScriptedImporter:
     pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 0
@@ -144,6 +152,7 @@ ScriptedImporter:
     pivot: {x: 3.25, y: -1.4117649}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -164,6 +173,7 @@ ScriptedImporter:
     pivot: {x: 3.9333334, y: -1.3333334}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 237
@@ -184,6 +194,7 @@ ScriptedImporter:
     pivot: {x: 1.6060606, y: -1.5833333}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 218
@@ -204,6 +215,7 @@ ScriptedImporter:
     pivot: {x: 0.6153847, y: -3.846154}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -224,6 +236,7 @@ ScriptedImporter:
     pivot: {x: 0.48051947, y: -1.9545456}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 108
@@ -244,6 +257,7 @@ ScriptedImporter:
     pivot: {x: 0.34285715, y: -1.4814814}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -264,6 +278,7 @@ ScriptedImporter:
     pivot: {x: 0.23636366, y: -1.2333333}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 193
@@ -284,6 +299,7 @@ ScriptedImporter:
     pivot: {x: 0, y: -1.9130435}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 151
@@ -304,6 +320,7 @@ ScriptedImporter:
     pivot: {x: 0, y: -1.4666667}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 51
@@ -324,6 +341,7 @@ ScriptedImporter:
     pivot: {x: 0.06250003, y: -1.4516128}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -344,6 +362,7 @@ ScriptedImporter:
     pivot: {x: -0.15909089, y: -0.9230769}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -364,6 +383,7 @@ ScriptedImporter:
     pivot: {x: -0.065573804, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 149
@@ -384,6 +404,7 @@ ScriptedImporter:
     pivot: {x: -0.061538495, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 108
@@ -404,6 +425,7 @@ ScriptedImporter:
     pivot: {x: -0.061538495, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 77
@@ -424,6 +446,7 @@ ScriptedImporter:
     pivot: {x: -0.06250003, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -444,6 +467,7 @@ ScriptedImporter:
     pivot: {x: -0.06250003, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 76
@@ -464,6 +488,7 @@ ScriptedImporter:
     pivot: {x: -0.14285721, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 173
@@ -484,6 +509,7 @@ ScriptedImporter:
     pivot: {x: -0.081632696, y: -0.06896552}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 116
@@ -504,6 +530,7 @@ ScriptedImporter:
     pivot: {x: 0, y: -0.5135135}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -524,6 +551,7 @@ ScriptedImporter:
     pivot: {x: 0, y: -1.9130435}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 199
@@ -544,6 +572,7 @@ ScriptedImporter:
     pivot: {x: 0, y: -1.4666667}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 100
@@ -564,6 +593,7 @@ ScriptedImporter:
     pivot: {x: 0.06250003, y: -1.4516128}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 60
@@ -584,6 +614,7 @@ ScriptedImporter:
     pivot: {x: -0.15909089, y: -0.9230769}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 56
@@ -604,6 +635,7 @@ ScriptedImporter:
     pivot: {x: -0.065573804, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 82
@@ -624,6 +656,7 @@ ScriptedImporter:
     pivot: {x: -0.061538495, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 148
@@ -644,6 +677,7 @@ ScriptedImporter:
     pivot: {x: -0.061538495, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 150
@@ -664,6 +698,7 @@ ScriptedImporter:
     pivot: {x: -0.061538495, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -684,6 +719,7 @@ ScriptedImporter:
     pivot: {x: -0.061538495, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 77
@@ -704,6 +740,7 @@ ScriptedImporter:
     pivot: {x: -0.061538495, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 150
@@ -720,240 +757,275 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 150, y: 191}
   spriteSheetImportData: []
+  tileSetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 1229945992
+    uuid:
+      value0: 1398692008
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 1398692008
     name: Fire_III_Hand
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Fire_III_Hand_Frame_0
+    - name: Frame_0
       frameIndex: 0
+      additiveSortOrder: 0
       cellRect:
         x: 7
         y: 24
         width: 20
         height: 17
       spriteId: f6aa0ed4a3a1d9d418cc4b820574f6bb
-    - name: Fire_III_Hand_Frame_1
+    - name: Frame_1
       frameIndex: 1
+      additiveSortOrder: 0
       cellRect:
         x: 13
         y: 28
         width: 15
         height: 21
       spriteId: 68dbef71f8f0a84409f622cae7a368b7
-    - name: Fire_III_Hand_Frame_2
+    - name: Frame_2
       frameIndex: 2
+      additiveSortOrder: 0
       cellRect:
         x: 19
         y: 38
         width: 33
         height: 24
       spriteId: 52c3a4805b5958e4b8080273aa0f1c6d
-    - name: Fire_III_Hand_Frame_3
+    - name: Frame_3
       frameIndex: 3
+      additiveSortOrder: 0
       cellRect:
         x: 32
         y: 50
         width: 65
         height: 13
       spriteId: bc6ae5551712f8c4abeb3ee311ade941
-    - name: Fire_III_Hand_Frame_4
+    - name: Frame_4
       frameIndex: 4
+      additiveSortOrder: 0
       cellRect:
         x: 35
         y: 43
         width: 77
         height: 22
       spriteId: d17c9e8ef48191e468e8d07ebf9dac01
-    - name: Fire_III_Hand_Frame_5
+    - name: Frame_5
       frameIndex: 5
+      additiveSortOrder: 0
       cellRect:
         x: 48
         y: 40
         width: 70
         height: 27
       spriteId: fff28a84a1af814409f8cd4c66333d57
-    - name: Fire_III_Hand_Frame_6
+    - name: Frame_6
       frameIndex: 6
+      additiveSortOrder: 0
       cellRect:
         x: 59
         y: 37
         width: 55
         height: 30
       spriteId: 1e611855d24a816459c8fac0eefd0259
-    - name: Fire_III_Hand_Frame_7
+    - name: Frame_7
       frameIndex: 7
+      additiveSortOrder: 0
       cellRect:
         x: 72
         y: 44
         width: 40
         height: 23
       spriteId: 6275695249c739d489528f736e90175d
-    - name: Fire_III_Hand_Frame_8
+    - name: Frame_8
       frameIndex: 8
+      additiveSortOrder: 0
       cellRect:
         x: 72
         y: 44
         width: 41
         height: 30
       spriteId: 88e8fba0b5375af4a898eb7f50af258f
-    - name: Fire_III_Hand_Frame_9
+    - name: Frame_9
       frameIndex: 9
+      additiveSortOrder: 0
       cellRect:
         x: 69
         y: 45
         width: 48
         height: 31
       spriteId: 1992e17be424d6848b2ae681b3e41bfc
-    - name: Fire_III_Hand_Frame_10
+    - name: Frame_10
       frameIndex: 10
+      additiveSortOrder: 0
       cellRect:
         x: 79
         y: 36
         width: 44
         height: 39
       spriteId: 14917474fa9bb6c4185bcecf187c3ded
-    - name: Fire_III_Hand_Frame_11
+    - name: Frame_11
       frameIndex: 11
+      additiveSortOrder: 0
       cellRect:
         x: 76
         y: 0
         width: 61
         height: 17
       spriteId: 39631ecaa666dbe4f82f95621b822895
-    - name: Fire_III_Hand_Frame_12
+    - name: Frame_12
       frameIndex: 12
+      additiveSortOrder: 0
       cellRect:
         x: 76
         y: 0
         width: 65
         height: 8
       spriteId: 543ec61a2cc8c324facf5b225d473219
-    - name: Fire_III_Hand_Frame_13
+    - name: Frame_13
       frameIndex: 13
+      additiveSortOrder: 0
       cellRect:
         x: 76
         y: 0
         width: 65
         height: 11
       spriteId: fc161fe6b1fc6e94fab3c966154996a6
-    - name: Fire_III_Hand_Frame_14
+    - name: Frame_14
       frameIndex: 14
+      additiveSortOrder: 0
       cellRect:
         x: 76
         y: 0
         width: 64
         height: 10
       spriteId: 54c634c5b98a6e04484cdd51e6d654f5
-    - name: Fire_III_Hand_Frame_15
+    - name: Frame_15
       frameIndex: 15
+      additiveSortOrder: 0
       cellRect:
         x: 76
         y: 0
         width: 64
         height: 10
       spriteId: 218057c2a4dab1d49be8bb8e6e7857e9
-    - name: Fire_III_Hand_Frame_16
+    - name: Frame_16
       frameIndex: 16
+      additiveSortOrder: 0
       cellRect:
         x: 80
         y: 0
         width: 56
         height: 22
       spriteId: 09fb15f8f5057964f9f0044ef6e0419e
-    - name: Fire_III_Hand_Frame_17
+    - name: Frame_17
       frameIndex: 17
+      additiveSortOrder: 0
       cellRect:
         x: 76
         y: 2
         width: 49
         height: 29
       spriteId: 0069c90fd966a674ca6e83e3e6d1fba0
-    - name: Fire_III_Hand_Frame_18
+    - name: Frame_18
       frameIndex: 18
+      additiveSortOrder: 0
       cellRect:
         x: 72
         y: 19
         width: 39
         height: 37
       spriteId: 960d34fd96cbbac43b33c297843c72f5
-    - name: Fire_III_Hand_Frame_19
+    - name: Frame_19
       frameIndex: 19
+      additiveSortOrder: 0
       cellRect:
         x: 72
         y: 44
         width: 40
         height: 23
       spriteId: de13ce8bc5fde384bb9fdcfaea959118
-    - name: Fire_III_Hand_Frame_20
+    - name: Frame_20
       frameIndex: 20
+      additiveSortOrder: 0
       cellRect:
         x: 72
         y: 44
         width: 41
         height: 30
       spriteId: ab7c042cb77668742809760d49d94422
-    - name: Fire_III_Hand_Frame_21
+    - name: Frame_21
       frameIndex: 21
+      additiveSortOrder: 0
       cellRect:
         x: 69
         y: 45
         width: 48
         height: 31
       spriteId: 1f3bcd863fc800a4b963c0b588b92737
-    - name: Fire_III_Hand_Frame_22
+    - name: Frame_22
       frameIndex: 22
+      additiveSortOrder: 0
       cellRect:
         x: 79
         y: 36
         width: 44
         height: 39
       spriteId: 3563f4180ba7fa34aa713d63938d8e49
-    - name: Fire_III_Hand_Frame_23
+    - name: Frame_23
       frameIndex: 23
+      additiveSortOrder: 0
       cellRect:
         x: 76
         y: 0
         width: 61
         height: 17
       spriteId: 64673541120671e49b4990aa5dfd668e
-    - name: Fire_III_Hand_Frame_24
+    - name: Frame_24
       frameIndex: 24
+      additiveSortOrder: 0
       cellRect:
         x: 76
         y: 0
         width: 65
         height: 8
       spriteId: 9ee7f89d73601464ba40a2b72f936f04
-    - name: Fire_III_Hand_Frame_25
+    - name: Frame_25
       frameIndex: 25
+      additiveSortOrder: 0
       cellRect:
         x: 76
         y: 0
         width: 65
         height: 11
       spriteId: 14de0847d4c173c42aef81abb264b624
-    - name: Fire_III_Hand_Frame_26
+    - name: Frame_26
       frameIndex: 26
+      additiveSortOrder: 0
       cellRect:
         x: 76
         y: 0
         width: 65
         height: 11
       spriteId: e587f643f75588c4f8e00f588939c919
-    - name: Fire_III_Hand_Frame_27
+    - name: Frame_27
       frameIndex: 27
+      additiveSortOrder: 0
       cellRect:
         x: 76
         y: 0
         width: 65
         height: 11
       spriteId: a0f56384605caf741a95ced1f23f2840
-    - name: Fire_III_Hand_Frame_28
+    - name: Frame_28
       frameIndex: 28
+      additiveSortOrder: 0
       cellRect:
         x: 76
         y: 0
@@ -961,7 +1033,10 @@ ScriptedImporter:
         height: 11
       spriteId: 9ea15ed0e12230046837eb5ac84eee8d
     linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
     parentIndex: -1
+  tileSets: []
   platformSettings:
   - name: DefaultTexturePlatform
     overridden: 0
@@ -1011,6 +1086,8 @@ ScriptedImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     androidETC2FallbackOverride: 0
+  generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 144, y: 80}
+  previousTextureSize: {x: 256, y: 256}

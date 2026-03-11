@@ -53,7 +53,7 @@ public class MeteorRains : MonoBehaviour
             // Thiết lập hướng di chuyển
             Rigidbody2D rb = meteor.GetComponent<Rigidbody2D>();
             Vector2 direction = (targetPosition - spawnPosition).normalized;
-            rb.velocity = direction * meteorSpeed;
+            rb.linearVelocity = direction * meteorSpeed;
 
             // Xử lý va chạm
             Projectile projectileScript = meteor.GetComponent<Projectile>();

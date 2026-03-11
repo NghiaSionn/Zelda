@@ -85,7 +85,7 @@ public class PlayerMovement : MonoBehaviour
         // Nếu đang vận chiêu, không cho phép di chuyển
         if (isCasting || currentState == PlayerState.interact)
         {
-            myRigidbody.velocity = Vector2.zero; // Ngăn di chuyển
+            myRigidbody.linearVelocity = Vector2.zero; // Ngăn di chuyển
             return;
         }
 
@@ -103,9 +103,9 @@ public class PlayerMovement : MonoBehaviour
         isRunning = Input.GetKey(KeyCode.LeftShift) && canRun;
         dustEffect.SetActive(isRunning);
 
-        // Chỉ cập nhật vận tốc nếu không đang vận chiêu
+        // Chuẩn hóa vector hướng (change.normalized) để tránh lỗi đi chéo (đè 2 nút) nhanh hơn đi thẳng
         float currentSpeed = isRunning ? speed * runSpeedMultiplier : speed;
-        myRigidbody.velocity = change * currentSpeed;
+        myRigidbody.linearVelocity = change.normalized * currentSpeed;
 
         UpdateAnimator(change, isRunning);
 
@@ -189,12 +189,12 @@ public class PlayerMovement : MonoBehaviour
 
         while (elapsedTime < dashTime)
         {
-            myRigidbody.velocity = lastMoveDirection * dashForce;
+            myRigidbody.linearVelocity = lastMoveDirection * dashForce;
             elapsedTime += Time.deltaTime;
             yield return null;
         }
 
-        myRigidbody.velocity = Vector2.zero;
+        myRigidbody.linearVelocity = Vector2.zero;
     }
 
     private IEnumerator DashCo()
@@ -202,12 +202,12 @@ public class PlayerMovement : MonoBehaviour
         currentState = PlayerState.dash;
         dashCooldownTimer = dashCooldown;
         Vector2 dashDirection = change.normalized;
-        myRigidbody.velocity = dashDirection * dashSpeed;
+        myRigidbody.linearVelocity = dashDirection * dashSpeed;
         InvokeRepeating("DashEffect", 0f, 0.05f);
         yield return new WaitForSeconds(dashDuration);
         CancelInvoke("DashEffect");
         currentState = PlayerState.idle;
-        myRigidbody.velocity = Vector2.zero;
+        myRigidbody.linearVelocity = Vector2.zero;
     }
 
     private void DashEffect()
@@ -290,7 +290,7 @@ public class PlayerMovement : MonoBehaviour
         animator.enabled = true;
 
         yield return new WaitForSeconds(knockTime);
-        rb.velocity = Vector2.zero;
+        rb.linearVelocity = Vector2.zero;
         currentState = PlayerState.walk;
 
         yield return new WaitForSeconds(0.5f);

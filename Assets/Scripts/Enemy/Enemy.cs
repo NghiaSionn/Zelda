@@ -105,7 +105,7 @@ public class Enemy : MonoBehaviour
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         if (rb != null)
         {
-            rb.velocity = Vector2.zero;
+            rb.linearVelocity = Vector2.zero;
         }
 
         yield return new WaitForSeconds(0.5f);
@@ -132,9 +132,9 @@ public class Enemy : MonoBehaviour
             yield return new WaitForSeconds(knockTime);
             if (gameObject.activeInHierarchy)
             {
-                myRigibody.velocity = Vector2.zero;
+                myRigibody.linearVelocity = Vector2.zero;
                 currentState = EnemyState.idle;
-                myRigibody.velocity = Vector2.zero;
+                myRigibody.linearVelocity = Vector2.zero;
             }
         }
     }

@@ -95,9 +95,9 @@ public class Boss : MonoBehaviour
             yield return new WaitForSeconds(knockTime);
             if (gameObject.activeInHierarchy)
             {
-                myRigibody.velocity = Vector2.zero;
+                myRigibody.linearVelocity = Vector2.zero;
                 currentState = EnemyState.idle;
-                myRigibody.velocity = Vector2.zero;
+                myRigibody.linearVelocity = Vector2.zero;
             }
         }
     }

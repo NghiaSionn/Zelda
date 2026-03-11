@@ -8,6 +8,7 @@ ScriptedImporter:
   assetBundleName: 
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  importerVersion: 2
   textureImporterSettings:
     alphaSource: 1
     mipMapMode: 0
@@ -77,11 +78,14 @@ ScriptedImporter:
     defaultPivotSpace: 0
     defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
     spritePadding: 0
     generateModelPrefab: 1
     generateAnimationClips: 1
     addSortingGroup: 1
     addShadowCasters: 0
+    generateIndividualEvents: 1
+    generateSpriteAtlas: 1
   asepriteImporterSettings:
     fileImportMode: 1
     importHiddenLayers: 0
@@ -89,11 +93,14 @@ ScriptedImporter:
     defaultPivotSpace: 0
     defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
     spritePadding: 0
     generateModelPrefab: 1
     generateAnimationClips: 1
     addSortingGroup: 1
     addShadowCasters: 0
+    generateIndividualEvents: 1
+    generateSpriteAtlas: 1
   importFileNodeState: 1
   platformSettingsDirtyTick: 0
   textureAssetName: 
@@ -103,6 +110,7 @@ ScriptedImporter:
     pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 0
@@ -124,6 +132,7 @@ ScriptedImporter:
     pivot: {x: 0.50308514, y: -0.018812463}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -144,6 +153,7 @@ ScriptedImporter:
     pivot: {x: 0.50308514, y: -0.018812463}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -164,6 +174,7 @@ ScriptedImporter:
     pivot: {x: 0.50308514, y: -0.018812463}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -184,6 +195,7 @@ ScriptedImporter:
     pivot: {x: 0.50308514, y: -0.018812463}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -204,6 +216,7 @@ ScriptedImporter:
     pivot: {x: 0.50308514, y: -0.018812463}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -224,6 +237,7 @@ ScriptedImporter:
     pivot: {x: 0.50308514, y: -0.018812463}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -244,6 +258,7 @@ ScriptedImporter:
     pivot: {x: 0.50308514, y: -0.018812463}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -264,6 +279,7 @@ ScriptedImporter:
     pivot: {x: 0.50308514, y: -0.018812463}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -284,6 +300,7 @@ ScriptedImporter:
     pivot: {x: 0.50308514, y: -0.018812463}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -304,6 +321,7 @@ ScriptedImporter:
     pivot: {x: 0.50308514, y: -0.018812463}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 2443
@@ -324,6 +342,7 @@ ScriptedImporter:
     pivot: {x: 0.50308514, y: -0.018812463}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 2443
@@ -344,6 +363,7 @@ ScriptedImporter:
     pivot: {x: 0.50308514, y: -0.018812463}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 2443
@@ -364,6 +384,7 @@ ScriptedImporter:
     pivot: {x: 0.50308514, y: -0.018812463}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 2443
@@ -384,6 +405,7 @@ ScriptedImporter:
     pivot: {x: 0.50308514, y: -0.018812463}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 2443
@@ -404,6 +426,7 @@ ScriptedImporter:
     pivot: {x: 0.50308514, y: -0.018812463}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 2443
@@ -424,6 +447,7 @@ ScriptedImporter:
     pivot: {x: 0.50308514, y: -0.018812463}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 2443
@@ -444,6 +468,7 @@ ScriptedImporter:
     pivot: {x: 0.50308514, y: -0.018812463}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 2443
@@ -464,6 +489,7 @@ ScriptedImporter:
     pivot: {x: 0.50308514, y: -0.018812463}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 2443
@@ -484,6 +510,7 @@ ScriptedImporter:
     pivot: {x: 0.50308514, y: -0.018812463}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4882
@@ -504,6 +531,7 @@ ScriptedImporter:
     pivot: {x: 0.50308514, y: -0.018812463}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4882
@@ -524,6 +552,7 @@ ScriptedImporter:
     pivot: {x: 0.50308514, y: -0.018812463}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4882
@@ -544,6 +573,7 @@ ScriptedImporter:
     pivot: {x: 0.50308514, y: -0.018812463}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4882
@@ -564,6 +594,7 @@ ScriptedImporter:
     pivot: {x: 0.50308514, y: -0.018812463}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4882
@@ -584,6 +615,7 @@ ScriptedImporter:
     pivot: {x: 0.50308514, y: -0.018812463}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4882
@@ -604,6 +636,7 @@ ScriptedImporter:
     pivot: {x: 0.50308514, y: -0.018812463}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4882
@@ -624,6 +657,7 @@ ScriptedImporter:
     pivot: {x: 0.50308514, y: -0.018812463}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4882
@@ -644,6 +678,7 @@ ScriptedImporter:
     pivot: {x: 0.50308514, y: -0.018812463}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4882
@@ -664,6 +699,7 @@ ScriptedImporter:
     pivot: {x: 0.50308514, y: -0.018812463}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 7321
@@ -684,6 +720,7 @@ ScriptedImporter:
     pivot: {x: 0.50308514, y: -0.018812463}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 7321
@@ -704,6 +741,7 @@ ScriptedImporter:
     pivot: {x: 0.50308514, y: -0.018812463}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 7321
@@ -724,6 +762,7 @@ ScriptedImporter:
     pivot: {x: 0.50308514, y: -0.018812463}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 7321
@@ -744,6 +783,7 @@ ScriptedImporter:
     pivot: {x: 0.50308514, y: -0.018812463}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 7321
@@ -764,6 +804,7 @@ ScriptedImporter:
     pivot: {x: 0.50308514, y: -0.018812463}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 7321
@@ -784,6 +825,7 @@ ScriptedImporter:
     pivot: {x: 0.50308514, y: -0.018812463}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 7321
@@ -804,6 +846,7 @@ ScriptedImporter:
     pivot: {x: 0.50308514, y: -0.018812463}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 7321
@@ -824,6 +867,7 @@ ScriptedImporter:
     pivot: {x: 0.50308514, y: -0.018812463}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 7321
@@ -844,6 +888,7 @@ ScriptedImporter:
     pivot: {x: 0.50308514, y: -0.018812463}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 9760
@@ -864,6 +909,7 @@ ScriptedImporter:
     pivot: {x: 0.50308514, y: -0.018812463}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 9760
@@ -884,6 +930,7 @@ ScriptedImporter:
     pivot: {x: 0.50308514, y: -0.018812463}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 9760
@@ -904,6 +951,7 @@ ScriptedImporter:
     pivot: {x: 0.50308514, y: -0.018812463}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 9760
@@ -924,6 +972,7 @@ ScriptedImporter:
     pivot: {x: 0.50308514, y: -0.018812463}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 9760
@@ -944,6 +993,7 @@ ScriptedImporter:
     pivot: {x: 0.50308514, y: -0.018812463}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 9760
@@ -964,6 +1014,7 @@ ScriptedImporter:
     pivot: {x: 0.50308514, y: -0.018812463}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 9760
@@ -984,6 +1035,7 @@ ScriptedImporter:
     pivot: {x: 0.50308514, y: -0.018812463}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 9760
@@ -1004,6 +1056,7 @@ ScriptedImporter:
     pivot: {x: 0.50308514, y: -0.018812463}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 9760
@@ -1024,6 +1077,7 @@ ScriptedImporter:
     pivot: {x: 0.50308514, y: -0.018812463}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 12199
@@ -1044,6 +1098,7 @@ ScriptedImporter:
     pivot: {x: 0.50308514, y: -0.018812463}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 12199
@@ -1064,6 +1119,7 @@ ScriptedImporter:
     pivot: {x: 0.50308514, y: -0.018812463}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 12199
@@ -1084,6 +1140,7 @@ ScriptedImporter:
     pivot: {x: 0.50308514, y: -0.018812463}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 12199
@@ -1100,400 +1157,455 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 12199, y: 10234}
   spriteSheetImportData: []
+  tileSetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 583031793
+    uuid:
+      value0: 4015153397
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: -279813899
     name: Folding & Cutout Paper UI
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Folding & Cutout Paper UI_Frame_0
+    - name: Frame_0
       frameIndex: 0
+      additiveSortOrder: 0
       cellRect:
         x: 49
         y: 64
         width: 2431
         height: 3402
       spriteId: dee7d55a8fa14ef4eb25ce4b38d1e7a5
-    - name: Folding & Cutout Paper UI_Frame_1
+    - name: Frame_1
       frameIndex: 1
+      additiveSortOrder: 0
       cellRect:
         x: 49
         y: 64
         width: 2431
         height: 3402
       spriteId: 9f38b957ab3363f47bb2228392bc0e36
-    - name: Folding & Cutout Paper UI_Frame_2
+    - name: Frame_2
       frameIndex: 2
+      additiveSortOrder: 0
       cellRect:
         x: 49
         y: 64
         width: 2431
         height: 3402
       spriteId: 2b3516cfff178674ba6d30d668b214d7
-    - name: Folding & Cutout Paper UI_Frame_3
+    - name: Frame_3
       frameIndex: 3
+      additiveSortOrder: 0
       cellRect:
         x: 49
         y: 64
         width: 2431
         height: 3402
       spriteId: 96d4203d695893a4ea1c10bc55b3e876
-    - name: Folding & Cutout Paper UI_Frame_4
+    - name: Frame_4
       frameIndex: 4
+      additiveSortOrder: 0
       cellRect:
         x: 49
         y: 64
         width: 2431
         height: 3402
       spriteId: 0529f4bcbd97fc44484e3f52d1c1e750
-    - name: Folding & Cutout Paper UI_Frame_5
+    - name: Frame_5
       frameIndex: 5
+      additiveSortOrder: 0
       cellRect:
         x: 49
         y: 64
         width: 2431
         height: 3402
       spriteId: e87a9d2e6207b6549834dfdcf0bb0a28
-    - name: Folding & Cutout Paper UI_Frame_6
+    - name: Frame_6
       frameIndex: 6
+      additiveSortOrder: 0
       cellRect:
         x: 49
         y: 64
         width: 2431
         height: 3402
       spriteId: 0875c3e7903ae5f45932b8c1cf01f742
-    - name: Folding & Cutout Paper UI_Frame_7
+    - name: Frame_7
       frameIndex: 7
+      additiveSortOrder: 0
       cellRect:
         x: 49
         y: 64
         width: 2431
         height: 3402
       spriteId: 1a8fed73eca7f884da4f41f9119d3faa
-    - name: Folding & Cutout Paper UI_Frame_8
+    - name: Frame_8
       frameIndex: 8
+      additiveSortOrder: 0
       cellRect:
         x: 49
         y: 64
         width: 2431
         height: 3402
       spriteId: ab62439a486b050498c70768451e56d4
-    - name: Folding & Cutout Paper UI_Frame_9
+    - name: Frame_9
       frameIndex: 9
+      additiveSortOrder: 0
       cellRect:
         x: 49
         y: 64
         width: 2431
         height: 3402
       spriteId: 68545cc4b3438cc49bc71d11a9ae7b3d
-    - name: Folding & Cutout Paper UI_Frame_10
+    - name: Frame_10
       frameIndex: 10
+      additiveSortOrder: 0
       cellRect:
         x: 49
         y: 64
         width: 2431
         height: 3402
       spriteId: 7ed946050ddef7c44a63cd45d8a2aa43
-    - name: Folding & Cutout Paper UI_Frame_11
+    - name: Frame_11
       frameIndex: 11
+      additiveSortOrder: 0
       cellRect:
         x: 49
         y: 64
         width: 2431
         height: 3402
       spriteId: 8b6712e66f2b08d438dc2fb0a560b15e
-    - name: Folding & Cutout Paper UI_Frame_12
+    - name: Frame_12
       frameIndex: 12
+      additiveSortOrder: 0
       cellRect:
         x: 49
         y: 64
         width: 2431
         height: 3402
       spriteId: 0f67e6869e24d0b4089b497537e6fc2a
-    - name: Folding & Cutout Paper UI_Frame_13
+    - name: Frame_13
       frameIndex: 13
+      additiveSortOrder: 0
       cellRect:
         x: 49
         y: 64
         width: 2431
         height: 3402
       spriteId: 443fee2e27836114fbb782cb4e3e642c
-    - name: Folding & Cutout Paper UI_Frame_14
+    - name: Frame_14
       frameIndex: 14
+      additiveSortOrder: 0
       cellRect:
         x: 49
         y: 64
         width: 2431
         height: 3402
       spriteId: 3a7090efd57f2ef46a09c32e31b357be
-    - name: Folding & Cutout Paper UI_Frame_15
+    - name: Frame_15
       frameIndex: 15
+      additiveSortOrder: 0
       cellRect:
         x: 49
         y: 64
         width: 2431
         height: 3402
       spriteId: 0af4a0677dec1d742ade8fa4b212dd4d
-    - name: Folding & Cutout Paper UI_Frame_16
+    - name: Frame_16
       frameIndex: 16
+      additiveSortOrder: 0
       cellRect:
         x: 49
         y: 64
         width: 2431
         height: 3402
       spriteId: 3b69222f4c1c96141a62e88692678b0f
-    - name: Folding & Cutout Paper UI_Frame_17
+    - name: Frame_17
       frameIndex: 17
+      additiveSortOrder: 0
       cellRect:
         x: 49
         y: 64
         width: 2431
         height: 3402
       spriteId: 45394b48a2098be4d95ac67687babb38
-    - name: Folding & Cutout Paper UI_Frame_18
+    - name: Frame_18
       frameIndex: 18
+      additiveSortOrder: 0
       cellRect:
         x: 49
         y: 64
         width: 2431
         height: 3402
       spriteId: d36dbd1f3d75c4d45b0fb1226e7bbf16
-    - name: Folding & Cutout Paper UI_Frame_19
+    - name: Frame_19
       frameIndex: 19
+      additiveSortOrder: 0
       cellRect:
         x: 49
         y: 64
         width: 2431
         height: 3402
       spriteId: a432485d64798d84da3ea1509d20758b
-    - name: Folding & Cutout Paper UI_Frame_20
+    - name: Frame_20
       frameIndex: 20
+      additiveSortOrder: 0
       cellRect:
         x: 49
         y: 64
         width: 2431
         height: 3402
       spriteId: caabcc61b775e1345916de0efd60b3e5
-    - name: Folding & Cutout Paper UI_Frame_21
+    - name: Frame_21
       frameIndex: 21
+      additiveSortOrder: 0
       cellRect:
         x: 49
         y: 64
         width: 2431
         height: 3402
       spriteId: 47c69a50caef04248a74ccee70c88c15
-    - name: Folding & Cutout Paper UI_Frame_22
+    - name: Frame_22
       frameIndex: 22
+      additiveSortOrder: 0
       cellRect:
         x: 49
         y: 64
         width: 2431
         height: 3402
       spriteId: f8f3c05b36179754cbd177ae497643f3
-    - name: Folding & Cutout Paper UI_Frame_23
+    - name: Frame_23
       frameIndex: 23
+      additiveSortOrder: 0
       cellRect:
         x: 49
         y: 64
         width: 2431
         height: 3402
       spriteId: 17b9062a377f2ec4da76afb2717ee1c8
-    - name: Folding & Cutout Paper UI_Frame_24
+    - name: Frame_24
       frameIndex: 24
+      additiveSortOrder: 0
       cellRect:
         x: 49
         y: 64
         width: 2431
         height: 3402
       spriteId: 79df5d6ddc824df4897594bf8a9bccd7
-    - name: Folding & Cutout Paper UI_Frame_25
+    - name: Frame_25
       frameIndex: 25
+      additiveSortOrder: 0
       cellRect:
         x: 49
         y: 64
         width: 2431
         height: 3402
       spriteId: 9f9a82bc10af32d4899c6c89cca44784
-    - name: Folding & Cutout Paper UI_Frame_26
+    - name: Frame_26
       frameIndex: 26
+      additiveSortOrder: 0
       cellRect:
         x: 49
         y: 64
         width: 2431
         height: 3402
       spriteId: 9783815339d55d64690e3070a1f32334
-    - name: Folding & Cutout Paper UI_Frame_27
+    - name: Frame_27
       frameIndex: 27
+      additiveSortOrder: 0
       cellRect:
         x: 49
         y: 64
         width: 2431
         height: 3402
       spriteId: c5c58f6fccca8974cab5211384462f69
-    - name: Folding & Cutout Paper UI_Frame_28
+    - name: Frame_28
       frameIndex: 28
+      additiveSortOrder: 0
       cellRect:
         x: 49
         y: 64
         width: 2431
         height: 3402
       spriteId: f11de15264506284ebc8428c427b0b31
-    - name: Folding & Cutout Paper UI_Frame_29
+    - name: Frame_29
       frameIndex: 29
+      additiveSortOrder: 0
       cellRect:
         x: 49
         y: 64
         width: 2431
         height: 3402
       spriteId: c6f967736420c39478c984cb34944e05
-    - name: Folding & Cutout Paper UI_Frame_30
+    - name: Frame_30
       frameIndex: 30
+      additiveSortOrder: 0
       cellRect:
         x: 49
         y: 64
         width: 2431
         height: 3402
       spriteId: b7b34b0e335286a46bb5b2d09379caad
-    - name: Folding & Cutout Paper UI_Frame_31
+    - name: Frame_31
       frameIndex: 31
+      additiveSortOrder: 0
       cellRect:
         x: 49
         y: 64
         width: 2431
         height: 3402
       spriteId: d5e2b85c430407f4787dc0ee493aa33e
-    - name: Folding & Cutout Paper UI_Frame_32
+    - name: Frame_32
       frameIndex: 32
+      additiveSortOrder: 0
       cellRect:
         x: 49
         y: 64
         width: 2431
         height: 3402
       spriteId: 1132da7ab7746e347985563201f70867
-    - name: Folding & Cutout Paper UI_Frame_33
+    - name: Frame_33
       frameIndex: 33
+      additiveSortOrder: 0
       cellRect:
         x: 49
         y: 64
         width: 2431
         height: 3402
       spriteId: 04adbbf9c7435774ea1747237d7d71f2
-    - name: Folding & Cutout Paper UI_Frame_34
+    - name: Frame_34
       frameIndex: 34
+      additiveSortOrder: 0
       cellRect:
         x: 49
         y: 64
         width: 2431
         height: 3402
       spriteId: 70a8bede0b41486489c39508e552d75e
-    - name: Folding & Cutout Paper UI_Frame_35
+    - name: Frame_35
       frameIndex: 35
+      additiveSortOrder: 0
       cellRect:
         x: 49
         y: 64
         width: 2431
         height: 3402
       spriteId: 0c1f18b5075bf584c9609958f74674a3
-    - name: Folding & Cutout Paper UI_Frame_36
+    - name: Frame_36
       frameIndex: 36
+      additiveSortOrder: 0
       cellRect:
         x: 49
         y: 64
         width: 2431
         height: 3402
       spriteId: a54660b17d0ceaa49b9ee6d0e072f3cf
-    - name: Folding & Cutout Paper UI_Frame_37
+    - name: Frame_37
       frameIndex: 37
+      additiveSortOrder: 0
       cellRect:
         x: 49
         y: 64
         width: 2431
         height: 3402
       spriteId: 7667f9e01ea7c79488aa7beafdefd8fb
-    - name: Folding & Cutout Paper UI_Frame_38
+    - name: Frame_38
       frameIndex: 38
+      additiveSortOrder: 0
       cellRect:
         x: 49
         y: 64
         width: 2431
         height: 3402
       spriteId: f5a646aa4dfe3da4ca006118790386fa
-    - name: Folding & Cutout Paper UI_Frame_39
+    - name: Frame_39
       frameIndex: 39
+      additiveSortOrder: 0
       cellRect:
         x: 49
         y: 64
         width: 2431
         height: 3402
       spriteId: 858f26bda3662604d88c38f467e47666
-    - name: Folding & Cutout Paper UI_Frame_40
+    - name: Frame_40
       frameIndex: 40
+      additiveSortOrder: 0
       cellRect:
         x: 49
         y: 64
         width: 2431
         height: 3402
       spriteId: 7256b78bdba710a4ebdb6bca3f2e6d12
-    - name: Folding & Cutout Paper UI_Frame_41
+    - name: Frame_41
       frameIndex: 41
+      additiveSortOrder: 0
       cellRect:
         x: 49
         y: 64
         width: 2431
         height: 3402
       spriteId: d571be6057e3daa4e8a8f3ebec4074a4
-    - name: Folding & Cutout Paper UI_Frame_42
+    - name: Frame_42
       frameIndex: 42
+      additiveSortOrder: 0
       cellRect:
         x: 49
         y: 64
         width: 2431
         height: 3402
       spriteId: 2641aa8f50838da41ae8f3967ab86daf
-    - name: Folding & Cutout Paper UI_Frame_43
+    - name: Frame_43
       frameIndex: 43
+      additiveSortOrder: 0
       cellRect:
         x: 49
         y: 64
         width: 2431
         height: 3402
       spriteId: ea40c5c67e543fd448b359adf696ea28
-    - name: Folding & Cutout Paper UI_Frame_44
+    - name: Frame_44
       frameIndex: 44
+      additiveSortOrder: 0
       cellRect:
         x: 49
         y: 64
         width: 2431
         height: 3402
       spriteId: 9811262c6bf99934ca2f875be70b234f
-    - name: Folding & Cutout Paper UI_Frame_45
+    - name: Frame_45
       frameIndex: 45
+      additiveSortOrder: 0
       cellRect:
         x: 49
         y: 64
         width: 2431
         height: 3402
       spriteId: 80995c80e78131449a9735c614a8d0ed
-    - name: Folding & Cutout Paper UI_Frame_46
+    - name: Frame_46
       frameIndex: 46
+      additiveSortOrder: 0
       cellRect:
         x: 49
         y: 64
         width: 2431
         height: 3402
       spriteId: 2bcb1eb8e189f834da80127ac40817e3
-    - name: Folding & Cutout Paper UI_Frame_47
+    - name: Frame_47
       frameIndex: 47
+      additiveSortOrder: 0
       cellRect:
         x: 49
         y: 64
         width: 2431
         height: 3402
       spriteId: 2982abaf6ce3a014289bb99b67345147
-    - name: Folding & Cutout Paper UI_Frame_48
+    - name: Frame_48
       frameIndex: 48
+      additiveSortOrder: 0
       cellRect:
         x: 49
         y: 64
@@ -1501,8 +1613,13 @@ ScriptedImporter:
         height: 3402
       spriteId: 5123962fd282dbc48ae7fd4638c520ad
     linkedCells: []
+    tileCells: []
+    tileSetIndex: 0
     parentIndex: -1
+  tileSets: []
   platformSettings: []
+  generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 2544, y: 3536}
+  previousTextureSize: {x: 16384, y: 32768}

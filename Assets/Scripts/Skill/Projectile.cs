@@ -62,11 +62,11 @@ public class Projectile : MonoBehaviour
     {
         if (shouldMove)
         {
-            rb.velocity = direction * speed;
+            rb.linearVelocity = direction * speed;
         }
         else
         {
-            rb.velocity = Vector2.zero; // Không di chuyển (dùng cho Support)
+            rb.linearVelocity = Vector2.zero; // Không di chuyển (dùng cho Support)
         }
     }
 

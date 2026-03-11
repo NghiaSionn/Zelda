@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class UIManager : MonoBehaviour
@@ -57,10 +57,20 @@ public class UIManager : MonoBehaviour
         {
             if (pausePanel.activeSelf)
             {
+                // ESC lần 2 (pause đang mở) → Đóng pause
                 ClosePausePanel();
+            }
+            else if ((bookObject != null && bookObject.activeSelf) || inventoryPanel.activeSelf)
+            {
+                // Sách/inventory đang mở → Đóng sách bằng animation trước, chưa mở pause
+                if (!isBookAnimating)
+                {
+                    ToggleInventoryPanel();
+                }
             }
             else
             {
+                // Không có gì đang mở → Mở pause
                 OpenPausePanel();
             }
         }

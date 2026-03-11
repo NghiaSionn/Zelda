@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using static PixelCrushers.AnimatorSaver;
 
 public class GameManager : MonoBehaviour
 {

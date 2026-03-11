@@ -1,5 +1,4 @@
-﻿using PixelCrushers.DialogueSystem.UnityGUI;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class FireflyManager : MonoBehaviour
 {

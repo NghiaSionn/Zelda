@@ -77,6 +77,10 @@ namespace NavMeshPlus.Components
         public bool buildHeightMesh { get { return m_BuildHeightMesh; } set { m_BuildHeightMesh = value; } }
 
         [SerializeField]
+        float m_MinRegionArea = 0;
+        public float minRegionArea { get {  return m_MinRegionArea; } set { m_MinRegionArea = value; } }
+        
+        [SerializeField]
         bool m_HideEditorLogs;
         public bool hideEditorLogs { get { return m_HideEditorLogs; } set { m_HideEditorLogs = value; } }
 
@@ -94,7 +98,7 @@ namespace NavMeshPlus.Components
         public NavMeshDataInstance navMeshDataInstance => m_NavMeshDataInstance;
 
         static readonly List<NavMeshSurface> s_NavMeshSurfaces = new List<NavMeshSurface>();
-        public INavMeshExtensionsProvider NevMeshExtensions { get; set; } = new NavMeshExtensionsProvider();
+        public INavMeshExtensionsProvider NavMeshExtensions { get; set; } = new NavMeshExtensionsProvider();
 
         public static List<NavMeshSurface> activeSurfaces
         {
@@ -163,6 +167,8 @@ namespace NavMeshPlus.Components
                 buildSettings.overrideVoxelSize = true;
                 buildSettings.voxelSize = voxelSize;
             }
+
+            buildSettings.minRegionArea = minRegionArea;
             return buildSettings;
         }
 
@@ -180,9 +186,9 @@ namespace NavMeshPlus.Components
                 sourcesBounds = CalculateWorldBounds(sources);
             }
             builderState.worldBounds = sourcesBounds;
-            for (int i = 0; i < NevMeshExtensions.Count; ++i)
+            for (int i = 0; i < NavMeshExtensions.Count; ++i)
             {
-                NevMeshExtensions[i].PostCollectSources(this, sources, builderState);
+                NavMeshExtensions[i].PostCollectSources(this, sources, builderState);
             }
             var data = NavMeshBuilder.BuildNavMeshData(GetBuildSettings(),
                     sources, sourcesBounds, transform.position, transform.rotation);
@@ -230,9 +236,9 @@ namespace NavMeshPlus.Components
                 sourcesBounds = CalculateWorldBounds(sources);
             }
             builderState.worldBounds = sourcesBounds;
-            for (int i = 0; i < NevMeshExtensions.Count; ++i)
+            for (int i = 0; i < NavMeshExtensions.Count; ++i)
             {
-                NevMeshExtensions[i].PostCollectSources(this, sources, builderState);
+                NavMeshExtensions[i].PostCollectSources(this, sources, builderState);
             }
             return NavMeshBuilder.UpdateNavMeshDataAsync(data, GetBuildSettings(), sources, sourcesBounds);
         }
@@ -363,9 +369,9 @@ namespace NavMeshPlus.Components
                     UnityEditor.AI.NavMeshEditorHelpers.CollectSourcesInStage(
                         worldBounds, m_LayerMask, m_UseGeometry, m_DefaultArea, markups, gameObject.scene, sources);
                 }
-                for (int i = 0; i < NevMeshExtensions.Count; ++i)
+                for (int i = 0; i < NavMeshExtensions.Count; ++i)
                 {
-                    NevMeshExtensions[i].CollectSources(this, sources, builderState);
+                    NavMeshExtensions[i].CollectSources(this, sources, builderState);
                 }
             }
             else
@@ -385,9 +391,9 @@ namespace NavMeshPlus.Components
                     var worldBounds = GetWorldBounds(localToWorld, new Bounds(m_Center, m_Size));
                     NavMeshBuilder.CollectSources(worldBounds, m_LayerMask, m_UseGeometry, m_DefaultArea, markups, sources);
                 }
-                for (int i = 0; i < NevMeshExtensions.Count; ++i)
+                for (int i = 0; i < NavMeshExtensions.Count; ++i)
                 {
-                    NevMeshExtensions[i].CollectSources(this, sources, builderState);
+                    NavMeshExtensions[i].CollectSources(this, sources, builderState);
                 }
             }
 
@@ -425,9 +431,9 @@ namespace NavMeshPlus.Components
 
             var result = new Bounds();
             var builderState = new NavMeshBuilderState() { worldBounds = result, worldToLocal = worldToLocal };
-            for (int i = 0; i < NevMeshExtensions.Count; ++i)
+            for (int i = 0; i < NavMeshExtensions.Count; ++i)
             {
-                NevMeshExtensions[i].CalculateWorldBounds(this, sources, builderState);
+                NavMeshExtensions[i].CalculateWorldBounds(this, sources, builderState);
                 result.Encapsulate(builderState.worldBounds);
             }
             foreach (var src in sources)

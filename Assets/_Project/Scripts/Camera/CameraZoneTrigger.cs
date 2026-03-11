@@ -1,6 +1,6 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
-using Cinemachine;
+using Unity.Cinemachine;
 using TMPro;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,10 +8,10 @@ using System.Collections.Generic;
 public class CameraZoneTrigger : MonoBehaviour
 {
     [Header("Camera Hiện Tại")]
-    public CinemachineVirtualCamera currentCamera;
+    public CinemachineCamera currentCamera;
 
     [Header("Camera Tiếp Theo")]
-    public CinemachineVirtualCamera nextCamera;
+    public CinemachineCamera nextCamera;
 
     [Header("Vị trí người chơi")]
     public Vector3 playerChange;

@@ -10,8 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6036482383312696435}
   - component: {fileID: 1803080290053176259}
-  - component: {fileID: 161074799414976181}
   - component: {fileID: 1029090600790351067}
+  - component: {fileID: -6041260371957201797}
+  - component: {fileID: 8411326454490636788}
+  - component: {fileID: 4114721631284743104}
   m_Layer: 0
   m_Name: Fountain
   m_TagString: Untagged
@@ -36,6 +38,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1803080290053176259
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -51,6 +54,11 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -72,9 +80,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1667486233
   m_SortingLayer: 37
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_Sprite: {fileID: 1008069240, guid: 8f9caac0c0aa69040b71c10597ed456d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -84,16 +94,54 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!68 &161074799414976181
-EdgeCollider2D:
+--- !u!95 &1029090600790351067
+Animator:
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7059905173166991778}
   m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 757bf68b707066843b02a03f7cbd0d40, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-6041260371957201797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7059905173166991778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: NavMeshPlus::NavMeshPlus.Components.NavMeshModifier
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
+--- !u!58 &8411326454490636788
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7059905173166991778}
+  m_Enabled: 1
+  serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -117,66 +165,53 @@ EdgeCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: 0.08282471, y: -1.3137093}
-  - {x: -0.23880005, y: -1.3157845}
-  - {x: -0.763031, y: -1.1878357}
-  - {x: -1.0534363, y: -1.0111046}
-  - {x: -1.1697693, y: -0.89549255}
-  - {x: -1.3770752, y: -0.68671036}
-  - {x: -1.5106201, y: -0.4362526}
-  - {x: -1.5115967, y: 0.037582397}
-  - {x: -1.5161743, y: 0.5444679}
-  - {x: -1.3687744, y: 0.8196144}
-  - {x: -1.2814026, y: 0.89114}
-  - {x: -1.205658, y: 0.9297714}
-  - {x: -1.1010132, y: 1.0435104}
-  - {x: -0.7524109, y: 1.0877037}
-  - {x: -0.36825562, y: 1.2229233}
-  - {x: -0.19229126, y: 1.3061371}
-  - {x: 0.06271362, y: 1.3047218}
-  - {x: 0.2512207, y: 1.30513}
-  - {x: 0.5824585, y: 1.1658859}
-  - {x: 0.7576904, y: 1.1519012}
-  - {x: 1.0699158, y: 1.0429535}
-  - {x: 1.3079834, y: 0.8426819}
-  - {x: 1.4766235, y: 0.6273613}
-  - {x: 1.494812, y: 0.54655457}
-  - {x: 1.494751, y: 0.022281647}
-  - {x: 1.4992065, y: -0.04586792}
-  - {x: 1.5057068, y: -0.4193344}
-  - {x: 1.492981, y: -0.457592}
-  - {x: 1.2014465, y: -0.8686447}
-  - {x: 1.1716003, y: -0.87913513}
-  - {x: 1.0163879, y: -1.055275}
-  - {x: 0.84381104, y: -1.148716}
-  - {x: 0.35665894, y: -1.3041}
-  - {x: 0.11972046, y: -1.3153763}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
---- !u!95 &1029090600790351067
-Animator:
-  serializedVersion: 5
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0.06}
+  m_Radius: 1.4
+--- !u!61 &4114721631284743104
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7059905173166991778}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 757bf68b707066843b02a03f7cbd0d40, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3, y: 3}
+    newSize: {x: 3.125, y: 3}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 3, y: 3}
+  m_EdgeRadius: 0

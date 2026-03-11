@@ -1,0 +1,6287 @@
+fileFormatVersion: 2
+guid: 475bad5dbf3c5ab4d815a6e74a53ba53
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_0
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 5654
+        width: 325
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d21bc56b342ed6545b60d5b0a226973c
+      internalID: -433346079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_1
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 5083
+        width: 339
+        height: 430
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41154bfc16617534ca1e6a97c91aefb9
+      internalID: 2131183285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_2
+      rect:
+        serializedVersion: 2
+        x: 1112
+        y: 5083
+        width: 343
+        height: 448
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 646119b100722d7449d2853bfa60d8a7
+      internalID: -1613863531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 1945
+        y: 5083
+        width: 340
+        height: 517
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa5e80b2a58a2204ebf2d53c2d5d5d91
+      internalID: -1465530308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_4
+      rect:
+        serializedVersion: 2
+        x: 2573
+        y: 5080
+        width: 625
+        height: 523
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d17591402d6a434bb075439a6e74ff3
+      internalID: -429604188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_5
+      rect:
+        serializedVersion: 2
+        x: 3396
+        y: 5080
+        width: 665
+        height: 422
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65ca2bae6cd12bc47ae4414fcd50497a
+      internalID: -742215473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_6
+      rect:
+        serializedVersion: 2
+        x: 4266
+        y: 5112
+        width: 296
+        height: 361
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25cc0c3e44762b240959b8c21a8d4585
+      internalID: 1653410031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_7
+      rect:
+        serializedVersion: 2
+        x: 4714
+        y: 5112
+        width: 296
+        height: 379
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb9d0d37baba0c544850e162184a51e1
+      internalID: -1041773171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_8
+      rect:
+        serializedVersion: 2
+        x: 5194
+        y: 5123
+        width: 188
+        height: 430
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f9436d575dba5b4c80ee2cc48dd0b5b
+      internalID: -1687657180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_9
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 4932
+        width: 332
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c1d4e6dd0436fc4bb667f3abe000078
+      internalID: -1513484946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_10
+      rect:
+        serializedVersion: 2
+        x: 4266
+        y: 4614
+        width: 296
+        height: 365
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 569ff913af817764eb15ab30b10f7963
+      internalID: -1145958218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_11
+      rect:
+        serializedVersion: 2
+        x: 4714
+        y: 4618
+        width: 296
+        height: 379
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d9b3e35d032b0a448b32579100f9f4c
+      internalID: -491398660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_12
+      rect:
+        serializedVersion: 2
+        x: 5194
+        y: 4628
+        width: 188
+        height: 430
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 941484722fe6f4f43bd52f5be5bb7e8b
+      internalID: -999311274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_13
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 4361
+        width: 43
+        height: 423
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf0dd670d2d343148afe6d82f3a4ce89
+      internalID: 653833534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_14
+      rect:
+        serializedVersion: 2
+        x: 1166
+        y: 4361
+        width: 231
+        height: 462
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 568efbc07973c1c42a38d09a63dd4f6d
+      internalID: 822443354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_15
+      rect:
+        serializedVersion: 2
+        x: 1805
+        y: 4361
+        width: 584
+        height: 488
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 570cf5afe99d34e4d97c35c79a2ad18e
+      internalID: -1597302897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_16
+      rect:
+        serializedVersion: 2
+        x: 2581
+        y: 4361
+        width: 664
+        height: 423
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72482eb7ef1b4dd4886b46f23c57ce50
+      internalID: 1117418870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_17
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 4213
+        width: 242
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a55cb73139c883b4980f5c1ebeaca988
+      internalID: -540046881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_18
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 3639
+        width: 668
+        height: 423
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbe684913cb18cf4f9a13fbb50a6a1d6
+      internalID: -934223630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_19
+      rect:
+        serializedVersion: 2
+        x: 946
+        y: 3639
+        width: 667
+        height: 426
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9008c9ceae63434a8229653ad83b5ef
+      internalID: -952691244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_20
+      rect:
+        serializedVersion: 2
+        x: 1761
+        y: 3639
+        width: 668
+        height: 448
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d17194ec8e5be314a8cfa2c8bf5193ab
+      internalID: 1432092816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_21
+      rect:
+        serializedVersion: 2
+        x: 2581
+        y: 3639
+        width: 664
+        height: 437
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4af30b3bb260379469b16299f5803c40
+      internalID: 30025982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_22
+      rect:
+        serializedVersion: 2
+        x: 3396
+        y: 3639
+        width: 665
+        height: 437
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e10ed4a7d3596349a00ad6dbd159fd0
+      internalID: 1734832574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_23
+      rect:
+        serializedVersion: 2
+        x: 4212
+        y: 3639
+        width: 664
+        height: 423
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5390c9f42ba9217498f77aaeab34960e
+      internalID: 1622609772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_24
+      rect:
+        serializedVersion: 2
+        x: 5028
+        y: 3639
+        width: 668
+        height: 423
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2a7f3dad40e583419743aa002b5ae21
+      internalID: -1206970801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_25
+      rect:
+        serializedVersion: 2
+        x: 5844
+        y: 3639
+        width: 667
+        height: 423
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5b6753b8d1de1141a6ac03e67a1d78d
+      internalID: -615062614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_26
+      rect:
+        serializedVersion: 2
+        x: 6659
+        y: 3639
+        width: 668
+        height: 423
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fa7e08f81d81e642a91455c556d19a7
+      internalID: -238875400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_27
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 3491
+        width: 249
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd11c66cb212efc44a34438d9e5220a2
+      internalID: -2129511654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_28
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 2921
+        width: 668
+        height: 422
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96d101228b265e74eb809ec3675281d4
+      internalID: -571274051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_29
+      rect:
+        serializedVersion: 2
+        x: 946
+        y: 2921
+        width: 667
+        height: 433
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fc1df16954e2b848839f1e83451edea
+      internalID: -1937142407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_30
+      rect:
+        serializedVersion: 2
+        x: 1761
+        y: 2921
+        width: 668
+        height: 458
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbdde036df9314943bb3e527f42367e1
+      internalID: 1669989684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_31
+      rect:
+        serializedVersion: 2
+        x: 2581
+        y: 2921
+        width: 664
+        height: 462
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 791851bfa29d62c41a7202dd8beed3b6
+      internalID: 1069685380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_32
+      rect:
+        serializedVersion: 2
+        x: 3396
+        y: 2921
+        width: 665
+        height: 455
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10eac35e589c0fb45a9bc0bb2cd8313c
+      internalID: -552246997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_33
+      rect:
+        serializedVersion: 2
+        x: 4212
+        y: 2921
+        width: 664
+        height: 433
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3c050e576a33ba48a80c53c9d79aa8d
+      internalID: -1785589956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_34
+      rect:
+        serializedVersion: 2
+        x: 5028
+        y: 2921
+        width: 668
+        height: 426
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f46436bf0839e0e41944a5d8b94a8c0e
+      internalID: 52193829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_35
+      rect:
+        serializedVersion: 2
+        x: 5844
+        y: 2921
+        width: 667
+        height: 422
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 139764cc919502b4e90ad48d68d35dfc
+      internalID: -855781372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_36
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 2773
+        width: 249
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d178f19836a13c4f97df66150154c5a
+      internalID: -844879925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_37
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 2199
+        width: 668
+        height: 422
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 297252d766c037246b99dbce662aa63d
+      internalID: 1295539524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_38
+      rect:
+        serializedVersion: 2
+        x: 946
+        y: 2199
+        width: 667
+        height: 426
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 134e2aafdb07e3941b997d21ac850207
+      internalID: -1573941129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_39
+      rect:
+        serializedVersion: 2
+        x: 1761
+        y: 2199
+        width: 668
+        height: 437
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f09960f2f93cd6a4baeb081388f47596
+      internalID: 1400922323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_40
+      rect:
+        serializedVersion: 2
+        x: 2581
+        y: 2199
+        width: 664
+        height: 458
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf21677b3533e844a89b62608c842471
+      internalID: -1082648650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_41
+      rect:
+        serializedVersion: 2
+        x: 3396
+        y: 2199
+        width: 665
+        height: 465
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 702ffeadd2ed7c944b13163976c65340
+      internalID: 788677413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_42
+      rect:
+        serializedVersion: 2
+        x: 4212
+        y: 2199
+        width: 664
+        height: 462
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3e4561eefaf0dc4bbf17895134cab85
+      internalID: -206199247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_43
+      rect:
+        serializedVersion: 2
+        x: 5028
+        y: 2199
+        width: 668
+        height: 437
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb1a25fac34d3eb4d9a0c26a6b912506
+      internalID: -624059388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_44
+      rect:
+        serializedVersion: 2
+        x: 5844
+        y: 2199
+        width: 667
+        height: 422
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6c8694c6dd49eb4da3f250b9a0e98f7
+      internalID: 1734340869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_45
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 2051
+        width: 231
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e353003d55ebbc94ea3e5ebbba1b5aad
+      internalID: -1274924658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_46
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 1480
+        width: 693
+        height: 423
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6363d928e75c8648bcd71b78da5b496
+      internalID: 1253368276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_47
+      rect:
+        serializedVersion: 2
+        x: 946
+        y: 1480
+        width: 703
+        height: 423
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f47973880ab2b1d42b12ca25a1583fce
+      internalID: 848126443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_48
+      rect:
+        serializedVersion: 2
+        x: 1761
+        y: 1480
+        width: 704
+        height: 423
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aaf1f32486e907c43b78b4dca757e780
+      internalID: 1015653063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_49
+      rect:
+        serializedVersion: 2
+        x: 2581
+        y: 1480
+        width: 700
+        height: 423
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d57127bae25cb4b4598f9898a7ff5f15
+      internalID: -1442454948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_50
+      rect:
+        serializedVersion: 2
+        x: 3396
+        y: 1480
+        width: 701
+        height: 423
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a32065d0fa02174f8d06e1e833c3bd5
+      internalID: -678580730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_51
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 762
+        width: 704
+        height: 419
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 001d1b9cf2787754ea0eec9ebbe78142
+      internalID: 244537298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_52
+      rect:
+        serializedVersion: 2
+        x: 946
+        y: 762
+        width: 703
+        height: 419
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff185f4e36c2f03469e0e7515d270614
+      internalID: -622099365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_53
+      rect:
+        serializedVersion: 2
+        x: 1761
+        y: 762
+        width: 704
+        height: 419
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76cdad8332b31414d9d68da600bc5f06
+      internalID: -431752095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_54
+      rect:
+        serializedVersion: 2
+        x: 2581
+        y: 762
+        width: 700
+        height: 419
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76b3e8eaa25d1da48be4e582de752067
+      internalID: 548134476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_55
+      rect:
+        serializedVersion: 2
+        x: 3396
+        y: 762
+        width: 701
+        height: 419
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70877f8f7f608dc42aa1a48bfc04f9d7
+      internalID: 1599885257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_56
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 549
+        width: 299
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8163299397167ed449576e4abe72ee0e
+      internalID: 656359150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_57
+      rect:
+        serializedVersion: 2
+        x: 668
+        y: 549
+        width: 209
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca3f326b89c81ae4bbe5d2e81dbad571
+      internalID: 83073522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_58
+      rect:
+        serializedVersion: 2
+        x: 1563
+        y: 549
+        width: 216
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75c02dfe26a1e7948b19680d5d766f2d
+      internalID: -1262374596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_59
+      rect:
+        serializedVersion: 2
+        x: 2570
+        y: 549
+        width: 281
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e74cff6988d60b34ab2bc60d9d4b1f9b
+      internalID: -246762651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_60
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 300
+        width: 217
+        height: 216
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c567a52a6b1e55e4083786f68f2ea4cf
+      internalID: 2097839442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_61
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 495
+        width: 54
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1980515220a9a9458a1542e591decad
+      internalID: 1041671816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_62
+      rect:
+        serializedVersion: 2
+        x: 762
+        y: 495
+        width: 47
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8cf2cb36f060834aa0a00874e21636a
+      internalID: 1884486075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_63
+      rect:
+        serializedVersion: 2
+        x: 812
+        y: 495
+        width: 54
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7753e43ff1448324f82a30495e7eaf61
+      internalID: -712652054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_64
+      rect:
+        serializedVersion: 2
+        x: 942
+        y: 495
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ceb744537b35f444966170d21f04cb7
+      internalID: 1526863806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_65
+      rect:
+        serializedVersion: 2
+        x: 1011
+        y: 495
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31718f3e1903cf64f8b2ae7cff36b4ff
+      internalID: -2013200942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_66
+      rect:
+        serializedVersion: 2
+        x: 1119
+        y: 495
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c6648d8a264ed54394108921f0e41e4
+      internalID: 997709181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_67
+      rect:
+        serializedVersion: 2
+        x: 1187
+        y: 495
+        width: 19
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31cc940a8846c014984ff79a16e870c4
+      internalID: -2034188845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_68
+      rect:
+        serializedVersion: 2
+        x: 1603
+        y: 498
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 421c5e0e98d464749a61108715df5ee1
+      internalID: -1150981375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_69
+      rect:
+        serializedVersion: 2
+        x: 1617
+        y: 498
+        width: 14
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdf286756cbb59d4abcea0afb123376c
+      internalID: -1735014104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_70
+      rect:
+        serializedVersion: 2
+        x: 1635
+        y: 498
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da20f42d59a868b4ab46b9a2ef91cbae
+      internalID: -1402191776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_71
+      rect:
+        serializedVersion: 2
+        x: 1649
+        y: 495
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44bb35bc785534a498aeb95a5371510d
+      internalID: 1267714035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_72
+      rect:
+        serializedVersion: 2
+        x: 1668
+        y: 498
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64bcde839886f6944bd356eac2ddbd26
+      internalID: 1880270095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_73
+      rect:
+        serializedVersion: 2
+        x: 1696
+        y: 498
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf453824ef0df8542a534ab9443d1a8b
+      internalID: 1483813708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_74
+      rect:
+        serializedVersion: 2
+        x: 1714
+        y: 498
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84cfa7de13d59c64e8dcb8e9779b3947
+      internalID: 1725079992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_75
+      rect:
+        serializedVersion: 2
+        x: 1740
+        y: 495
+        width: 21
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e86b2db389f26e0458e7c97b4f17aae1
+      internalID: -686051005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_76
+      rect:
+        serializedVersion: 2
+        x: 1790
+        y: 495
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40305131efcd69e48900268bca0fe6a5
+      internalID: -2037931842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_77
+      rect:
+        serializedVersion: 2
+        x: 1841
+        y: 495
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 408dcc4a1ec84ba40a2566ba54d37883
+      internalID: 196296440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_78
+      rect:
+        serializedVersion: 2
+        x: 1884
+        y: 495
+        width: 22
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a909016ee5a4c8449ae889d3dd5799c6
+      internalID: 22108780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_79
+      rect:
+        serializedVersion: 2
+        x: 1935
+        y: 495
+        width: 21
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f29313ec07bb4a84ea9d4dc1388c1c3c
+      internalID: -2093856122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_80
+      rect:
+        serializedVersion: 2
+        x: 1982
+        y: 495
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b82bd8dbee7fa1f45b259a21b0af8089
+      internalID: 1887504115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_81
+      rect:
+        serializedVersion: 2
+        x: 2028
+        y: 462
+        width: 51
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed927a2f0a2e0f24687ece138caa0347
+      internalID: -1723673408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_82
+      rect:
+        serializedVersion: 2
+        x: 2108
+        y: 462
+        width: 54
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5200b76526bddae47804c9a0cb6982e6
+      internalID: -603143908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_83
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 462
+        width: 54
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f4e68570f23c044394f0220bf127d36
+      internalID: 1138754124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_84
+      rect:
+        serializedVersion: 2
+        x: 762
+        y: 462
+        width: 47
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9f88f300727b184b9a9c75b430d24b1
+      internalID: 389837528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_85
+      rect:
+        serializedVersion: 2
+        x: 812
+        y: 462
+        width: 54
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdb91678ad52aa34e964841fd1a9aa2f
+      internalID: -728236046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_86
+      rect:
+        serializedVersion: 2
+        x: 917
+        y: 462
+        width: 25
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27a141c2a4778e6459900c53fed2e9fb
+      internalID: -1158321282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_87
+      rect:
+        serializedVersion: 2
+        x: 1025
+        y: 480
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03e05e3bd40c1524aab7b3cc236e39e7
+      internalID: 1739593253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_88
+      rect:
+        serializedVersion: 2
+        x: 1101
+        y: 480
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf462d5461c90a34980e1cf8503e3df6
+      internalID: 188049513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_89
+      rect:
+        serializedVersion: 2
+        x: 1202
+        y: 480
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb1dcda923356da48a18d8c5a5f15eea
+      internalID: 879818598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_90
+      rect:
+        serializedVersion: 2
+        x: 1790
+        y: 462
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 772c40d2a71068843949cbfa86fcf6a9
+      internalID: 2030243902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_91
+      rect:
+        serializedVersion: 2
+        x: 1837
+        y: 462
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2392f05e90a9c44ea62460f05af7d17
+      internalID: -239568918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_92
+      rect:
+        serializedVersion: 2
+        x: 1884
+        y: 462
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b1e35eb0be5692409ba87801a540fdd
+      internalID: 1117918926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_93
+      rect:
+        serializedVersion: 2
+        x: 1935
+        y: 462
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4af900c2c5c27a746a828d791aee20ed
+      internalID: 1083999959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_94
+      rect:
+        serializedVersion: 2
+        x: 1982
+        y: 462
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ff7cfaf56ead454290b53696d59625a
+      internalID: -1982176743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_95
+      rect:
+        serializedVersion: 2
+        x: 2346
+        y: 383
+        width: 101
+        height: 108
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e556e39d5fea86c40add761f44127462
+      internalID: -1514870641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_96
+      rect:
+        serializedVersion: 2
+        x: 2592
+        y: 415
+        width: 83
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08d178c1e7748114f94b2a2500163ba8
+      internalID: -1641763419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_97
+      rect:
+        serializedVersion: 2
+        x: 2711
+        y: 422
+        width: 65
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8dcf23274473ada4da50210812931cdf
+      internalID: 930394380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_98
+      rect:
+        serializedVersion: 2
+        x: 2808
+        y: 422
+        width: 65
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3a1224dba37de9498758a236b9b5533
+      internalID: 52254742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_99
+      rect:
+        serializedVersion: 2
+        x: 2906
+        y: 422
+        width: 65
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5261fed94377a9f4c83f640fd57cf990
+      internalID: -751442076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_100
+      rect:
+        serializedVersion: 2
+        x: 2999
+        y: 422
+        width: 65
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1419830d23ce094fbf917cc552453d3
+      internalID: 1278087952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_101
+      rect:
+        serializedVersion: 2
+        x: 3097
+        y: 422
+        width: 65
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7886b656ad89b6c4ab66768e82947dab
+      internalID: 1473838051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_102
+      rect:
+        serializedVersion: 2
+        x: 1036
+        y: 462
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fc754bb6f4dd2f46878ae831b8678c2
+      internalID: -2036666164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_103
+      rect:
+        serializedVersion: 2
+        x: 1094
+        y: 462
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bcad03db2509954fb9b5240b95ac455
+      internalID: 901302103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_104
+      rect:
+        serializedVersion: 2
+        x: 1213
+        y: 462
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d077025a91340544f86c906602122b55
+      internalID: 1266965075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_105
+      rect:
+        serializedVersion: 2
+        x: 1603
+        y: 466
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cf38c555c8e1ff4590fb533826bf8ff
+      internalID: 1087695078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_106
+      rect:
+        serializedVersion: 2
+        x: 1621
+        y: 466
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 432990056524cc64d9425edeeb8bffe8
+      internalID: 1275610325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_107
+      rect:
+        serializedVersion: 2
+        x: 1635
+        y: 466
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f52fe4078ea615a4b8122cbf6242ec99
+      internalID: 1961801922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_108
+      rect:
+        serializedVersion: 2
+        x: 1653
+        y: 469
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cad558ee8bf6a1243bec5abc61899a9d
+      internalID: -2111343283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_109
+      rect:
+        serializedVersion: 2
+        x: 1740
+        y: 462
+        width: 21
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcce43fb52598924b98062927cf3ddae
+      internalID: 1574722396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_110
+      rect:
+        serializedVersion: 2
+        x: 2205
+        y: 383
+        width: 101
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b70abeb66b72b6e439e98198e2f80b6d
+      internalID: 1139397888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_111
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 336
+        width: 115
+        height: 112
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 477202fea31b68d4798cc4353d4de58d
+      internalID: -745054258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_112
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 430
+        width: 54
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9e521ad68719c24bbcf7762a2670935
+      internalID: -2130528427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_113
+      rect:
+        serializedVersion: 2
+        x: 762
+        y: 430
+        width: 47
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18f08e6aa1c0a0e4383a4c70e5b7c1c5
+      internalID: -393999274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_114
+      rect:
+        serializedVersion: 2
+        x: 812
+        y: 430
+        width: 54
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 044214385de6f3d44ac6aa874d59b3cc
+      internalID: -744616603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_115
+      rect:
+        serializedVersion: 2
+        x: 913
+        y: 444
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79013b722d9925c44a57d266424dcab6
+      internalID: -2068021207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_116
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 444
+        width: 18
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d82c765f738e345469e8ee8b56149a17
+      internalID: -1661959371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_117
+      rect:
+        serializedVersion: 2
+        x: 1086
+        y: 444
+        width: 18
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1280effad1b6e845bf636f40d3f08d4
+      internalID: 2082125520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_118
+      rect:
+        serializedVersion: 2
+        x: 1216
+        y: 444
+        width: 18
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 847c4d9bd62a37549ac33fd8970bca7e
+      internalID: 765382513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_119
+      rect:
+        serializedVersion: 2
+        x: 1595
+        y: 430
+        width: 26
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 294d71770bd67cb4895892e3413dc78b
+      internalID: 1749940502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_120
+      rect:
+        serializedVersion: 2
+        x: 1628
+        y: 430
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad6d8cd58c52eaf4a8fe54f4b6331691
+      internalID: 439727315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_121
+      rect:
+        serializedVersion: 2
+        x: 1660
+        y: 430
+        width: 22
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c92ffd52c0e7a44b9382dda71830560
+      internalID: 2140255666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_122
+      rect:
+        serializedVersion: 2
+        x: 1693
+        y: 430
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 428cac697179cd34197920e5cbb13d52
+      internalID: -260910654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_123
+      rect:
+        serializedVersion: 2
+        x: 1740
+        y: 430
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f92b10c92bcff914b9ec0da86ee6f30c
+      internalID: -1234208296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_124
+      rect:
+        serializedVersion: 2
+        x: 1772
+        y: 430
+        width: 22
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc2bf25a1cc04dc439716dd16413ab38
+      internalID: 1717234215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_125
+      rect:
+        serializedVersion: 2
+        x: 2028
+        y: 397
+        width: 55
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6caf274ca2713264e87d30f9ffbbda3b
+      internalID: 1862357613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_126
+      rect:
+        serializedVersion: 2
+        x: 2108
+        y: 397
+        width: 54
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ff6d14a02c762d44899572f13d71379
+      internalID: -1276242572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_127
+      rect:
+        serializedVersion: 2
+        x: 913
+        y: 422
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1bc44a861363c64d9c8ecda6e937753
+      internalID: -1305117563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_128
+      rect:
+        serializedVersion: 2
+        x: 1029
+        y: 404
+        width: 25
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c16d20b60128966418a08c3f4926a5d4
+      internalID: 1962499197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_129
+      rect:
+        serializedVersion: 2
+        x: 1090
+        y: 404
+        width: 25
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 374ab16673500f14192404f14bcfc8ef
+      internalID: 1595385993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_130
+      rect:
+        serializedVersion: 2
+        x: 1206
+        y: 404
+        width: 25
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36b91edbd5096044dbe624df45a18e75
+      internalID: 449472823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_131
+      rect:
+        serializedVersion: 2
+        x: 924
+        y: 390
+        width: 29
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cddc893d34ac5514bada06b4e84a4ece
+      internalID: -2003677338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_132
+      rect:
+        serializedVersion: 2
+        x: 953
+        y: 365
+        width: 43
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b95f6b68534a34498ff746637fc4e7f
+      internalID: -1481168289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_133
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 379
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 220f8c1c5f6adf9469f42f0b452cb18c
+      internalID: -647348795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_134
+      rect:
+        serializedVersion: 2
+        x: 1018
+        y: 390
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fb7906100f246a45aa95334f7b64582
+      internalID: 622885447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_135
+      rect:
+        serializedVersion: 2
+        x: 1112
+        y: 390
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39e2d277db539be4195ceeb618619457
+      internalID: -135964362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_136
+      rect:
+        serializedVersion: 2
+        x: 1130
+        y: 365
+        width: 61
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35568a85a7ceae142b8faf9f5413ccc3
+      internalID: -713235878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_137
+      rect:
+        serializedVersion: 2
+        x: 1195
+        y: 390
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa2777a93222eb143bc6cb3c17da5330
+      internalID: 1999782822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_138
+      rect:
+        serializedVersion: 2
+        x: 1621
+        y: 372
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b10e146718495d348bed714342f575cc
+      internalID: -533243838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_139
+      rect:
+        serializedVersion: 2
+        x: 1668
+        y: 372
+        width: 25
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 214a115d7fed6514ba056e77f347696c
+      internalID: -1414672363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_140
+      rect:
+        serializedVersion: 2
+        x: 1743
+        y: 383
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7294f7b8b1a61d40bcbc911416b8692
+      internalID: 2054990951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_141
+      rect:
+        serializedVersion: 2
+        x: 1772
+        y: 383
+        width: 22
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53a89eedcac9dcf448021f902ce9a5dc
+      internalID: -247752293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_142
+      rect:
+        serializedVersion: 2
+        x: 1808
+        y: 383
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c344efa497b308e40885fc06c218ac57
+      internalID: 1931868561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_143
+      rect:
+        serializedVersion: 2
+        x: 1837
+        y: 383
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad1a7dd1cddc1fc41a6e21b11a86bd06
+      internalID: -1378789174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_144
+      rect:
+        serializedVersion: 2
+        x: 1870
+        y: 383
+        width: 21
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c469a80dc1c0f6a47b22a87740b2793f
+      internalID: 1824855439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_145
+      rect:
+        serializedVersion: 2
+        x: 1902
+        y: 383
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d59712dede25e04ebd14a508e7fb72f
+      internalID: 667525035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_146
+      rect:
+        serializedVersion: 2
+        x: 2729
+        y: 365
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 357bfa543726b1e439937fdb262b0262
+      internalID: -1821422887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_147
+      rect:
+        serializedVersion: 2
+        x: 2819
+        y: 361
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcf6f7ed5b5e0914ca56fa1f14ed04c9
+      internalID: 1671134023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_148
+      rect:
+        serializedVersion: 2
+        x: 2924
+        y: 365
+        width: 28
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 754f38ffbe25861478b59ac889761f59
+      internalID: 1026891715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_149
+      rect:
+        serializedVersion: 2
+        x: 3010
+        y: 365
+        width: 47
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e03f898e7c0bd44ba519a70e180a70c
+      internalID: 282962703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_150
+      rect:
+        serializedVersion: 2
+        x: 3115
+        y: 365
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c1857bed99cfeb4987ce3e79143d04c
+      internalID: -1048570824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_151
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 368
+        width: 36
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52ec1ebc14528994daa78cfc54f7f517
+      internalID: -1868286356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_152
+      rect:
+        serializedVersion: 2
+        x: 744
+        y: 368
+        width: 46
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e37c1b0ef77e4f64bb38d4c04dad477c
+      internalID: 542592370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_153
+      rect:
+        serializedVersion: 2
+        x: 798
+        y: 368
+        width: 36
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6ee68abcca409d479b9d55f6f6765fb
+      internalID: 64744274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_154
+      rect:
+        serializedVersion: 2
+        x: 2036
+        y: 332
+        width: 39
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19c7b568c9da36d429626c9fe4b17a21
+      internalID: 45835549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_155
+      rect:
+        serializedVersion: 2
+        x: 2108
+        y: 332
+        width: 54
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 495863fcf59edbc49aac04596744b365
+      internalID: -49841208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_156
+      rect:
+        serializedVersion: 2
+        x: 1621
+        y: 339
+        width: 21
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a237e1cada2180f49b7fb68da24f21a1
+      internalID: 2064986392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_157
+      rect:
+        serializedVersion: 2
+        x: 1671
+        y: 339
+        width: 22
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74ea1302f107fa04fa7a2c955e0551c8
+      internalID: -1470740038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_158
+      rect:
+        serializedVersion: 2
+        x: 1743
+        y: 354
+        width: 18
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e01f8724bc196d4d89b3da3d6dd00ba
+      internalID: 612459653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_159
+      rect:
+        serializedVersion: 2
+        x: 1772
+        y: 350
+        width: 22
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83f8f3101e9e2b4418e2a8b30d8b4f3e
+      internalID: 1712027460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_160
+      rect:
+        serializedVersion: 2
+        x: 1808
+        y: 350
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 447a96f15d54b7746aab5e17c56d3920
+      internalID: 1441016659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_161
+      rect:
+        serializedVersion: 2
+        x: 1837
+        y: 350
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d0e2c7ee513fbd4d850ecfbd9e31462
+      internalID: 1012728730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_162
+      rect:
+        serializedVersion: 2
+        x: 1870
+        y: 350
+        width: 21
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d42036836229e0429f3cca8b86df950
+      internalID: 514098611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_163
+      rect:
+        serializedVersion: 2
+        x: 1902
+        y: 350
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aae30d2533f707e418e0a95f626b165c
+      internalID: 1808823434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_164
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 336
+        width: 36
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9000dba347af98848998fc7d93a880b3
+      internalID: -1350241496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_165
+      rect:
+        serializedVersion: 2
+        x: 744
+        y: 336
+        width: 46
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1b9e78ea909bc5489b2bdf2395c8b8f
+      internalID: -464946953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_166
+      rect:
+        serializedVersion: 2
+        x: 798
+        y: 336
+        width: 36
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d22f1420bb6bb64690a95b6f9c8a34d
+      internalID: 1777270348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_167
+      rect:
+        serializedVersion: 2
+        x: 1772
+        y: 318
+        width: 22
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd51eb0d8a36f9142834e7e6868a7ba3
+      internalID: 913943227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_168
+      rect:
+        serializedVersion: 2
+        x: 1902
+        y: 318
+        width: 22
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c439f9897a5cca47b2d7e3fe8c37f9c
+      internalID: 1950402690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_169
+      rect:
+        serializedVersion: 2
+        x: 2220
+        y: 285
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53bfdaae666ed1c4dba50e3887a13b84
+      internalID: -1963471322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_170
+      rect:
+        serializedVersion: 2
+        x: 2292
+        y: 285
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69fce9caa1493e74da11a41c6dc2e1b5
+      internalID: 635097107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_171
+      rect:
+        serializedVersion: 2
+        x: 2364
+        y: 285
+        width: 54
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 059606e6c2112c748ac1347cb1dcc009
+      internalID: 825017935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_172
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 238
+        width: 79
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 998d6762251eb4143bca8528442b34b9
+      internalID: -1184704900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_173
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 303
+        width: 36
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de11d32197e421842abe7d3f7a609e0f
+      internalID: -544012851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_174
+      rect:
+        serializedVersion: 2
+        x: 744
+        y: 303
+        width: 46
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4402128b690f594409b38c1fb654404f
+      internalID: -2059171959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_175
+      rect:
+        serializedVersion: 2
+        x: 798
+        y: 303
+        width: 36
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 123f3e6acb646cf46b683dd1d4614366
+      internalID: 468812194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_176
+      rect:
+        serializedVersion: 2
+        x: 1249
+        y: 303
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 571ce359fc6024848bb87c2068e051cf
+      internalID: 2114012416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_177
+      rect:
+        serializedVersion: 2
+        x: 1621
+        y: 310
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bd641292a339e6498f330a562d20a22
+      internalID: 773682570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_178
+      rect:
+        serializedVersion: 2
+        x: 1668
+        y: 310
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ef1ed4a5757bd540b38d4adf7671fb3
+      internalID: -2121628602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_179
+      rect:
+        serializedVersion: 2
+        x: 1743
+        y: 318
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 720059605db64ed448263809b8591d70
+      internalID: -1107311455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_180
+      rect:
+        serializedVersion: 2
+        x: 1805
+        y: 318
+        width: 21
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fa2fef2e5230874780bd7a3cf5d1bac
+      internalID: -1119697503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_181
+      rect:
+        serializedVersion: 2
+        x: 1841
+        y: 318
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e0014466b105c042963653a9e4ca167
+      internalID: 1331969249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_182
+      rect:
+        serializedVersion: 2
+        x: 1870
+        y: 318
+        width: 21
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f766e978733cad5419099c2653d34da1
+      internalID: 1719801236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_183
+      rect:
+        serializedVersion: 2
+        x: 2108
+        y: 271
+        width: 54
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b841234535960842a5868f4e61dd4de
+      internalID: -1931819967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_184
+      rect:
+        serializedVersion: 2
+        x: 2711
+        y: 310
+        width: 68
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51b7b08c5f17e4441ab6fe56b64c5a31
+      internalID: 27176666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_185
+      rect:
+        serializedVersion: 2
+        x: 2804
+        y: 310
+        width: 73
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30be924b5ce1bc14aa7d8f3601626126
+      internalID: -702144256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_186
+      rect:
+        serializedVersion: 2
+        x: 2902
+        y: 310
+        width: 69
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78820061e2a059a4e9ce2e1a02aaf848
+      internalID: 202037379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_187
+      rect:
+        serializedVersion: 2
+        x: 2996
+        y: 310
+        width: 72
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6251be574ef253446ac04d7551446bb1
+      internalID: 324853441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_188
+      rect:
+        serializedVersion: 2
+        x: 3093
+        y: 310
+        width: 69
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5baeb62aa508cf8459c09cb24c77ccf2
+      internalID: 1606982262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_189
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 271
+        width: 40
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca7e4eee7b7b291419ce8a5055a9e759
+      internalID: 1808685651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_190
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 271
+        width: 37
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37ad77c5d615eb84bb2e173eecf27a2d
+      internalID: 1648457467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_191
+      rect:
+        serializedVersion: 2
+        x: 931
+        y: 292
+        width: 25
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bc70c37dbffcad48871e58111e9b397
+      internalID: -1259959885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_192
+      rect:
+        serializedVersion: 2
+        x: 1621
+        y: 278
+        width: 21
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb6833cc6b3c8ff4b839c076a40868af
+      internalID: -1375286036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_193
+      rect:
+        serializedVersion: 2
+        x: 2036
+        y: 274
+        width: 39
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ece990ff1fe2b245a52be46930a5f45
+      internalID: 726701339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_194
+      rect:
+        serializedVersion: 2
+        x: 1249
+        y: 274
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a5e8eb3853081f449822bf8cc4f159b
+      internalID: 868137495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_195
+      rect:
+        serializedVersion: 2
+        x: 1281
+        y: 274
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f1da36038869844abbfa3c273f340cf
+      internalID: 1456386951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_196
+      rect:
+        serializedVersion: 2
+        x: 1314
+        y: 274
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c68002dd2a7cfdf44b080a9596670e5a
+      internalID: -1639055069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_197
+      rect:
+        serializedVersion: 2
+        x: 1343
+        y: 274
+        width: 18
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a9d97d08d3f87a4685624009b69d2c3
+      internalID: -187725158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_198
+      rect:
+        serializedVersion: 2
+        x: 1375
+        y: 274
+        width: 18
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cded8b50b51e2d14ab062f84f0773d58
+      internalID: 1724332786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_199
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 274
+        width: 18
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c7cd402ebfb0534eb1c4b1bb0ee7620
+      internalID: -355000098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_200
+      rect:
+        serializedVersion: 2
+        x: 1740
+        y: 267
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 659950435f86e664591e4392b4ccade2
+      internalID: 440309305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_201
+      rect:
+        serializedVersion: 2
+        x: 1772
+        y: 267
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef4dc44e9e680f648881964e795ed720
+      internalID: -659176104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_202
+      rect:
+        serializedVersion: 2
+        x: 1805
+        y: 267
+        width: 21
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e86dea8f921f1e499985b42e5fe4fe8
+      internalID: 1198794689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_203
+      rect:
+        serializedVersion: 2
+        x: 1837
+        y: 267
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c2084cd0c9116746a6c815bbeff2688
+      internalID: -49464562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_204
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 242
+        width: 15
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbdaabf7043f53f44a964da06cb8d3a7
+      internalID: 982471185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_205
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 242
+        width: 21
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59b3a4be984f1b0449756cd0dde797d7
+      internalID: -1661329183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_206
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 242
+        width: 14
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec1c7f14907ba924990c1dfa4be39545
+      internalID: 1089926614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_207
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 220
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32081bd9e6ab7b94888724f7985c2ea9
+      internalID: -1623050640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_208
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 224
+        width: 33
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67fae6b734e9ae04c9999c215eeafa8c
+      internalID: 1766669732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_209
+      rect:
+        serializedVersion: 2
+        x: 931
+        y: 246
+        width: 25
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b91139045841200498c0bb2298e3e610
+      internalID: -1618988586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_210
+      rect:
+        serializedVersion: 2
+        x: 978
+        y: 246
+        width: 25
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95fd7f3e6f859444bb780e73fe4a787d
+      internalID: 982509971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_211
+      rect:
+        serializedVersion: 2
+        x: 1025
+        y: 246
+        width: 29
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8a2a45d1a21ffb44b306369dd903099
+      internalID: 1456670375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_212
+      rect:
+        serializedVersion: 2
+        x: 1076
+        y: 246
+        width: 25
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eda09f32812c58f41b990ee906523a41
+      internalID: 1573842411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_213
+      rect:
+        serializedVersion: 2
+        x: 1123
+        y: 246
+        width: 25
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c70b2ab1c9c5c2245a0bd9562e4dd535
+      internalID: 284843219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_214
+      rect:
+        serializedVersion: 2
+        x: 1169
+        y: 246
+        width: 29
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1dc79fdae9e7e7b43b124ea0c816893d
+      internalID: 697025544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_215
+      rect:
+        serializedVersion: 2
+        x: 1249
+        y: 242
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f0dedfc97cf4ef4da3e155a70bf0fd0
+      internalID: 960187459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_216
+      rect:
+        serializedVersion: 2
+        x: 1281
+        y: 242
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afaae8cdd29a56a4196cc6597ede7a27
+      internalID: -571528451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_217
+      rect:
+        serializedVersion: 2
+        x: 1314
+        y: 242
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 045eb0f95b189bb448aaa76c06ffe70b
+      internalID: 710781969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_218
+      rect:
+        serializedVersion: 2
+        x: 1343
+        y: 242
+        width: 18
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6b759ce195b9b047bba1d620ca7d515
+      internalID: -1308453088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_219
+      rect:
+        serializedVersion: 2
+        x: 1375
+        y: 242
+        width: 18
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5540ed5cc7d2ae54b8f219683361ee5a
+      internalID: 540868585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_220
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 242
+        width: 18
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f7bbcd8a732b6f4b867178580f976ec
+      internalID: -238334665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_221
+      rect:
+        serializedVersion: 2
+        x: 1740
+        y: 235
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18352a794a37e024a9ae851f462ce7c8
+      internalID: 656557991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_222
+      rect:
+        serializedVersion: 2
+        x: 1772
+        y: 238
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f13d32cb0a44f74fa7d0fb7dfd49e38
+      internalID: 2133796461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_223
+      rect:
+        serializedVersion: 2
+        x: 1805
+        y: 238
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a11500a43a72ab943a190f3cf92d12a1
+      internalID: -245086695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_224
+      rect:
+        serializedVersion: 2
+        x: 2028
+        y: 206
+        width: 55
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94a44a79cb860d340b099ff5b3777dfc
+      internalID: 2133905338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_225
+      rect:
+        serializedVersion: 2
+        x: 2108
+        y: 206
+        width: 54
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f07dfd194d435a4996824d37faf8bb3
+      internalID: -1966064943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_226
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 195
+        width: 36
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69034d49389b1fd4ebfceb788e8eee30
+      internalID: -1504992013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_227
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 195
+        width: 40
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70e49fedbb2e7cc40b54bf3a9000c0d1
+      internalID: -32781543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_228
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 195
+        width: 36
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e36d4bbaf3b2e1b43bef2be054324aba
+      internalID: 84003003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_229
+      rect:
+        serializedVersion: 2
+        x: 931
+        y: 195
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f44023276eae5e34595e98c45328f339
+      internalID: -1566981231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_230
+      rect:
+        serializedVersion: 2
+        x: 978
+        y: 195
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae2c7a47f9270c047b42099e3ef973dc
+      internalID: 1573213813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_231
+      rect:
+        serializedVersion: 2
+        x: 1025
+        y: 199
+        width: 29
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 886d833947731f248973de65b605761c
+      internalID: 995238543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_232
+      rect:
+        serializedVersion: 2
+        x: 1076
+        y: 195
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6950875541d42b845b31b9cda62d0703
+      internalID: 366416545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_233
+      rect:
+        serializedVersion: 2
+        x: 1123
+        y: 195
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bde9b0bc3f32a424caaae58c29d7026b
+      internalID: -2028346366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_234
+      rect:
+        serializedVersion: 2
+        x: 1169
+        y: 195
+        width: 29
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2b4140c90069a048add530473581a5a
+      internalID: 561807349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_235
+      rect:
+        serializedVersion: 2
+        x: 1249
+        y: 209
+        width: 18
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d98bb724dc08644db72dcc1c6f35073
+      internalID: 91591710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_236
+      rect:
+        serializedVersion: 2
+        x: 1281
+        y: 209
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8fb5085b7cad7048870615eb19d6a2e
+      internalID: -1260840714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_237
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 159
+        width: 11
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7938fbbb28380444a7404e1c65c9239
+      internalID: -1553086849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_238
+      rect:
+        serializedVersion: 2
+        x: 931
+        y: 148
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49f0609744b984746a1ba6aa65943ef9
+      internalID: -887188872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_239
+      rect:
+        serializedVersion: 2
+        x: 978
+        y: 148
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 905a8d5dbf3f59b4dab9a2cae2bebc5a
+      internalID: -505687567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_240
+      rect:
+        serializedVersion: 2
+        x: 1249
+        y: 162
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2453093d03913d40a0a14d9b0d9ae07
+      internalID: -828917799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_241
+      rect:
+        serializedVersion: 2
+        x: 1566
+        y: 155
+        width: 401
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c26417a4c62a64b45b4e8f87da3f215f
+      internalID: -178334644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_242
+      rect:
+        serializedVersion: 2
+        x: 2028
+        y: 141
+        width: 55
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d3d0b97bb6240c4ca686aacba07c2b5
+      internalID: -179762341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_243
+      rect:
+        serializedVersion: 2
+        x: 2108
+        y: 141
+        width: 54
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ba2e2425306cd7448db73fd2cbef6d4
+      internalID: 1310744888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_244
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 130
+        width: 11
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91fb3335e6826b549acb6abbd663a699
+      internalID: -910051421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_245
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 141
+        width: 11
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbee9dc204f7c4746af656a797cf9d31
+      internalID: -1999428162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_246
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 126
+        width: 47
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10210c8acc256e64ba3ef2e267f8d9c5
+      internalID: 61787992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_247
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 144
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f516623bccbf73a4eb8d9fe6b15035af
+      internalID: -1860711470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_248
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 144
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a27d0f28344ec9a4aa109e4e10d33abc
+      internalID: 1109777050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_249
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 144
+        width: 18
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e33bc0f74708e274e86a1d8461001e28
+      internalID: -1838826942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_250
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 144
+        width: 72
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f017f74fe72ec454db959253c331aac7
+      internalID: -1168331800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_251
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 130
+        width: 47
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2458f4b6451aaf0468cac0eab5ebcb38
+      internalID: 291107627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_252
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 130
+        width: 47
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09020235cc2953341bd0b43c1c845f9e
+      internalID: -991144968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_253
+      rect:
+        serializedVersion: 2
+        x: 1249
+        y: 130
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99773fa7b2ae6704f9d610dfc11f7273
+      internalID: 1110197225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_254
+      rect:
+        serializedVersion: 2
+        x: 1281
+        y: 130
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68461dce8a3aea8419c8b897a0239868
+      internalID: 1636524089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_255
+      rect:
+        serializedVersion: 2
+        x: 1314
+        y: 130
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 533ccd6691512d54aa46d1e8ff2676a7
+      internalID: 872309701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_256
+      rect:
+        serializedVersion: 2
+        x: 1343
+        y: 130
+        width: 18
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6e4b9fbf46fec241bb75be959d71063
+      internalID: 1037062541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_257
+      rect:
+        serializedVersion: 2
+        x: 1375
+        y: 130
+        width: 18
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f0f126d0f24a464c9bc42c20c07e56c
+      internalID: -597621802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_258
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 130
+        width: 18
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41ada215e11876f46b31c3bc178218e5
+      internalID: -1497933595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_259
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 94
+        width: 11
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 363104117cf40b64a99217763be97c70
+      internalID: -1071088735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_260
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 94
+        width: 36
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd8bebea492fd6c4c905841f9d97732a
+      internalID: -2060929491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_261
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 112
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e01d638b987e784cb5de0e47495aa08
+      internalID: -247322197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_262
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 112
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f3632a1a1f091642b7523a5ed6f6c87
+      internalID: 882558567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_263
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 97
+        width: 40
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b76eb3509b9c22449b09eac34842ae2
+      internalID: -956735833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_264
+      rect:
+        serializedVersion: 2
+        x: 1570
+        y: 76
+        width: 61
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d40974315ccf0a43857b414aaef6d81
+      internalID: -71090035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_265
+      rect:
+        serializedVersion: 2
+        x: 1635
+        y: 76
+        width: 58
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03f5ff66f6478b3499fdfeefca9b4c43
+      internalID: -970403410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_266
+      rect:
+        serializedVersion: 2
+        x: 1700
+        y: 76
+        width: 58
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1520fff55dea15e4083f3278fe73bd15
+      internalID: -759722265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_267
+      rect:
+        serializedVersion: 2
+        x: 1765
+        y: 76
+        width: 58
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66b690c1aeb8896478e115be3d7dec49
+      internalID: 238349956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_268
+      rect:
+        serializedVersion: 2
+        x: 1826
+        y: 76
+        width: 58
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d38a53616c78a7344a025adefb1d3f0f
+      internalID: 9817780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_269
+      rect:
+        serializedVersion: 2
+        x: 1891
+        y: 76
+        width: 58
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 138b06845b73bd743bc5028a8b029197
+      internalID: -2080396185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_270
+      rect:
+        serializedVersion: 2
+        x: 1249
+        y: 97
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a30ce818f2950dc4aa288a056c58a65b
+      internalID: -595483471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_271
+      rect:
+        serializedVersion: 2
+        x: 1281
+        y: 97
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ea8de17b8afcfe40b468e7735ac4db6
+      internalID: 820693632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_272
+      rect:
+        serializedVersion: 2
+        x: 1314
+        y: 97
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c07349251c758d0459402bcf9ea80f0e
+      internalID: -2114543019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_273
+      rect:
+        serializedVersion: 2
+        x: 1343
+        y: 97
+        width: 18
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2dd57db657842746b3e46e37a362c81
+      internalID: 1475416473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_274
+      rect:
+        serializedVersion: 2
+        x: 1375
+        y: 97
+        width: 18
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ab902ad404e3d34c91235d2e7e3889f
+      internalID: 2029464790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_275
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 97
+        width: 18
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ddee6554e499f649aa935ef7f29b8f2
+      internalID: 369786773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_276
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 65
+        width: 11
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91a9270e05cdc8e498608636fc0f3d2c
+      internalID: 446297207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_277
+      rect:
+        serializedVersion: 2
+        x: 1249
+        y: 65
+        width: 18
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 527a026dc855f30418419051a61cf4ec
+      internalID: 1282929922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_278
+      rect:
+        serializedVersion: 2
+        x: 1281
+        y: 65
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30bd92a8e0b721747a27afdb0b5933e5
+      internalID: -1691703878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Brown Inventory Book SpriteSheet_279
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 66
+        width: 34
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d552f60448f392140933a321e0522bf8
+      internalID: -1463018368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Brown Inventory Book SpriteSheet_0: -433346079
+      Brown Inventory Book SpriteSheet_1: 2131183285
+      Brown Inventory Book SpriteSheet_10: -1145958218
+      Brown Inventory Book SpriteSheet_100: 1278087952
+      Brown Inventory Book SpriteSheet_101: 1473838051
+      Brown Inventory Book SpriteSheet_102: -2036666164
+      Brown Inventory Book SpriteSheet_103: 901302103
+      Brown Inventory Book SpriteSheet_104: 1266965075
+      Brown Inventory Book SpriteSheet_105: 1087695078
+      Brown Inventory Book SpriteSheet_106: 1275610325
+      Brown Inventory Book SpriteSheet_107: 1961801922
+      Brown Inventory Book SpriteSheet_108: -2111343283
+      Brown Inventory Book SpriteSheet_109: 1574722396
+      Brown Inventory Book SpriteSheet_11: -491398660
+      Brown Inventory Book SpriteSheet_110: 1139397888
+      Brown Inventory Book SpriteSheet_111: -745054258
+      Brown Inventory Book SpriteSheet_112: -2130528427
+      Brown Inventory Book SpriteSheet_113: -393999274
+      Brown Inventory Book SpriteSheet_114: -744616603
+      Brown Inventory Book SpriteSheet_115: -2068021207
+      Brown Inventory Book SpriteSheet_116: -1661959371
+      Brown Inventory Book SpriteSheet_117: 2082125520
+      Brown Inventory Book SpriteSheet_118: 765382513
+      Brown Inventory Book SpriteSheet_119: 1749940502
+      Brown Inventory Book SpriteSheet_12: -999311274
+      Brown Inventory Book SpriteSheet_120: 439727315
+      Brown Inventory Book SpriteSheet_121: 2140255666
+      Brown Inventory Book SpriteSheet_122: -260910654
+      Brown Inventory Book SpriteSheet_123: -1234208296
+      Brown Inventory Book SpriteSheet_124: 1717234215
+      Brown Inventory Book SpriteSheet_125: 1862357613
+      Brown Inventory Book SpriteSheet_126: -1276242572
+      Brown Inventory Book SpriteSheet_127: -1305117563
+      Brown Inventory Book SpriteSheet_128: 1962499197
+      Brown Inventory Book SpriteSheet_129: 1595385993
+      Brown Inventory Book SpriteSheet_13: 653833534
+      Brown Inventory Book SpriteSheet_130: 449472823
+      Brown Inventory Book SpriteSheet_131: -2003677338
+      Brown Inventory Book SpriteSheet_132: -1481168289
+      Brown Inventory Book SpriteSheet_133: -647348795
+      Brown Inventory Book SpriteSheet_134: 622885447
+      Brown Inventory Book SpriteSheet_135: -135964362
+      Brown Inventory Book SpriteSheet_136: -713235878
+      Brown Inventory Book SpriteSheet_137: 1999782822
+      Brown Inventory Book SpriteSheet_138: -533243838
+      Brown Inventory Book SpriteSheet_139: -1414672363
+      Brown Inventory Book SpriteSheet_14: 822443354
+      Brown Inventory Book SpriteSheet_140: 2054990951
+      Brown Inventory Book SpriteSheet_141: -247752293
+      Brown Inventory Book SpriteSheet_142: 1931868561
+      Brown Inventory Book SpriteSheet_143: -1378789174
+      Brown Inventory Book SpriteSheet_144: 1824855439
+      Brown Inventory Book SpriteSheet_145: 667525035
+      Brown Inventory Book SpriteSheet_146: -1821422887
+      Brown Inventory Book SpriteSheet_147: 1671134023
+      Brown Inventory Book SpriteSheet_148: 1026891715
+      Brown Inventory Book SpriteSheet_149: 282962703
+      Brown Inventory Book SpriteSheet_15: -1597302897
+      Brown Inventory Book SpriteSheet_150: -1048570824
+      Brown Inventory Book SpriteSheet_151: -1868286356
+      Brown Inventory Book SpriteSheet_152: 542592370
+      Brown Inventory Book SpriteSheet_153: 64744274
+      Brown Inventory Book SpriteSheet_154: 45835549
+      Brown Inventory Book SpriteSheet_155: -49841208
+      Brown Inventory Book SpriteSheet_156: 2064986392
+      Brown Inventory Book SpriteSheet_157: -1470740038
+      Brown Inventory Book SpriteSheet_158: 612459653
+      Brown Inventory Book SpriteSheet_159: 1712027460
+      Brown Inventory Book SpriteSheet_16: 1117418870
+      Brown Inventory Book SpriteSheet_160: 1441016659
+      Brown Inventory Book SpriteSheet_161: 1012728730
+      Brown Inventory Book SpriteSheet_162: 514098611
+      Brown Inventory Book SpriteSheet_163: 1808823434
+      Brown Inventory Book SpriteSheet_164: -1350241496
+      Brown Inventory Book SpriteSheet_165: -464946953
+      Brown Inventory Book SpriteSheet_166: 1777270348
+      Brown Inventory Book SpriteSheet_167: 913943227
+      Brown Inventory Book SpriteSheet_168: 1950402690
+      Brown Inventory Book SpriteSheet_169: -1963471322
+      Brown Inventory Book SpriteSheet_17: -540046881
+      Brown Inventory Book SpriteSheet_170: 635097107
+      Brown Inventory Book SpriteSheet_171: 825017935
+      Brown Inventory Book SpriteSheet_172: -1184704900
+      Brown Inventory Book SpriteSheet_173: -544012851
+      Brown Inventory Book SpriteSheet_174: -2059171959
+      Brown Inventory Book SpriteSheet_175: 468812194
+      Brown Inventory Book SpriteSheet_176: 2114012416
+      Brown Inventory Book SpriteSheet_177: 773682570
+      Brown Inventory Book SpriteSheet_178: -2121628602
+      Brown Inventory Book SpriteSheet_179: -1107311455
+      Brown Inventory Book SpriteSheet_18: -934223630
+      Brown Inventory Book SpriteSheet_180: -1119697503
+      Brown Inventory Book SpriteSheet_181: 1331969249
+      Brown Inventory Book SpriteSheet_182: 1719801236
+      Brown Inventory Book SpriteSheet_183: -1931819967
+      Brown Inventory Book SpriteSheet_184: 27176666
+      Brown Inventory Book SpriteSheet_185: -702144256
+      Brown Inventory Book SpriteSheet_186: 202037379
+      Brown Inventory Book SpriteSheet_187: 324853441
+      Brown Inventory Book SpriteSheet_188: 1606982262
+      Brown Inventory Book SpriteSheet_189: 1808685651
+      Brown Inventory Book SpriteSheet_19: -952691244
+      Brown Inventory Book SpriteSheet_190: 1648457467
+      Brown Inventory Book SpriteSheet_191: -1259959885
+      Brown Inventory Book SpriteSheet_192: -1375286036
+      Brown Inventory Book SpriteSheet_193: 726701339
+      Brown Inventory Book SpriteSheet_194: 868137495
+      Brown Inventory Book SpriteSheet_195: 1456386951
+      Brown Inventory Book SpriteSheet_196: -1639055069
+      Brown Inventory Book SpriteSheet_197: -187725158
+      Brown Inventory Book SpriteSheet_198: 1724332786
+      Brown Inventory Book SpriteSheet_199: -355000098
+      Brown Inventory Book SpriteSheet_2: -1613863531
+      Brown Inventory Book SpriteSheet_20: 1432092816
+      Brown Inventory Book SpriteSheet_200: 440309305
+      Brown Inventory Book SpriteSheet_201: -659176104
+      Brown Inventory Book SpriteSheet_202: 1198794689
+      Brown Inventory Book SpriteSheet_203: -49464562
+      Brown Inventory Book SpriteSheet_204: 982471185
+      Brown Inventory Book SpriteSheet_205: -1661329183
+      Brown Inventory Book SpriteSheet_206: 1089926614
+      Brown Inventory Book SpriteSheet_207: -1623050640
+      Brown Inventory Book SpriteSheet_208: 1766669732
+      Brown Inventory Book SpriteSheet_209: -1618988586
+      Brown Inventory Book SpriteSheet_21: 30025982
+      Brown Inventory Book SpriteSheet_210: 982509971
+      Brown Inventory Book SpriteSheet_211: 1456670375
+      Brown Inventory Book SpriteSheet_212: 1573842411
+      Brown Inventory Book SpriteSheet_213: 284843219
+      Brown Inventory Book SpriteSheet_214: 697025544
+      Brown Inventory Book SpriteSheet_215: 960187459
+      Brown Inventory Book SpriteSheet_216: -571528451
+      Brown Inventory Book SpriteSheet_217: 710781969
+      Brown Inventory Book SpriteSheet_218: -1308453088
+      Brown Inventory Book SpriteSheet_219: 540868585
+      Brown Inventory Book SpriteSheet_22: 1734832574
+      Brown Inventory Book SpriteSheet_220: -238334665
+      Brown Inventory Book SpriteSheet_221: 656557991
+      Brown Inventory Book SpriteSheet_222: 2133796461
+      Brown Inventory Book SpriteSheet_223: -245086695
+      Brown Inventory Book SpriteSheet_224: 2133905338
+      Brown Inventory Book SpriteSheet_225: -1966064943
+      Brown Inventory Book SpriteSheet_226: -1504992013
+      Brown Inventory Book SpriteSheet_227: -32781543
+      Brown Inventory Book SpriteSheet_228: 84003003
+      Brown Inventory Book SpriteSheet_229: -1566981231
+      Brown Inventory Book SpriteSheet_23: 1622609772
+      Brown Inventory Book SpriteSheet_230: 1573213813
+      Brown Inventory Book SpriteSheet_231: 995238543
+      Brown Inventory Book SpriteSheet_232: 366416545
+      Brown Inventory Book SpriteSheet_233: -2028346366
+      Brown Inventory Book SpriteSheet_234: 561807349
+      Brown Inventory Book SpriteSheet_235: 91591710
+      Brown Inventory Book SpriteSheet_236: -1260840714
+      Brown Inventory Book SpriteSheet_237: -1553086849
+      Brown Inventory Book SpriteSheet_238: -887188872
+      Brown Inventory Book SpriteSheet_239: -505687567
+      Brown Inventory Book SpriteSheet_24: -1206970801
+      Brown Inventory Book SpriteSheet_240: -828917799
+      Brown Inventory Book SpriteSheet_241: -178334644
+      Brown Inventory Book SpriteSheet_242: -179762341
+      Brown Inventory Book SpriteSheet_243: 1310744888
+      Brown Inventory Book SpriteSheet_244: -910051421
+      Brown Inventory Book SpriteSheet_245: -1999428162
+      Brown Inventory Book SpriteSheet_246: 61787992
+      Brown Inventory Book SpriteSheet_247: -1860711470
+      Brown Inventory Book SpriteSheet_248: 1109777050
+      Brown Inventory Book SpriteSheet_249: -1838826942
+      Brown Inventory Book SpriteSheet_25: -615062614
+      Brown Inventory Book SpriteSheet_250: -1168331800
+      Brown Inventory Book SpriteSheet_251: 291107627
+      Brown Inventory Book SpriteSheet_252: -991144968
+      Brown Inventory Book SpriteSheet_253: 1110197225
+      Brown Inventory Book SpriteSheet_254: 1636524089
+      Brown Inventory Book SpriteSheet_255: 872309701
+      Brown Inventory Book SpriteSheet_256: 1037062541
+      Brown Inventory Book SpriteSheet_257: -597621802
+      Brown Inventory Book SpriteSheet_258: -1497933595
+      Brown Inventory Book SpriteSheet_259: -1071088735
+      Brown Inventory Book SpriteSheet_26: -238875400
+      Brown Inventory Book SpriteSheet_260: -2060929491
+      Brown Inventory Book SpriteSheet_261: -247322197
+      Brown Inventory Book SpriteSheet_262: 882558567
+      Brown Inventory Book SpriteSheet_263: -956735833
+      Brown Inventory Book SpriteSheet_264: -71090035
+      Brown Inventory Book SpriteSheet_265: -970403410
+      Brown Inventory Book SpriteSheet_266: -759722265
+      Brown Inventory Book SpriteSheet_267: 238349956
+      Brown Inventory Book SpriteSheet_268: 9817780
+      Brown Inventory Book SpriteSheet_269: -2080396185
+      Brown Inventory Book SpriteSheet_27: -2129511654
+      Brown Inventory Book SpriteSheet_270: -595483471
+      Brown Inventory Book SpriteSheet_271: 820693632
+      Brown Inventory Book SpriteSheet_272: -2114543019
+      Brown Inventory Book SpriteSheet_273: 1475416473
+      Brown Inventory Book SpriteSheet_274: 2029464790
+      Brown Inventory Book SpriteSheet_275: 369786773
+      Brown Inventory Book SpriteSheet_276: 446297207
+      Brown Inventory Book SpriteSheet_277: 1282929922
+      Brown Inventory Book SpriteSheet_278: -1691703878
+      Brown Inventory Book SpriteSheet_279: -1463018368
+      Brown Inventory Book SpriteSheet_28: -571274051
+      Brown Inventory Book SpriteSheet_29: -1937142407
+      Brown Inventory Book SpriteSheet_3: -1465530308
+      Brown Inventory Book SpriteSheet_30: 1669989684
+      Brown Inventory Book SpriteSheet_31: 1069685380
+      Brown Inventory Book SpriteSheet_32: -552246997
+      Brown Inventory Book SpriteSheet_33: -1785589956
+      Brown Inventory Book SpriteSheet_34: 52193829
+      Brown Inventory Book SpriteSheet_35: -855781372
+      Brown Inventory Book SpriteSheet_36: -844879925
+      Brown Inventory Book SpriteSheet_37: 1295539524
+      Brown Inventory Book SpriteSheet_38: -1573941129
+      Brown Inventory Book SpriteSheet_39: 1400922323
+      Brown Inventory Book SpriteSheet_4: -429604188
+      Brown Inventory Book SpriteSheet_40: -1082648650
+      Brown Inventory Book SpriteSheet_41: 788677413
+      Brown Inventory Book SpriteSheet_42: -206199247
+      Brown Inventory Book SpriteSheet_43: -624059388
+      Brown Inventory Book SpriteSheet_44: 1734340869
+      Brown Inventory Book SpriteSheet_45: -1274924658
+      Brown Inventory Book SpriteSheet_46: 1253368276
+      Brown Inventory Book SpriteSheet_47: 848126443
+      Brown Inventory Book SpriteSheet_48: 1015653063
+      Brown Inventory Book SpriteSheet_49: -1442454948
+      Brown Inventory Book SpriteSheet_5: -742215473
+      Brown Inventory Book SpriteSheet_50: -678580730
+      Brown Inventory Book SpriteSheet_51: 244537298
+      Brown Inventory Book SpriteSheet_52: -622099365
+      Brown Inventory Book SpriteSheet_53: -431752095
+      Brown Inventory Book SpriteSheet_54: 548134476
+      Brown Inventory Book SpriteSheet_55: 1599885257
+      Brown Inventory Book SpriteSheet_56: 656359150
+      Brown Inventory Book SpriteSheet_57: 83073522
+      Brown Inventory Book SpriteSheet_58: -1262374596
+      Brown Inventory Book SpriteSheet_59: -246762651
+      Brown Inventory Book SpriteSheet_6: 1653410031
+      Brown Inventory Book SpriteSheet_60: 2097839442
+      Brown Inventory Book SpriteSheet_61: 1041671816
+      Brown Inventory Book SpriteSheet_62: 1884486075
+      Brown Inventory Book SpriteSheet_63: -712652054
+      Brown Inventory Book SpriteSheet_64: 1526863806
+      Brown Inventory Book SpriteSheet_65: -2013200942
+      Brown Inventory Book SpriteSheet_66: 997709181
+      Brown Inventory Book SpriteSheet_67: -2034188845
+      Brown Inventory Book SpriteSheet_68: -1150981375
+      Brown Inventory Book SpriteSheet_69: -1735014104
+      Brown Inventory Book SpriteSheet_7: -1041773171
+      Brown Inventory Book SpriteSheet_70: -1402191776
+      Brown Inventory Book SpriteSheet_71: 1267714035
+      Brown Inventory Book SpriteSheet_72: 1880270095
+      Brown Inventory Book SpriteSheet_73: 1483813708
+      Brown Inventory Book SpriteSheet_74: 1725079992
+      Brown Inventory Book SpriteSheet_75: -686051005
+      Brown Inventory Book SpriteSheet_76: -2037931842
+      Brown Inventory Book SpriteSheet_77: 196296440
+      Brown Inventory Book SpriteSheet_78: 22108780
+      Brown Inventory Book SpriteSheet_79: -2093856122
+      Brown Inventory Book SpriteSheet_8: -1687657180
+      Brown Inventory Book SpriteSheet_80: 1887504115
+      Brown Inventory Book SpriteSheet_81: -1723673408
+      Brown Inventory Book SpriteSheet_82: -603143908
+      Brown Inventory Book SpriteSheet_83: 1138754124
+      Brown Inventory Book SpriteSheet_84: 389837528
+      Brown Inventory Book SpriteSheet_85: -728236046
+      Brown Inventory Book SpriteSheet_86: -1158321282
+      Brown Inventory Book SpriteSheet_87: 1739593253
+      Brown Inventory Book SpriteSheet_88: 188049513
+      Brown Inventory Book SpriteSheet_89: 879818598
+      Brown Inventory Book SpriteSheet_9: -1513484946
+      Brown Inventory Book SpriteSheet_90: 2030243902
+      Brown Inventory Book SpriteSheet_91: -239568918
+      Brown Inventory Book SpriteSheet_92: 1117918926
+      Brown Inventory Book SpriteSheet_93: 1083999959
+      Brown Inventory Book SpriteSheet_94: -1982176743
+      Brown Inventory Book SpriteSheet_95: -1514870641
+      Brown Inventory Book SpriteSheet_96: -1641763419
+      Brown Inventory Book SpriteSheet_97: 930394380
+      Brown Inventory Book SpriteSheet_98: 52254742
+      Brown Inventory Book SpriteSheet_99: -751442076
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

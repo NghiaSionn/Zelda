@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class UIManager : MonoBehaviour
 {
@@ -10,6 +11,11 @@ public class UIManager : MonoBehaviour
     public GameObject profilePanel;
     public GameObject skillPanel;
     public GameObject mapPanel;
+    public GameObject bookObject; // Cuốn sách sẽ hiện animation
+    
+    private Animator inventoryAnimator;
+    private Animator bookAnimator;
+    private bool isBookAnimating = false; // Ngăn spam input khi đang animation
 
     private void Awake()
     {
@@ -27,9 +33,22 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         CloseAllPanels();
-        Debug.Log(inventoryPanel.activeSelf);
-        Debug.Log(profilePanel.activeSelf);
-        Debug.Log(skillPanel.activeSelf);
+        
+        // Đảm bảo inventory panel luôn bị ẩn khi start
+        inventoryPanel.SetActive(false);
+        
+        // Ẩn cuốn sách khi start
+        if (bookObject != null)
+        {
+            bookObject.SetActive(false);
+        }
+        
+        inventoryAnimator = inventoryPanel.GetComponent<Animator>();
+        
+        if (bookObject != null)
+        {
+            bookAnimator = bookObject.GetComponent<Animator>();
+        }
     }
 
     private void Update()
@@ -48,7 +67,7 @@ public class UIManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.I))
         {
-            if (!pausePanel.activeSelf)
+            if (!pausePanel.activeSelf && !isBookAnimating)
             {
                 ToggleInventoryPanel();
             }
@@ -93,26 +112,73 @@ public class UIManager : MonoBehaviour
     {
         CloseAllPanels();
         pausePanel.SetActive(true);
-        Time.timeScale = 0; // Dừng thời gian khi pause
     }
 
     public void ClosePausePanel()
     {
         pausePanel.SetActive(false);
-        Time.timeScale = 1; // Tiếp tục thời gian
     }
 
     public void ToggleInventoryPanel()
     {
         if (inventoryPanel.activeSelf)
         {
-            CloseAllPanels();
+            // Đóng: Ẩn inventory panel trước, sau đó trigger close animation của book
+            StartCoroutine(CloseInventorySequence());
         }
         else
         {
-            CloseAllPanels();
-            inventoryPanel.SetActive(true);
+            // Mở: Trigger open animation của book, sau đó hiện inventory panel
+            StartCoroutine(OpenInventorySequence());
         }
+    }
+    
+    private IEnumerator OpenInventorySequence()
+    {
+        isBookAnimating = true;
+        CloseAllPanels();
+        
+        // Hiện cuốn sách và trigger animation open
+        if (bookObject != null && bookAnimator != null)
+        {
+            bookObject.SetActive(true);
+            bookAnimator.SetTrigger("open");
+            
+            // Đợi animation open kết thúc (điều chỉnh thời gian theo animation thực tế)
+            yield return new WaitForSeconds(0.8f);
+        }
+        
+        // Sau khi animation open kết thúc, hiện inventory panel
+        inventoryPanel.SetActive(true);
+        isBookAnimating = false;
+    }
+    
+    private IEnumerator CloseInventorySequence()
+    {
+        isBookAnimating = true;
+        
+        // Ẩn inventory panel trước
+        inventoryPanel.SetActive(false);
+        
+        // Sau đó trigger close animation của book
+        if (bookObject != null && bookAnimator != null)
+        {
+            bookAnimator.SetTrigger("close");
+            
+            // Đợi animation close kết thúc
+            yield return new WaitForSeconds(0.8f);
+            
+            // Ẩn cuốn sách sau khi animation kết thúc
+            bookObject.SetActive(false);
+        }
+        
+        isBookAnimating = false;
+    }
+
+    IEnumerator DisablePanelDelay(GameObject obj, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        obj.SetActive(false);
     }
 
     public void ToggleShopPanel()

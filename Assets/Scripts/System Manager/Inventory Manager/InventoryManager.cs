@@ -19,23 +19,36 @@ public class InventoryManager : MonoBehaviour
 
     private void Start()
     {
-        UpdateCoinUI();
+        if (playerInventory != null)
+        {
+            UpdateCoinUI();
+        }
     }
     private void OnEnable()
     {
-        playerInventory.OnCoinsChanged += UpdateCoinUI;
+        if (playerInventory != null)
+        {
+            playerInventory.OnCoinsChanged += UpdateCoinUI;
+        }
     }
 
     private void OnDisable()
     {
-        playerInventory.OnCoinsChanged -= UpdateCoinUI;
+        if (playerInventory != null)
+        {
+            playerInventory.OnCoinsChanged -= UpdateCoinUI;
+        }
     }
 
     private void UpdateCoinUI()
     {
-        descriptionText.text = $"Coins: {playerInventory.coins}";
+        if (descriptionText != null && playerInventory != null)
+        {
+            descriptionText.text = $"Coins: {playerInventory.coins}";
+        }
 
-
+        if (inventoryPanel == null) return;
+        
         InventorySlot[] slots = inventoryPanel.GetComponentsInChildren<InventorySlot>();
         foreach (var slot in slots)
         {
@@ -77,27 +90,52 @@ public class InventoryManager : MonoBehaviour
 
     public void SetTextAndButton(string description, string name, bool buttonActive, int quanity)
     {
-        descriptionText.text = description;
-        nameText.text = name;
+        if (descriptionText != null)
+        {
+            descriptionText.text = description;
+        }
+        
+        if (nameText != null)
+        {
+            nameText.text = name;
+        }
 
+        if (useButton != null)
+        {
+            if (quanity < 1)
+            {
+                useButton.SetActive(false);
+            }
+            else
+            {
+                useButton.SetActive(buttonActive);
+            }
+        }
 
-        if (quanity < 1)
+        if (descriptionText != null && playerInventory != null)
+        {
+            descriptionText.text = $"Coins: {playerInventory.coins}";
+        }
+        
+        if (nameText != null)
+        {
+            nameText.text = "";
+        }
+        
+        if (useButton != null)
         {
             useButton.SetActive(false);
         }
-        else
-        {
-            useButton.SetActive(buttonActive);
-        }
-
-        descriptionText.text = $"Coins: {playerInventory.coins}";
-        nameText.text = "";
-        useButton.SetActive(false);
 
     }
 
     void MakeInventorySlots()
     {
+        if (playerInventory == null || inventoryPanel == null || blankInventorySlot == null)
+        {
+            return;
+        }
+        
         if (playerInventory)
         {
             foreach (Transform child in inventoryPanel.transform)
@@ -145,14 +183,24 @@ public class InventoryManager : MonoBehaviour
 
     void Awake()
     {
-        descriptionPanel.SetActive(false);
+        if (descriptionPanel != null)
+        {
+            descriptionPanel.SetActive(false);
+        }
+        
         MakeInventorySlots();
         SetTextAndButton("", "", false, 0);
-        playerInventory.OnItemAdded += UpdateInventoryUI;
+        
+        if (playerInventory != null)
+        {
+            playerInventory.OnItemAdded += UpdateInventoryUI;
+        }
     }
 
     public void UpdateInventoryUI()
     {
+        if (inventoryPanel == null) return;
+        
         foreach (Transform child in inventoryPanel.transform)
         {
             if (child == null || child.gameObject == null)
@@ -174,17 +222,37 @@ public class InventoryManager : MonoBehaviour
     public void SetUpDescriptionAndButton(string newDescriptionString, string newNameTextString, bool isButtonUsable, Item newItem)
     {
         currentItem = newItem;
-        descriptionText.text = newDescriptionString;
-        nameText.text = newNameTextString;
-        useButton.SetActive(isButtonUsable);
+        
+        if (descriptionText != null)
+        {
+            descriptionText.text = newDescriptionString;
+        }
+        
+        if (nameText != null)
+        {
+            nameText.text = newNameTextString;
+        }
+        
+        if (useButton != null)
+        {
+            useButton.SetActive(isButtonUsable);
+        }
 
     }
 
     public void SetUpDescriptionAndButton2(string newDescriptionString, string newNameTextString, Item newItem)
     {
         currentItem = newItem;
-        descriptionText.text = newDescriptionString;
-        nameText.text = newNameTextString;
+        
+        if (descriptionText != null)
+        {
+            descriptionText.text = newDescriptionString;
+        }
+        
+        if (nameText != null)
+        {
+            nameText.text = newNameTextString;
+        }
     }
 
     public void UseButtonPressed()

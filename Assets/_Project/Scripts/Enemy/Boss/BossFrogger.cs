@@ -11,7 +11,6 @@ public class BossFrogger : Boss
 
     [Header("Tham chiếu")]
     public Transform target;
-    public Animator anim;
     private Rigidbody2D myRigidbody;
 
     private bool isAttacking = false;  

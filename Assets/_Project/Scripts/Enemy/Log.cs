@@ -15,7 +15,6 @@ public class Log : Enemy
     public float attackRadius;
 
     public Transform homePosition;
-    public Animator anim;
    
 
 

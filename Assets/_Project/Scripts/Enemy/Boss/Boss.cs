@@ -16,7 +16,7 @@ public class Boss : MonoBehaviour
     public int baseAttack;
     public float moveSpeed;
 
-    private Animator anim;
+    protected Animator anim;
 
     [Header("Rớt đồ")]
     public LootTable thisLoot;

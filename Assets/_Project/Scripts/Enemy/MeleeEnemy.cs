@@ -1,14 +1,12 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class MeleeEnemy : Log
 {
-    public Test_Rigidbody2D testRigidbody2D;  
+    // Không cần dùng Test_Rigidbody2D riêng nữa vì Log đã lo phần Random Wander bằng NavMesh
+    // public Test_Rigidbody2D testRigidbody2D;  
 
-    
-
-    // Update is called once per frame
     void Update()
     {
         CheckDistance();
@@ -16,51 +14,38 @@ public class MeleeEnemy : Log
 
     public override void CheckDistance()
     {
+        // Gọi hàm gốc từ Log.cs để tự động Random Wander và Chase bằng NavMesh
+        base.CheckDistance();
+
         float distanceToPlayer = Vector3.Distance(target.position, transform.position);
 
-        if (distanceToPlayer <= chaseRaidus && distanceToPlayer > attackRadius)
+        // Kế thừa thêm tính năng tấn công khi Player vào sát tầm
+        if (distanceToPlayer <= attackRadius)
         {
-            
-            if (testRigidbody2D != null)
-                testRigidbody2D.enabled = false; 
-
-            if (currentState == EnemyState.idle || currentState == EnemyState.walk && currentState != EnemyState.stagger)
+            // Dừng NavMeshAgent và tắt hiệu ứng đi bộ để đứng yên đánh
+            if (agent.hasPath)
             {
-                Vector3 temp = Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
-                changeAnim(temp - transform.position);
-                myRigidbody.MovePosition(temp);
-                ChangeState(EnemyState.walk);
-                anim.SetBool("moving", true); 
-                
+                agent.ResetPath();
             }
-            
-        }
-        
+            SetMoving(false);
 
-        else if (distanceToPlayer <= chaseRaidus && distanceToPlayer <= attackRadius)
-        {
             // Khi ở trong tầm tấn công, thực hiện tấn công
             if (currentState == EnemyState.walk && currentState != EnemyState.stagger)
             {
                 StartCoroutine(AttackCo());
             }
         }
-        else
-        {
-            anim.SetBool("moving", false);
-
-            if (testRigidbody2D != null)
-                testRigidbody2D.enabled = true; 
-        }
     }
 
     public IEnumerator AttackCo()
     {
-        EnemyAudioManager enemyAudioManager = GetComponent<EnemyAudioManager>();
         currentState = EnemyState.attack;       
         anim.SetBool("attack", true);
         yield return new WaitForSeconds(0.1f);
-        enemyAudioManager.PlayAttackSound();
+        
+        // Kế thừa thẳng hàm phát tiếng tấn công từ Enemy.cs gốc
+        PlayAttackSound();
+
         yield return new WaitForSeconds(1f);
         
         currentState = EnemyState.walk;

@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -22,14 +22,14 @@ public enum EnemyType
     none
 }
 
-
+[RequireComponent(typeof(AudioSource))]
 public class Enemy : MonoBehaviour
 {
     [Header("Enemy")]
     public EnemyState currentState = EnemyState.idle;
     public EnemyType enemyType;
 
-    [Header("Heatlh")]
+    [Header("Health")]
     public FloatValue maxHealth;
     public float health;
     public int baseAttack;
@@ -43,17 +43,109 @@ public class Enemy : MonoBehaviour
     public GameObject enemyPrefab; 
     public SpawnArea spawnArea;
 
-    private void OnEnable()
+    [Header("Audio Settings")]
+    public AudioClip[] idleSounds;       
+    public AudioClip[] walkSounds;       
+    public AudioClip[] attackSounds;     
+    public AudioClip[] hurtSounds;       
+    public AudioClip[] deathSounds;         
+    public float idleSoundInterval = 5f; 
+    public float walkSoundInterval = 0.4f; 
+    public float maxHearingDistance = 10f; 
+
+    protected AudioSource audioSource;
+    protected bool isMoving = false;
+    private Transform playerTransform;
+
+    protected virtual void OnEnable()
     {
         health = maxHealth.initiaValue;
         anim = GetComponent<Animator>();
 
         if (spawnArea == null)
-        {
             spawnArea = GetComponentInParent<SpawnArea>();
+
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource != null)
+        {
+            audioSource.spatialBlend = 1f; 
+            audioSource.playOnAwake = false;
+        }
+
+        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+        if (playerObj != null)
+            playerTransform = playerObj.transform;
+
+        StartCoroutine(PlayIdleSoundsRoutine());
+        StartCoroutine(PlayWalkSoundsRoutine());
+    }
+
+    protected virtual void Update()
+    {
+        AdjustVolumeByDistance();
+    }
+
+    private void AdjustVolumeByDistance()
+    {
+        if (playerTransform == null || audioSource == null) return;
+
+        float distance = Vector3.Distance(transform.position, playerTransform.position);
+        float volume = Mathf.Clamp01(1 - (distance / maxHearingDistance));
+        audioSource.volume = volume;
+    }
+
+    private IEnumerator PlayIdleSoundsRoutine()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(idleSoundInterval);
+            PlayRandomSound(idleSounds);
         }
     }
 
+    private IEnumerator PlayWalkSoundsRoutine()
+    {
+        while (true)
+        {
+            if (isMoving && walkSounds != null && walkSounds.Length > 0)
+            {
+                PlayRandomSound(walkSounds);
+                yield return new WaitForSeconds(walkSoundInterval);
+            }
+            else
+            {
+                yield return new WaitForSeconds(0.1f);
+            }
+        }
+    }
+
+    public virtual void SetMoving(bool moving)
+    {
+        isMoving = moving;
+        if (anim != null)
+        {
+            anim.SetBool("moving", moving);
+        }
+    }
+
+    public void PlayAttackSound()
+    {
+        PlayRandomSound(attackSounds);
+    }
+
+    public void PlayHurtSound()
+    {
+        PlayRandomSound(hurtSounds);
+    }
+
+    private void PlayRandomSound(AudioClip[] clips)
+    {
+        // Bỏ điều kiện audioSource.isPlaying để tiếng rên rỉ (Hurt/Death) có thể đè đúp lên tiếng bước chân (Walk)
+        if (clips == null || clips.Length == 0 || audioSource == null) return;
+
+        int index = Random.Range(0, clips.Length);
+        audioSource.PlayOneShot(clips[index]);
+    }
 
     public void Knock(Rigidbody2D myRigibody, float knockTime, float damage)
     {
@@ -82,25 +174,32 @@ public class Enemy : MonoBehaviour
         health -= damage;
         if (health > 0)
         {
-           
             StartCoroutine(Hurt());
         }
         else
         {
             Exp();
             MakeLoot();
-            //spawnArea.EnemyDied(this.gameObject);
             StartCoroutine(DeadAnim());
-            //StartCoroutine(spawnArea.RespawnEnemy(this.gameObject));
-                                 
         }
     }
 
     IEnumerator DeadAnim()
     {
-        EnemyAudioManager audioManager = GetComponent<EnemyAudioManager>();
         anim.SetBool("dead", true);
-        audioManager.PlayDeathSound();
+
+        // Phát ngẫu nhiên 1 âm thanh chết nếu có
+        float waitTime = 0.5f; 
+        if (deathSounds != null && deathSounds.Length > 0 && audioSource != null)
+        {
+            int index = Random.Range(0, deathSounds.Length);
+            AudioClip clip = deathSounds[index];
+            if (clip != null)
+            {
+                audioSource.PlayOneShot(clip);
+                waitTime = Mathf.Max(waitTime, clip.length); // Đợi tối thiểu 0.5s hoặc bằng độ dài âm thanh
+            }
+        }
 
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         if (rb != null)
@@ -108,7 +207,9 @@ public class Enemy : MonoBehaviour
             rb.linearVelocity = Vector2.zero;
         }
 
-        yield return new WaitForSeconds(0.5f);
+        // Chờ âm thanh và hoạt ảnh hoàn tất
+        yield return new WaitForSeconds(waitTime);
+
         if (spawnArea != null)
         {
             spawnArea.EnemyDied(this.gameObject);
@@ -141,13 +242,11 @@ public class Enemy : MonoBehaviour
 
     private IEnumerator Hurt()
     {
-        EnemyAudioManager audioManager = GetComponent<EnemyAudioManager>();
-        audioManager.PlayHurtSound();
+        PlayHurtSound();
 
         anim.SetBool("hurt", true);      
         yield return new WaitForSeconds(0.1f);
         anim.SetBool("hurt", false);
         yield return null;
     }
-
 }

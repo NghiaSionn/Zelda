@@ -21,6 +21,21 @@ public class KnockBack : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        // Tính lực đẩy thực tế (Giảm lực về 0 nếu là đòn đánh 1 và 2 của Combo kiếm từ Player)
+        float actualThrust = thrust;
+        if (this.gameObject.CompareTag("Skill") && (other.CompareTag("enemy") || other.CompareTag("Boss")))
+        {
+            PlayerMovement actionPlayer = FindObjectOfType<PlayerMovement>();
+            if (actionPlayer != null)
+            {
+                int combo = actionPlayer.GetCurrentAttackCombo();
+                if (combo == 1 || combo == 2)
+                {
+                    actualThrust = 0f;
+                }
+            }
+        }
+
         // Phá bình
         if (other.gameObject.CompareTag("breakable") && this.gameObject.CompareTag("Player"))
         {
@@ -34,10 +49,11 @@ public class KnockBack : MonoBehaviour
 
             if (hit != null)
             {
-                Vector2 difference = (other.transform.position - transform.position).normalized * thrust;
-                difference = difference.normalized * thrust;
-                hit.DOMove(hit.transform.position + new Vector3(difference.x, difference.y, 0), knockTime);
-               
+                Vector2 difference = (other.transform.position - transform.position).normalized * actualThrust;
+                if (actualThrust > 0f)
+                {
+                    hit.DOMove(hit.transform.position + new Vector3(difference.x, difference.y, 0), knockTime);
+                }
 
                 if (other.gameObject.CompareTag("enemy"))
                 {
@@ -76,7 +92,7 @@ public class KnockBack : MonoBehaviour
                     if (player != null && player.currentState != PlayerState.stagger)
                     {
                         CameraShakeManager.instance.CameraShake(impulseSource);
-                        player.Knock(knockTime,damage, difference.normalized * thrust);
+                        player.Knock(knockTime,damage, difference.normalized * actualThrust);
                     }
                 }
             }
@@ -91,9 +107,11 @@ public class KnockBack : MonoBehaviour
             Rigidbody2D hit = other.GetComponent<Rigidbody2D>();
             if (hit != null)
             {
-                Vector2 difference = (other.transform.position - transform.position).normalized * thrust;
-                difference = difference.normalized * thrust;
-                hit.DOMove(hit.transform.position + new Vector3(difference.x, difference.y, 0), knockTime);
+                Vector2 difference = (other.transform.position - transform.position).normalized * actualThrust;
+                if (actualThrust > 0f)
+                {
+                    hit.DOMove(hit.transform.position + new Vector3(difference.x, difference.y, 0), knockTime);
+                }
 
                 if (other.gameObject.CompareTag("enemy") && other.isTrigger)
                 {
@@ -128,7 +146,7 @@ public class KnockBack : MonoBehaviour
                     if (player != null && player.currentState != PlayerState.stagger)
                     {
                         CameraShakeManager.instance.CameraShake(impulseSource);
-                        player.Knock(knockTime, damage, difference.normalized * thrust);
+                        player.Knock(knockTime, damage, difference.normalized * actualThrust);
                     }
                 }
             }

@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using TMPro;
 using UnityEngine.UI;
@@ -82,13 +82,47 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        // Nếu đang vận chiêu, không cho phép di chuyển
-        if (isCasting || currentState == PlayerState.interact)
+        // 1. NGƯỜI CHƠI NHẤN PHÍM CÁC HÀNH ĐỘNG CƠ BẢN (Không bị cấm khi đang đánh)
+        if (Input.GetKeyDown(KeyCode.Tab))
         {
-            myRigidbody.linearVelocity = Vector2.zero; // Ngăn di chuyển
+            isSwordEquipped = !isSwordEquipped;
+            animator.SetBool("isSwordEquipped", isSwordEquipped);
+        }
+
+        if (Input.GetMouseButtonDown(0) && isSwordEquipped)
+        {
+            if (!isAttacking)
+            {
+                StartCoroutine(AttackCoroutine());
+            }
+            else
+            {
+                // Cho phép dồn Combo đòn 2 và đòn 3
+                queuedAttack = true;
+            }
+        }
+
+        if (dashCooldownTimer > 0f)
+        {
+            dashCooldownTimer -= Time.deltaTime;
+        }
+
+        // Ưu tiên cao nhất: Lướt
+        if (Input.GetKey(KeyCode.Q) && currentState == PlayerState.walk && canDash && dashCooldownTimer <= 0f)
+        {
+            StartCoroutine(DashCo());
+        }
+
+        // 2. KHÓA DI CHUYỂN KHI ĐANG MÚA KIẾM / VẬN CHIÊU
+        if (isCasting || currentState == PlayerState.interact || currentState == PlayerState.attack)
+        {
+            // Tắt animation di chuyển ngay khi vào trạng thái tấn công
+            UpdateAnimator(Vector2.zero, false);
+            change = Vector3.zero;
             return;
         }
 
+        // 3. XỬ LÝ DI CHUYỂN BÌNH THƯỜNG
         change = Vector3.zero;
         change.x = Input.GetAxisRaw("Horizontal");
         change.y = Input.GetAxisRaw("Vertical");
@@ -108,34 +142,6 @@ public class PlayerMovement : MonoBehaviour
         myRigidbody.linearVelocity = change.normalized * currentSpeed;
 
         UpdateAnimator(change, isRunning);
-
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            isSwordEquipped = !isSwordEquipped;
-            animator.SetBool("isSwordEquipped", isSwordEquipped);
-        }
-
-        if (Input.GetMouseButtonDown(0) && isSwordEquipped)
-        {
-            if (!isAttacking)
-            {
-                StartCoroutine(AttackCoroutine());
-            }
-            else
-            {
-                queuedAttack = true;
-            }
-        }
-
-        if (Input.GetKey(KeyCode.Q) && currentState == PlayerState.walk && canDash && dashCooldownTimer <= 0f)
-        {
-            StartCoroutine(DashCo());
-        }
-
-        if (dashCooldownTimer > 0f)
-        {
-            dashCooldownTimer -= Time.deltaTime;
-        }
     }
 
     void UpdateAnimator(Vector2 movement, bool isRunning)
@@ -151,6 +157,7 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator AttackCoroutine()
     {
+        currentState = PlayerState.attack;
         isAttacking = true;
         queuedAttack = false;
         currentAttack = 1;
@@ -176,16 +183,18 @@ public class PlayerMovement : MonoBehaviour
             yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length - 0.1f);
         }
 
-        yield return new WaitForSeconds(0.5f);
+        // Chặn ngắn một khoảnh khắc nhỏ trước khi reset trạng thái, để animation kết thúc tự nhiên
+        yield return new WaitForSeconds(0.05f);
         isAttacking = false;
         queuedAttack = false;
         currentAttack = 1;
+        currentState = PlayerState.walk;
     }
 
     IEnumerator DashForward()
     {
         float elapsedTime = 0f;
-        float dashTime = 0.15f;
+        float dashTime = 0.08f; // rườn người ngắn + dứt khoát
 
         while (elapsedTime < dashTime)
         {
@@ -194,6 +203,7 @@ public class PlayerMovement : MonoBehaviour
             yield return null;
         }
 
+        // Dừng vận tốc ngay sau khi lướt để không bị trượt dần
         myRigidbody.linearVelocity = Vector2.zero;
     }
 
@@ -325,5 +335,11 @@ public class PlayerMovement : MonoBehaviour
     public void SetCasting(bool casting)
     {
         isCasting = casting;
+    }
+
+    // Hàm trả về số thứ tự đòn chém hiện tại (1, 2, hoặc 3)
+    public int GetCurrentAttackCombo()
+    {
+        return currentAttack;
     }
 }

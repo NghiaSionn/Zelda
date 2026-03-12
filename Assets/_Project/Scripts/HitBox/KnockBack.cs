@@ -98,8 +98,8 @@ public class KnockBack : MonoBehaviour
             }
         }
 
-        // Xử lý chung cho enemy và Player
-        if (other.gameObject.CompareTag("enemy") || other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Animal"))
+        // Xử lý chung cho enemy và Animal (Player đã bị loại khỏi đây — chỉ nhận dame từ Skill hitbox)
+        if (other.gameObject.CompareTag("enemy") || other.gameObject.CompareTag("Animal"))
         {
             // Ngăn kẻ địch giết nhau
             if (other.gameObject.CompareTag("enemy") && gameObject.CompareTag("enemy")) return;
@@ -140,15 +140,8 @@ public class KnockBack : MonoBehaviour
                     }
                 }
 
-                if (other.gameObject.CompareTag("Player"))
-                {
-                    var player = other.GetComponent<PlayerMovement>();
-                    if (player != null && player.currentState != PlayerState.stagger)
-                    {
-                        CameraShakeManager.instance.CameraShake(impulseSource);
-                        player.Knock(knockTime, damage, difference.normalized * actualThrust);
-                    }
-                }
+                // Đã xóa: Player không nhận dame khi chạm vào thân quái
+                // Chỉ nhận dame từ hitbox tấn công (Tag "Skill") của quái ở khối phía trên
             }
         }
 

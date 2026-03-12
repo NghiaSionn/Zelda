@@ -52,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
     private int currentLevel = 1;
 
     [Header("Lướt")]
-    public float dashSpeed = 20f;
+    public float dashDistance = 6f;  // Khoảng cách lướt (đơn vị Unity)
     public float dashDuration = 0.2f;
     public float dashCooldown = 1f;
     private float dashCooldownTimer = 0f;
@@ -107,17 +107,37 @@ public class PlayerMovement : MonoBehaviour
             dashCooldownTimer -= Time.deltaTime;
         }
 
-        // Ưu tiên cao nhất: Lướt
-        if (Input.GetKey(KeyCode.Q) && currentState == PlayerState.walk && canDash && dashCooldownTimer <= 0f)
+        // Ưu tiên cao nhất: Lướt (cho phép cả khi đang đánh combo)
+        if (Input.GetKey(KeyCode.Q) && (currentState == PlayerState.walk || currentState == PlayerState.attack) && canDash && dashCooldownTimer <= 0f)
         {
+            // Huỷ chuỗi combo nếu đang đánh để dash ngắt hoàn toàn
+            if (isAttacking)
+            {
+                StopCoroutine("AttackCoroutine");
+                isAttacking = false;
+                queuedAttack = false;
+                currentAttack = 1;
+            }
             StartCoroutine(DashCo());
         }
 
-        // 2. KHÓA DI CHUYỂN KHI ĐANG MÚA KIẾM / VẬN CHIÊU
-        if (isCasting || currentState == PlayerState.interact || currentState == PlayerState.attack)
+        // 2. KHÓA DI CHUYỂN KHI ĐANG MÚA KIẾM / VẬN CHIÊU / LƯỚT
+        if (isCasting || currentState == PlayerState.interact || currentState == PlayerState.attack || currentState == PlayerState.dash)
         {
-            // Tắt animation di chuyển ngay khi vào trạng thái tấn công
-            UpdateAnimator(Vector2.zero, false);
+            // Vẫn đọc hướng bấm để cập nhật hướng mặt nhân vật trong lúc đánh
+            Vector2 inputDir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+            if (inputDir.magnitude > 0)
+            {
+                // Cập nhật hướng mặt (moveX/Y) nhưng tắt moving để không chạy animation đi bộ
+                animator.SetBool("moving", false);
+                animator.SetFloat("moveX", inputDir.x);
+                animator.SetFloat("moveY", inputDir.y);
+                lastMoveDirection = inputDir.normalized;
+            }
+            else
+            {
+                animator.SetBool("moving", false);
+            }
             change = Vector3.zero;
             return;
         }
@@ -163,6 +183,7 @@ public class PlayerMovement : MonoBehaviour
         currentAttack = 1;
         animator.SetTrigger("attack1");
         StartCoroutine(DashForward());
+        yield return null; // Chờ animator chuyển sang state attack1 (1 frame), tránh đọc sai độ dài animation
         yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length - 0.1f);
 
         if (queuedAttack)
@@ -210,13 +231,20 @@ public class PlayerMovement : MonoBehaviour
     private IEnumerator DashCo()
     {
         currentState = PlayerState.dash;
+        isDashing = true;
         dashCooldownTimer = dashCooldown;
-        Vector2 dashDirection = change.normalized;
+
+        // Nếu đứng im, lướt theo hướng mặt cuối cùng
+        Vector2 dashDirection = change.magnitude > 0.01f ? change.normalized : lastMoveDirection;
+
+        // Tính vận tốc từ khoảng cách và thời gian để đảm bảo lướt đúng khoảng cách dashDistance
+        float dashSpeed = dashDistance / dashDuration;
         myRigidbody.linearVelocity = dashDirection * dashSpeed;
         InvokeRepeating("DashEffect", 0f, 0.05f);
         yield return new WaitForSeconds(dashDuration);
         CancelInvoke("DashEffect");
-        currentState = PlayerState.idle;
+        isDashing = false;
+        currentState = PlayerState.walk;
         myRigidbody.linearVelocity = Vector2.zero;
     }
 
@@ -265,6 +293,9 @@ public class PlayerMovement : MonoBehaviour
 
     public void Knock(float knockTime, float damage, Vector2 direction)
     {
+        // Miễn dame và knockback khi đang lướt (I-Frame)
+        if (currentState == PlayerState.dash) return;
+
         currentHealth.RuntimeValue -= damage;
         playerHealthSignal.Raise();
 

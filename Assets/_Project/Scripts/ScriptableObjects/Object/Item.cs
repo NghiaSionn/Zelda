@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
@@ -24,6 +24,7 @@ public class Item : ScriptableObject
     public bool usable;
     public bool unique;
     public bool isKey;
+    public bool hideFromInventory;  // Ẩn khỏi inventory UI (vd: Coin đã có UI riêng)
 
     public UnityEvent thisEvent;
 

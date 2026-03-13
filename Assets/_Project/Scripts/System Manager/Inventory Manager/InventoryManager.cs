@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -147,8 +147,8 @@ public class InventoryManager : MonoBehaviour
 
             for (int i = 0; i < maxSize; i++)
             {
-                GameObject temp = Instantiate(blankInventorySlot, inventoryPanel.transform.position, Quaternion.identity);
-                temp.transform.SetParent(inventoryPanel.transform);
+                // Instantiate trực tiếp vào parent với localSpace=false để Canvas Scaler không làm sai kích thước
+                GameObject temp = Instantiate(blankInventorySlot, inventoryPanel.transform, false);
                 temp.GetComponent<RectTransform>().localScale = Vector3.one;
                 InventorySlot newSlot = temp.GetComponent<InventorySlot>();
                 newSlot.index = i;
@@ -162,6 +162,13 @@ public class InventoryManager : MonoBehaviour
             foreach (Item item in playerInventory.items)
             {
                 if (index >= maxSize) break;
+
+                // Bỏ qua item được đánh dấu ẩn khỏi inventory (vd: Coin đã có UI riêng)
+                // KHÔNG tăng index để slot đó được item tiếp theo điền vào
+                if (item.hideFromInventory)
+                {
+                    continue;
+                }
 
                 InventorySlot newSlot = slots[index];
                 if (newSlot)
@@ -187,7 +194,13 @@ public class InventoryManager : MonoBehaviour
         {
             descriptionPanel.SetActive(false);
         }
-        
+
+        // Reset runtime values và đọc quantity khởi đầu từ Coin item trong Inspector
+        if (playerInventory != null)
+        {
+            playerInventory.Initialize();
+        }
+
         MakeInventorySlots();
         SetTextAndButton("", "", false, 0);
         

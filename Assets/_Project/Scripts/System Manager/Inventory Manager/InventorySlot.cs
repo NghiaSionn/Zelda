@@ -1,4 +1,4 @@
-﻿using TMPro;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -38,6 +38,11 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         {
             itemImage.enabled = true;
             itemImage.sprite = thisItem.itemSprite;
+            itemImage.preserveAspect = true;
+
+            // Ép kích thước icon về giá trị cố định để vừa trong ô slot
+            // (Không đụng anchor để tránh phá layout của selectedPanel / itemNumberText)
+            RectTransform imgRect = itemImage.GetComponent<RectTransform>();
 
             itemNumberText.enabled = true;
             itemNumberText.text = thisItem.quantity.ToString();

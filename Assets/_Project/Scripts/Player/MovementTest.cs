@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class MovementTest : MonoBehaviour
@@ -85,6 +85,7 @@ public class MovementTest : MonoBehaviour
 
         // Đòn 1
         animator.SetTrigger("attack1");
+        AudioManager.PlaySound("SWORD_SWING", transform.position);
         StartCoroutine(DashForward()); // Lướt nhẹ về phía trước
         yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length - 0.1f);
 
@@ -94,6 +95,7 @@ public class MovementTest : MonoBehaviour
             queuedAttack = false;
             currentAttack = 2;
             animator.SetTrigger("attack2");
+            AudioManager.PlaySound("SWORD_SWING", transform.position);
             StartCoroutine(DashForward());
             yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length - 0.1f);
         }
@@ -103,6 +105,7 @@ public class MovementTest : MonoBehaviour
             queuedAttack = false;
             currentAttack = 3;
             animator.SetTrigger("attack3");
+            AudioManager.PlaySound("SWORD_SWING", transform.position);
             StartCoroutine(DashForward());
             yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length - 0.1f);
         }

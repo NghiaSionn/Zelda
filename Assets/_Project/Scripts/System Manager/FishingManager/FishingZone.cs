@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,7 +18,6 @@ public class FishingZone : Interactable
     public PlayerMovement playerMovement;
     public FishingLineController fishingLineController;
 
-    public AudioSource fishingAudioSource;
     public bool isFishing;
     private bool canFish = false;
 
@@ -64,11 +63,11 @@ public class FishingZone : Interactable
 
         fishingMiniGame.SetActive(true);
         fishMinigame.ResetGame();
-        fishingAudioSource.Play();
+        AudioManager.PlaySound("STARTFISH");
 
         yield return new WaitUntil(() => fishMinigame.IsComplete);
 
-        fishingAudioSource.Stop();
+        AudioManager.PlaySound("ENDFISH");
         fishingMiniGame.SetActive(false);
 
         if (fishMinigame.IsWin)

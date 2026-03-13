@@ -125,6 +125,7 @@ public class UIManager : MonoBehaviour
 
         bookObject.SetActive(true);
         if (bookAnimator != null) bookAnimator.Play("open_book", -1, 0f);
+        AudioManager.PlaySound("BOOK_OPEN", transform.position);
 
         yield return new WaitForSeconds(openCloseDuration);
 
@@ -139,6 +140,7 @@ public class UIManager : MonoBehaviour
         HideAllPanelContent();
 
         if (bookAnimator != null) bookAnimator.Play("close_book", -1, 0f);
+        AudioManager.PlaySound("BOOK_CLOSE", transform.position);
 
         yield return new WaitForSeconds(openCloseDuration);
 
@@ -155,6 +157,7 @@ public class UIManager : MonoBehaviour
 
         // Phát animation lật trang trực tiếp bằng Play (không cần nối transition)
         if (bookAnimator != null) bookAnimator.Play("book_flip1", -1, 0f);
+        AudioManager.PlaySound("BOOK_FLIP", transform.position);
 
         yield return new WaitForSeconds(flipDuration);
 

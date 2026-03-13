@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fb713839316f2c47afefcb7489270f7, type: 3}
+  m_Name: BOOK_FLIP
+  m_EditorClassIdentifier: Assembly-CSharp::SoundConfigSO
+  key: 
+  clips: []
+  volume: 1
+  pitchRange: {x: 0.9, y: 1.1}
+  spatialBlend: 1
+  mixerGroup: {fileID: 5888215213987483175, guid: 0efba93f5dc5a774abc4a24bc22e738b, type: 2}
+  maxInstances: 5
+  cooldownTime: 0.05

@@ -182,6 +182,7 @@ public class PlayerMovement : MonoBehaviour
         queuedAttack = false;
         currentAttack = 1;
         animator.SetTrigger("attack1");
+        AudioManager.PlaySound("SWORD_SWING", transform.position);
         StartCoroutine(DashForward());
         yield return null; // Chờ animator chuyển sang state attack1 (1 frame), tránh đọc sai độ dài animation
         yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length - 0.1f);
@@ -191,6 +192,7 @@ public class PlayerMovement : MonoBehaviour
             queuedAttack = false;
             currentAttack = 2;
             animator.SetTrigger("attack2");
+            AudioManager.PlaySound("SWORD_SWING", transform.position);
             StartCoroutine(DashForward());
             yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length - 0.1f);
         }
@@ -200,6 +202,7 @@ public class PlayerMovement : MonoBehaviour
             queuedAttack = false;
             currentAttack = 3;
             animator.SetTrigger("attack3");
+            AudioManager.PlaySound("SWORD_SWING", transform.position);
             StartCoroutine(DashForward());
             yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length - 0.1f);
         }
@@ -319,9 +322,9 @@ public class PlayerMovement : MonoBehaviour
         currentState = PlayerState.stagger;
 
         Color originalColor = GetComponent<SpriteRenderer>().color;
-        animator.enabled = false;
         GetComponent<SpriteRenderer>().color = Color.red;
         animator.SetTrigger("hurt");
+        AudioManager.PlaySound("PLAYER_HURT", transform.position);
 
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         rb.AddForce(direction.normalized * 5f, ForceMode2D.Impulse);
@@ -341,6 +344,7 @@ public class PlayerMovement : MonoBehaviour
     private IEnumerator Hurt()
     {
         animator.SetBool("hurt", true);
+        AudioManager.PlaySound("PLAYER_HURT", transform.position);
         yield return new WaitForSeconds(0.5f);
         animator.SetBool("hurt", false);
         yield return null;

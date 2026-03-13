@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,7 +13,6 @@ public class CombatManager : MonoBehaviour
     [Header("Vị trí Spawn hiệu ứng vận chiêu")]
     public Transform skillEffectPoint;
 
-    private AudioSource chargingAudioSource;
     private Animator animator;
     private GameObject currentChargingEffect;
     private Skill currentSkill;
@@ -24,7 +23,6 @@ public class CombatManager : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
-        chargingAudioSource = GetComponentInChildren<AudioSource>();
         playerMovement = GetComponent<PlayerMovement>();
     }
 
@@ -99,8 +97,7 @@ public class CombatManager : MonoBehaviour
 
         if (currentSkill.soundEffect != null)
         {
-            chargingAudioSource.clip = currentSkill.soundEffect;
-            chargingAudioSource.Play();
+            AudioManager.PlaySound("FIREBALL", transform.position);
         }
 
         float manaCost = skill.manaCost;
@@ -157,7 +154,6 @@ public class CombatManager : MonoBehaviour
         }
 
         animator.Play("End_Spell");
-        chargingAudioSource.Stop();
         StopChargingEffect();
         yield return new WaitForSeconds(0.5f);
         animator.Play("Idle");

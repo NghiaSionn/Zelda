@@ -13,10 +13,7 @@ public class Projectile : MonoBehaviour
     private Animator animator;
     private bool shouldMove = true; // Kiểm tra xem projectile có cần di chuyển không
     private GameObject impactEffectPrefab; 
-    private float duration; 
-
-    public AudioClip explode;
-    private AudioSource audioSource;
+    private float duration;     public AudioClip explode;
 
     private CinemachineImpulseSource impulseSource;
 
@@ -49,7 +46,6 @@ public class Projectile : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         impulseSource = GetComponent<CinemachineImpulseSource>();
-        audioSource = GetComponentInChildren<AudioSource>();
     }
 
     void Start()
@@ -143,10 +139,6 @@ public class Projectile : MonoBehaviour
 
     public void SFX()
     {
-        if (audioSource != null && explode != null)
-        {
-            audioSource.clip = explode;
-            audioSource.Play();
-        }
+        AudioManager.PlaySound("EXPLOSION", transform.position);
     }
 }

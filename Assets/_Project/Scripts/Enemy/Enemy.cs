@@ -22,7 +22,6 @@ public enum EnemyType
     none
 }
 
-[RequireComponent(typeof(AudioSource))]
 public class Enemy : MonoBehaviour
 {
     [Header("Enemy")]
@@ -43,17 +42,6 @@ public class Enemy : MonoBehaviour
     public GameObject enemyPrefab; 
     public SpawnArea spawnArea;
 
-    [Header("Audio Settings")]
-    public AudioClip[] idleSounds;       
-    public AudioClip[] walkSounds;       
-    public AudioClip[] attackSounds;     
-    public AudioClip[] hurtSounds;       
-    public AudioClip[] deathSounds;         
-    public float idleSoundInterval = 5f; 
-    public float walkSoundInterval = 0.4f; 
-    public float maxHearingDistance = 10f; 
-
-    protected AudioSource audioSource;
     protected bool isMoving = false;
     private Transform playerTransform;
 
@@ -65,59 +53,18 @@ public class Enemy : MonoBehaviour
         if (spawnArea == null)
             spawnArea = GetComponentInParent<SpawnArea>();
 
-        audioSource = GetComponent<AudioSource>();
-        if (audioSource != null)
-        {
-            audioSource.spatialBlend = 1f; 
-            audioSource.playOnAwake = false;
-        }
-
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
         if (playerObj != null)
             playerTransform = playerObj.transform;
-
-        StartCoroutine(PlayIdleSoundsRoutine());
-        StartCoroutine(PlayWalkSoundsRoutine());
     }
 
     protected virtual void Update()
     {
-        AdjustVolumeByDistance();
+        // 3D Audio falloff is handled automatically by AudioManager SpatialBlend
     }
 
-    private void AdjustVolumeByDistance()
-    {
-        if (playerTransform == null || audioSource == null) return;
-
-        float distance = Vector3.Distance(transform.position, playerTransform.position);
-        float volume = Mathf.Clamp01(1 - (distance / maxHearingDistance));
-        audioSource.volume = volume;
-    }
-
-    private IEnumerator PlayIdleSoundsRoutine()
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(idleSoundInterval);
-            PlayRandomSound(idleSounds);
-        }
-    }
-
-    private IEnumerator PlayWalkSoundsRoutine()
-    {
-        while (true)
-        {
-            if (isMoving && walkSounds != null && walkSounds.Length > 0)
-            {
-                PlayRandomSound(walkSounds);
-                yield return new WaitForSeconds(walkSoundInterval);
-            }
-            else
-            {
-                yield return new WaitForSeconds(0.1f);
-            }
-        }
-    }
+    // Đã loại bỏ các vòng lặp âm thanh đi bộ và đứng yên mặc định ở đây.
+    // Nếu cần, có thể gọi AudioManager.PlaySound("ENEMY_WALK/IDLE") qua Animation Event.
 
     public virtual void SetMoving(bool moving)
     {
@@ -130,21 +77,12 @@ public class Enemy : MonoBehaviour
 
     public void PlayAttackSound()
     {
-        PlayRandomSound(attackSounds);
+        AudioManager.PlaySound("ENEMY_ATTACK", transform.position);
     }
 
     public void PlayHurtSound()
     {
-        PlayRandomSound(hurtSounds);
-    }
-
-    private void PlayRandomSound(AudioClip[] clips)
-    {
-        // Bỏ điều kiện audioSource.isPlaying để tiếng rên rỉ (Hurt/Death) có thể đè đúp lên tiếng bước chân (Walk)
-        if (clips == null || clips.Length == 0 || audioSource == null) return;
-
-        int index = Random.Range(0, clips.Length);
-        audioSource.PlayOneShot(clips[index]);
+        AudioManager.PlaySound("ENEMY_HURT", transform.position);
     }
 
     public void Knock(Rigidbody2D myRigibody, float knockTime, float damage)
@@ -188,18 +126,8 @@ public class Enemy : MonoBehaviour
     {
         anim.SetBool("dead", true);
 
-        // Phát ngẫu nhiên 1 âm thanh chết nếu có
+        AudioManager.PlaySound("ENEMY_DEATH", transform.position);
         float waitTime = 0.5f; 
-        if (deathSounds != null && deathSounds.Length > 0 && audioSource != null)
-        {
-            int index = Random.Range(0, deathSounds.Length);
-            AudioClip clip = deathSounds[index];
-            if (clip != null)
-            {
-                audioSource.PlayOneShot(clip);
-                waitTime = Mathf.Max(waitTime, clip.length); // Đợi tối thiểu 0.5s hoặc bằng độ dài âm thanh
-            }
-        }
 
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         if (rb != null)

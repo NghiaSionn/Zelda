@@ -12,11 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fb713839316f2c47afefcb7489270f7, type: 3}
   m_Name: BOOK_FLIP
   m_EditorClassIdentifier: Assembly-CSharp::SoundConfigSO
-  key: 
-  clips: []
+  key: BOOK_FLIP
+  clips:
+  - {fileID: 8300000, guid: a058c31ed9aa29043b662345011edbb1, type: 3}
+  - {fileID: 8300000, guid: c79b8f2836f6229418fd2b68b0eb4cc2, type: 3}
+  - {fileID: 8300000, guid: 649c0c11140a7f840b2ccc81b1075541, type: 3}
+  - {fileID: 8300000, guid: 9c92d0d39487863478e1a18424618b37, type: 3}
+  - {fileID: 8300000, guid: f41f98729a131d944828cd28355e9cc6, type: 3}
+  - {fileID: 8300000, guid: 1de07473b6fbfc240a699d2796641592, type: 3}
   volume: 1
-  pitchRange: {x: 0.9, y: 1.1}
-  spatialBlend: 1
+  pitchRange: {x: 0.95, y: 1.05}
+  spatialBlend: 0
   mixerGroup: {fileID: 5888215213987483175, guid: 0efba93f5dc5a774abc4a24bc22e738b, type: 2}
   maxInstances: 5
   cooldownTime: 0.05

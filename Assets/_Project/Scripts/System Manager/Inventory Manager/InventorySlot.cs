@@ -13,11 +13,7 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     public Item thisItem;
     public InventoryManager thisManager;
 
-    public GameObject descriptionPanel;
     public GameObject selectedPanel;
-
-    private RectTransform descriptionPanelRect;
-    private RectTransform selectedPanelRect;
 
     public bool isPointerInside = false;
     private Transform parentAfterDrag;
@@ -56,26 +52,25 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (thisItem && descriptionPanel && !isPointerInside)
+        isPointerInside = true;
+        // Cập nhật panel mô tả bên phải khi trỏ chuột vào slot
+        if (thisItem != null && thisManager != null)
         {
-            isPointerInside = true;
-            descriptionPanel.SetActive(true);
             thisManager.SetUpDescriptionAndButton2(thisItem.itemDescription, thisItem.itemName, thisItem);
-
-            Vector3 mousePosition = Input.mousePosition;
-            descriptionPanelRect = descriptionPanel.GetComponent<RectTransform>();
-            descriptionPanelRect.position = mousePosition + new Vector3(400f, 0f, 0f);
         }
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        if (descriptionPanel && isPointerInside)
+        isPointerInside = false;
+        // Ẩn panel mô tả khi chuột rời khỏi slot
+        if (thisManager != null)
         {
-            isPointerInside = false;
-            descriptionPanel.SetActive(false);
+            thisManager.HideDescription();
         }
     }
+
+
 
     public void OnPointerClick(PointerEventData eventData)
     {

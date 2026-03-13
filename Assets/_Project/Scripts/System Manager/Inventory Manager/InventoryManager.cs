@@ -8,10 +8,11 @@ public class InventoryManager : MonoBehaviour
     public Inventory playerInventory;
     [SerializeField] private GameObject blankInventorySlot;
     [SerializeField] private GameObject inventoryPanel;
-    [SerializeField] private GameObject descriptionPanel;
     [SerializeField] private TextMeshProUGUI descriptionText;
     [SerializeField] private TextMeshProUGUI nameText;
     [SerializeField] private GameObject useButton;
+    [SerializeField] private UnityEngine.UI.Image itemDetailImage; // Hiển thị ảnh item trong panel mô tả
+    [SerializeField] private UnityEngine.UI.Scrollbar inventoryScrollbar; // Khóa size scrollbar = 0.2f
 
     private InventorySlot selectedSlot;
     public Item currentItem;
@@ -23,6 +24,9 @@ public class InventoryManager : MonoBehaviour
         {
             UpdateCoinUI();
         }
+
+        // Ẩn panel mô tả mặc định khi chưa hover
+        HideDescription();
     }
     private void OnEnable()
     {
@@ -174,7 +178,6 @@ public class InventoryManager : MonoBehaviour
                 if (newSlot)
                 {
                     newSlot.Setup(item, this);
-                    newSlot.descriptionPanel = descriptionPanel;
 
                     if (item.itemType == Item.ItemType.Coin)
                     {
@@ -184,16 +187,18 @@ public class InventoryManager : MonoBehaviour
                 index++;
             }
         }
+
+        // Khoá size scrollbar cố định = 0.2f sau khi build xong
+        if (inventoryScrollbar != null)
+        {
+            inventoryScrollbar.size = 0.2f;
+        }
     }
 
 
 
     void Awake()
     {
-        if (descriptionPanel != null)
-        {
-            descriptionPanel.SetActive(false);
-        }
 
         // Reset runtime values và đọc quantity khởi đầu từ Coin item trong Inspector
         if (playerInventory != null)
@@ -256,16 +261,25 @@ public class InventoryManager : MonoBehaviour
     public void SetUpDescriptionAndButton2(string newDescriptionString, string newNameTextString, Item newItem)
     {
         currentItem = newItem;
-        
-        if (descriptionText != null)
+
+        // Hiện các phần tử mô tả khi hover vào slot
+        if (descriptionText != null) { descriptionText.gameObject.SetActive(true); descriptionText.text = newDescriptionString; }
+        if (nameText != null)        { nameText.gameObject.SetActive(true);        nameText.text = newNameTextString; }
+        if (itemDetailImage != null && newItem != null)
         {
-            descriptionText.text = newDescriptionString;
+            itemDetailImage.gameObject.SetActive(true);
+            itemDetailImage.sprite = newItem.itemSprite;
+            itemDetailImage.preserveAspect = true;
+            itemDetailImage.enabled = true;
         }
-        
-        if (nameText != null)
-        {
-            nameText.text = newNameTextString;
-        }
+    }
+
+    /// <summary>Tắt đi các phần tử mô tả khi không còn hover vào slot nào.</summary>
+    public void HideDescription()
+    {
+        if (descriptionText != null)  descriptionText.gameObject.SetActive(false);
+        if (nameText != null)         nameText.gameObject.SetActive(false);
+        if (itemDetailImage != null)  itemDetailImage.gameObject.SetActive(false);
     }
 
     public void UseButtonPressed()

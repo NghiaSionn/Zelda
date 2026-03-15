@@ -37,7 +37,7 @@ public class RainManager : MonoBehaviour
 
                 if (isRaining)
                 {
-                    AudioManager.PlayRainSound(0.5f);
+                    AudioManager.PlayRainSound();
                 }
                 else
                 {

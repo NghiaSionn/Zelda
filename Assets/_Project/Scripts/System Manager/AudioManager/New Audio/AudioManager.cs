@@ -212,8 +212,8 @@ public class AudioManager : MonoBehaviour
         if (Instance == null || Instance.rainAudioSource == null) return;
         if (Instance.rainAudioSource.isPlaying) return;
 
-        // Tuỳ biến Mưa có thể hard-code nốt cho tiện, hoặc gộp vô SoundConfigSO tên "RAIN"
-        if (Instance.soundDictionary.TryGetValue("RAIN", out SoundConfigSO config))
+        // Tuỳ biến Mưa có thể hard-code nốt cho tiện, hoặc gộp vô SoundConfigSO tên "WEATHER_RAIN"
+        if (Instance.soundDictionary.TryGetValue("WEATHER_RAIN", out SoundConfigSO config))
         {
             if (config.clips != null && config.clips.Length > 0)
             {

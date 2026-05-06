@@ -25,6 +25,8 @@
 
 # Visual Studio cache directory
 .vs/
+.idea/
+.vscode/
 
 # Gradle cache directory
 .gradle/
@@ -70,8 +72,15 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
-.vscode/extensions.json
-.vscode/launch.json
-.vscode/settings.json
-Assets/Animations/Enemy/Slime/Green/Death_Down.anim
-Assets/Editor Default Resources/Dialogue System/DialogueManager/
+
+# OS generated
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Agent Data
+/.agent/

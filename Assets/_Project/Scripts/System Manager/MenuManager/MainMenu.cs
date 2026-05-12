@@ -24,7 +24,7 @@ public class MainMenu : MonoBehaviour
     void Start()
     {
         LoadVolume();
-        MusicManager.Instance.PlayMusicGroup("MainMenu");
+        AudioManager.PlaySound("MainMenu");
 
         // Thêm các listener để lưu giá trị khi slider thay đổi
         masterSlider.onValueChanged.AddListener(delegate { UpdateMasterVolume(masterSlider.value); });
@@ -62,7 +62,7 @@ public class MainMenu : MonoBehaviour
 
         // Tải Scene bắt đầu
         LevelManager.Instance.LoadScene("BeginCutScene", "CrossFade");
-        MusicManager.Instance.PlayMusicGroup("Game");
+        AudioManager.PlaySound("Game");
     }
 
     public void LoadGame()

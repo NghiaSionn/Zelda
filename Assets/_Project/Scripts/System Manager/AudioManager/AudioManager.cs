@@ -18,6 +18,7 @@ public class AudioManager : MonoBehaviour
 
     [Header("Audio Sources Mặc Định")]
     public AudioSource rainAudioSource;     // Xử lý mưa liên tục
+    public AudioSource windAudioSource;     // Xử lý gió liên tục
     private AudioSource audioSource2D;      // Xử lý âm thanh UI, hệ thống
 
     [Header("Object Pooling 3D")]
@@ -203,7 +204,7 @@ public class AudioManager : MonoBehaviour
     
     public enum SoundType 
     {
-        SWORD, FIREBALL, HURT, ITEMPICKUP, BREAK, OPEN, CLOSE, EXPLOSION, RAIN, NIGHT, BUTTON, SELECTED, BUY, STARTFISH, ENDFISH, ENEMY_HURT, ENEMY_DEATH, ENEMY_ATTACK, BOSS_SPAWN
+        SWORD, FIREBALL, HURT, ITEMPICKUP, BREAK, OPEN, CLOSE, EXPLOSION, RAIN, WIND, NIGHT, BUTTON, SELECTED, BUY, STARTFISH, ENDFISH, ENEMY_HURT, ENEMY_DEATH, ENEMY_ATTACK, BOSS_SPAWN
     }
 
     // ─── Khối lệnh thời tiết (Mưa) ──────────────────────────────────────────────
@@ -231,6 +232,38 @@ public class AudioManager : MonoBehaviour
         if (Instance != null && Instance.rainAudioSource != null && Instance.rainAudioSource.isPlaying)
         {
             Instance.rainAudioSource.Stop();
+        }
+    }
+
+    // ─── Khối lệnh thời tiết (Gió) ──────────────────────────────────────────────
+    public static void PlayWindSound(float volume = -1f)
+    {
+        if (Instance == null || Instance.windAudioSource == null) return;
+        if (Instance.windAudioSource.isPlaying) return;
+
+        // Tìm trong Dictionary config mang tên "WEATHER_WIND"
+        if (Instance.soundDictionary.TryGetValue("WEATHER_WIND", out SoundConfigSO config))
+        {
+            if (config.clips != null && config.clips.Length > 0)
+            {
+                Instance.windAudioSource.clip = config.clips[UnityEngine.Random.Range(0, config.clips.Length)];
+                Instance.windAudioSource.volume = volume >= 0 ? volume : config.volume;
+                Instance.windAudioSource.outputAudioMixerGroup = config.mixerGroup;
+                Instance.windAudioSource.loop = true;
+                Instance.windAudioSource.Play();
+            }
+        }
+        else
+        {
+            Debug.LogWarning("[AudioManager] Không tìm thấy SoundConfigSO với Key 'WEATHER_WIND' để phát tiếng gió.");
+        }
+    }
+
+    public static void StopWindSound()
+    {
+        if (Instance != null && Instance.windAudioSource != null && Instance.windAudioSource.isPlaying)
+        {
+            Instance.windAudioSource.Stop();
         }
     }
 }

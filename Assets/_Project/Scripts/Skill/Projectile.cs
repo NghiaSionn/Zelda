@@ -13,7 +13,8 @@ public class Projectile : MonoBehaviour
     private Animator animator;
     private bool shouldMove = true; // Kiểm tra xem projectile có cần di chuyển không
     private GameObject impactEffectPrefab; 
-    private float duration;     public AudioClip explode;
+    private float duration;
+    private string impactSoundKey;
 
     private CinemachineImpulseSource impulseSource;
 
@@ -39,6 +40,11 @@ public class Projectile : MonoBehaviour
     public void SetDuration(float dur)
     {
         duration = dur;
+    }
+
+    public void SetImpactSoundKey(string key)
+    {
+        impactSoundKey = key;
     }
 
     void Awake()
@@ -87,20 +93,23 @@ public class Projectile : MonoBehaviour
     {
         animator.Play("Target");
 
-        
+        // Phát âm thanh va chạm 3D tại vị trí hiện tại
+        if (!string.IsNullOrEmpty(impactSoundKey))
+        {
+            AudioManager.PlaySound(impactSoundKey, transform.position);
+        }
+
         if (impactEffectPrefab != null)
         {
             GameObject effect = EffectPool.Instance.GetEffect(impactEffectPrefab, null);
             effect.transform.position = transform.position;
 
-            
             Animator effectAnim = effect.GetComponent<Animator>();
             if (effectAnim != null)
             {
                 effectAnim.Play("idle"); 
             }
 
-            
             StartCoroutine(ReturnEffectAfterDelay(effect, impactEffectPrefab, effectAnim));
         }
 
@@ -139,6 +148,13 @@ public class Projectile : MonoBehaviour
 
     public void SFX()
     {
-        AudioManager.PlaySound("EXPLOSION", transform.position);
+        if (!string.IsNullOrEmpty(impactSoundKey))
+        {
+            AudioManager.PlaySound(impactSoundKey, transform.position);
+        }
+        else
+        {
+            AudioManager.PlaySound("EXPLOSION", transform.position);
+        }
     }
 }

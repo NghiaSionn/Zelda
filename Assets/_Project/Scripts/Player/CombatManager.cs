@@ -95,9 +95,9 @@ public class CombatManager : MonoBehaviour
         currentSkill = skill;
         StartChargingEffect(skill);
 
-        if (currentSkill.soundEffect != null)
+        if (!string.IsNullOrEmpty(currentSkill.castSoundKey))
         {
-            AudioManager.PlaySound("FIREBALL", transform.position);
+            AudioManager.PlaySound(currentSkill.castSoundKey, transform.position);
         }
 
         float manaCost = skill.manaCost;

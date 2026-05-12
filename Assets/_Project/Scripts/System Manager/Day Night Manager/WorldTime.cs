@@ -16,6 +16,8 @@ public class WorldTime : MonoBehaviour
     private float _minuteLength => _dayLength / WorldTimeConstants.minuteInDays;
 
     private bool isRaining;
+    private bool rainScheduled;
+    private TimeSpan rainStartTime;
     private TimeSpan rainEndTime;
 
     public int CurrentGameHour => _currentTime.Hours;
@@ -26,20 +28,58 @@ public class WorldTime : MonoBehaviour
         dayCount = gameTimeData.dayCount;
         _currentTime = TimeSpan.ParseExact(gameTimeData.currentTimeString, "hh\\:mm", null);
         isRaining = gameTimeData.isRaining;
+        rainScheduled = gameTimeData.rainScheduled;
         rainEndTime = TimeSpan.ParseExact(gameTimeData.rainEndTimeString, "hh\\:mm", null);
+        rainStartTime = TimeSpan.ParseExact(gameTimeData.rainStartTimeString, "hh\\:mm", null);
 
-        // Khôi phục trạng thái mưa nếu cần
-        if (isRaining && _currentTime >= rainEndTime)
+        // LUÔN tắt mưa trước khi xử lý logic → đảm bảo rain effects OFF khi khởi động
+        WeatherChange?.Invoke(this, false);
+        Debug.Log("[Weather] Khởi tạo: tắt tất cả hiệu ứng mưa mặc định.");
+
+        // Khôi phục trạng thái mưa nếu đang mưa
+        if (isRaining)
         {
-            isRaining = false;
-            WeatherChange?.Invoke(this, false);
+            if (_currentTime >= rainEndTime)
+            {
+                // Mưa đã hết → giữ tắt
+                isRaining = false;
+                rainScheduled = false;
+                Debug.Log("[Weather] Mưa đã kết thúc từ phiên trước.");
+                SaveWeatherState();
+            }
+            else
+            {
+                // Vẫn đang mưa → bật lại
+                WeatherChange?.Invoke(this, true);
+                Debug.Log($"[Weather] Tiếp tục mưa đến {rainEndTime:hh\\:mm}");
+            }
         }
-        else if (isRaining)
+        else if (rainScheduled)
         {
-            WeatherChange?.Invoke(this, true);
+            // Có lịch mưa nhưng chưa bắt đầu → kiểm tra đã đến giờ chưa
+            if (_currentTime >= rainStartTime && _currentTime < rainEndTime)
+            {
+                isRaining = true;
+                rainScheduled = false;
+                WeatherChange?.Invoke(this, true);
+                Debug.Log($"[Weather] Bắt đầu mưa (đã đến giờ lịch) đến {rainEndTime:hh\\:mm}");
+                SaveWeatherState();
+            }
+            else if (_currentTime >= rainEndTime)
+            {
+                // Lịch mưa đã quá hạn → hủy
+                rainScheduled = false;
+                Debug.Log("[Weather] Lịch mưa đã quá hạn, hủy.");
+                SaveWeatherState();
+            }
+            else
+            {
+                Debug.Log($"[Weather] Đã lên lịch mưa: {rainStartTime:hh\\:mm} → {rainEndTime:hh\\:mm}, chờ...");
+            }
         }
         else
         {
+            // Không có mưa và không có lịch → schedule mưa cho hôm nay
             DecideRain();
         }
 
@@ -48,36 +88,43 @@ public class WorldTime : MonoBehaviour
 
     private void DecideRain()
     {
-        // Chỉ random mưa nếu mưa đã kết thúc
-        if (isRaining) return;
+        // Không schedule nếu đang mưa hoặc đã có lịch
+        if (isRaining || rainScheduled) return;
 
         // 20% cơ hội mưa
-        bool willRainToday = UnityEngine.Random.value > 0.2f;
-
-        //bool willRainToday = true;
+        bool willRainToday = UnityEngine.Random.value < 0.2f;
 
         if (!willRainToday)
         {
-            isRaining = false;
-            WeatherChange?.Invoke(this, false);
+            Debug.Log("[Weather] Hôm nay trời không mưa.");
             return;
         }
 
-        // Mưa từ 6 giờ sáng đến 8 giờ tối
+        // Mưa bắt đầu từ 6h sáng đến 20h tối
         int rainStartHour = UnityEngine.Random.Range(6, 20);
+
+        // Nếu giờ hiện tại đã qua giờ bắt đầu mưa → không schedule
+        if (_currentTime.Hours >= rainStartHour)
+        {
+            Debug.Log($"[Weather] Đã quá giờ bắt đầu mưa ({rainStartHour}h), bỏ qua.");
+            return;
+        }
 
         // Mưa kéo dài 10-120 phút
         int rainDurationMinutes = UnityEngine.Random.Range(10, 120);
-        TimeSpan rainStartTime = new TimeSpan(rainStartHour, 0, 0);
-
-        // Đặt thời gian mưa và phát sự kiện
-        isRaining = true;
+        rainStartTime = new TimeSpan(rainStartHour, 0, 0);
         rainEndTime = rainStartTime.Add(TimeSpan.FromMinutes(rainDurationMinutes));
-        WeatherChange?.Invoke(this, true);
 
-        // Lưu trạng thái vào GameTimeData
-        gameTimeData.isRaining = isRaining;
-        gameTimeData.rainEndTimeString = rainEndTime.ToString(@"hh\:mm");
+        // Đảm bảo rainEndTime không vượt qua 24h
+        if (rainEndTime.TotalHours >= 24)
+        {
+            rainEndTime = new TimeSpan(23, 59, 0);
+        }
+
+        rainScheduled = true;
+        Debug.Log($"[Weather] Đã lên lịch mưa: {rainStartTime:hh\\:mm} → {rainEndTime:hh\\:mm}");
+
+        SaveWeatherState();
     }
 
     private IEnumerator AddMinute()
@@ -92,7 +139,27 @@ public class WorldTime : MonoBehaviour
                 _currentTime = TimeSpan.Zero;
                 dayCount++;
                 WorldDayChange?.Invoke(this, dayCount);
+
+                // Reset trạng thái mưa khi sang ngày mới
+                if (isRaining)
+                {
+                    isRaining = false;
+                    WeatherChange?.Invoke(this, false);
+                }
+                rainScheduled = false;
+
+                // Quyết định thời tiết cho ngày mới
                 DecideRain();
+            }
+
+            // Kiểm tra nếu đến giờ bắt đầu mưa
+            if (rainScheduled && !isRaining && _currentTime >= rainStartTime)
+            {
+                isRaining = true;
+                rainScheduled = false;
+                WeatherChange?.Invoke(this, true);
+                Debug.Log($"[Weather] Mưa bắt đầu lúc {_currentTime:hh\\:mm}");
+                SaveWeatherState();
             }
 
             // Kiểm tra nếu mưa cần tắt
@@ -100,9 +167,8 @@ public class WorldTime : MonoBehaviour
             {
                 isRaining = false;
                 WeatherChange?.Invoke(this, false);
-
-                // Lưu trạng thái vào GameTimeData
-                gameTimeData.isRaining = isRaining;
+                Debug.Log($"[Weather] Mưa kết thúc lúc {_currentTime:hh\\:mm}");
+                SaveWeatherState();
             }
 
             WorldTimeChange?.Invoke(this, _currentTime);
@@ -114,20 +180,38 @@ public class WorldTime : MonoBehaviour
             yield return new WaitForSeconds(_minuteLength);
         }
     }
+
+    private void SaveWeatherState()
+    {
+        gameTimeData.isRaining = isRaining;
+        gameTimeData.rainScheduled = rainScheduled;
+        gameTimeData.rainStartTimeString = rainStartTime.ToString(@"hh\:mm");
+        gameTimeData.rainEndTimeString = rainEndTime.ToString(@"hh\:mm");
+    }
+
     public void SyncWithGameTimeData(GameTimeData data)
     {
         dayCount = data.dayCount;
         _currentTime = TimeSpan.ParseExact(data.currentTimeString, "hh\\:mm", null);
         isRaining = data.isRaining;
+        rainScheduled = data.rainScheduled;
         rainEndTime = TimeSpan.ParseExact(data.rainEndTimeString, "hh\\:mm", null);
+        rainStartTime = TimeSpan.ParseExact(data.rainStartTimeString, "hh\\:mm", null);
 
         if (isRaining && _currentTime >= rainEndTime)
         {
             isRaining = false;
+            rainScheduled = false;
             WeatherChange?.Invoke(this, false);
         }
         else if (isRaining)
         {
+            WeatherChange?.Invoke(this, true);
+        }
+        else if (rainScheduled && _currentTime >= rainStartTime && _currentTime < rainEndTime)
+        {
+            isRaining = true;
+            rainScheduled = false;
             WeatherChange?.Invoke(this, true);
         }
 

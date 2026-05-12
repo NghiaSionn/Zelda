@@ -9,6 +9,12 @@ public class RainManager : MonoBehaviour
 
     private void Awake()
     {
+        // Tắt tất cả rain effects ngay khi khởi tạo (tránh active sẵn trong scene)
+        foreach (var effect in rainEffects)
+        {
+            if (effect != null) effect.SetActive(false);
+        }
+
         if (worldTime != null)
         {
             worldTime.WeatherChange += OnWeatherChange; 
@@ -29,25 +35,27 @@ public class RainManager : MonoBehaviour
 
     private void OnWeatherChange(object sender, bool isRaining)
     {
+        // Bật/tắt tất cả hiệu ứng mưa
         foreach (var effect in rainEffects)
         {
             if (effect != null)
             {
                 effect.SetActive(isRaining);
-
-                if (isRaining)
-                {
-                    AudioManager.PlayRainSound();
-                }
-                else
-                {
-                    AudioManager.StopRainSound(); 
-                }
             }
             else
             {
                 Debug.LogWarning("RainEffect bị null trong RainManager.");
             }
+        }
+
+        // Gọi audio 1 lần duy nhất (ngoài vòng lặp)
+        if (isRaining)
+        {
+            AudioManager.PlayRainSound();
+        }
+        else
+        {
+            AudioManager.StopRainSound();
         }
     }
 }

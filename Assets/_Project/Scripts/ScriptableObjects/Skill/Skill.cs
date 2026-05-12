@@ -48,8 +48,15 @@ public class Skill : ScriptableObject
 
     private Animator skillAnim;
 
-    [Header("Âm Thanh gồng chiêu")]
-    public AudioClip soundEffect;
+    [Header("Âm Thanh kỹ năng (Key từ SoundConfigSO)")]
+    [Tooltip("Key âm thanh khi vận chiêu (casting), ví dụ: FIREBALL_CAST")]
+    public string castSoundKey;
+
+    [Tooltip("Key âm thanh khi tung chiêu (launch), ví dụ: FIREBALL")]
+    public string activateSoundKey;
+
+    [Tooltip("Key âm thanh va chạm (impact), ví dụ: EXPLOSION")]
+    public string impactSoundKey;
 
     [Header("Hiệu ứng vận chiêu - Tùy chỉnh vị trí theo hướng")]
     public Vector2 effectOffsetUp = new Vector2(0f, 1.2f);
@@ -131,7 +138,19 @@ public class Skill : ScriptableObject
             }
             projectileScript.SetDuration(duration);
 
+            // Truyền key âm thanh va chạm cho Projectile
+            if (!string.IsNullOrEmpty(impactSoundKey))
+            {
+                projectileScript.SetImpactSoundKey(impactSoundKey);
+            }
+
             projectile.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
+            // Phát âm thanh 3D tại vị trí spawn khi tung chiêu
+            if (!string.IsNullOrEmpty(activateSoundKey))
+            {
+                AudioManager.PlaySound(activateSoundKey, spawnPosition);
+            }
         }
     }
 
